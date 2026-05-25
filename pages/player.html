@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Mafia — Your Turn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="player-page">
+<div class="noise"></div>
+
+<!-- Header bar -->
+<header class="player-header">
+  <div class="player-header__name">
+    <span class="player-avatar" id="player-avatar">?</span>
+    <span id="player-name-display">—</span>
+  </div>
+  <div class="player-header__right">
+    <span class="phase-badge sm" id="player-phase-badge">LOBBY</span>
+    <span class="alive-badge" id="alive-badge">ALIVE</span>
+  </div>
+</header>
+
+<main class="player-main">
+
+  <!-- LOBBY: waiting screen -->
+  <div class="player-panel" id="panel-waiting">
+    <div class="waiting-animation">
+      <div class="waiting-dot"></div><div class="waiting-dot"></div><div class="waiting-dot"></div>
+    </div>
+    <h2>Waiting for the teacher<br>to start the game…</h2>
+    <p class="waiting-room-info">Room: <strong id="waiting-room-code">—</strong></p>
+    <div class="players-joined" id="players-preview"></div>
+  </div>
+
+  <!-- ROLE REVEAL: card flip -->
+  <div class="player-panel hidden" id="panel-role">
+    <p class="role-reveal-hint">Your secret role has arrived!</p>
+    <div class="role-card" id="role-card">
+      <div class="role-card__inner" id="role-card-inner">
+        <!-- Front (hidden) -->
+        <div class="role-card__front">
+          <div class="role-card__question">?</div>
+          <p>Tap to reveal</p>
+        </div>
+        <!-- Back (role info) -->
+        <div class="role-card__back" id="role-card-back">
+          <div class="role-card__icon" id="role-icon">🔴</div>
+          <div class="role-card__name" id="role-name">Mafia</div>
+          <div class="role-card__mission-label">Your Mission</div>
+          <div class="role-card__mission" id="role-mission">Convince everyone you're innocent.</div>
+          <div class="role-card__vocab-label">Key Vocabulary</div>
+          <div class="role-card__vocab" id="role-vocab">deny · accuse · alibi · suspect</div>
+        </div>
+      </div>
+    </div>
+    <p class="role-secret-warning">🤫 Keep this secret!</p>
+  </div>
+
+  <!-- DAY: discussion + phrase buttons -->
+  <div class="player-panel hidden" id="panel-day">
+    <div class="day-header">
+      <div class="sun-icon">☀️</div>
+      <h2>Day — Discussion Time</h2>
+      <p>Talk in English! Use these phrases to help you:</p>
+    </div>
+
+    <div class="phrase-grid" id="phrase-grid">
+      <!-- Populated by JS based on role -->
+    </div>
+
+    <div class="phrase-custom">
+      <input type="text" id="custom-phrase" placeholder="Type your own sentence…" maxlength="120">
+      <button class="btn btn--sm" id="btn-say">Say it 💬</button>
+    </div>
+
+    <div class="chat-feed" id="chat-feed"></div>
+  </div>
+
+  <!-- VOTE: quiz → vote -->
+  <div class="player-panel hidden" id="panel-vote">
+    <!-- Step 1: Quiz -->
+    <div id="quiz-section">
+      <div class="vote-lock-banner" id="quiz-lock-banner">
+        <span>🔒</span>
+        <p>Answer the quiz to unlock your vote!</p>
+      </div>
+      <div class="quiz-card" id="quiz-card">
+        <h3 class="quiz-question" id="quiz-question-display">Loading quiz…</h3>
+        <div class="quiz-options" id="quiz-options-display"></div>
+        <p class="quiz-feedback" id="quiz-feedback"></p>
+      </div>
+    </div>
+
+    <!-- Step 2: Vote (unlocked after quiz) -->
+    <div id="vote-section" class="hidden">
+      <div class="vote-unlock-banner">✅ Quiz passed! Cast your vote.</div>
+      <h3 class="vote-prompt">Who is the Mafia?</h3>
+      <ul class="vote-list" id="vote-player-list"></ul>
+      <p class="vote-msg" id="vote-msg"></p>
+    </div>
+
+    <!-- Dead players see result only -->
+    <div id="dead-section" class="hidden">
+      <div class="dead-card">
+        <div class="dead-icon">💀</div>
+        <h2>You have been eliminated.</h2>
+        <p>Watch the others vote, but no peeking at your phone!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NIGHT: role-specific action -->
+  <div class="player-panel hidden" id="panel-night">
+    <div class="night-sky">
+      <div class="moon-icon">🌙</div>
+      <h2>Night Phase</h2>
+    </div>
+
+    <!-- Mafia -->
+    <div class="night-action hidden" id="night-mafia">
+      <div class="night-role-label role--mafia">You are Mafia</div>
+      <p>Choose a villager to eliminate tonight.</p>
+      <p class="night-vocab">Use: <em>"I'll target ___ tonight."</em></p>
+      <ul class="night-target-list" id="mafia-target-list"></ul>
+      <p class="night-msg" id="mafia-msg"></p>
+    </div>
+
+    <!-- Doctor -->
+    <div class="night-action hidden" id="night-doctor">
+      <div class="night-role-label role--doctor">You are Doctor</div>
+      <p>Choose someone to protect tonight.</p>
+      <p class="night-vocab">Use: <em>"I'll protect ___ tonight."</em></p>
+      <ul class="night-target-list" id="doctor-target-list"></ul>
+      <p class="night-msg" id="doctor-msg"></p>
+    </div>
+
+    <!-- Police -->
+    <div class="night-action hidden" id="night-police">
+      <div class="night-role-label role--police">You are Police</div>
+      <p>Choose someone to investigate tonight.</p>
+      <p class="night-vocab">Use: <em>"I'll investigate ___ tonight."</em></p>
+      <ul class="night-target-list" id="police-target-list"></ul>
+      <p class="police-result hidden" id="police-result"></p>
+      <p class="night-msg" id="police-msg"></p>
+    </div>
+
+    <!-- Villager -->
+    <div class="night-action hidden" id="night-villager">
+      <div class="night-role-label role--villager">You are a Villager</div>
+      <h3>Close your eyes…</h3>
+      <p>The Mafia, Doctor, and Police are making their moves.</p>
+      <div class="sleep-animation">
+        <span>😴</span><span class="sleep-z">z</span><span class="sleep-z z2">z</span><span class="sleep-z z3">Z</span>
+      </div>
+    </div>
+
+    <!-- Dead at night -->
+    <div class="night-action hidden" id="night-dead">
+      <div class="dead-card">
+        <div class="dead-icon">💀</div>
+        <h2>You are eliminated.</h2>
+        <p>Wait for the next day phase.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULT: game over -->
+  <div class="player-panel hidden" id="panel-result">
+    <div class="result-card" id="result-card">
+      <div class="result-icon" id="result-icon">🏆</div>
+      <h2 class="result-title" id="result-title">Villagers Win!</h2>
+      <p class="result-desc" id="result-desc">The Mafia has been caught.</p>
+      <div class="vocab-recap" id="vocab-recap"></div>
+      <a href="../index.html" class="btn btn--primary">Play Again →</a>
+    </div>
+  </div>
+
+</main>
+
+<script type="module" src="../js/firebase-config.js"></script>
+<script type="module" src="../js/player.js"></script>
+</body>
+</html>

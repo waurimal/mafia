@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Master — English Mafia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="host-page">
+<div class="noise"></div>
+
+<div class="host-wrap">
+
+  <header class="host-header">
+    <div class="host-header__left">
+      <span class="brand-badge sm">GAME MASTER</span>
+      <h1 class="host-title">Control Panel</h1>
+    </div>
+    <div class="host-header__right">
+      <div class="room-code-display">
+        <span class="room-code-label">ROOM CODE</span>
+        <span class="room-code-value" id="room-code-display">——</span>
+        <button class="btn-icon" id="btn-copy-code" title="Copy code">⧉</button>
+      </div>
+      <div class="phase-badge" id="phase-badge">LOBBY</div>
+    </div>
+  </header>
+
+  <div class="host-grid">
+
+    <!-- Left: Player list -->
+    <section class="host-section" id="section-players">
+      <h2 class="section-title">Players <span id="player-count">(0)</span></h2>
+      <ul class="player-list" id="player-list">
+        <li class="player-empty">Waiting for students to join…</li>
+      </ul>
+
+      <!-- Role assignment settings -->
+      <div class="role-config" id="role-config">
+        <h3>Role Count</h3>
+        <div class="role-inputs">
+          <label><span class="role-dot mafia">●</span> Mafia
+            <input type="number" id="count-mafia" value="2" min="1" max="5">
+          </label>
+          <label><span class="role-dot police">●</span> Police
+            <input type="number" id="count-police" value="1" min="0" max="3">
+          </label>
+          <label><span class="role-dot doctor">●</span> Doctor
+            <input type="number" id="count-doctor" value="1" min="0" max="3">
+          </label>
+        </div>
+        <p class="role-note" id="role-note"></p>
+      </div>
+    </section>
+
+    <!-- Center: Phase controls -->
+    <section class="host-section host-section--center" id="section-controls">
+      <h2 class="section-title">Game Controls</h2>
+
+      <!-- Lobby phase -->
+      <div class="phase-panel" id="panel-lobby">
+        <div class="phase-icon">🃏</div>
+        <p>Assign roles and send cards to all players.</p>
+        <button class="btn btn--primary btn--lg" id="btn-assign-roles">Assign Roles & Start →</button>
+      </div>
+
+      <!-- Day phase -->
+      <div class="phase-panel hidden" id="panel-day">
+        <div class="phase-icon">☀️</div>
+        <h3>Day — Discussion</h3>
+        <p>Students discuss in English. Use the phrase buttons on their devices.</p>
+        <div class="timer-display" id="timer-day">
+          <span id="timer-value">3:00</span>
+          <div class="timer-controls">
+            <button class="btn btn--sm" id="btn-timer-start">▶ Start</button>
+            <button class="btn btn--sm" id="btn-timer-reset">↺ Reset</button>
+          </div>
+        </div>
+        <button class="btn btn--accent btn--lg" id="btn-start-vote">Start Vote →</button>
+      </div>
+
+      <!-- Vote phase -->
+      <div class="phase-panel hidden" id="panel-vote">
+        <div class="phase-icon">🗳️</div>
+        <h3>Vote — English Quiz First!</h3>
+        <p>Students must answer a quiz to unlock their vote.</p>
+        <div class="quiz-editor">
+          <label>Quiz Question</label>
+          <input type="text" id="quiz-question" placeholder='e.g. "I ___ he is the Mafia." (Fill in the blank)' value='Fill in the blank: "I ___ he is the Mafia."'>
+          <label>Options (correct one first)</label>
+          <div class="quiz-options-grid">
+            <input type="text" id="quiz-opt-0" value="suspect" placeholder="Option A (correct)">
+            <input type="text" id="quiz-opt-1" value="enjoy" placeholder="Option B">
+            <input type="text" id="quiz-opt-2" value="forget" placeholder="Option C">
+            <input type="text" id="quiz-opt-3" value="sleep" placeholder="Option D">
+          </div>
+          <button class="btn btn--sm" id="btn-publish-quiz">📤 Publish Quiz</button>
+        </div>
+        <div class="vote-status" id="vote-status">
+          <p>Votes: <span id="vote-tally">0 / 0</span></p>
+        </div>
+        <button class="btn btn--accent btn--lg" id="btn-end-vote">End Vote & Reveal →</button>
+      </div>
+
+      <!-- Night phase -->
+      <div class="phase-panel hidden" id="panel-night">
+        <div class="phase-icon">🌙</div>
+        <h3>Night — Secret Actions</h3>
+        <p>Mafia, Police, and Doctor perform their missions on their devices.</p>
+        <div class="night-status">
+          <div class="night-row"><span class="role-dot mafia">●</span> Mafia target: <strong id="night-mafia-target">—</strong></div>
+          <div class="night-row"><span class="role-dot doctor">●</span> Doctor saves: <strong id="night-doctor-target">—</strong></div>
+          <div class="night-row"><span class="role-dot police">●</span> Police checks: <strong id="night-police-target">—</strong></div>
+        </div>
+        <button class="btn btn--accent btn--lg" id="btn-end-night">Resolve Night →</button>
+      </div>
+
+      <!-- Result phase -->
+      <div class="phase-panel hidden" id="panel-result">
+        <div class="phase-icon">🏆</div>
+        <h3 id="result-title">Game Over!</h3>
+        <p id="result-desc"></p>
+        <button class="btn btn--primary btn--lg" id="btn-new-game">New Game ↺</button>
+      </div>
+    </section>
+
+    <!-- Right: Activity log -->
+    <section class="host-section" id="section-log">
+      <h2 class="section-title">Activity Log</h2>
+      <div class="log-feed" id="log-feed">
+        <div class="log-empty">Game events will appear here…</div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script type="module" src="../js/firebase-config.js"></script>
+<script type="module" src="../js/host.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Mafia — Word Detectives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="lobby-page">
+
+<div class="noise"></div>
+
+<div class="lobby-wrap">
+
+  <header class="brand">
+    <div class="brand-badge">ENGLISH</div>
+    <h1 class="brand-title">MAFIA</h1>
+    <p class="brand-sub">Word Detectives — Can you trust anyone?</p>
+  </header>
+
+  <div class="card-stack">
+
+    <!-- Join as Student -->
+    <div class="panel panel--student" id="panel-join">
+      <div class="panel-label">STUDENT</div>
+      <h2>Join a Game</h2>
+      <p class="panel-desc">Enter your English name and the room code your teacher gave you.</p>
+      <div class="form-group">
+        <label for="input-name">Your English Name</label>
+        <input id="input-name" type="text" placeholder="e.g. Alex, Rosie, Max…" maxlength="16" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="input-room">Room Code</label>
+        <input id="input-room" type="text" placeholder="e.g. WORD42" maxlength="8" autocomplete="off" style="text-transform:uppercase;letter-spacing:0.15em">
+      </div>
+      <button class="btn btn--primary" id="btn-join">Enter Room →</button>
+      <p class="msg" id="msg-join"></p>
+    </div>
+
+    <div class="panel-divider"><span>or</span></div>
+
+    <!-- Create as Teacher -->
+    <div class="panel panel--teacher" id="panel-create">
+      <div class="panel-label">TEACHER</div>
+      <h2>Create a Room</h2>
+      <p class="panel-desc">Start a new game session. Share the room code with your students.</p>
+      <div class="form-group">
+        <label for="input-teacher-name">Your Name (Host)</label>
+        <input id="input-teacher-name" type="text" placeholder="e.g. Teacher Kim" maxlength="20" autocomplete="off">
+      </div>
+      <button class="btn btn--accent" id="btn-create">Create Room ✦</button>
+      <p class="msg" id="msg-create"></p>
+    </div>
+
+  </div>
+
+  <footer class="lobby-footer">
+    <span>Built for 6th Grade English · Powered by Firebase</span>
+  </footer>
+</div>
+
+<!-- Firebase -->
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/lobby.js"></script>
+</body>
+</html>
