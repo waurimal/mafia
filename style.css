@@ -1,0 +1,233 @@
+/**
+ * 와우리말 에듀테크 영어 마피아 게임 - 전용 스타일시트
+ * 2026 Eui Elementary School - Waurimal Project
+ */
+
+/* ── 1. 마피아 게임 폰트 및 기본 테마 ── */
+:root {
+    --mafia-red: #ef4444;
+    --mafia-red-dark: #991b1b;
+    --judge-gold: #f59e0b;
+    --judge-gold-dark: #b45309;
+    --citizen-green: #10b981;
+    --citizen-green-dark: #047857;
+    --card-bg: rgba(30, 41, 59, 0.95);
+    --border-glow: rgba(239, 68, 68, 0.35);
+}
+
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    background-color: #0b0f19;
+    color: #f1f5f9;
+    user-select: none;
+    -webkit-user-select: none;
+    overflow-x: hidden;
+}
+
+/* ── 2. 역할별 시각화 테두리 & 글로우 ── */
+.role-badge-mafia {
+    background: linear-gradient(135deg, #ef4444 0%, #991b1b 100%);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+    color: #ffffff;
+}
+
+.role-badge-judge {
+    background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+    color: #ffffff;
+}
+
+.role-badge-citizen {
+    background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+    color: #ffffff;
+}
+
+/* ── 3. 신분 확인 찢기(Tear) 및 플립 카드 애니메이션 ── */
+.flip-card {
+    perspective: 1200px;
+}
+
+.flip-card-inner {
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+
+.flip-card.is-flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+/* 찢어지는 종이 절취선 효과 */
+.tear-strip {
+    background: repeating-linear-gradient(
+        90deg,
+        #475569,
+        #475569 8px,
+        transparent 8px,
+        transparent 16px
+    );
+    height: 3px;
+    width: 100%;
+}
+
+.tear-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+}
+
+.is-torn {
+    animation: paperTear 0.7s forwards ease-in-out;
+}
+
+@keyframes paperTear {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    50% { transform: translateY(15px) rotate(4deg); opacity: 0.8; }
+    100% { transform: translateY(60px) rotate(12deg); opacity: 0; pointer-events: none; }
+}
+
+/* ── 4. 가위바위보 대결 인터랙션 ── */
+.rps-hand {
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.rps-hand:hover {
+    transform: scale(1.12) translateY(-4px);
+}
+
+.rps-hand:active {
+    transform: scale(0.95);
+}
+
+.rps-battle-shake-left {
+    animation: rpsShakeLeft 0.5s infinite ease-in-out;
+}
+
+.rps-battle-shake-right {
+    animation: rpsShakeRight 0.5s infinite ease-in-out;
+}
+
+@keyframes rpsShakeLeft {
+    0%, 100% { transform: rotate(0deg) translateY(0); }
+    50% { transform: rotate(-25deg) translateY(-12px); }
+}
+
+@keyframes rpsShakeRight {
+    0%, 100% { transform: rotate(0deg) translateY(0) scaleX(-1); }
+    50% { transform: rotate(25deg) translateY(-12px) scaleX(-1); }
+}
+
+/* ── 5. 감옥 철창 (Prison Bars) 효과 ── */
+.prison-bars-overlay {
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(30, 41, 59, 0.95),
+        rgba(30, 41, 59, 0.95) 18px,
+        rgba(15, 23, 42, 0.98) 18px,
+        rgba(15, 23, 42, 0.98) 32px,
+        rgba(148, 163, 184, 0.6) 32px,
+        rgba(71, 85, 105, 0.8) 36px,
+        transparent 36px,
+        transparent 60px
+    );
+    pointer-events: none;
+}
+
+.jail-spotlight {
+    background: radial-gradient(circle at 50% 30%, rgba(254, 240, 138, 0.18) 0%, rgba(15, 23, 42, 0.95) 75%);
+}
+
+/* ── 6. 판사 판결봉(Gavel) 스윙 애니메이션 ── */
+@keyframes gavelStrike {
+    0% { transform: rotate(-40deg); }
+    50% { transform: rotate(20deg); }
+    70% { transform: rotate(0deg); }
+    85% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.gavel-strike-anim {
+    animation: gavelStrike 0.6s ease-out;
+    transform-origin: bottom right;
+}
+
+/* ── 7. 학습지(Worksheet) 메모지 UI 스타일 ── */
+.worksheet-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #475569 #0f172a;
+}
+
+.worksheet-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.worksheet-scroll::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+.worksheet-scroll::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 9999px;
+}
+
+.worksheet-item {
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.worksheet-item:hover {
+    background-color: rgba(51, 65, 85, 0.6);
+}
+
+.worksheet-item.is-mafia-diff {
+    border-left: 3px solid #ef4444 !important;
+    background-color: rgba(239, 68, 68, 0.1) !important;
+}
+
+/* ── 8. 로또 3장 긁기 복권 스타일 (PDF 원작 반영) ── */
+.scratch-card {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 2px dashed #f59e0b;
+    position: relative;
+    overflow: hidden;
+}
+
+.scratch-foil {
+    background: linear-gradient(135deg, #94a3b8 0%, #64748b 50%, #475569 100%);
+    transition: opacity 0.5s ease-out;
+}
+
+.scratch-card.revealed .scratch-foil {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ── 9. 밤/낮 페이즈 전환 앰비언트 글로우 ── */
+.phase-morning-glow {
+    box-shadow: 0 0 35px rgba(245, 158, 11, 0.25) inset;
+    border-color: rgba(245, 158, 11, 0.5) !important;
+}
+
+.phase-evening-glow {
+    box-shadow: 0 0 35px rgba(249, 115, 22, 0.25) inset;
+    border-color: rgba(249, 115, 22, 0.5) !important;
+}
+
+.phase-night-glow {
+    box-shadow: 0 0 35px rgba(99, 102, 241, 0.25) inset;
+    border-color: rgba(99, 102, 241, 0.5) !important;
+}
+
+/* ── 10. 반응형 미세 조정 ── */
+@media (max-width: 640px) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+}

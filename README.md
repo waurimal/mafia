@@ -1,163 +1,91 @@
-# 🎭 English Mafia — Word Detectives
+# 🕵️‍♂️ 와우리말 에듀테크 영어 마피아 게임 (English Mafia Game)
 
-A real-time multiplayer English learning game built for elementary school students.  
-Each student joins from their own device (tablet/PC) and plays a role — all in English.
+> **초등 영어 6학년 4단원** (*Why are you happy? - Because I got a black belt.*) 감정 및 원인 표현 학습을 바탕으로 한 웹 기반 에듀테크 추리 보드게임입니다.  
+> 원작 교과서 및 수업 지도 자료(`Let’s Play a Mapia Game(L04).pdf`, `G6_L4_마피아 게임.hwp`)의 20문항 대화 및 규칙을 100% 디지털 게임화하였습니다.
 
----
-
-## 🚀 Quick Setup (15 minutes)
-
-### Step 1 — Fork & clone this repo
-
-```bash
-git clone https://github.com/YOUR_USERNAME/mafia-english.git
-cd mafia-english
-```
-
-### Step 2 — Create a Firebase project
-
-1. Go to [https://console.firebase.google.com](https://console.firebase.google.com)
-2. Click **Add project** → name it (e.g. `mafia-english`)
-3. Disable Google Analytics (not needed) → **Create project**
-
-### Step 3 — Enable Realtime Database
-
-1. In Firebase Console → **Build** → **Realtime Database**
-2. Click **Create Database**
-3. Choose **Start in test mode** → **Enable**
-4. Copy the database URL (looks like `https://mafia-english-xxxxx-default-rtdb.firebaseio.com`)
-
-### Step 4 — Get your Firebase config
-
-1. Firebase Console → ⚙️ Project Settings → **Your apps**
-2. Click **</>** (Web app) → Register app
-3. Copy the `firebaseConfig` object
-
-### Step 5 — Update `js/firebase-config.js`
-
-Replace the placeholder values with your real config:
-
-```js
-const firebaseConfig = {
-  apiKey:            "AIzaSy...",
-  authDomain:        "mafia-english-xxxxx.firebaseapp.com",
-  databaseURL:       "https://mafia-english-xxxxx-default-rtdb.firebaseio.com",
-  projectId:         "mafia-english-xxxxx",
-  storageBucket:     "mafia-english-xxxxx.appspot.com",
-  messagingSenderId: "123456789",
-  appId:             "1:123456789:web:abcdef..."
-};
-```
-
-### Step 6 — Deploy to GitHub Pages
-
-1. Push your repo to GitHub
-2. GitHub → Settings → **Pages** → Source: **GitHub Actions**
-3. The workflow (`.github/workflows/deploy.yml`) auto-deploys on every push to `main`
-4. Your game URL: `https://YOUR_USERNAME.github.io/mafia-english/`
+- **서비스 위치**: `01_edtech_games/mafia/index.html`
+- **배포 주소**: `https://waurimal.github.io/mafia/index.html`
+- **제작/운영**: 와우리말(Waurimal) 프로젝트 (2026)
 
 ---
 
-## 🎮 How to Play
+## 📌 주요 특징 및 게임 모드
 
-### Teacher (Game Master)
-1. Open `https://YOUR_USERNAME.github.io/mafia-english/`
-2. Enter your name → **Create Room**
-3. Share the **6-letter room code** with students (write it on the board)
-4. Wait for students to join → set role counts → **Assign Roles & Start**
-5. Control game phases from the Control Panel
+### 1. 🎮 윷놀이 스타일의 2대 게임 모드 (개인 vs 단체)
 
-### Students
-1. Open the same URL on their device
-2. Enter English name + room code → **Enter Room**
-3. Tap the role card to reveal their secret role
-4. Play through day/vote/night phases in English!
+1. **🤖 개인 모드 (AI 컴퓨터 대전 / 1인 모험)**
+   - 혼자서도 언제 어디서든 AI 급우 6명(민수, 서연, 준호, 지우, 예은, 도윤)과 함께 7인 학급 마피아 게임을 즐길 수 있습니다.
+   - **신분 선택**: 무작위 랜덤 배정(추천), 시민, 판사, 마피아 직접 선택 가능.
+   - **가위바위보 대결**: 급우를 찾아가 실시간 가위바위보를 하고, 이기면 20문항 중 원하는 영어 질문 발화, 지면 상대방의 질문에 대답.
+   - **원어민 음성 합성 (TTS)**: 질문과 대답 시 자연스러운 영어 음성이 재생되어 듣기·말하기 학습 효과 극대화.
+   - **수사 수첩 및 주변 대화 청취**: AI 급우들 간의 질문과 대답이 실시간 사건 일지에 기록되어, 꼼꼼히 관찰하면 마피아의 실언을 찾아낼 수 있습니다.
+
+2. **📡 단체 모드 (실시간 온라인 멀티플레이 - Firebase Firestore)**
+   - **4자리 숫자 방 코드** 공유 시스템 (`mafia_rooms` 컬렉션, `mapia-29b3a` 전용 샤드 연동).
+   - 학급 전체 무제한 다인 참여 (마피아 1~3명, 판사 1명, 시민 다수).
+   - 대기실에서 방장이 마피아 수와 타이머를 설정하고 원클릭으로 게임 시작.
+   - 모든 참가자에게 비밀 신분 카드 자동 암호화 배정 및 동기화.
+   - 실시간 가위바위보 대결, 저녁 용의자 지목 투표, 밤의 재판 & 마피아 지목, 감옥 수감/탈출이 전 기기에 0ms 무지연 실시간 연동.
 
 ---
 
-## 🗂 File Structure
+## 📚 2. 교육과정 연계 & 20문항 공식 데이터
+
+### 신분별 학습지 차이
+- **시민 (CITIZEN) & 판사 (JUDGE)**: 20개 감정-이유 문항이 완벽하게 동일합니다.
+- **마피아 (MAFIA)**: **7번과 18번 문항의 대답이 일반 시민과 미세하게 다릅니다.**
+  - **7번**: 시민 `helped my friend` (친구를 도와줬어) ↔ 마피아 `helped my mom` (엄마를 도와드렸어)
+  - **18번**: 시민 `my friend is sick` (친구가 아파) ↔ 마피아 `my dad is sick` (아빠가 편찮으셔)
+- 마피아는 시민들과 대화하면서 자신이 어떤 문항이 다른지 알아내어 거짓말(Bluffing)로 정체를 숨겨야 합니다.
+
+---
+
+## ⏱️ 3. 라운드 진행 방식 (총 3라운드)
+
+1. **🔒 신분 확인 ("확인 후 찢어서 주머니에 넣기")**
+   - 3D 플립 카드로 자신의 신분을 비밀리에 확인하고, 절취선 찢기 애니메이션 후 주머니에 보관합니다.
+2. **🌅 아침 조사 시간 (3분)**
+   - 돌아다니며 급우와 가위바위보를 합니다.
+   - 이긴 사람이 진 사람에게 "Why are you [emotion]?" 질문을 던집니다.
+   - 진 사람은 학습지대로 "Because I [reason]."으로 대답합니다.
+   - 시민은 대답이 다른 학생(마피아)을 수첩에 메모합니다.
+3. **🌆 저녁 용의자 지목 & 투표**
+   - 이유는 말하지 않고 이름만 지목하여 투표합니다.
+   - 1라운드는 최다 득표자 3명, 2~3라운드는 1명이 법정 용의자로 결정됩니다.
+4. **🌃 밤의 재판 & 마피아 습격**
+   - **판사**: 법정에 오른 용의자 중 마피아로 의심되는 1명을 판결봉으로 수감합니다.
+   - **마피아**: 시민 중 1명을 은밀히 지목하여 감옥에 가둡니다.
+5. **☀️ 새벽 결과 & 감옥 탈출 특별 퀴즈**
+   - 수감된 학생은 30초 안에 **초등 영어 특별 퀴즈(단어 빈칸, 어순 배열, 뜻 맞추기)**를 풀어야 기적적으로 탈출할 수 있습니다.
+   - 탈출에 실패하면 다음 아침 조사 활동에 참여할 수 없습니다.
+6. **🏆 최종 결과 및 승리 판정**
+   - 3라운드 종료 후 마피아가 **0~1명** 잡히면 🕶️ **마피아 승리!**
+   - 마피아가 **2~3명** 잡히면 🤝 **시민 & 판사 팀 승리!**
+   - 원작 규칙 반영: 이긴 팀 전원에게 **칭찬 로또 3장 긁기 복권** 증정!
+
+---
+
+## 📂 파일 구성
 
 ```
-mafia-english/
-├── index.html              ← Lobby (join/create)
-├── pages/
-│   ├── host.html           ← Teacher control panel
-│   └── player.html         ← Student game screen
-├── css/
-│   └── style.css           ← All styles
-├── js/
-│   ├── firebase-config.js  ← 🔧 EDIT THIS with your config
-│   ├── game-data.js        ← Roles, quizzes, phrases
-│   ├── lobby.js            ← Join/create logic
-│   ├── host.js             ← Game master logic
-│   └── player.js           ← Student game logic
-├── database.rules.json     ← Firebase security rules
-└── .github/workflows/
-    └── deploy.yml          ← Auto-deploy to GitHub Pages
+01_edtech_games/mafia/
+├── index.html        # 반응형 웹 UI, 첫 화면(50:50 설정/명예의전당), 인게임 보드, 9종 모달
+├── game.js          # 게임 핵심 엔진, 상태 머신, AI 봇 시뮬레이션, TTS, 점수 계산, 교사 패널
+├── multiplayer.js   # Firebase Firestore 실시간 방 생성/입장/역할배정/동기화 모듈
+├── questions.js     # 6학년 4단원 20문항 데이터베이스 & 감옥 탈출 특별 퀴즈 풀
+├── style.css        # 마피아 다크 테마, 3D 플립/찢기 효과, 감옥 철창, 판결봉 스윙, 스크래치 복권
+├── Let’s Play a Mapia Game(L04).pdf  # 수업 원작 PPT 가이드 문서
+├── G6_L4_마피아 게임.hwp            # 수업 원작 학습지 양식
+└── README.md        # 프로젝트 기술 및 규칙 명세서 (본 문서)
 ```
 
 ---
 
-## 🎓 English Learning Features
+## 🔒 교사 모드 (Teacher Admin Panel)
 
-| Feature | Description |
-|---|---|
-| **Role cards** | Each role comes with a mission and key vocabulary in English |
-| **Phrase buttons** | Pre-made English sentences for discussion (role-specific) |
-| **Quiz gate** | Students must answer an English vocabulary quiz to unlock their vote |
-| **Night vocabulary** | Each night action uses English sentence frames |
-| **Vocab recap** | Result screen shows all vocabulary words used that game |
-
-### Roles & Vocabulary
-
-| Role | Key Words |
-|---|---|
-| 🔴 Mafia | deny, accuse, alibi, suspect, innocent |
-| 🔵 Police | evidence, clue, arrest, confirm, investigate |
-| 🟢 Doctor | protect, heal, rescue, save, safe |
-| ⚪ Villager | I think, maybe, I agree, I disagree, because |
-
----
-
-## 🔧 Customization
-
-### Add your own quiz questions
-Edit `js/game-data.js` → `QUIZ_BANK` array:
-
-```js
-{
-  question: 'What does "evidence" mean?',
-  options: ["Proof of something", "A type of food", "A question", "An answer"],
-  answer: 0  // index of correct option
-}
-```
-
-### Add more phrases
-Edit `js/game-data.js` → `ROLES.villager.phrases` (or any role):
-
-```js
-{ text: "I believe ___ is innocent.", sub: "믿음 표현" }
-```
-
-### Change discussion timer
-Edit `js/host.js` → `let timerSeconds = 180;` (default 3 minutes)
-
----
-
-## 📱 Recommended Setup
-
-- **Teacher**: laptop/PC connected to classroom display
-- **Students**: school tablets or personal phones
-- **Network**: school WiFi (same network not required — just internet)
-- **Browser**: Chrome or Safari recommended
-
----
-
-## 🛡 Firebase Security
-
-For classroom use, the default `database.rules.json` (test mode) is fine.  
-For public deployment, update rules in Firebase Console → Realtime Database → Rules.
-
----
-
-Built for 6th Grade English · Hwaseong Elementary School
+- **접속 방법**: 헤더 우측 상단 `[교사 모드]` 또는 우측 하단 플로팅 버튼 클릭
+- **기본 비밀번호**: `4657` (와우리말 공통 비밀번호 `waurimal_admin_pw` 연동)
+- **제공 기능**:
+  - 학년/반/번호/이름별 학생 플레이 성적 및 승패 전수 조회
+  - 엑셀 호환 UTF-8 BOM CSV 파일 원클릭 다운로드
+  - 테스트 기록 전체 초기화

@@ -1,66 +1,709 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>English Mafia — Word Detectives</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>와우리말 영어 마피아 게임 (English Mafia) - 에듀테크</title>
+
+    <!-- Pretendard 폰트 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <!-- Tailwind CSS v3 Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Confetti 축포 효과 -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- 와우리말 공통 테마 CSS & 공통 내비게이션 & Firebase 설정 -->
+    <link rel="stylesheet" href="../common/waurimal-theme.css">
+    <script src="../common/curriculum.js"></script>
+    <script src="../common/firebase-config.js"></script>
+    <script src="../common/waurimal-nav.js"></script>
+
+    <!-- 마피아 게임 전용 스타일시트 -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="lobby-page">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between">
 
-<div class="noise"></div>
+    <!-- 상단 헤더 바 -->
+    <header class="bg-slate-900/90 border-b border-slate-800 px-4 py-3 sticky top-0 z-40 backdrop-blur-md shadow-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-rose-400 flex items-center justify-center text-white shadow-lg shadow-rose-950/40">
+                    <i class="fa-solid fa-user-secret text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-black text-lg md:text-xl text-rose-400 flex items-center gap-2">
+                        영어 마피아 게임
+                        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">Lesson 4 추리</span>
+                    </h1>
+                    <p class="text-xs text-slate-400 hidden sm:block">초등 영어 6학년 4단원 감정·이유 묻고 답하기(Why are you...? Because...)</p>
+                </div>
+            </div>
 
-<div class="lobby-wrap">
+            <div class="flex items-center gap-2">
+                <!-- 홈으로 바로가기 버튼 -->
+                <button id="headerHomeBtn" class="px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-black transition flex items-center gap-1.5 shadow-md cursor-pointer">
+                    <i class="fa-solid fa-house"></i> 홈으로
+                </button>
+                <button id="openTeacherModeBtn" class="px-3 py-1.5 rounded-xl bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 hover:text-white text-xs font-black transition flex items-center gap-1.5 border border-indigo-500/40 shadow-sm cursor-pointer">
+                    <i class="fa-solid fa-chalkboard-user text-indigo-400"></i> 교사 모드
+                </button>
+                <button id="openRuleBtn" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition flex items-center gap-1.5 shadow-sm cursor-pointer">
+                    <i class="fa-solid fa-circle-question text-rose-400"></i> 규칙 안내
+                </button>
+            </div>
+        </div>
+    </header>
 
-  <header class="brand">
-    <div class="brand-badge">ENGLISH</div>
-    <h1 class="brand-title">MAFIA</h1>
-    <p class="brand-sub">Word Detectives — Can you trust anyone?</p>
-  </header>
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="max-w-7xl mx-auto px-4 py-4 w-full flex-1">
 
-  <div class="card-stack">
+        <!-- ============================================================== -->
+        <!-- 1. 첫 화면: 게임 설정 & 실시간 명예의 전당 (50:50 대칭 분할 레이아웃) -->
+        <!-- ============================================================== -->
+        <div id="screen-home" class="w-full">
+            <!-- 상단 타이틀 소개 배너 -->
+            <div class="text-center py-2 mb-6">
+                <h2 class="text-2xl sm:text-3xl font-black text-rose-400 flex items-center justify-center gap-2">
+                    <span>🕵️‍♂️ 와우리말 영어 마피아 챌린지</span>
+                    <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">Edu-Mafia</span>
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1.5">
+                    가위바위보로 질문 기회를 얻고, 질문과 대답 속 숨겨진 단서를 모아 거짓말하는 마피아를 찾아내세요!
+                </p>
+            </div>
 
-    <!-- Join as Student -->
-    <div class="panel panel--student" id="panel-join">
-      <div class="panel-label">STUDENT</div>
-      <h2>Join a Game</h2>
-      <p class="panel-desc">Enter your English name and the room code your teacher gave you.</p>
-      <div class="form-group">
-        <label for="input-name">Your English Name</label>
-        <input id="input-name" type="text" placeholder="e.g. Alex, Rosie, Max…" maxlength="16" autocomplete="off">
-      </div>
-      <div class="form-group">
-        <label for="input-room">Room Code</label>
-        <input id="input-room" type="text" placeholder="e.g. WORD42" maxlength="8" autocomplete="off" style="text-transform:uppercase;letter-spacing:0.15em">
-      </div>
-      <button class="btn btn--primary" id="btn-join">Enter Room →</button>
-      <p class="msg" id="msg-join"></p>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+                <!-- [좌측 7컬럼]: 학생 정보 입력 · 모드 선택 · 게임 설정 카드 -->
+                <div class="lg:col-span-7 flex flex-col gap-4">
+
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 sm:p-6 shadow-2xl backdrop-blur-md">
+                        <div class="flex items-center justify-between pb-3.5 border-b border-slate-800 mb-5">
+                            <h3 class="font-black text-lg text-rose-400 flex items-center gap-2">
+                                <i class="fa-solid fa-sliders text-rose-400"></i> 게임 설정 & 시작
+                            </h3>
+                            <span class="text-xs font-bold text-slate-400">개인 또는 단체 모드를 선택하세요</span>
+                        </div>
+
+                        <!-- 1. 학생 학적 및 실명 입력 섹션 -->
+                        <div class="mb-5 p-4 rounded-2xl bg-slate-950 border border-slate-800 shadow-inner">
+                            <div class="flex items-center justify-between mb-2.5">
+                                <label class="text-xs font-black text-rose-300 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-id-card text-rose-400"></i> 학생 정보 입력 (학년 · 반 · 번호 · 이름)
+                                </label>
+                                <span class="text-[10px] text-rose-400 font-bold bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/30">
+                                    성적표 & 명예의 전당 연동
+                                </span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 mb-2.5">
+                                <div>
+                                    <label for="studentGradeSelect" class="block text-[10px] font-bold text-slate-400 mb-1">학년</label>
+                                    <select id="studentGradeSelect" class="w-full px-2.5 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs font-bold text-white focus:outline-none focus:border-rose-500">
+                                        <option value="6" selected>6학년</option>
+                                        <option value="5">5학년</option>
+                                        <option value="4">4학년</option>
+                                        <option value="3">3학년</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="studentClassSelect" class="block text-[10px] font-bold text-slate-400 mb-1">반</label>
+                                    <select id="studentClassSelect" class="w-full px-2.5 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs font-bold text-white focus:outline-none focus:border-rose-500">
+                                        <option value="1" selected>1반</option>
+                                        <option value="2">2반</option>
+                                        <option value="3">3반</option>
+                                        <option value="4">4반</option>
+                                        <option value="5">5반</option>
+                                        <option value="6">6반</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="studentNumInput" class="block text-[10px] font-bold text-slate-400 mb-1">번호</label>
+                                    <input type="number" id="studentNumInput" min="1" max="40" value="1" class="w-full px-2.5 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs font-bold text-white focus:outline-none focus:border-rose-500">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <label for="globalStudentNameInput" class="text-[10px] font-bold text-slate-400">학생 실명 (본인 이름)</label>
+                                    <span class="text-[10px] text-rose-400 font-bold bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">실명 필수</span>
+                                </div>
+                                <input type="text" id="globalStudentNameInput" placeholder="실명을 입력하세요 (예: 김민수)" maxlength="12" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-rose-500 font-bold">
+                            </div>
+                        </div>
+
+                        <!-- 2. 게임 모드 선택 탭 (개인: AI 대전 vs 단체: 실시간 온라인 멀티) -->
+                        <div class="mb-5">
+                            <label class="block text-xs font-bold text-slate-300 mb-2">게임 모드 선택 (개인 vs 단체)</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button type="button" class="mode-tab-btn py-3.5 px-3 rounded-2xl border-2 font-bold text-xs flex flex-col items-center gap-1.5 transition-all bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 border-amber-300 text-slate-950 shadow-xl shadow-amber-500/25 ring-4 ring-amber-400/40 scale-[1.02] cursor-pointer relative" data-mode="ai" id="startAiModeBtn">
+                                    <span class="mode-badge absolute -top-2.5 px-2.5 py-0.5 bg-slate-950 text-amber-300 text-[10px] font-black rounded-full border border-amber-400/60 shadow">
+                                        추천 모드 ⚡
+                                    </span>
+                                    <i class="mode-icon fa-solid fa-user text-2xl text-slate-950 mt-1"></i>
+                                    <span class="mode-title text-base font-black text-slate-950 tracking-tight">개인 모드</span>
+                                    <span class="mode-desc text-[11px] text-slate-900 font-bold">AI 급우들과 1인 추리 대전</span>
+                                </button>
+                                <button type="button" class="mode-tab-btn py-3.5 px-3 rounded-2xl border-2 font-bold text-xs flex flex-col items-center gap-1.5 transition-all border-slate-700 bg-slate-900/80 text-slate-400 hover:border-slate-500 hover:bg-slate-800/80 cursor-pointer relative" data-mode="online" id="selectOnlineTabBtn">
+                                    <span class="mode-badge absolute -top-2.5 px-2 py-0.5 bg-slate-800 text-slate-400 text-[10px] font-bold rounded-full border border-slate-700 shadow">
+                                        실시간 학급 다인
+                                    </span>
+                                    <i class="mode-icon fa-solid fa-users text-xl text-slate-400 mt-1"></i>
+                                    <span class="mode-title text-sm font-bold text-slate-300">단체 모드</span>
+                                    <span class="mode-desc text-[10px] text-slate-400 font-normal">학급 전체 온라인 대결</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3-A. 개인 모드 (AI 옵션) -->
+                        <div id="aiOptionsSection" class="mb-5 p-4 rounded-2xl bg-slate-950 border border-slate-800">
+                            <h4 class="text-xs font-black text-amber-400 mb-3 flex items-center gap-1.5">
+                                <i class="fa-solid fa-robot"></i> 개인 모드 세부 설정
+                            </h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div>
+                                    <label for="aiRoleSelect" class="block text-[10px] font-bold text-slate-400 mb-1">내 신분(역할) 선택</label>
+                                    <select id="aiRoleSelect" class="w-full px-2.5 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs font-bold text-white">
+                                        <option value="random" selected>무작위 랜덤 배정 (추천)</option>
+                                        <option value="CITIZEN">시민 (CITIZEN)으로 플레이</option>
+                                        <option value="JUDGE">판사 (JUDGE)로 플레이</option>
+                                        <option value="MAFIA">마피아 (MAFIA)로 플레이</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="aiTimerSelect" class="block text-[10px] font-bold text-slate-400 mb-1">아침 조사 제한시간</label>
+                                    <select id="aiTimerSelect" class="w-full px-2.5 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs font-bold text-white">
+                                        <option value="180" selected>3분 (180초 - 공식 룰)</option>
+                                        <option value="120">2분 (120초)</option>
+                                        <option value="90">1분 30초 (90초 - 빠른 진행)</option>
+                                        <option value="60">1분 (60초 - 스피드)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3-B. 단체 모드 (온라인 멀티 옵션) -->
+                        <div id="onlineOptionsSection" class="mb-5 p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/40 hidden">
+                            <h4 class="text-xs font-black text-emerald-400 mb-3 flex items-center gap-1.5">
+                                <i class="fa-solid fa-tower-broadcast"></i> 단체 모드 (실시간 멀티플레이)
+                            </h4>
+                            
+                            <!-- 방 만들기 -->
+                            <div class="p-3.5 rounded-xl bg-slate-900 border border-emerald-500/30 mb-3">
+                                <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-plus-circle text-emerald-400"></i> 새 방 만들기 (선생님/방장)
+                                </div>
+                                <div class="grid grid-cols-2 gap-2 mb-2">
+                                    <div>
+                                        <span class="text-[10px] text-slate-400 block mb-1">마피아 수</span>
+                                        <select id="onlineMafiaCountSelect" class="w-full px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs text-white">
+                                            <option value="1">1명 (소수 인원)</option>
+                                            <option value="2" selected>2명 (표준 10~20인)</option>
+                                            <option value="3">3명 (학급 20인 이상)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <span class="text-[10px] text-slate-400 block mb-1">조사 제한시간</span>
+                                        <select id="onlineTimerSelect" class="w-full px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs text-white">
+                                            <option value="180" selected>3분 (180초)</option>
+                                            <option value="120">2분 (120초)</option>
+                                            <option value="90">90초</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 방 참여하기 -->
+                            <div class="p-3.5 rounded-xl bg-slate-900 border border-emerald-500/30">
+                                <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-right-to-bracket text-emerald-400"></i> 방 코드로 참여하기 (학생)
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <input type="text" id="onlineRoomCodeInput" placeholder="4자리 방 코드 입력 (예: 1234)" maxlength="4" class="flex-1 px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs font-bold text-white focus:outline-none focus:border-emerald-400">
+                                    <button type="button" id="onlineJoinRoomBtn" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs transition cursor-pointer">
+                                        참여하기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. 메인 시작 버튼 -->
+                        <div>
+                            <button type="button" id="startGameBtn" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-rose-600 via-rose-500 to-amber-500 hover:from-rose-500 hover:to-amber-400 active:scale-98 text-white font-black text-base shadow-xl shadow-rose-950/50 transition flex items-center justify-center gap-2 cursor-pointer">
+                                <i class="fa-solid fa-play"></i> 마피아 게임 시작하기
+                            </button>
+                        </div>
+
+                        <!-- 하단 규칙 링크 -->
+                        <div class="mt-4 flex items-center justify-between text-xs text-slate-400 border-t border-slate-800 pt-3">
+                            <button type="button" id="openRuleHomeBtn" class="hover:text-rose-400 font-bold flex items-center gap-1 cursor-pointer">
+                                <i class="fa-solid fa-book-open"></i> 게임 규칙 및 20개 학습지 명세
+                            </button>
+                            <span class="text-[11px] text-slate-500">2026 Eui Elementary School</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- [우측 5컬럼]: 실시간 명예의 전당 카드 -->
+                <div class="lg:col-span-5 flex flex-col gap-4">
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 shadow-2xl backdrop-blur-md">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg">🏆</span>
+                                <h3 class="font-black text-base text-amber-400">실시간 명예의 전당</h3>
+                            </div>
+                            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                                TOP 10 랭킹
+                            </span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 mb-3">
+                            게임 승리(+500점), 용의자 지목 정답, 가위바위보 승리 및 감옥 탈출 성적을 종합 반영합니다. (1인 1최고점수)
+                        </p>
+
+                        <!-- 랭킹 리스트 -->
+                        <div id="homeHofList" class="space-y-2 max-h-[460px] overflow-y-auto worksheet-scroll pr-1">
+                            <!-- JS 동적 렌더링 -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- 2. 게임 플레이 화면: 순수 몰입형 플레이 화면 (기본 hidden) -->
+        <!-- ============================================================== -->
+        <div id="screen-game" class="w-full hidden">
+
+            <!-- 인게임 상단 상태 바 -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-3.5 mb-4 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="flex items-center gap-2 flex-wrap">
+                    <span id="headerRoundBadge" class="px-3 py-1 rounded-full text-xs font-black bg-slate-800 text-white border border-slate-700">제 1 / 3 라운드</span>
+                    <span id="headerPhaseBadge" class="px-3 py-1 rounded-full text-xs font-black bg-amber-500/20 text-amber-300 border border-amber-500/40">아침 조사 (3분)</span>
+                    <span id="headerMyRoleBadge" class="px-3 py-1 rounded-full text-xs font-black role-badge-citizen border border-emerald-400">내 신분: 시민</span>
+                </div>
+
+                <div class="flex items-center gap-4 w-full sm:w-auto justify-between">
+                    <!-- 타이머 -->
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-stopwatch text-amber-400"></i>
+                        <span id="phaseTimerText" class="font-black text-sm text-amber-300 tracking-wider">3:00</span>
+                        <div class="w-24 h-2 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
+                            <div id="phaseTimerProgress" class="h-full bg-gradient-to-r from-amber-400 to-rose-500 transition-all duration-300" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- 홈으로 나가기 -->
+                    <button type="button" id="ingameHomeBtn" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition flex items-center gap-1 cursor-pointer">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> 나가기
+                    </button>
+                </div>
+            </div>
+
+            <!-- 메인 게임 영역 (좌측: 급우 조사 구역 / 우측: 학습지 & 사건 일지) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+
+                <!-- [좌측 7컬럼]: 급우들과의 대화 조사 구역 -->
+                <div class="lg:col-span-7 flex flex-col gap-4">
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 shadow-2xl">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+                            <div>
+                                <h3 class="font-black text-base text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-users-viewfinder text-rose-400"></i> 급우 조사 구역 (Classmates Area)
+                                </h3>
+                                <p class="text-[11px] text-slate-400 mt-0.5">만나서 가위바위보 대결을 신청하고 영어 질문을 주고받으세요.</p>
+                            </div>
+                        </div>
+
+                        <!-- 급우 카드 그리드 -->
+                        <div id="classmatesListContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                            <!-- JS 동적 렌더링 -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- [우측 5컬럼]: 나의 비밀 학습지 & 실시간 사건 일지 -->
+                <div class="lg:col-span-5 flex flex-col gap-4">
+
+                    <!-- 실시간 사건 일지 -->
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-4 shadow-xl">
+                        <div class="flex items-center justify-between pb-2 border-b border-slate-800 mb-2">
+                            <h4 class="font-black text-xs text-amber-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-clipboard-list text-amber-400"></i> 실시간 사건 일지
+                            </h4>
+                            <span class="text-[10px] text-slate-400">실시간 로그</span>
+                        </div>
+                        <div id="journalLogList" class="space-y-1.5 max-h-40 overflow-y-auto worksheet-scroll pr-1">
+                            <!-- 로그 동적 출력 -->
+                        </div>
+                    </div>
+
+                    <!-- 나의 비밀 학습지 20문항 -->
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-4 shadow-xl">
+                        <div class="flex items-center justify-between pb-2.5 border-b border-slate-800 mb-2.5">
+                            <h4 class="font-black text-xs text-rose-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-file-lines text-rose-400"></i> 나의 비밀 학습지 (20문항)
+                            </h4>
+                            <span class="text-[10px] text-slate-400">스피커 클릭 시 발음</span>
+                        </div>
+                        <div id="myWorksheetList" class="space-y-2 max-h-80 overflow-y-auto worksheet-scroll pr-1">
+                            <!-- JS 동적 렌더링 -->
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ============================================================== -->
+    <!-- 모달 다이얼로그 모음 -->
+    <!-- ============================================================== -->
+
+    <!-- 1. 신분 확인 모달 ("신분을 확인 후 찢어서 주머니에 넣기") -->
+    <div id="roleRevealModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="max-w-md w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl text-center">
+            <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+                🔒 극비 신분 배정 카드
+            </span>
+            <p class="text-xs text-slate-400 mt-2 mb-4">카드를 클릭하여 신분을 확인하고, 하단의 찢기 버튼을 눌러 주머니에 보관하세요.</p>
+
+            <!-- 3D 플립 카드 -->
+            <div id="roleCardContainer" class="flip-card w-full h-64 mb-4 cursor-pointer">
+                <div id="roleCardInner" class="flip-card-inner w-full h-full relative">
+                    <!-- 카드 앞면 (물음표 비공개) -->
+                    <div class="flip-card-front absolute inset-0 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-950 border-2 border-slate-700 flex flex-col items-center justify-center p-4 shadow-xl">
+                        <i class="fa-solid fa-question text-5xl text-rose-500 animate-pulse my-3"></i>
+                        <h4 class="text-sm font-black text-white">클릭하여 신분을 확인하세요</h4>
+                        <span class="text-[11px] text-slate-400 mt-1">아무에게도 보여주지 마세요</span>
+                    </div>
+
+                    <!-- 카드 뒷면 (실제 신분 노출) -->
+                    <div class="flip-card-back absolute inset-0 rounded-2xl bg-slate-900 border-2 border-slate-600 flex flex-col items-center justify-center p-4 shadow-xl">
+                        <span id="revealRoleBadge" class="px-3 py-1 rounded-full text-xs font-black role-badge-citizen border">🤝 시민</span>
+                        <i id="revealRoleIcon" class="fa-solid fa-users text-5xl text-emerald-400 my-2"></i>
+                        <h3 id="revealRoleTitle" class="text-xl font-black text-white">당신은 시민입니다</h3>
+                        <p id="revealRoleDesc" class="text-xs text-slate-300 mt-1">학습지의 20개 질문과 대답이 모두 같습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 절취선 효과 -->
+            <div class="tear-strip mb-4"></div>
+
+            <!-- 역할별 전략 안내 -->
+            <div id="revealRoleAdvice" class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-left mb-4"></div>
+
+            <button type="button" id="confirmRoleTearBtn" class="tear-action-btn w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-rose-600 to-amber-500 hover:from-rose-500 hover:to-amber-400 text-white font-black text-sm shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
+                <i class="fa-solid fa-scissors"></i> 신분 확인 완료 (찢어서 주머니에 보관)
+            </button>
+        </div>
     </div>
 
-    <div class="panel-divider"><span>or</span></div>
+    <!-- 2. 가위바위보 & 대결 인터랙션 모달 -->
+    <div id="duelModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="max-w-md w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+                <h3 id="duelTargetNameTitle" class="font-black text-base text-white flex items-center gap-2">
+                    <i class="fa-solid fa-comments text-amber-400"></i> 급우와의 대화 조사
+                </h3>
+                <button type="button" id="btnCloseDuelModal" class="p-2 text-slate-400 hover:text-white cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
 
-    <!-- Create as Teacher -->
-    <div class="panel panel--teacher" id="panel-create">
-      <div class="panel-label">TEACHER</div>
-      <h2>Create a Room</h2>
-      <p class="panel-desc">Start a new game session. Share the room code with your students.</p>
-      <div class="form-group">
-        <label for="input-teacher-name">Your Name (Host)</label>
-        <input id="input-teacher-name" type="text" placeholder="e.g. Teacher Kim" maxlength="20" autocomplete="off">
-      </div>
-      <button class="btn btn--accent" id="btn-create">Create Room ✦</button>
-      <p class="msg" id="msg-create"></p>
+            <!-- STEP 1: 가위바위보 -->
+            <div id="duelStepRps" class="text-center py-2">
+                <h4 class="text-sm font-black text-amber-300 mb-1">가위바위보를 하세요!</h4>
+                <p class="text-xs text-slate-400 mb-4">이긴 사람은 상대방에게 영어 질문을 던집니다.</p>
+
+                <div class="grid grid-cols-3 gap-3 mb-4">
+                    <button type="button" class="btn-rps-choice rps-hand p-4 rounded-2xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex flex-col items-center gap-2 cursor-pointer" data-choice="scissors">
+                        <span class="text-4xl">✌</span>
+                        <span class="text-xs font-black text-white">가위 (Scissors)</span>
+                    </button>
+                    <button type="button" class="btn-rps-choice rps-hand p-4 rounded-2xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex flex-col items-center gap-2 cursor-pointer" data-choice="rock">
+                        <span class="text-4xl">✊</span>
+                        <span class="text-xs font-black text-white">바위 (Rock)</span>
+                    </button>
+                    <button type="button" class="btn-rps-choice rps-hand p-4 rounded-2xl bg-slate-800 hover:bg-slate-700 border border-slate-700 flex flex-col items-center gap-2 cursor-pointer" data-choice="paper">
+                        <span class="text-4xl">🖐</span>
+                        <span class="text-xs font-black text-white">보 (Paper)</span>
+                    </button>
+                </div>
+
+                <div id="rpsBattleFeedback"></div>
+            </div>
+
+            <!-- STEP 2-A: 내가 이긴 경우 (질문 선택) -->
+            <div id="duelStepAsk" class="hidden">
+                <div class="p-3 rounded-2xl bg-emerald-950/40 border border-emerald-500/40 mb-3 text-xs text-emerald-300 font-bold">
+                    🎉 가위바위보 승리! 20개 문항 중 아무 질문이나 던지세요.
+                </div>
+                <div class="mb-3">
+                    <label class="block text-xs font-bold text-slate-300 mb-1">질문 선택</label>
+                    <select id="duelAskQuestionSelect" class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-700 text-xs font-bold text-white focus:outline-none focus:border-amber-400"></select>
+                </div>
+                <div id="duelAskQuestionPreview" class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-sm font-black text-amber-300 mb-4 text-center"></div>
+                <button type="button" id="btnSubmitDuelQuestion" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs transition cursor-pointer">
+                    <i class="fa-solid fa-paper-plane"></i> 영어로 질문하기
+                </button>
+            </div>
+
+            <!-- STEP 2-B: 내가 진 경우 (질문 듣고 대답 선택) -->
+            <div id="duelStepAnswer" class="hidden">
+                <div class="p-3 rounded-2xl bg-rose-950/40 border border-rose-500/40 mb-3 text-xs text-rose-300 font-bold">
+                    😢 가위바위보 패배! 상대방의 질문에 학습지에 맞게 대답하세요.
+                </div>
+                <div id="botAskedQuestionBubble" class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-sm font-black text-amber-300 mb-4 text-center"></div>
+                <div id="userAnswerOptionsContainer" class="space-y-2 mb-4"></div>
+            </div>
+
+            <!-- STEP 3: 대결 결과 확인 -->
+            <div id="duelStepResult" class="hidden">
+                <div id="duelResultContentBox" class="mb-4"></div>
+                <button type="button" onclick="window.mafiaGame.closeDuelModal()" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-black text-xs transition cursor-pointer">
+                    확인 및 닫기
+                </button>
+            </div>
+
+        </div>
     </div>
 
-  </div>
+    <!-- 3. 저녁 용의자 지목 & 투표 모달 -->
+    <div id="nominationModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="max-w-md w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl">
+            <h3 id="nominationModalTitle" class="font-black text-base text-amber-400 mb-1">저녁 용의자 지목 & 투표</h3>
+            <p id="nominationModalDesc" class="text-xs text-slate-400 mb-4">의심되는 친구 1명을 선택하세요. 이유는 말하지 않습니다.</p>
 
-  <footer class="lobby-footer">
-    <span>Built for 6th Grade English · Powered by Firebase</span>
-  </footer>
-</div>
+            <div id="nominationCandidatesList" class="space-y-2 max-h-72 overflow-y-auto worksheet-scroll pr-1 mb-4"></div>
+        </div>
+    </div>
 
-<script type="module" src="js/lobby.js"></script>
+    <!-- 4. 밤의 재판 & 마피아 습격 모달 -->
+    <div id="nightTrialModal" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="max-w-md w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl text-center">
+            <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">
+                🌃 어두운 밤이 찾아왔습니다
+            </span>
+            <h3 class="text-lg font-black text-white mt-2 mb-3">고개를 숙이고 비밀 행동을 진행합니다</h3>
+
+            <!-- 판사 전용 액션 -->
+            <div id="nightJudgeActionSection" class="hidden text-left">
+                <div class="p-3 rounded-xl bg-amber-950/30 border border-amber-500/40 mb-3 text-xs text-amber-300 font-bold">
+                    ⚖️ 판사님, 최종 법정 용의자 중 마피아로 의심되는 1명을 판결봉으로 수감하세요!
+                </div>
+                <div id="judgeSuspectsList" class="space-y-2 mb-3"></div>
+            </div>
+
+            <!-- 마피아 전용 액션 -->
+            <div id="nightMafiaActionSection" class="hidden text-left">
+                <div class="p-3 rounded-xl bg-rose-950/30 border border-rose-500/40 mb-3 text-xs text-rose-300 font-bold">
+                    🕶️ 마피아님, 고개를 들고 이번 밤 감옥에 가둘 무고한 시민 1명을 선택하세요!
+                </div>
+                <div id="mafiaVictimsList" class="space-y-2 mb-3"></div>
+            </div>
+
+            <!-- 일반 시민 관전 -->
+            <div id="nightSpectatorSection" class="py-6 hidden">
+                <i class="fa-solid fa-moon text-5xl text-indigo-400 animate-pulse my-3"></i>
+                <p class="text-xs text-slate-400">모두 고개를 숙이고 있습니다... 판사와 마피아가 행동 중입니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. 감옥 수감 & 탈출 특별 퀴즈 모달 -->
+    <div id="prisonEscapeModal" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="max-w-md w-full bg-slate-900 border-2 border-rose-600 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
+            <div class="prison-bars-overlay absolute inset-0 opacity-40"></div>
+            <div class="relative z-10 text-center">
+                <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40">
+                    🚨 감옥 수감 탈출 기회!
+                </span>
+                <h3 class="text-lg font-black text-rose-400 mt-2 mb-1">감옥 탈출 특별 문제</h3>
+                <p class="text-xs text-slate-300 mb-3">문제를 맞히면 즉시 풀려나 다음 아침 조사를 계속할 수 있습니다!</p>
+
+                <div class="text-xs font-bold text-amber-400 mb-3 flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-clock"></i> 남은 탈출 시간: <span id="escapeQuizTimerText">30초</span>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-left mb-4">
+                    <div id="escapeQuizTitle" class="text-sm font-black text-amber-300 mb-3"></div>
+                    <div id="escapeQuizOptionsContainer" class="space-y-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. 최종 게임 결과 & 로또 3장 긁기 모달 -->
+    <div id="victoryModal" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="max-w-lg w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl text-center max-h-[90vh] overflow-y-auto worksheet-scroll">
+            <div id="victoryWinnerBanner" class="p-4 rounded-3xl text-white shadow-2xl mb-4">
+                <h3 id="victoryTitleText" class="text-xl font-black mb-1">시민 & 판사 팀 승리!</h3>
+                <p id="victoryDescText" class="text-xs opacity-90">마피아를 성공적으로 검거했습니다.</p>
+            </div>
+
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <span class="text-xs text-slate-400">내 최종 기여도 점수:</span>
+                <span id="victoryScoreText" class="text-lg font-black text-amber-400">+500점</span>
+            </div>
+
+            <!-- 참가자 전체 신분 대공개 -->
+            <div class="text-left mb-5">
+                <h4 class="text-xs font-bold text-slate-300 mb-2">🎭 참가자 전체 정체 공개</h4>
+                <div id="victoryRolesRevealList" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+            </div>
+
+            <!-- PDF 원작 반영: 이긴 팀에게 로또 3장 증정 -->
+            <div id="victoryLotterySection" class="p-4 rounded-2xl bg-slate-950 border border-amber-500/40 text-left mb-5">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-black text-amber-400 flex items-center gap-1">
+                        <i class="fa-solid fa-ticket"></i> 승리 팀 보너스: 칭찬 로또 3장
+                    </span>
+                    <span class="text-[10px] text-slate-400">카드를 클릭하여 긁으세요!</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="scratch-card p-3 rounded-xl text-center cursor-pointer min-h-[70px] flex items-center justify-center">
+                        <div class="scratch-foil absolute inset-0 flex items-center justify-center text-xs font-black text-slate-200">긁기 1</div>
+                        <span class="scratch-prize-text text-[11px] font-black text-amber-300">1등 당첨!</span>
+                    </div>
+                    <div class="scratch-card p-3 rounded-xl text-center cursor-pointer min-h-[70px] flex items-center justify-center">
+                        <div class="scratch-foil absolute inset-0 flex items-center justify-center text-xs font-black text-slate-200">긁기 2</div>
+                        <span class="scratch-prize-text text-[11px] font-black text-amber-300">명탐정상!</span>
+                    </div>
+                    <div class="scratch-card p-3 rounded-xl text-center cursor-pointer min-h-[70px] flex items-center justify-center">
+                        <div class="scratch-foil absolute inset-0 flex items-center justify-center text-xs font-black text-slate-200">긁기 3</div>
+                        <span class="scratch-prize-text text-[11px] font-black text-amber-300">스피킹상!</span>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" id="victoryHomeBtn" class="w-full py-3.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-black text-sm shadow-lg transition cursor-pointer">
+                <i class="fa-solid fa-house"></i> 홈 화면으로 돌아가기
+            </button>
+        </div>
+    </div>
+
+    <!-- 7. 단체 모드 온라인 대기실 모달 -->
+    <div id="waitingRoomModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="max-w-md w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl">
+            <div class="text-center mb-4">
+                <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                    실시간 온라인 대기실
+                </span>
+                <h3 class="text-lg font-black text-white mt-1">방 코드: <span id="waitingRoomCodeBadge" class="text-amber-400 font-mono text-2xl">0000</span></h3>
+                <p class="text-xs text-slate-400 mt-1">친구들에게 4자리 코드를 공유하세요. 방장이 시작하면 게임이 진행됩니다.</p>
+            </div>
+
+            <div class="flex items-center justify-between pb-2 border-b border-slate-800 mb-2.5">
+                <span class="text-xs font-bold text-slate-300">참가자 목록</span>
+                <span id="waitingRoomCountBadge" class="text-[11px] font-bold text-emerald-400">1명 참여 중</span>
+            </div>
+
+            <div id="waitingRoomPlayersList" class="space-y-2 max-h-56 overflow-y-auto worksheet-scroll pr-1 mb-5"></div>
+
+            <div class="flex items-center gap-2">
+                <button type="button" onclick="location.reload()" class="w-1/3 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition cursor-pointer">
+                    나가기
+                </button>
+                <button type="button" id="waitingRoomStartBtn" class="w-2/3 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs transition cursor-pointer flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-play"></i> 게임 시작 (방장 전용)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. 규칙 안내 모달 -->
+    <div id="ruleGuideModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="max-w-2xl w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl max-h-[85vh] overflow-y-auto worksheet-scroll">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+                <h3 class="font-black text-base text-rose-400 flex items-center gap-2">
+                    <i class="fa-solid fa-book-open"></i> 영어 마피아 게임 규칙 & 방법
+                </h3>
+                <button type="button" id="closeRuleModalBtn" class="p-2 text-slate-400 hover:text-white cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="space-y-4 text-xs text-slate-300 leading-relaxed">
+                <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800">
+                    <h4 class="font-black text-amber-400 mb-1">1. 신분 및 학습지</h4>
+                    <p>게임 시작 시 시민, 판사, 마피아 중 하나의 신분을 비밀리에 배정받습니다. 학습지에는 20개의 질문("Why are you [emotion]?")과 대답("Because I [reason].")이 적혀 있습니다. 시민과 판사는 20개가 모두 같지만, <strong>마피아는 7번과 18번 대답이 다릅니다!</strong></p>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800">
+                    <h4 class="font-black text-amber-400 mb-1">2. 아침 조사 시간 (3분)</h4>
+                    <p>돌아다니며 2명이 만나 가위바위보를 합니다. <strong>이긴 사람이 진 사람에게 영어로 질문</strong>하고 진 사람은 학습지대로 대답합니다. 대답이 다른 학생(마피아)을 조사하여 수첩에 메모하세요!</p>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800">
+                    <h4 class="font-black text-amber-400 mb-1">3. 저녁 용의자 지목 & 투표</h4>
+                    <p>이유는 말하지 않고 의심되는 학생 이름만 지목하여 투표로 법정 용의자를 선출합니다.</p>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800">
+                    <h4 class="font-black text-amber-400 mb-1">4. 밤의 재판 & 마피아 습격 & 감옥 탈출</h4>
+                    <p>판사는 용의자 중 마피아로 의심되는 1명을 판결봉으로 수감하고, 마피아는 무고한 시민 1명을 감옥에 가둡니다. 감옥에 갇힌 사람은 <strong>30초 안에 초등 영어 특별 퀴즈를 풀어야 탈출</strong>할 수 있습니다.</p>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800">
+                    <h4 class="font-black text-amber-400 mb-1">5. 승리 조건</h4>
+                    <p>3라운드 종료 후 마피아가 0~1명 잡히면 마피아 승리! 2~3명 잡히면 시민&판사 팀 승리입니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. 교사 관리 모달 -->
+    <div id="teacherModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="max-w-3xl w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl max-h-[85vh] overflow-y-auto worksheet-scroll">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+                <h3 class="font-black text-base text-indigo-400 flex items-center gap-2">
+                    <i class="fa-solid fa-chalkboard-user"></i> 교사 전용 관리 패널 (Teacher Admin)
+                </h3>
+                <button type="button" id="closeTeacherModalBtn" class="p-2 text-slate-400 hover:text-white cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="flex items-center justify-between mb-4">
+                <span class="text-xs text-slate-400">학생 플레이 성적 및 기록 조회</span>
+                <div class="flex items-center gap-2">
+                    <button type="button" id="exportTeacherCsvBtn" class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition flex items-center gap-1 cursor-pointer">
+                        <i class="fa-solid fa-file-excel"></i> 엑셀 CSV 다운로드
+                    </button>
+                    <button type="button" id="clearTeacherRecordsBtn" class="px-3 py-1.5 rounded-xl bg-rose-600/30 hover:bg-rose-600/50 text-rose-300 font-bold text-xs transition border border-rose-500/40 cursor-pointer">
+                        <i class="fa-solid fa-trash"></i> 전체 초기화
+                    </button>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto border border-slate-800 rounded-2xl mb-4">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-slate-950 text-slate-400 border-b border-slate-800">
+                        <tr>
+                            <th class="py-2 px-3">No</th>
+                            <th class="py-2 px-3">학적</th>
+                            <th class="py-2 px-3">이름</th>
+                            <th class="py-2 px-3">배정 역할</th>
+                            <th class="py-2 px-3">최종 점수</th>
+                            <th class="py-2 px-3">승패</th>
+                            <th class="py-2 px-3">일시</th>
+                        </tr>
+                    </thead>
+                    <tbody id="teacherRecordsTbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 우측 하단 플로팅 교사 모드 버튼 -->
+    <button type="button" id="floatingTeacherBtn" class="fixed bottom-4 right-4 z-40 px-3.5 py-2.5 rounded-2xl bg-indigo-600/90 hover:bg-indigo-500 text-white font-bold text-xs shadow-xl backdrop-blur-md transition flex items-center gap-2 border border-indigo-400/40 cursor-pointer">
+        <i class="fa-solid fa-lock"></i> 교사 모드
+    </button>
+
+    <!-- 게임 스크립트 로드 -->
+    <script src="questions.js"></script>
+    <script type="module" src="multiplayer.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
