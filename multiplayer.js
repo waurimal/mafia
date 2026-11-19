@@ -4,10 +4,10 @@
  *
  * 지원 기능:
  * 1. 4자리 방 코드 기반 실시간 방 생성/입장
- * 2. 학급 전체 무제한 다인 참여 (마피아 1~3명, 판사 1명, 시민 다수)
- * 3. 역할 자동 비밀 배정 및 클라이언트 암호화 분기
- * 4. 아침 조사 3분 동기화 타이머, 실시간 가위바위보 대결, 질문-대답 동기화
- * 5. 저녁 용의자 실시간 지목/투표, 판사 재판 & 마피아 암살, 감옥 수감/탈출 퀴즈 동기화
+ * 2. 방장(교사) 전용 관전 & 진행 컨트롤러 모드 (Spectator & Master Dashboard)
+ * 3. 학급 전체 무제한 다인 참여 (마피아 1~3명, 판사 1명, 시민 다수)
+ * 4. 역할 자동 비밀 배정: 방장을 제외한 학생들에게만 역할 배정
+ * 5. 전 학급 동시 진행 동기화 (신분확인 -> 사전연습 -> 3분 아침조사 -> 저녁투표 -> 밤/재판 -> 새벽발표 -> 승리)
  * 6. 브라우저 새로고침/네트워크 끊김 시 빠른 1클릭 세션 복구 (Local-First Reconnect)
  */
 
@@ -71,6 +71,7 @@ class MafiaMultiplayerManager {
                 grade: Number(info.grade) || 6,
                 classNum: Number(info.classNum) || 1,
                 studentNum: Number(info.studentNum) || 1,
+                isHost: !!info.isHost,
                 savedAt: Date.now()
             };
             localStorage.setItem('mafia_active_multi_session', JSON.stringify(payload));
@@ -119,7 +120,7 @@ class MafiaMultiplayerManager {
     }
 
     /**
-     * 신규 방 생성 (방장)
+     * 신규 방 생성 (방장/선생님 - 관전 모드)
      */
     async createRoom(hostStudentInfo, options = {}) {
         const mafiaCount = Number(options.mafiaCount) || 2;
@@ -144,7 +145,7 @@ class MafiaMultiplayerManager {
         const initialRoom = {
             roomId: roomId,
             hostId: this.mySessionId,
-            state: 'LOBBY', // LOBBY -> ROLE_REVEAL -> MORNING -> EVENING_NOMINATION -> NIGHT_TRIAL -> DAWN_RESULTS -> FINISHED
+            state: 'LOBBY', // LOBBY -> ROLE_REVEAL -> PRACTICE -> MORNING -> EVENING_NOMINATION -> NIGHT_TRIAL -> DAWN_RESULTS -> FINISHED
             round: 1,
             maxRounds: 3,
             config: {
@@ -157,12 +158,13 @@ class MafiaMultiplayerManager {
             players: {
                 [this.mySessionId]: {
                     id: this.mySessionId,
-                    name: hostStudentInfo.name,
-                    grade: hostStudentInfo.grade,
-                    classNum: hostStudentInfo.classNum,
-                    studentNum: hostStudentInfo.studentNum,
+                    name: hostStudentInfo.name || '선생님',
+                    grade: hostStudentInfo.grade || 6,
+                    classNum: hostStudentInfo.classNum || 1,
+                    studentNum: hostStudentInfo.studentNum || 0,
                     isHost: true,
-                    role: null, // 시작 시 배정
+                    isSpectator: true,
+                    role: 'HOST',
                     isJailed: false,
                     jailedRound: 0,
                     escapeQuizSolved: false,
@@ -173,10 +175,12 @@ class MafiaMultiplayerManager {
             currentSuspects: [],
             judgeDecision: null,
             mafiaTarget: null,
+            dawnReport: null,
+            winner: null,
             jailedHistory: [],
             caughtMafias: [],
             chatLogs: [
-                { time: Date.now(), msg: `선생님(방장) ${hostStudentInfo.name} 님이 방을 생성했습니다. (코드: ${roomId})` }
+                { time: Date.now(), msg: `선생님(방장)이 방을 생성했습니다. (코드: ${roomId}, 관전 모드)` }
             ],
             createdAt: Date.now(),
             updatedAt: Date.now()
@@ -187,13 +191,13 @@ class MafiaMultiplayerManager {
 
         this.currentRoomId = roomId;
         this.isHost = true;
-        this.saveActiveSession({ roomId, ...hostStudentInfo });
+        this.saveActiveSession({ roomId, ...hostStudentInfo, isHost: true });
         this.listenRoom(roomId);
         return roomId;
     }
 
     /**
-     * 방 참가하기
+     * 방 참가하기 (학생 플레이어)
      */
     async joinRoom(roomId, studentInfo) {
         const cleanId = String(roomId).trim();
@@ -205,12 +209,13 @@ class MafiaMultiplayerManager {
         }
 
         const data = snap.data();
-        if (data.state !== 'LOBBY' && !data.players[this.mySessionId]) {
+        const isAlreadyHost = (data.hostId === this.mySessionId);
+
+        if (data.state !== 'LOBBY' && !data.players[this.mySessionId] && !isAlreadyHost) {
             throw new Error(`이미 게임이 진행 중인 방입니다. 대기실 상태에서만 참가할 수 있습니다.`);
         }
 
         const updatedPlayers = { ...data.players };
-        const isAlreadyHost = (data.hostId === this.mySessionId);
 
         updatedPlayers[this.mySessionId] = {
             id: this.mySessionId,
@@ -219,7 +224,8 @@ class MafiaMultiplayerManager {
             classNum: studentInfo.classNum,
             studentNum: studentInfo.studentNum,
             isHost: isAlreadyHost,
-            role: data.players[this.mySessionId]?.role || null,
+            isSpectator: isAlreadyHost,
+            role: isAlreadyHost ? 'HOST' : (data.players[this.mySessionId]?.role || null),
             isJailed: data.players[this.mySessionId]?.isJailed || false,
             jailedRound: data.players[this.mySessionId]?.jailedRound || 0,
             escapeQuizSolved: data.players[this.mySessionId]?.escapeQuizSolved || false,
@@ -233,7 +239,7 @@ class MafiaMultiplayerManager {
 
         this.currentRoomId = cleanId;
         this.isHost = isAlreadyHost;
-        this.saveActiveSession({ roomId: cleanId, ...studentInfo });
+        this.saveActiveSession({ roomId: cleanId, ...studentInfo, isHost: isAlreadyHost });
         this.listenRoom(cleanId);
         return cleanId;
     }
@@ -279,49 +285,64 @@ class MafiaMultiplayerManager {
     }
 
     /**
-     * 게임 시작 및 역할 비밀 배정 (방장 전용)
+     * 게임 시작 및 역할 비밀 배정 (방장 전용 - 학생들에게만 역할 배정!)
      */
     async startGame() {
         if (!this.isHost || !this.currentRoomId || !this.roomData) return;
 
-        const playerIds = Object.keys(this.roomData.players);
-        if (playerIds.length < 4) {
-            throw new Error(`마피아 게임은 최소 4명 이상의 플레이어가 필요합니다. (현재 ${playerIds.length}명)`);
+        // 방장(관전자)을 제외한 실제 학생 플레이어들만 추출
+        const studentIds = Object.keys(this.roomData.players).filter(id => id !== this.roomData.hostId);
+        
+        if (studentIds.length < 2) {
+            throw new Error(`최소 2명 이상의 학생이 대기실에 참가해야 게임을 시작할 수 있습니다. (현재 참가 학생: ${studentIds.length}명)`);
         }
 
-        const totalPlayers = playerIds.length;
+        const totalStudents = studentIds.length;
         let mafiaCount = this.roomData.config.mafiaCount || 2;
-        if (mafiaCount >= totalPlayers - 1) {
-            mafiaCount = Math.max(1, Math.floor(totalPlayers / 3));
+        if (mafiaCount >= totalStudents) {
+            mafiaCount = Math.max(1, Math.floor(totalStudents / 2));
         }
 
-        // 무작위 셔플 후 역할 배정
-        const shuffled = [...playerIds].sort(() => Math.random() - 0.5);
+        // 학생 목록 무작위 셔플 후 역할 배정
+        const shuffled = [...studentIds].sort(() => Math.random() - 0.5);
         const rolesMap = {};
 
-        // 1명 판사 배정
-        const judgeId = shuffled[0];
-        rolesMap[judgeId] = 'JUDGE';
-
-        // mafiaCount명 마피아 배정
-        const mafiaIds = [];
-        for (let i = 1; i <= mafiaCount; i++) {
-            const mId = shuffled[i];
-            rolesMap[mId] = 'MAFIA';
-            mafiaIds.push(mId);
-        }
-
-        // 나머지 시민 배정
-        for (let i = mafiaCount + 1; i < totalPlayers; i++) {
-            rolesMap[shuffled[i]] = 'CITIZEN';
+        if (totalStudents === 2) {
+            // 2명인 경우 (테스트 모드): 1 마피아, 1 시민
+            rolesMap[shuffled[0]] = 'MAFIA';
+            rolesMap[shuffled[1]] = 'CITIZEN';
+        } else if (totalStudents === 3) {
+            // 3명인 경우: 1 마피아, 1 판사, 1 시민
+            rolesMap[shuffled[0]] = 'MAFIA';
+            rolesMap[shuffled[1]] = 'JUDGE';
+            rolesMap[shuffled[2]] = 'CITIZEN';
+        } else {
+            // 4명 이상인 경우: 1 판사 + mafiaCount 마피아 + 나머지 시민
+            rolesMap[shuffled[0]] = 'JUDGE';
+            for (let i = 1; i <= mafiaCount; i++) {
+                rolesMap[shuffled[i]] = 'MAFIA';
+            }
+            for (let i = mafiaCount + 1; i < totalStudents; i++) {
+                rolesMap[shuffled[i]] = 'CITIZEN';
+            }
         }
 
         const updatedPlayers = { ...this.roomData.players };
-        for (const pId of playerIds) {
-            updatedPlayers[pId].role = rolesMap[pId];
-            updatedPlayers[pId].isJailed = false;
-            updatedPlayers[pId].jailedRound = 0;
-            updatedPlayers[pId].escapeQuizSolved = false;
+        
+        // 방장은 HOST 관전자로 유지
+        if (updatedPlayers[this.roomData.hostId]) {
+            updatedPlayers[this.roomData.hostId].role = 'HOST';
+            updatedPlayers[this.roomData.hostId].isSpectator = true;
+            updatedPlayers[this.roomData.hostId].isHost = true;
+        }
+
+        // 학생들에게 배정된 역할 적용
+        for (const sId of studentIds) {
+            updatedPlayers[sId].role = rolesMap[sId];
+            updatedPlayers[sId].isJailed = false;
+            updatedPlayers[sId].jailedRound = 0;
+            updatedPlayers[sId].escapeQuizSolved = false;
+            updatedPlayers[sId].isSpectator = false;
         }
 
         const roomRef = doc(db, ROOMS_COLLECTION, this.currentRoomId);
@@ -330,39 +351,79 @@ class MafiaMultiplayerManager {
             round: 1,
             players: updatedPlayers,
             rolesAssigned: true,
+            nominations: {},
+            currentSuspects: [],
+            judgeDecision: null,
+            mafiaTarget: null,
+            dawnReport: null,
+            winner: null,
             chatLogs: [
                 ...this.roomData.chatLogs,
-                { time: Date.now(), msg: `🎲 게임이 시작되었습니다! 각자의 신분을 비밀리에 확인하세요.` }
+                { time: Date.now(), msg: `🎲 게임이 시작되었습니다! 선생님은 관전 모드로 전환되고 학생들에게 역할이 배정되었습니다.` }
             ],
             updatedAt: Date.now()
         });
     }
 
     /**
-     * 다음 페이즈로 전환 (방장 전용)
+     * 방장 진행 컨트롤: [사전 연습 시간 시작] (방장 전용)
      */
-    async advancePhase(nextState) {
-        if (!this.isHost || !this.currentRoomId || !this.roomData) return;
+    async startPracticePhase() {
+        if (!this.isHost || !this.currentRoomId) return;
         const roomRef = doc(db, ROOMS_COLLECTION, this.currentRoomId);
-
-        const payload = {
-            state: nextState,
+        await updateDoc(roomRef, {
+            state: 'PRACTICE',
+            chatLogs: [
+                ...(this.roomData?.chatLogs || []),
+                { time: Date.now(), msg: `📖 학습지 확인 및 영어 말하기 연습 시간이 시작되었습니다.` }
+            ],
             updatedAt: Date.now()
-        };
-
-        if (nextState === 'MORNING') {
-            payload.morningStartedAt = Date.now();
-            payload.nominations = {};
-            payload.judgeDecision = null;
-            payload.mafiaTarget = null;
-            payload.currentSuspects = [];
-        }
-
-        await updateDoc(roomRef, payload);
+        });
     }
 
     /**
-     * 용의자 지목 투표
+     * 방장 진행 컨트롤: [아침 조사 3분 시작] (방장 전용 - 전 학급 동시 타이머 시작)
+     */
+    async startMorningPhase(timerSeconds) {
+        if (!this.isHost || !this.currentRoomId) return;
+        const dur = Number(timerSeconds) || this.roomData?.config?.morningTimerSeconds || 180;
+        const roomRef = doc(db, ROOMS_COLLECTION, this.currentRoomId);
+        await updateDoc(roomRef, {
+            state: 'MORNING',
+            morningStartedAt: Date.now(),
+            morningTimerDuration: dur,
+            nominations: {},
+            currentSuspects: [],
+            judgeDecision: null,
+            mafiaTarget: null,
+            dawnReport: null,
+            chatLogs: [
+                ...(this.roomData?.chatLogs || []),
+                { time: Date.now(), msg: `🌅 제 ${this.roomData?.round || 1}라운드 아침 조사 시간이 시작되었습니다! (제한시간: ${Math.floor(dur / 60)}분)` }
+            ],
+            updatedAt: Date.now()
+        });
+    }
+
+    /**
+     * 방장 진행 컨트롤: [아침 조사 종료 & 저녁 투표 시작] (방장 전용)
+     */
+    async startEveningNominationPhase() {
+        if (!this.isHost || !this.currentRoomId) return;
+        const roomRef = doc(db, ROOMS_COLLECTION, this.currentRoomId);
+        await updateDoc(roomRef, {
+            state: 'EVENING_NOMINATION',
+            nominations: {},
+            chatLogs: [
+                ...(this.roomData?.chatLogs || []),
+                { time: Date.now(), msg: `🌆 아침 조사가 종료되었습니다. 모든 학생은 용의자 투표를 진행하세요!` }
+            ],
+            updatedAt: Date.now()
+        });
+    }
+
+    /**
+     * 학생 액션: 용의자 지목 투표
      */
     async submitNomination(targetSessionId) {
         if (!this.currentRoomId || !this.roomData) return;
@@ -370,34 +431,184 @@ class MafiaMultiplayerManager {
         const currentNoms = { ...(this.roomData.nominations || {}) };
         currentNoms[this.mySessionId] = targetSessionId;
 
+        const voterName = this.roomData.players[this.mySessionId]?.name || '학생';
+        const targetName = this.roomData.players[targetSessionId]?.name || '용의자';
+
         await updateDoc(roomRef, {
             nominations: currentNoms,
+            chatLogs: [
+                ...(this.roomData.chatLogs || []),
+                { time: Date.now(), msg: `🗳️ ${voterName} 학생이 ${targetName} 학생을 지목했습니다.` }
+            ],
             updatedAt: Date.now()
         });
     }
 
     /**
-     * 판사 판결 (용의자 1명 수감)
+     * 방장 진행 컨트롤: [투표 마감 및 밤/재판 페이즈 진행] (방장 전용)
      */
-    async submitJudgeDecision(targetSessionId) {
+    async startNightTrialPhase(manualSuspects = null) {
+        if (!this.isHost || !this.currentRoomId || !this.roomData) return;
+        
+        let suspects = manualSuspects;
+        if (!suspects || suspects.length === 0) {
+            // nominations 투표 결과 집계
+            const counts = {};
+            const noms = this.roomData.nominations || {};
+            Object.values(noms).forEach(tid => {
+                if (tid) counts[tid] = (counts[tid] || 0) + 1;
+            });
+
+            // 득표순 정렬
+            const sorted = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+            const targetCount = (this.roomData.round === 1) ? 3 : 1;
+            suspects = sorted.slice(0, targetCount);
+
+            // 투표가 없었을 경우 생존 학생 중 무작위 선발
+            if (suspects.length === 0) {
+                const aliveStudents = Object.values(this.roomData.players).filter(p => !p.isHost && !p.isJailed);
+                suspects = aliveStudents.slice(0, targetCount).map(p => p.id);
+            }
+        }
+
+        const roomRef = doc(db, ROOMS_COLLECTION, this.currentRoomId);
+        await updateDoc(roomRef, {
+            state: 'NIGHT_TRIAL',
+            currentSuspects: suspects,
+            judgeDecision: null,
+            mafiaTarget: null,
+            chatLogs: [
+                ...(this.roomData.chatLogs || []),
+                { time: Date.now(), msg: `⚖️ 투표가 마감되었습니다. 법정 용의자 심문 및 밤 페이즈가 시작됩니다.` }
+            ],
+            updatedAt: Date.now()
+        });
+    }
+
+    /**
+     * 판사 학생 액션: 판결 제출
+     */
+    async submitJudgeDecision(verdict, targetSessionId) {
         if (!this.currentRoomId || !this.roomData) return;
         const roomRef = doc(db, ROOMS_COLLECTION, this.currentRoomId);
-
         await updateDoc(roomRef, {
-            judgeDecision: targetSessionId,
+            judgeDecision: {
+                verdict: verdict, // 'guilty' or 'innocent'
+                targetSessionId: targetSessionId,
+                decidedAt: Date.now()
+            },
             updatedAt: Date.now()
         });
     }
 
     /**
-     * 마피아 암살/납치 지목 (시민 1명 수감)
+     * 마피아 학생 액션: 밤의 암살(수감) 목표 지목
      */
     async submitMafiaTarget(targetSessionId) {
         if (!this.currentRoomId || !this.roomData) return;
         const roomRef = doc(db, ROOMS_COLLECTION, this.currentRoomId);
-
         await updateDoc(roomRef, {
             mafiaTarget: targetSessionId,
+            updatedAt: Date.now()
+        });
+    }
+
+    /**
+     * 방장 진행 컨트롤: [새벽 결과 발표] (방장 전용 - 판결 및 암살 정산)
+     */
+    async resolveDawnAndResults() {
+        if (!this.isHost || !this.currentRoomId || !this.roomData) return;
+
+        const updatedPlayers = { ...this.roomData.players };
+        const caughtMafias = [...(this.roomData.caughtMafias || [])];
+        const currentRound = this.roomData.round || 1;
+
+        let judgeJailedName = null;
+        let judgeJailedRole = null;
+        let mafiaJailedName = null;
+
+        // 1. 판사 판결 정산
+        const jDec = this.roomData.judgeDecision;
+        if (jDec && jDec.verdict === 'guilty' && jDec.targetSessionId && updatedPlayers[jDec.targetSessionId]) {
+            const p = updatedPlayers[jDec.targetSessionId];
+            p.isJailed = true;
+            p.jailedRound = currentRound;
+            p.jailedBy = 'JUDGE';
+            judgeJailedName = p.name;
+            judgeJailedRole = p.role;
+            if (p.role === 'MAFIA' && !caughtMafias.includes(p.id)) {
+                caughtMafias.push(p.id);
+            }
+        }
+
+        // 2. 마피아 습격 정산
+        const mTargetId = this.roomData.mafiaTarget;
+        if (mTargetId && updatedPlayers[mTargetId] && !updatedPlayers[mTargetId].isJailed) {
+            const p = updatedPlayers[mTargetId];
+            p.isJailed = true;
+            p.jailedRound = currentRound;
+            p.jailedBy = 'MAFIA';
+            mafiaJailedName = p.name;
+        }
+
+        // 3. 승리 조건 판정
+        const studentList = Object.values(updatedPlayers).filter(p => !p.isHost);
+        const aliveMafias = studentList.filter(p => p.role === 'MAFIA' && !p.isJailed).length;
+        const aliveCitizens = studentList.filter(p => p.role !== 'MAFIA' && !p.isJailed).length;
+
+        let winner = null;
+        if (aliveMafias === 0) {
+            winner = 'CITIZEN';
+        } else if (aliveMafias >= aliveCitizens) {
+            winner = 'MAFIA';
+        } else if (currentRound >= (this.roomData.maxRounds || 3)) {
+            winner = (aliveMafias > 0) ? 'MAFIA' : 'CITIZEN';
+        }
+
+        const roomRef = doc(db, ROOMS_COLLECTION, this.currentRoomId);
+        await updateDoc(roomRef, {
+            state: winner ? 'FINISHED' : 'DAWN_RESULTS',
+            players: updatedPlayers,
+            caughtMafias: caughtMafias,
+            winner: winner,
+            dawnReport: {
+                round: currentRound,
+                judgeJailedName,
+                judgeJailedRole,
+                mafiaJailedName,
+                winner
+            },
+            chatLogs: [
+                ...(this.roomData.chatLogs || []),
+                { time: Date.now(), msg: `🌞 새벽 결과: 판결로 [${judgeJailedName || '없음'}], 습격으로 [${mafiaJailedName || '없음'}] 수감` }
+            ],
+            updatedAt: Date.now()
+        });
+    }
+
+    /**
+     * 방장 진행 컨트롤: [다음 라운드 진행] (방장 전용)
+     */
+    async advanceToNextRound() {
+        if (!this.isHost || !this.currentRoomId || !this.roomData) return;
+        const nextRound = (this.roomData.round || 1) + 1;
+        const dur = this.roomData?.config?.morningTimerSeconds || 180;
+
+        const roomRef = doc(db, ROOMS_COLLECTION, this.currentRoomId);
+        await updateDoc(roomRef, {
+            state: 'MORNING',
+            round: nextRound,
+            morningStartedAt: Date.now(),
+            morningTimerDuration: dur,
+            nominations: {},
+            currentSuspects: [],
+            judgeDecision: null,
+            mafiaTarget: null,
+            dawnReport: null,
+            chatLogs: [
+                ...(this.roomData.chatLogs || []),
+                { time: Date.now(), msg: `🌅 제 ${nextRound}라운드 아침 조사가 시작되었습니다!` }
+            ],
             updatedAt: Date.now()
         });
     }
@@ -417,14 +628,19 @@ class MafiaMultiplayerManager {
             }
         }
 
+        const sName = updatedPlayers[this.mySessionId]?.name || '학생';
         await updateDoc(roomRef, {
             players: updatedPlayers,
+            chatLogs: [
+                ...(this.roomData.chatLogs || []),
+                { time: Date.now(), msg: success ? `🎉 ${sName} 학생이 감옥 탈출 퀴즈를 맞혀 석방되었습니다!` : `❌ ${sName} 학생이 감옥 탈출 퀴즈에 실패했습니다.` }
+            ],
             updatedAt: Date.now()
         });
     }
 
     /**
-     * 방 나가기
+     * 방 나가기 / 삭제
      */
     async leaveRoom() {
         if (!this.currentRoomId) return;
