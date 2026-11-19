@@ -271,3 +271,35 @@ body {
     transform: scale(0.95);
 }
 
+.unit-scroll-container {
+    max-height: 360px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(244, 63, 94, 0.4) rgba(15, 23, 42, 0.6);
+}
+
+.unit-scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.unit-scroll-container::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 9999px;
+}
+
+.unit-scroll-container::-webkit-scrollbar-thumb {
+    background-color: rgba(244, 63, 94, 0.4);
+    border-radius: 9999px;
+}
+
+.unit-filter-btn {
+    transition: all 0.15s ease;
+}
+
+.unit-filter-btn.active {
+    background-color: rgba(244, 63, 94, 0.2) !important;
+    color: #fda4af !important;
+    border-color: rgba(244, 63, 94, 0.4) !important;
+}
+
+

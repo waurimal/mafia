@@ -1934,6 +1934,31 @@
                 };
             });
 
+            // 학기별 단원 필터 버튼 그룹
+            document.querySelectorAll('.unit-filter-btn').forEach(btn => {
+                btn.onclick = () => {
+                    const filter = btn.dataset.filter;
+                    this.playSound('click');
+                    document.querySelectorAll('.unit-filter-btn').forEach(b => {
+                        b.classList.remove('active', 'bg-rose-500/20', 'text-rose-300', 'border-rose-500/40');
+                        b.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-800');
+                    });
+                    btn.classList.add('active', 'bg-rose-500/20', 'text-rose-300', 'border-rose-500/40');
+                    btn.classList.remove('bg-slate-900', 'text-slate-400', 'border-slate-800');
+
+                    document.querySelectorAll('.unit-card-btn').forEach(card => {
+                        const sem = card.dataset.semester;
+                        if (filter === 'all') {
+                            card.style.display = 'flex';
+                        } else if (filter === 'sem1') {
+                            card.style.display = (sem === '1') ? 'flex' : 'none';
+                        } else if (filter === 'sem2') {
+                            card.style.display = (sem === '2') ? 'flex' : 'none';
+                        }
+                    });
+                };
+            });
+
             // 로비 문제 읽기 & 말하기 연습 모달
             const previewPracticeBtn = document.getElementById('previewUnitQuestionsBtn');
             const closePracticeBtn = document.getElementById('closeUnitPracticeModalBtn');
