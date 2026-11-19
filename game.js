@@ -77,6 +77,38 @@
             // 멀티플레이어 관리자 인스턴스
             this.multiplayer = null;
             this.hostShowSecretRoles = true;
+            this.roundQuestionOrder = null;
+        }
+
+        generateRoundQuestionOrder() {
+            const indices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+            for (let i = indices.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [indices[i], indices[j]] = [indices[j], indices[i]];
+            }
+            this.roundQuestionOrder = indices;
+            return indices;
+        }
+
+        getRoundQA(role = 'CITIZEN') {
+            const baseList = MafiaQuestions.getWorksheetQA(role);
+            if (!this.roundQuestionOrder || this.roundQuestionOrder.length !== baseList.length) {
+                this.generateRoundQuestionOrder();
+            }
+            return this.roundQuestionOrder.map((origIdx, idx) => {
+                const item = baseList[origIdx] || baseList[idx];
+                return {
+                    ...item,
+                    originalId: item.id,
+                    id: idx + 1,
+                    roundDisplayId: idx + 1
+                };
+            });
+        }
+
+        getRoundQAById(displayId, role = 'CITIZEN') {
+            const list = this.getRoundQA(role);
+            return list.find(q => q.id === Number(displayId)) || list[0];
         }
 
         /**
@@ -156,6 +188,7 @@
         setUnit(unitId) {
             if (!MafiaQuestions.setCurrentUnit(unitId)) return;
             this.selectedUnit = unitId;
+            this.roundQuestionOrder = null;
 
             const unit = MafiaQuestions.getCurrentUnit();
 
@@ -364,6 +397,7 @@
             this.totalTimerDuration = timerSelect ? Number(timerSelect.value) || 180 : 180;
 
             this.round = 1;
+            this.generateRoundQuestionOrder();
             this.jailedPlayers = [];
             this.caughtMafias = [];
             this.userMemo = {};
@@ -403,6 +437,7 @@
                 role: roleAssignment[p.id],
                 isJailed: false,
                 jailedRound: 0,
+                warnings: 0,
                 escapeQuizSolved: false
             }));
 
@@ -569,7 +604,7 @@
                 }
             }
 
-            const qaList = MafiaQuestions.getWorksheetQA(this.currentRole);
+            const qaList = this.getRoundQA(this.currentRole);
             if (listContainer) {
                 listContainer.innerHTML = qaList.map(qa => {
                     const qText = MafiaQuestions.formatQuestion(qa);
@@ -617,6 +652,9 @@
         startMorningPhase() {
             this.phase = 'MORNING';
             this.timerSeconds = this.totalTimerDuration;
+            if (!this.roundQuestionOrder) {
+                this.generateRoundQuestionOrder();
+            }
             this.renderIngameHeader();
             this.renderClassmatesArea();
             this.renderWorksheetTable();
@@ -701,6 +739,35 @@
                     badgeMyRole.className = 'px-3 py-1 rounded-full text-xs font-black role-badge-citizen border border-emerald-400';
                 }
             }
+
+            // 경고 배지 업데이트
+            const badgeWarning = document.getElementById('headerWarningBadge');
+            let currentWarnings = 0;
+            let isUserJailed = false;
+            if (this.multiplayer?.isMultiplayer && this.multiplayer?.roomData) {
+                const myP = this.multiplayer.roomData.players?.[this.multiplayer.mySessionId];
+                currentWarnings = myP?.warnings || 0;
+                isUserJailed = !!myP?.isJailed;
+            } else {
+                const userP = this.players.find(p => p.isUser);
+                currentWarnings = userP?.warnings || 0;
+                isUserJailed = !!userP?.isJailed;
+            }
+
+            if (badgeWarning) {
+                if (currentWarnings > 0 || isUserJailed) {
+                    badgeWarning.classList.remove('hidden');
+                    if (isUserJailed || currentWarnings >= 3) {
+                        badgeWarning.className = 'px-3 py-1 rounded-full text-xs font-black bg-rose-600 text-white border border-rose-400 animate-pulse';
+                        badgeWarning.textContent = `🚨 감옥 수감 (경고 ${Math.max(currentWarnings, 3)}/3)`;
+                    } else {
+                        badgeWarning.className = 'px-3 py-1 rounded-full text-xs font-black bg-amber-500/20 text-amber-300 border border-amber-500/40';
+                        badgeWarning.textContent = `⚠️ 경고 ${currentWarnings}/3`;
+                    }
+                } else {
+                    badgeWarning.classList.add('hidden');
+                }
+            }
         }
 
         // ────────────────────────────────────────────────────────
@@ -710,6 +777,25 @@
             const container = document.getElementById('classmatesListContainer');
             if (!container) return;
             container.innerHTML = '';
+
+            const userPlayer = this.players.find(p => p.isUser);
+            const isUserJailed = userPlayer ? userPlayer.isJailed : false;
+
+            if (isUserJailed) {
+                const jailedNotice = document.createElement('div');
+                jailedNotice.className = 'col-span-full p-3.5 mb-2 rounded-2xl bg-rose-950/60 border border-rose-500/60 text-rose-200 text-xs font-black flex items-center justify-between shadow-lg';
+                jailedNotice.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        <span class="text-xl">🔒</span>
+                        <div>
+                            <div>경고 3회 누적으로 감옥에 수감되어 있습니다!</div>
+                            <div class="text-[10px] text-rose-300 font-normal">수감 중에는 급우들과 대화/대결할 수 없습니다. 새벽 페이즈의 탈출 퀴즈를 기다리세요.</div>
+                        </div>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-full bg-rose-600 text-white text-[10px] font-bold">대결 불가</span>
+                `;
+                container.appendChild(jailedNotice);
+            }
 
             const activeClassmates = this.players.filter(p => !p.isUser);
 
@@ -764,8 +850,8 @@
 
                     <!-- 대화 / 가위바위보 신청 버튼 -->
                     <div>
-                        <button type="button" class="btn-challenge-duel w-full py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-xs shadow-md transition flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed" ${isJailed || this.phase !== 'MORNING' ? 'disabled' : ''}>
-                            <i class="fa-solid fa-hand-fist"></i> 만나서 가위바위보 대결
+                        <button type="button" class="btn-challenge-duel w-full py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-xs shadow-md transition flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed" ${isJailed || isUserJailed || this.phase !== 'MORNING' ? 'disabled' : ''}>
+                            <i class="fa-solid fa-hand-fist"></i> ${isUserJailed ? '감옥 수감 중 (대결 불가)' : '만나서 가위바위보 대결'}
                         </button>
                     </div>
                 `;
@@ -910,7 +996,7 @@
             const qPreview = document.getElementById('duelAskQuestionPreview');
             if (!duelStepAsk || !selectQ) return;
 
-            const qaList = MafiaQuestions.getWorksheetQA('CITIZEN');
+            const qaList = this.getRoundQA('CITIZEN');
 
             selectQ.innerHTML = qaList.map(q => {
                 const qText = MafiaQuestions.formatQuestion(q);
@@ -924,7 +1010,7 @@
 
             const updatePreview = () => {
                 const curId = Number(selectQ.value);
-                const qa = MafiaQuestions.getQAById(curId, 'CITIZEN');
+                const qa = this.getRoundQAById(curId, 'CITIZEN');
                 const qText = MafiaQuestions.formatQuestion(qa);
                 if (qPreview) {
                     qPreview.textContent = `🗣️ "${qText}"`;
@@ -941,7 +1027,7 @@
             if (!this.activeDuel) return;
             const selectQ = document.getElementById('duelAskQuestionSelect');
             const qId = Number(selectQ ? selectQ.value : 1);
-            const qaCitizen = MafiaQuestions.getQAById(qId, 'CITIZEN');
+            const qaCitizen = this.getRoundQAById(qId, 'CITIZEN');
             const targetMate = this.activeDuel.target;
 
             // 영어 질문 음성 재생
@@ -955,7 +1041,7 @@
             let isMatched = true;
 
             if (botRole === 'MAFIA') {
-                const qaMafia = MafiaQuestions.getQAById(qId, 'MAFIA');
+                const qaMafia = this.getRoundQAById(qId, 'MAFIA');
                 botAnswer = MafiaQuestions.formatAnswer(qaMafia);
                 if (qaMafia.isMafiaDifference) {
                     isMatched = false; // 대답이 다름!
@@ -975,7 +1061,7 @@
                 matched: isMatched
             });
 
-            this.showDuelResultStep(questionSentence, botAnswer, isMatched);
+            this.showDuelResultStep(questionSentence, botAnswer, isMatched, false);
         }
 
         // 진 경우: 상대방이 나에게 질문 -> 내가 대답
@@ -984,12 +1070,12 @@
             const questionBubble = document.getElementById('botAskedQuestionBubble');
             const answerOptionsContainer = document.getElementById('userAnswerOptionsContainer');
 
-            const myWorksheetQA = MafiaQuestions.getWorksheetQA(this.currentRole);
+            const myWorksheetQA = this.getRoundQA(this.currentRole);
             const randIdx = Math.floor(Math.random() * myWorksheetQA.length);
             const myCorrectQA = myWorksheetQA[randIdx];
             const randId = myCorrectQA.id;
 
-            const qaCitizen = MafiaQuestions.getQAById(randId, 'CITIZEN');
+            const qaCitizen = this.getRoundQAById(randId, 'CITIZEN');
             const botQuestion = MafiaQuestions.formatQuestion(qaCitizen);
 
             if (questionBubble) questionBubble.textContent = `🗣️ ${this.activeDuel.target.name}: "${botQuestion}"`;
@@ -1019,14 +1105,14 @@
                     const chosenText = b.querySelector('span').textContent;
                     this.speak(chosenText);
                     const isCorrect = (chosenText === myCorrectAnswer);
-                    this.showDuelResultStep(botQuestion, chosenText, isCorrect);
+                    this.showDuelResultStep(botQuestion, chosenText, isCorrect, true);
                 });
             });
 
             duelStepAnswer.classList.remove('hidden');
         }
 
-        showDuelResultStep(questionText, answerText, isSuccess) {
+        showDuelResultStep(questionText, answerText, isSuccess, isUserAnswer = false) {
             const duelStepAsk = document.getElementById('duelStepAsk');
             const duelStepAnswer = document.getElementById('duelStepAnswer');
             const duelStepResult = document.getElementById('duelStepResult');
@@ -1035,27 +1121,85 @@
             if (duelStepAsk) duelStepAsk.classList.add('hidden');
             if (duelStepAnswer) duelStepAnswer.classList.add('hidden');
 
+            const userPlayer = this.players.find(p => p.isUser);
+            let warningBoxHtml = '';
+
+            if (isUserAnswer) {
+                if (!isSuccess && userPlayer) {
+                    userPlayer.warnings = (userPlayer.warnings || 0) + 1;
+                    this.playSound('wrong');
+
+                    if (userPlayer.warnings >= 3) {
+                        userPlayer.isJailed = true;
+                        userPlayer.jailedBy = '경고 3회 누적 (부적절한 대답)';
+                        userPlayer.jailedRound = this.round;
+                        if (!this.jailedPlayers.some(p => p.id === userPlayer.id)) {
+                            this.jailedPlayers.push(userPlayer);
+                        }
+                        this.logJournal(`🚨 [감옥 수감] ${userPlayer.name}(나) 학생이 바르지 않은 대답으로 경고 3회가 누적되어 즉시 감옥에 수감되었습니다!`);
+                        warningBoxHtml = `
+                            <div class="p-3.5 rounded-xl bg-rose-950/80 border-2 border-rose-500 text-rose-200 space-y-1">
+                                <div class="font-black text-xs flex items-center justify-between">
+                                    <span>🚨 [경고 3회 누적] 바르지 않은 대답을 하였습니다!</span>
+                                    <span class="px-2 py-0.5 rounded bg-rose-600 text-white font-black text-[10px] animate-pulse">🔒 감옥 수감</span>
+                                </div>
+                                <p class="text-[11px] text-rose-300">경고 3회가 누적되어 즉시 감옥에 수감되었습니다. 수감 중에는 아침 조사 및 대결이 불가능합니다.</p>
+                            </div>
+                        `;
+                    } else {
+                        this.logJournal(`⚠️ [경고 부여] ${userPlayer.name}(나) 학생이 바르지 않은 대답을 하여 경고를 받았습니다. (누적: ${userPlayer.warnings}/3회)`);
+                        warningBoxHtml = `
+                            <div class="p-3 rounded-xl bg-amber-950/60 border border-amber-500/50 text-amber-200 space-y-1">
+                                <div class="font-black text-xs flex items-center justify-between">
+                                    <span>⚠️ [경고 부여] 바르지 않은 대답을 하였습니다! (현재 경고: ${userPlayer.warnings}/3회)</span>
+                                </div>
+                                <p class="text-[11px] text-amber-300">경고 3회가 누적되면 감옥에 수감되니 올바른 표현을 확인하세요!</p>
+                            </div>
+                        `;
+                    }
+                } else if (isSuccess) {
+                    this.playSound('correct');
+                    warningBoxHtml = `
+                        <div class="p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-emerald-300 text-xs font-bold flex items-center gap-1.5">
+                            <i class="fa-solid fa-check"></i> 올바른 대답입니다! 학습지에 맞는 영어 표현을 잘 말했습니다.
+                        </div>
+                    `;
+                }
+            }
+
             resultBox.innerHTML = `
                 <div class="p-4 rounded-2xl bg-slate-900 border ${isSuccess ? 'border-emerald-500/50' : 'border-rose-500/50'} space-y-2">
                     <div class="text-xs text-slate-400">질문 (Question):</div>
                     <div class="text-sm font-black text-amber-300">"${questionText}"</div>
                     <div class="text-xs text-slate-400 mt-2">대답 (Answer):</div>
                     <div class="text-sm font-black ${isSuccess ? 'text-emerald-400' : 'text-rose-400'}">"${answerText}"</div>
-                    <div class="text-xs font-bold pt-2 border-t border-slate-800 ${isSuccess ? 'text-emerald-300' : 'text-rose-300'}">
-                        ${isSuccess ? '✔ 시민의 표준 답변과 일치합니다.' : '🚨 [경고] 시민의 표준 답변과 다릅니다! 마피아일 확률이 높습니다!'}
-                    </div>
+                    ${!isUserAnswer ? `
+                        <div class="text-xs font-bold pt-2 border-t border-slate-800 ${isSuccess ? 'text-emerald-300' : 'text-rose-300'}">
+                            ${isSuccess ? '✔ 시민의 표준 답변과 일치합니다.' : '🚨 [마피아 단서] 시민의 표준 답변과 다릅니다! 마피아일 확률이 매우 높습니다!'}
+                        </div>
+                    ` : ''}
+                    ${warningBoxHtml}
                 </div>
             `;
 
             duelStepResult.classList.remove('hidden');
             this.renderClassmatesArea();
-            this.logJournal(`💬 대화 기록: ${questionText} ➔ ${answerText} (${isSuccess ? '일치' : '불일치 ❌'})`);
+            this.renderIngameHeader();
+            this.logJournal(`💬 대화 기록: ${questionText} ➔ ${answerText} (${isSuccess ? '성공/일치' : '실패/불일치 ❌'})`);
         }
 
         closeDuelModal() {
             const modal = document.getElementById('duelModal');
             if (modal) modal.classList.add('hidden');
             this.activeDuel = null;
+
+            const userPlayer = this.players.find(p => p.isUser);
+            if (userPlayer && userPlayer.isJailed && userPlayer.warnings >= 3 && !userPlayer._jailAlertShown) {
+                userPlayer._jailAlertShown = true;
+                alert('🚨 경고가 3회 누적되어 감옥에 수감되었습니다!\n수감 중에는 아침 조사 및 대결 참여가 제한됩니다. 새벽에 영어 특별 탈출 퀴즈를 기대하세요!');
+                this.renderClassmatesArea();
+                this.renderIngameHeader();
+            }
         }
 
         // AI 봇들끼리의 조사 시뮬레이션 로그 생성
@@ -1076,13 +1220,13 @@
                     bot2 = activeBots[Math.floor(Math.random() * activeBots.length)];
                 }
 
-                const citizenQA = MafiaQuestions.getWorksheetQA('CITIZEN');
+                const citizenQA = this.getRoundQA('CITIZEN');
                 const randQ = citizenQA[Math.floor(Math.random() * citizenQA.length)];
                 const qText = MafiaQuestions.formatQuestion(randQ);
                 let ansText = '';
 
                 if (bot2.role === 'MAFIA') {
-                    const mafiaQA = MafiaQuestions.getQAById(randQ.id, 'MAFIA');
+                    const mafiaQA = this.getRoundQAById(randQ.id, 'MAFIA');
                     ansText = MafiaQuestions.formatAnswer(mafiaQA);
                 } else {
                     ansText = MafiaQuestions.formatAnswer(randQ);
@@ -1112,7 +1256,8 @@
             desc.textContent = `주의: 이유는 말하지 않고 의심되는 친구 이름만 선택합니다. (최종 법정 용의자: ${targetCount}명 선출)`;
 
             container.innerHTML = '';
-            const eligiblePlayers = this.players.filter(p => !p.isJailed);
+            // 나를 제외하고 지목 대상 후보 표시 (수감자 및 본인 제외)
+            const eligiblePlayers = this.players.filter(p => !p.isJailed && !p.isUser);
 
             eligiblePlayers.forEach(p => {
                 const memo = this.userMemo[p.id] || {};
@@ -1123,7 +1268,7 @@
                     <div class="flex items-center gap-3">
                         <span class="text-2xl">${p.avatar || '👦'}</span>
                         <div>
-                            <div class="text-sm font-black text-white">${p.name} ${p.isUser ? '(나)' : ''}</div>
+                            <div class="text-sm font-black text-white">${p.name}</div>
                             <div class="text-[10px] text-slate-400">${memo.note ? '메모: ' + memo.note : '특이사항 없음'}</div>
                         </div>
                     </div>
@@ -1479,6 +1624,8 @@
                 if (userPlayer) {
                     userPlayer.isJailed = false;
                     userPlayer.escapeQuizSolved = true;
+                    userPlayer.warnings = 0;
+                    userPlayer._jailAlertShown = false;
                 }
                 alert("🎉 정답입니다! 영어 특별 문제를 맞혀 기적적으로 감옥 탈출에 성공했습니다!");
                 this.logJournal(`🏃💨 [탈출 성공] 내가 영어 특별 문제를 맞혀 감옥에서 탈출했습니다!`);
@@ -1497,6 +1644,8 @@
                     this.finishGame();
                 } else {
                     this.round++;
+                    this.generateRoundQuestionOrder();
+                    this.renderWorksheetTable();
                     this.startMorningPhase();
                 }
             }, 1500);
@@ -1604,7 +1753,7 @@
             if (titleEl) titleEl.textContent = `나의 비밀 학습지 (${unit.name} 10문항)`;
             if (!container) return;
 
-            const qaList = MafiaQuestions.getWorksheetQA(this.currentRole);
+            const qaList = this.getRoundQA(this.currentRole);
             container.innerHTML = qaList.map(qa => {
                 const qText = MafiaQuestions.formatQuestion(qa);
                 const aText = MafiaQuestions.formatAnswer(qa);
@@ -2160,6 +2309,12 @@
                     statusBadge = '<span class="text-[10px] text-emerald-400 font-bold">활동 중</span>';
                 }
 
+                const warnings = s.warnings || 0;
+                let warningBadge = '';
+                if (warnings > 0) {
+                    warningBadge = `<span class="text-[10px] font-black px-1.5 py-0.5 rounded-md ${warnings >= 3 ? 'bg-rose-500 text-white animate-pulse' : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'}">⚠️ 경고 ${warnings}/3</span>`;
+                }
+
                 return `
                     <div class="p-3 rounded-2xl bg-slate-950 border ${isJailed ? 'border-rose-900 bg-rose-950/20' : 'border-slate-800'} flex flex-col justify-between gap-2 transition hover:border-slate-700">
                         <div class="flex items-center justify-between">
@@ -2170,13 +2325,34 @@
                             <div class="text-xs font-black text-white truncate">${s.name}</div>
                             <div class="text-[10px] text-slate-400">${s.grade}학년 ${s.classNum}반 ${s.studentNum}번</div>
                         </div>
-                        <div class="pt-1.5 border-t border-slate-800/80 flex items-center justify-between">
-                            ${statusBadge}
-                            ${(data.state === 'EVENING_NOMINATION' && vCount > 0) ? `<span class="text-[10px] font-black text-rose-300 bg-rose-500/20 px-1.5 py-0.5 rounded-md border border-rose-500/30">${vCount}표</span>` : ''}
+                        <div class="pt-1.5 border-t border-slate-800/80 flex items-center justify-between gap-1 flex-wrap">
+                            <div class="flex items-center gap-1 flex-wrap">
+                                ${statusBadge}
+                                ${warningBadge}
+                            </div>
+                            <div class="flex items-center gap-1">
+                                ${(data.state === 'EVENING_NOMINATION' && vCount > 0) ? `<span class="text-[10px] font-black text-rose-300 bg-rose-500/20 px-1.5 py-0.5 rounded-md border border-rose-500/30">${vCount}표</span>` : ''}
+                                ${!isJailed ? `
+                                    <button type="button" class="btn-host-warn-student px-1.5 py-0.5 rounded text-[10px] font-black bg-amber-500/20 hover:bg-amber-500/40 text-amber-300 border border-amber-500/40 cursor-pointer" data-sid="${s.id}" title="바르지 않은 대답 시 경고 1회 부여 (3회 시 감옥행)">
+                                        ⚠️ +1
+                                    </button>
+                                ` : ''}
+                            </div>
                         </div>
                     </div>
                 `;
             }).join('');
+
+            container.querySelectorAll('.btn-host-warn-student').forEach(btn => {
+                btn.onclick = (e) => {
+                    e.stopPropagation();
+                    const sid = btn.dataset.sid;
+                    const st = data.players[sid];
+                    if (sid && confirm(`${st?.name || '해당'} 학생에게 바르지 않은 대답/행동에 대한 경고 1회를 부여하시겠습니까?\n(3회 누적 시 즉시 감옥에 수감됩니다)`)) {
+                        this.multiplayer.giveStudentWarning(sid);
+                    }
+                };
+            });
         }
 
         renderHostVotingSummary(data) {
@@ -2262,6 +2438,9 @@
 
             this.currentRole = myPlayer.role;
             this.round = data.round || 1;
+            if (data.roundQuestionOrder && Array.isArray(data.roundQuestionOrder)) {
+                this.roundQuestionOrder = data.roundQuestionOrder;
+            }
             this.players = Object.values(data.players)
                 .filter(p => !p.isHost)
                 .map(p => ({
@@ -2384,8 +2563,8 @@
             const mySessionId = this.multiplayer.mySessionId;
             const myVote = data.nominations ? data.nominations[mySessionId] : null;
 
-            // 투표 대상 학생 목록 (방장 및 수감된 학생 제외)
-            const eligible = Object.values(data.players).filter(p => !p.isHost && !p.isJailed);
+            // 투표 대상 학생 목록 (방장 및 수감된 학생, 그리고 본인 제외)
+            const eligible = Object.values(data.players).filter(p => !p.isHost && !p.isJailed && p.id !== mySessionId);
 
             container.innerHTML = eligible.map(p => {
                 const isSelected = (myVote === p.id);

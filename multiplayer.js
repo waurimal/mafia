@@ -62,6 +62,15 @@ class MafiaMultiplayerManager {
         this.gameEngine = null;
     }
 
+    generateQuestionOrder() {
+        const indices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        for (let i = indices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+        }
+        return indices;
+    }
+
     saveActiveSession(info) {
         if (!info || !info.roomId) return;
         try {
@@ -147,6 +156,7 @@ class MafiaMultiplayerManager {
             hostId: this.mySessionId,
             state: 'LOBBY', // LOBBY -> ROLE_REVEAL -> PRACTICE -> MORNING -> EVENING_NOMINATION -> NIGHT_TRIAL -> DAWN_RESULTS -> FINISHED
             round: 1,
+            roundQuestionOrder: this.generateQuestionOrder(),
             maxRounds: 3,
             config: {
                 mafiaCount: mafiaCount,
@@ -341,6 +351,7 @@ class MafiaMultiplayerManager {
             updatedPlayers[sId].role = rolesMap[sId];
             updatedPlayers[sId].isJailed = false;
             updatedPlayers[sId].jailedRound = 0;
+            updatedPlayers[sId].warnings = 0;
             updatedPlayers[sId].escapeQuizSolved = false;
             updatedPlayers[sId].isSpectator = false;
         }
@@ -392,6 +403,7 @@ class MafiaMultiplayerManager {
             state: 'MORNING',
             morningStartedAt: Date.now(),
             morningTimerDuration: dur,
+            roundQuestionOrder: this.generateQuestionOrder(),
             nominations: {},
             currentSuspects: [],
             judgeDecision: null,
@@ -427,6 +439,10 @@ class MafiaMultiplayerManager {
      */
     async submitNomination(targetSessionId) {
         if (!this.currentRoomId || !this.roomData) return;
+        if (targetSessionId === this.mySessionId) {
+            console.warn("[Mafia] 자신을 지목할 수 없습니다.");
+            return;
+        }
         const roomRef = doc(db, ROOMS_COLLECTION, this.currentRoomId);
         const currentNoms = { ...(this.roomData.nominations || {}) };
         currentNoms[this.mySessionId] = targetSessionId;
@@ -600,6 +616,7 @@ class MafiaMultiplayerManager {
             round: nextRound,
             morningStartedAt: Date.now(),
             morningTimerDuration: dur,
+            roundQuestionOrder: this.generateQuestionOrder(),
             nominations: {},
             currentSuspects: [],
             judgeDecision: null,
@@ -625,6 +642,7 @@ class MafiaMultiplayerManager {
             updatedPlayers[this.mySessionId].escapeQuizSolved = success;
             if (success) {
                 updatedPlayers[this.mySessionId].isJailed = false;
+                updatedPlayers[this.mySessionId].warnings = 0;
             }
         }
 
@@ -634,6 +652,40 @@ class MafiaMultiplayerManager {
             chatLogs: [
                 ...(this.roomData.chatLogs || []),
                 { time: Date.now(), msg: success ? `🎉 ${sName} 학생이 감옥 탈출 퀴즈를 맞혀 석방되었습니다!` : `❌ ${sName} 학생이 감옥 탈출 퀴즈에 실패했습니다.` }
+            ],
+            updatedAt: Date.now()
+        });
+    }
+
+    /**
+     * 방장(선생님) 액션: 바르지 않은 대답/행동 학생에게 경고 부여 (3회 누적 시 감옥행)
+     */
+    async giveStudentWarning(sessionId) {
+        if (!this.isHost || !this.currentRoomId || !this.roomData) return;
+        const roomRef = doc(db, ROOMS_COLLECTION, this.currentRoomId);
+        const updatedPlayers = { ...this.roomData.players };
+        if (!updatedPlayers[sessionId]) return;
+
+        const student = { ...updatedPlayers[sessionId] };
+        const curWarnings = (student.warnings || 0) + 1;
+        student.warnings = curWarnings;
+
+        let jailedMsg = '';
+        if (curWarnings >= 3 && !student.isJailed) {
+            student.isJailed = true;
+            student.jailedBy = '경고 3회 누적';
+            student.jailedRound = this.roomData.round || 1;
+            jailedMsg = ' 🚨 경고 3회 누적으로 즉시 감옥에 수감되었습니다!';
+        }
+        updatedPlayers[sessionId] = student;
+
+        const notifMsg = `⚠️ [경고 부여] ${student.name} 학생에게 경고가 부여되었습니다. (${curWarnings}/3회)${jailedMsg}`;
+
+        await updateDoc(roomRef, {
+            players: updatedPlayers,
+            chatLogs: [
+                ...(this.roomData.chatLogs || []),
+                { time: Date.now(), msg: notifMsg }
             ],
             updatedAt: Date.now()
         });
