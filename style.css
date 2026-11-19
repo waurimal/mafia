@@ -231,3 +231,43 @@ body {
         display: none !important;
     }
 }
+
+/* ── 11. 학습 단원 선택 카드 & 읽기 연습 모달 ── */
+.unit-card-btn {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.unit-card-btn.active {
+    border-color: #f43f5e !important;
+    background: linear-gradient(135deg, rgba(244, 63, 94, 0.18), rgba(15, 23, 42, 0.95)) !important;
+    box-shadow: 0 0 20px rgba(244, 63, 94, 0.25);
+    transform: translateY(-2px);
+}
+
+.unit-card-btn:not(.active):hover {
+    border-color: #64748b;
+    background-color: rgba(30, 41, 59, 0.6);
+}
+
+.practice-card-row {
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.practice-card-row:hover {
+    background-color: rgba(30, 41, 59, 0.85);
+    border-color: #64748b;
+}
+
+.btn-tts-speaker {
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.btn-tts-speaker:hover {
+    transform: scale(1.15);
+    color: #38bdf8;
+}
+
+.btn-tts-speaker:active {
+    transform: scale(0.95);
+}
+

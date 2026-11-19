@@ -32,6 +32,7 @@
     class MafiaGame {
         constructor() {
             this.mode = 'ai'; // 'ai' (개인) | 'online' (단체)
+            this.selectedUnit = '6G_L04'; // 기본: 6학년 4단원
             this.student = {
                 grade: 6,
                 classNum: 1,
@@ -82,6 +83,7 @@
          */
         init() {
             this.loadStudentProfile();
+            this.setUnit(this.selectedUnit);
             this.bindEvents();
             this.renderHomeHof();
             this.initMultiplayer();
@@ -94,60 +96,171 @@
         // ────────────────────────────────────────────────────────
         loadStudentProfile() {
             try {
-                let saved = localStorage.getItem('WaurimalStudent') || localStorage.getItem('waurimal_student_profile');
-                if (saved) {
-                    const parsed = JSON.parse(saved);
-                    if (parsed.name) this.student.name = parsed.name;
-                    if (parsed.grade) this.student.grade = Number(parsed.grade) || 6;
-                    if (parsed.classNum) this.student.classNum = Number(parsed.classNum) || 1;
-                    if (parsed.studentNum) this.student.studentNum = Number(parsed.studentNum) || 1;
+                if (window.WaurimalStudent && typeof window.WaurimalStudent.get === 'function') {
+                    const sso = window.WaurimalStudent.get();
+                    if (sso && sso.name) {
+                        this.student.name = sso.name;
+                        this.student.grade = Number(sso.grade) || 6;
+                        this.student.classNum = Number(sso.classNum) || 1;
+                        this.student.studentNum = Number(sso.studentNum) || 1;
+                    }
+                } else {
+                    let saved = localStorage.getItem('WaurimalStudent') || localStorage.getItem('waurimal_student_profile');
+                    if (saved) {
+                        const parsed = JSON.parse(saved);
+                        if (parsed.name) this.student.name = parsed.name;
+                        if (parsed.grade) this.student.grade = Number(parsed.grade) || 6;
+                        if (parsed.classNum) this.student.classNum = Number(parsed.classNum) || 1;
+                        if (parsed.studentNum) this.student.studentNum = Number(parsed.studentNum) || 1;
+                    }
                 }
             } catch (e) {}
 
-            // 화면 인풋 반영
-            const elName = document.getElementById('globalStudentNameInput');
-            const elGrade = document.getElementById('studentGradeSelect');
-            const elClass = document.getElementById('studentClassSelect');
-            const elNum = document.getElementById('studentNumInput');
-
-            if (elName && this.student.name && this.student.name !== '학생') elName.value = this.student.name;
-            if (elGrade) elGrade.value = String(this.student.grade);
-            if (elClass) elClass.value = String(this.student.classNum);
-            if (elNum && this.student.studentNum) elNum.value = String(this.student.studentNum);
+            // 상단 공통 네비게이션 학생 정보 변경 이벤트 수신
+            window.addEventListener('waurimal_student_updated', (e) => {
+                if (e.detail && e.detail.name) {
+                    this.student.name = e.detail.name;
+                    this.student.grade = Number(e.detail.grade) || this.student.grade;
+                    this.student.classNum = Number(e.detail.classNum) || this.student.classNum;
+                    this.student.studentNum = Number(e.detail.studentNum) || this.student.studentNum;
+                }
+            });
         }
 
         saveStudentProfile() {
-            const elName = document.getElementById('globalStudentNameInput');
-            const elGrade = document.getElementById('studentGradeSelect');
-            const elClass = document.getElementById('studentClassSelect');
-            const elNum = document.getElementById('studentNumInput');
+            if (window.WaurimalStudent && typeof window.WaurimalStudent.get === 'function') {
+                const sso = window.WaurimalStudent.get();
+                if (sso && sso.name && sso.name.trim()) {
+                    this.student.name = sso.name.trim();
+                    this.student.grade = Number(sso.grade) || 6;
+                    this.student.classNum = Number(sso.classNum) || 1;
+                    this.student.studentNum = Number(sso.studentNum) || 1;
+                    return true;
+                }
+            }
+            if (!this.student.name || this.student.name === '학생') {
+                const btn = document.getElementById('w-btn-student-profile');
+                if (btn) {
+                    alert("상단 메뉴의 [👤 학생 로그인]을 눌러 학년, 반, 번호, 이름을 먼저 설정해 주세요!");
+                    btn.click();
+                    return false;
+                }
+            }
+            return true;
+        }
 
-            const name = elName ? elName.value.trim() : '';
-            if (!name) {
-                alert("학생 본인의 실명을 입력해 주세요! (닉네임 불가)");
-                if (elName) elName.focus();
-                return false;
+        // ────────────────────────────────────────────────────────
+        // 2-B. 학습 단원 선택 (Unit Selection)
+        // ────────────────────────────────────────────────────────
+        setUnit(unitId) {
+            if (!MafiaQuestions.setCurrentUnit(unitId)) return;
+            this.selectedUnit = unitId;
+
+            const unit = MafiaQuestions.getCurrentUnit();
+
+            // 상단 헤더 업데이트
+            const headerUnitBadge = document.getElementById('headerUnitBadge');
+            const headerUnitDesc = document.getElementById('headerUnitDesc');
+            if (headerUnitBadge) headerUnitBadge.textContent = `${unit.name} 추리`;
+            if (headerUnitDesc) headerUnitDesc.textContent = `초등 영어 ${unit.name} ${unit.title} (${unit.shortDesc})`;
+
+            // 단원 카드 활성화 스타일 업데이트
+            const unitBtns = document.querySelectorAll('.unit-card-btn');
+            unitBtns.forEach(btn => {
+                const uId = btn.dataset.unit;
+                const badge = btn.querySelector('.unit-card-badge');
+                if (uId === unitId) {
+                    btn.classList.add('active');
+                    btn.classList.remove('border-slate-800', 'bg-slate-900/60');
+                    if (badge) {
+                        badge.classList.remove('hidden', 'bg-slate-800', 'text-slate-400', 'border-slate-700');
+                        badge.classList.add('bg-rose-500/20', 'text-rose-300', 'border-rose-500/40', 'font-black');
+                        badge.textContent = '선택됨 ✔';
+                    }
+                } else {
+                    btn.classList.remove('active');
+                    btn.classList.add('border-slate-800', 'bg-slate-900/60');
+                    if (badge) {
+                        badge.classList.add('hidden');
+                        badge.textContent = '선택하기';
+                    }
+                }
+            });
+
+            // 인게임 학습지 제목 업데이트
+            const wsTitle = document.getElementById('worksheetPanelTitle');
+            if (wsTitle) wsTitle.textContent = `나의 비밀 학습지 (${unit.name} 10문항)`;
+
+            this.renderHomeHof();
+        }
+
+        // ────────────────────────────────────────────────────────
+        // 2-C. 로비 문제 읽기 & 말하기 연습 모달
+        // ────────────────────────────────────────────────────────
+        openUnitPracticeModal() {
+            const modal = document.getElementById('unitPracticeModal');
+            const list = document.getElementById('unitPracticeQuestionsList');
+            const title = document.getElementById('unitPracticeModalTitle');
+            const desc = document.getElementById('unitPracticeModalDesc');
+            const unit = MafiaQuestions.getCurrentUnit();
+
+            if (!modal) return;
+            if (title) title.innerHTML = `<i class="fa-solid fa-book-open-reader text-rose-400"></i> [${unit.name}] 10개 문항 읽기 & 말하기 연습`;
+            if (desc) desc.textContent = `${unit.title} - ${unit.shortDesc} (소리 내어 읽고 🔊 스피커로 발음을 들어보세요)`;
+
+            const qaList = MafiaQuestions.getWorksheetQA('CITIZEN');
+            if (list) {
+                list.innerHTML = qaList.map(qa => {
+                    const qText = MafiaQuestions.formatQuestion(qa);
+                    const aText = MafiaQuestions.formatAnswer(qa);
+
+                    return `
+                        <div class="practice-card-row p-3 rounded-2xl bg-slate-950 border border-slate-800 flex items-start justify-between gap-3">
+                            <div class="flex-1 space-y-1">
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="text-[11px] font-black px-2 py-0.5 rounded-full bg-slate-800 text-amber-300 border border-slate-700">
+                                        Q${qa.id}
+                                    </span>
+                                    <span class="text-xs font-black text-white">${qText}</span>
+                                    ${qa.questionKr ? `<span class="text-[11px] text-slate-400 font-normal">(${qa.questionKr})</span>` : ''}
+                                </div>
+                                <div class="text-xs font-bold text-emerald-300 flex items-center gap-1.5 flex-wrap pl-6">
+                                    <span class="text-slate-500">A:</span>
+                                    <span>${aText}</span>
+                                    ${qa.answerKr ? `<span class="text-[11px] text-slate-400 font-normal">(${qa.answerKr})</span>` : ''}
+                                </div>
+                            </div>
+                            <button type="button" class="btn-tts-speaker p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-cyan-400 cursor-pointer flex-shrink-0" onclick="window.mafiaGame.speak('${qText.replace(/'/g, "\\'")} ... ${aText.replace(/'/g, "\\'")}')" title="원어민 발음 듣기">
+                                <i class="fa-solid fa-volume-high text-sm"></i>
+                            </button>
+                        </div>
+                    `;
+                }).join('');
             }
 
-            this.student.name = name;
-            this.student.grade = elGrade ? Number(elGrade.value) || 6 : 6;
-            this.student.classNum = elClass ? Number(elClass.value) || 1 : 1;
-            this.student.studentNum = elNum ? Number(elNum.value) || 1 : 1;
+            modal.classList.remove('hidden');
+        }
 
-            const profile = {
-                name: this.student.name,
-                grade: this.student.grade,
-                classNum: this.student.classNum,
-                studentNum: this.student.studentNum,
-                updatedAt: Date.now()
+        closeUnitPracticeModal() {
+            const modal = document.getElementById('unitPracticeModal');
+            if (modal) modal.classList.add('hidden');
+            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        }
+
+        playAllPracticeSequentially() {
+            const qaList = MafiaQuestions.getWorksheetQA('CITIZEN');
+            let idx = 0;
+            const playNext = () => {
+                const modal = document.getElementById('unitPracticeModal');
+                if (!modal || modal.classList.contains('hidden')) return;
+                if (idx >= qaList.length) return;
+                const qa = qaList[idx];
+                const text = `${MafiaQuestions.formatQuestion(qa)} ... ${MafiaQuestions.formatAnswer(qa)}`;
+                this.speak(text);
+                idx++;
+                setTimeout(playNext, 3800);
             };
-
-            try {
-                localStorage.setItem('WaurimalStudent', JSON.stringify(profile));
-                localStorage.setItem('waurimal_student_profile', JSON.stringify(profile));
-            } catch (e) {}
-
-            return true;
+            playNext();
         }
 
         // ────────────────────────────────────────────────────────
@@ -323,12 +436,12 @@
                 roleBadge.className = 'px-3 py-1 rounded-full text-xs font-black role-badge-mafia border border-rose-400';
                 roleBadge.textContent = '🕶️ 마피아 팀';
                 roleIcon.className = 'fa-solid fa-user-secret text-5xl text-rose-500 my-2';
-                roleDesc.textContent = '학습지의 7번과 18번 대답이 일반 시민과 미세하게 다릅니다.';
+                roleDesc.textContent = '학습지 10개 문항 중 비밀 문항의 대답이 일반 시민과 미세하게 다릅니다.';
                 roleAdvice.innerHTML = `
                     <p class="text-xs text-rose-300 font-bold mb-1">💡 마피아 승리 전략:</p>
                     <ul class="text-[11px] text-slate-300 space-y-1 list-disc list-inside">
-                        <li>시민들과 대화하며 다른 2개 답변(7번: helped my friend, 18번: my friend is sick)을 알아내세요!</li>
-                        <li>정체를 숨기고 시민인 척 거짓말을 하여 밤까지 살아남으세요.</li>
+                        <li>이어진 읽기 연습 시간에 내 비밀 답변과 시민 표준 답변의 차이를 미리 확인하세요!</li>
+                        <li>정체를 숨기고 시민인 척 거짓말(블러핑)을 하여 밤까지 살아남으세요.</li>
                         <li>밤마다 판사와 시민들의 눈을 피해 제거할 상대를 은밀히 고르세요.</li>
                     </ul>
                 `;
@@ -338,11 +451,11 @@
                 roleBadge.className = 'px-3 py-1 rounded-full text-xs font-black role-badge-judge border border-amber-400';
                 roleBadge.textContent = '⚖️ 정의의 판사';
                 roleIcon.className = 'fa-solid fa-gavel text-5xl text-amber-400 my-2';
-                roleDesc.textContent = '일반 시민과 동일한 20개 질문-대답을 가지고 있습니다.';
+                roleDesc.textContent = '일반 시민과 동일한 10개 질문-대답을 가지고 있습니다.';
                 roleAdvice.innerHTML = `
                     <p class="text-xs text-amber-300 font-bold mb-1">💡 판사 승리 전략:</p>
                     <ul class="text-[11px] text-slate-300 space-y-1 list-disc list-inside">
-                        <li>대화 중 7번, 18번에 이상한 대답을 하는 마피아를 꼼꼼히 조사하세요.</li>
+                        <li>대화 중 10개 표준 정답과 다른 이상한 대답을 하는 마피아를 꼼꼼히 조사하세요.</li>
                         <li>저녁 투표 후 최종 법정에 오른 용의자 중 진짜 마피아를 판결봉으로 가두세요!</li>
                         <li>마피아 2~3명을 모두 체포하면 시민 팀의 압도적 승리입니다.</li>
                     </ul>
@@ -353,7 +466,7 @@
                 roleBadge.className = 'px-3 py-1 rounded-full text-xs font-black role-badge-citizen border border-emerald-400';
                 roleBadge.textContent = '🤝 무고한 시민';
                 roleIcon.className = 'fa-solid fa-users text-5xl text-emerald-400 my-2';
-                roleDesc.textContent = '학습지에 20개의 정답이 완벽하게 적혀 있습니다.';
+                roleDesc.textContent = '학습지에 10개의 정답이 완벽하게 적혀 있습니다.';
                 roleAdvice.innerHTML = `
                     <p class="text-xs text-emerald-300 font-bold mb-1">💡 시민 승리 전략:</p>
                     <ul class="text-[11px] text-slate-300 space-y-1 list-disc list-inside">
@@ -392,9 +505,102 @@
                 }
                 if (tearBtn) tearBtn.disabled = false;
 
-                // 아침 조사 페이즈 시작
-                this.startMorningPhase();
+                // 신분 확인 후 아이들이 문제를 읽고 연습할 시간 제공!
+                this.startPracticePhase();
             }, 750);
+        }
+
+        // ────────────────────────────────────────────────────────
+        // 6-B. 인게임 학습지 확인 & 말하기 연습 시간 (Practice Phase)
+        // ────────────────────────────────────────────────────────
+        startPracticePhase() {
+            this.phase = 'PRACTICE';
+            const modal = document.getElementById('inGamePracticeModal');
+            const listContainer = document.getElementById('inGamePracticeList');
+            const adviceBox = document.getElementById('inGamePracticeAdviceBox');
+            const roleBadge = document.getElementById('inGamePracticeMyRoleBadge');
+            const roundBadge = document.getElementById('practiceRoundBadge');
+
+            if (!modal) {
+                this.startMorningPhase();
+                return;
+            }
+
+            if (roundBadge) roundBadge.textContent = `제 ${this.round}라운드 학습지 확인 & 말하기 연습`;
+
+            if (roleBadge) {
+                if (this.currentRole === 'MAFIA') {
+                    roleBadge.className = 'px-3 py-1 rounded-full text-xs font-black role-badge-mafia border border-rose-400';
+                    roleBadge.textContent = '🕶️ 내 신분: 마피아';
+                } else if (this.currentRole === 'JUDGE') {
+                    roleBadge.className = 'px-3 py-1 rounded-full text-xs font-black role-badge-judge border border-amber-400';
+                    roleBadge.textContent = '⚖️ 내 신분: 판사';
+                } else {
+                    roleBadge.className = 'px-3 py-1 rounded-full text-xs font-black role-badge-citizen border border-emerald-400';
+                    roleBadge.textContent = '🤝 내 신분: 시민';
+                }
+            }
+
+            if (adviceBox) {
+                if (this.currentRole === 'MAFIA') {
+                    adviceBox.innerHTML = `
+                        <div class="text-rose-400 font-black mb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-user-secret"></i> 🕶️ 마피아 미션 안내:
+                        </div>
+                        <p class="text-slate-300 mb-1">당신의 학습지에는 일반 시민과 대답이 다른 <strong class="text-rose-300">비밀 문항</strong>이 포함되어 있습니다!</p>
+                        <p class="text-slate-400">아래 10개 질문과 대답을 미리 읽어보고, 조사 중 친구들에게 들키지 않도록 시민인 척 대답을 준비해 보세요.</p>
+                    `;
+                } else {
+                    adviceBox.innerHTML = `
+                        <div class="text-emerald-400 font-black mb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-graduation-cap"></i> 🤝 ${this.currentRole === 'JUDGE' ? '판사' : '시민'} 미션 안내:
+                        </div>
+                        <p class="text-slate-300 mb-1">내 학습지의 10개 질문과 정답을 눈에 익히고 스피커(🔊)를 눌러 소리 내어 연습하세요.</p>
+                        <p class="text-slate-400">가위바위보 대결 후 상대방에게 질문했을 때, 아래 정답과 다른 대답을 하는 친구가 바로 <strong>마피아</strong>입니다!</p>
+                    `;
+                }
+            }
+
+            const qaList = MafiaQuestions.getWorksheetQA(this.currentRole);
+            if (listContainer) {
+                listContainer.innerHTML = qaList.map(qa => {
+                    const qText = MafiaQuestions.formatQuestion(qa);
+                    const aText = MafiaQuestions.formatAnswer(qa);
+                    const isDiff = qa.isMafiaDifference;
+
+                    return `
+                        <div class="practice-card-row p-3 rounded-2xl bg-slate-950 border ${isDiff ? 'border-rose-500/60 bg-rose-950/20' : 'border-slate-800'} flex items-start justify-between gap-3">
+                            <div class="flex-1 space-y-1">
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="text-[11px] font-black px-2 py-0.5 rounded-full ${isDiff ? 'bg-rose-500/30 text-rose-300 border border-rose-500/40' : 'bg-slate-800 text-amber-300'}">
+                                        Q${qa.id}
+                                    </span>
+                                    <span class="text-xs font-black text-white">${qText}</span>
+                                    ${qa.questionKr ? `<span class="text-[11px] text-slate-400 font-normal">(${qa.questionKr})</span>` : ''}
+                                    ${isDiff ? '<span class="text-[10px] font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/30">⚠️ 마피아 비밀 문항</span>' : ''}
+                                </div>
+                                <div class="text-xs font-bold text-emerald-300 flex items-center gap-1.5 flex-wrap pl-6">
+                                    <span class="text-slate-500">A:</span>
+                                    <span>${aText}</span>
+                                    ${qa.answerKr ? `<span class="text-[11px] text-slate-400 font-normal">(${qa.answerKr})</span>` : ''}
+                                </div>
+                            </div>
+                            <button type="button" class="btn-tts-speaker p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-cyan-400 cursor-pointer flex-shrink-0" onclick="window.mafiaGame.speak('${qText.replace(/'/g, "\\'")} ... ${aText.replace(/'/g, "\\'")}')" title="원어민 발음 듣기">
+                                <i class="fa-solid fa-volume-high text-sm"></i>
+                            </button>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        finishPracticeAndStartMorning() {
+            const modal = document.getElementById('inGamePracticeModal');
+            if (modal) modal.classList.add('hidden');
+            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+            this.startMorningPhase();
         }
 
         // ────────────────────────────────────────────────────────
@@ -597,7 +803,7 @@
 
             return list.map(item => `
                 <div class="flex items-center justify-between border-b border-slate-800/80 pb-0.5">
-                    <span>Q${item.qId}: Why are you ${item.emotion}?</span>
+                    <span class="truncate max-w-[150px]" title="${item.questionText || ''}">Q${item.qId}: ${item.questionText || item.emotion}</span>
                     <span class="${item.matched ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold'}">
                         ${item.matched ? '일치 ✔' : '불일치 ❌'}
                     </span>
@@ -689,24 +895,31 @@
             }, 1000);
         }
 
-        // 이긴 경우: 20문항 중 질문 선택
+        // 이긴 경우: 10문항 중 질문 선택
         openDuelAskStep() {
             const duelStepAsk = document.getElementById('duelStepAsk');
             const selectQ = document.getElementById('duelAskQuestionSelect');
             const qPreview = document.getElementById('duelAskQuestionPreview');
             if (!duelStepAsk || !selectQ) return;
 
-            selectQ.innerHTML = MafiaQuestions.CITIZEN_QA.map(q => `
-                <option value="${q.id}">
-                    [${q.id}번] Why are you ${q.emotion}? (${q.emotionKr})
-                </option>
-            `).join('');
+            const qaList = MafiaQuestions.getWorksheetQA('CITIZEN');
+
+            selectQ.innerHTML = qaList.map(q => {
+                const qText = MafiaQuestions.formatQuestion(q);
+                const hint = q.questionKr || q.emotionKr || q.action || '';
+                return `
+                    <option value="${q.id}">
+                        [${q.id}번] ${qText} ${hint ? `(${hint})` : ''}
+                    </option>
+                `;
+            }).join('');
 
             const updatePreview = () => {
                 const curId = Number(selectQ.value);
-                const qa = MafiaQuestions.getQAById(curId);
+                const qa = MafiaQuestions.getQAById(curId, 'CITIZEN');
+                const qText = MafiaQuestions.formatQuestion(qa);
                 if (qPreview) {
-                    qPreview.textContent = `🗣️ "Why are you ${qa.emotion}?"`;
+                    qPreview.textContent = `🗣️ "${qText}"`;
                 }
             };
 
@@ -724,32 +937,32 @@
             const targetMate = this.activeDuel.target;
 
             // 영어 질문 음성 재생
-            const questionSentence = MafiaQuestions.formatQuestion(qaCitizen.emotion);
+            const questionSentence = MafiaQuestions.formatQuestion(qaCitizen);
             this.speak(questionSentence);
             this.stats.questionsAsked++;
 
             // AI 봇 대답 결정
-            // 봇이 마피아이고 7번 or 18번 질문이면 마피아 대답(helped my mom / my dad is sick)을 함
-            // 단, 난이도나 라운드에 따라 봇이 시민 답을 알아냈다면 블러핑 가능
             const botRole = targetMate.role;
             let botAnswer = '';
             let isMatched = true;
 
             if (botRole === 'MAFIA') {
                 const qaMafia = MafiaQuestions.getQAById(qId, 'MAFIA');
-                botAnswer = MafiaQuestions.formatAnswer(qaMafia.reason);
+                botAnswer = MafiaQuestions.formatAnswer(qaMafia);
                 if (qaMafia.isMafiaDifference) {
                     isMatched = false; // 대답이 다름!
                 }
             } else {
-                botAnswer = MafiaQuestions.formatAnswer(qaCitizen.reason);
+                botAnswer = MafiaQuestions.formatAnswer(qaCitizen);
                 isMatched = true;
             }
 
             // 인터뷰 기록 저장
+            if (!this.userInterviews[targetMate.id]) this.userInterviews[targetMate.id] = [];
             this.userInterviews[targetMate.id].push({
                 qId: qId,
-                emotion: qaCitizen.emotion,
+                questionText: questionSentence,
+                emotion: qaCitizen.emotion || qaCitizen.action || questionSentence,
                 botAnswer: botAnswer,
                 matched: isMatched
             });
@@ -763,30 +976,30 @@
             const questionBubble = document.getElementById('botAskedQuestionBubble');
             const answerOptionsContainer = document.getElementById('userAnswerOptionsContainer');
 
-            // 봇이 20문항 중 무작위 질문 선택
-            const randId = Math.floor(1 + Math.random() * 20);
-            const qa = MafiaQuestions.getQAById(randId);
-            const botQuestion = MafiaQuestions.formatQuestion(qa.emotion);
+            const myWorksheetQA = MafiaQuestions.getWorksheetQA(this.currentRole);
+            const randIdx = Math.floor(Math.random() * myWorksheetQA.length);
+            const myCorrectQA = myWorksheetQA[randIdx];
+            const randId = myCorrectQA.id;
+
+            const qaCitizen = MafiaQuestions.getQAById(randId, 'CITIZEN');
+            const botQuestion = MafiaQuestions.formatQuestion(qaCitizen);
 
             if (questionBubble) questionBubble.textContent = `🗣️ ${this.activeDuel.target.name}: "${botQuestion}"`;
             this.speak(botQuestion);
 
-            // 사용자가 선택할 대답 옵션 (내 역할에 맞는 정답 + 오답 보기들)
-            const myWorksheetQA = MafiaQuestions.getWorksheetQA(this.currentRole);
-            const myCorrectQA = myWorksheetQA.find(q => q.id === randId);
-            const myCorrectAnswer = MafiaQuestions.formatAnswer(myCorrectQA.reason);
+            const myCorrectAnswer = MafiaQuestions.formatAnswer(myCorrectQA);
 
             // 오답 보기 2개 무작위 추출
             const wrongCandidates = myWorksheetQA.filter(q => q.id !== randId);
             const shuffled = wrongCandidates.sort(() => Math.random() - 0.5);
             const optionAnswers = [
                 myCorrectAnswer,
-                MafiaQuestions.formatAnswer(shuffled[0].reason),
-                MafiaQuestions.formatAnswer(shuffled[1].reason)
+                MafiaQuestions.formatAnswer(shuffled[0]),
+                MafiaQuestions.formatAnswer(shuffled[1])
             ].sort(() => Math.random() - 0.5);
 
             answerOptionsContainer.innerHTML = optionAnswers.map(ans => `
-                <button type="button" class="btn-answer-choice w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-left text-xs font-bold text-white transition flex items-center justify-between">
+                <button type="button" class="btn-answer-choice w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-left text-xs font-bold text-white transition flex items-center justify-between cursor-pointer">
                     <span>${ans}</span>
                     <i class="fa-solid fa-volume-high text-slate-400"></i>
                 </button>
@@ -855,11 +1068,19 @@
                     bot2 = activeBots[Math.floor(Math.random() * activeBots.length)];
                 }
 
-                const randQ = MafiaQuestions.CITIZEN_QA[Math.floor(Math.random() * MafiaQuestions.CITIZEN_QA.length)];
-                const isDiff = (bot2.role === 'MAFIA' && (randQ.id === 7 || randQ.id === 18));
-                const ans = isDiff ? MafiaQuestions.getQAById(randQ.id, 'MAFIA').reason : randQ.reason;
+                const citizenQA = MafiaQuestions.getWorksheetQA('CITIZEN');
+                const randQ = citizenQA[Math.floor(Math.random() * citizenQA.length)];
+                const qText = MafiaQuestions.formatQuestion(randQ);
+                let ansText = '';
 
-                this.logJournal(`👀 [주변 대화] ${bot1.name} ➔ ${bot2.name}: "Why are you ${randQ.emotion}?" | 대답: "${ans}"`);
+                if (bot2.role === 'MAFIA') {
+                    const mafiaQA = MafiaQuestions.getQAById(randQ.id, 'MAFIA');
+                    ansText = MafiaQuestions.formatAnswer(mafiaQA);
+                } else {
+                    ansText = MafiaQuestions.formatAnswer(randQ);
+                }
+
+                this.logJournal(`👀 [주변 대화] ${bot1.name} ➔ ${bot2.name}: "${qText}" | 대답: "${ansText}"`);
             }, 12000);
         }
 
@@ -1369,27 +1590,37 @@
         // ────────────────────────────────────────────────────────
         renderWorksheetTable() {
             const container = document.getElementById('myWorksheetList');
+            const titleEl = document.getElementById('worksheetPanelTitle');
+            const unit = MafiaQuestions.getCurrentUnit();
+
+            if (titleEl) titleEl.textContent = `나의 비밀 학습지 (${unit.name} 10문항)`;
             if (!container) return;
 
             const qaList = MafiaQuestions.getWorksheetQA(this.currentRole);
-            container.innerHTML = qaList.map(qa => `
-                <div class="worksheet-item p-2.5 rounded-xl border border-slate-800 flex items-start justify-between text-xs gap-2 ${qa.isMafiaDifference ? 'is-mafia-diff' : ''}">
-                    <div class="flex-1">
-                        <div class="font-bold text-amber-300">
-                            [${qa.id}번] Why are you ${qa.emotion}?
-                            <span class="text-[10px] text-slate-400 font-normal">(${qa.emotionKr})</span>
+            container.innerHTML = qaList.map(qa => {
+                const qText = MafiaQuestions.formatQuestion(qa);
+                const aText = MafiaQuestions.formatAnswer(qa);
+                const isDiff = qa.isMafiaDifference;
+
+                return `
+                    <div class="worksheet-item p-2.5 rounded-xl border border-slate-800 flex items-start justify-between text-xs gap-2 ${isDiff ? 'is-mafia-diff' : ''}">
+                        <div class="flex-1">
+                            <div class="font-bold text-amber-300">
+                                [${qa.id}번] ${qText}
+                                ${qa.questionKr ? `<span class="text-[10px] text-slate-400 font-normal">(${qa.questionKr})</span>` : ''}
+                            </div>
+                            <div class="font-semibold text-slate-200 mt-0.5">
+                                ${aText}
+                                ${qa.answerKr ? `<span class="text-[10px] text-slate-400 font-normal">(${qa.answerKr})</span>` : ''}
+                            </div>
+                            ${isDiff ? '<div class="text-[10px] text-rose-400 font-bold mt-1">※ 일반 시민과 대답이 다른 비밀 문항입니다! 들키지 않게 주의하세요.</div>' : ''}
                         </div>
-                        <div class="font-semibold text-slate-200 mt-0.5">
-                            Because I ${qa.reason}.
-                            <span class="text-[10px] text-slate-400 font-normal">(${qa.reasonKr})</span>
-                        </div>
-                        ${qa.isMafiaDifference ? '<div class="text-[10px] text-rose-400 font-bold mt-1">※ 일반 시민과 대답이 다른 비밀 문항입니다! 들키지 않게 주의하세요.</div>' : ''}
+                        <button type="button" class="btn-listen-qa p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white cursor-pointer" onclick="window.mafiaGame.speak('${qText.replace(/'/g, "\\'")} ... ${aText.replace(/'/g, "\\'")}')" title="발음 듣기">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
                     </div>
-                    <button type="button" class="btn-listen-qa p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white" onclick="window.mafiaGame.speak('Why are you ${qa.emotion}? Because I ${qa.reason}.')" title="발음 듣기">
-                        <i class="fa-solid fa-volume-high"></i>
-                    </button>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
         logJournal(msg) {
@@ -1598,7 +1829,8 @@
             try {
                 const roomId = await this.multiplayer.createRoom(this.student, {
                     mafiaCount: mCountSelect ? Number(mCountSelect.value) : 2,
-                    morningTimer: timerSelect ? Number(timerSelect.value) : 180
+                    morningTimer: timerSelect ? Number(timerSelect.value) : 180,
+                    unitId: this.selectedUnit || '6G_L04'
                 });
 
                 this.openWaitingRoomModal(roomId);
@@ -1665,6 +1897,9 @@
 
             // 게임 시작 페이즈 전환 동기화
             if (data.state === 'ROLE_REVEAL' && this.phase === 'LOBBY') {
+                if (data.config && data.config.unitId) {
+                    this.setUnit(data.config.unitId);
+                }
                 const waitModal = document.getElementById('waitingRoomModal');
                 if (waitModal) waitModal.classList.add('hidden');
 
@@ -1688,6 +1923,35 @@
         // 18. UI 이벤트 리스너 바인딩
         // ────────────────────────────────────────────────────────
         bindEvents() {
+            // 단원 선택 버튼 그룹
+            document.querySelectorAll('.unit-card-btn').forEach(btn => {
+                btn.onclick = () => {
+                    const unitId = btn.dataset.unit;
+                    if (unitId) {
+                        this.playSound('click');
+                        this.setUnit(unitId);
+                    }
+                };
+            });
+
+            // 로비 문제 읽기 & 말하기 연습 모달
+            const previewPracticeBtn = document.getElementById('previewUnitQuestionsBtn');
+            const closePracticeBtn = document.getElementById('closeUnitPracticeModalBtn');
+            const closePracticeBottomBtn = document.getElementById('closeUnitPracticeModalBottomBtn');
+            const playAllPracticeBtn = document.getElementById('btnPracticePlayAll');
+
+            if (previewPracticeBtn) previewPracticeBtn.onclick = () => this.openUnitPracticeModal();
+            if (closePracticeBtn) closePracticeBtn.onclick = () => this.closeUnitPracticeModal();
+            if (closePracticeBottomBtn) closePracticeBottomBtn.onclick = () => this.closeUnitPracticeModal();
+            if (playAllPracticeBtn) playAllPracticeBtn.onclick = () => this.playAllPracticeSequentially();
+
+            // 인게임 연습 시간 & 학습지 열기 버튼
+            const finishPracticeBtn = document.getElementById('btnFinishPracticeAndStartMorning');
+            const ingamePracticeBtn = document.getElementById('ingameOpenPracticeBtn');
+
+            if (finishPracticeBtn) finishPracticeBtn.onclick = () => this.finishPracticeAndStartMorning();
+            if (ingamePracticeBtn) ingamePracticeBtn.onclick = () => this.startPracticePhase();
+
             // 모드 탭
             const btnAi = document.getElementById('startAiModeBtn');
             const btnOnline = document.getElementById('selectOnlineTabBtn');

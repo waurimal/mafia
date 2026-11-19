@@ -125,6 +125,7 @@ class MafiaMultiplayerManager {
         const mafiaCount = Number(options.mafiaCount) || 2;
         const morningTimer = Number(options.morningTimer) || 180; // 3분 기본
         const gradeLevel = options.gradeLevel || '6';
+        const unitId = options.unitId || '6G_L04';
 
         // 4자리 랜덤 숫자 방 코드 생성
         let roomId = '';
@@ -150,7 +151,8 @@ class MafiaMultiplayerManager {
                 mafiaCount: mafiaCount,
                 judgeCount: 1,
                 morningTimerSeconds: morningTimer,
-                gradeLevel: gradeLevel
+                gradeLevel: gradeLevel,
+                unitId: unitId
             },
             players: {
                 [this.mySessionId]: {
