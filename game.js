@@ -281,15 +281,29 @@
             const container = document.getElementById('unitSelectButtonGroup');
             if (!container) return;
 
+            // 학년에 맞추어 학기 필터 탭 텍스트 동적 업데이트 (3,4학년: 1~10단원 / 5,6학년: 1~12단원)
+            const semGroup = document.getElementById('unitSemesterFilterGroup');
+            if (semGroup) {
+                const isSmall = (Number(grade) <= 4);
+                const allBtn = semGroup.querySelector('[data-filter="all"]');
+                const sem1Btn = semGroup.querySelector('[data-filter="sem1"]');
+                const sem2Btn = semGroup.querySelector('[data-filter="sem2"]');
+                if (allBtn) allBtn.textContent = isSmall ? '전체 (1~10단원)' : '전체 (1~12단원)';
+                if (sem1Btn) sem1Btn.textContent = isSmall ? '1학기 (1~5단원)' : '1학기 (1~6단원)';
+                if (sem2Btn) sem2Btn.textContent = isSmall ? '2학기 (6~10단원)' : '2학기 (7~12단원)';
+            }
+
             const units = (typeof MafiaQuestions !== 'undefined' && typeof MafiaQuestions.getUnitsByGrade === 'function')
                 ? MafiaQuestions.getUnitsByGrade(grade)
                 : [];
 
             container.innerHTML = '';
 
+            const maxSem1 = (Number(grade) <= 4) ? 5 : 6;
+
             units.forEach(unit => {
                 const isCurrent = (unit.id === this.selectedUnit);
-                const sem = unit.semester || (Number(unit.id.split('_L')[1]) <= 6 ? 1 : 2);
+                const sem = unit.semester || (Number(unit.id.split('_L')[1]) <= maxSem1 ? 1 : 2);
 
                 const btn = document.createElement('button');
                 btn.type = 'button';
