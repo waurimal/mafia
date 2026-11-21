@@ -32,6 +32,8 @@
     class MafiaGame {
         constructor() {
             this.mode = 'ai'; // 'ai' (개인) | 'online' (단체)
+            this.selectedGrade = 6; // 기본: 6학년 (3~6학년 선택 가능)
+            this.selectedSemester = 'all'; // 'all' | 'sem1' | 'sem2'
             this.selectedUnit = '6G_L04'; // 기본: 6학년 4단원
             this.student = {
                 grade: 6,
@@ -116,6 +118,12 @@
          */
         init() {
             this.loadStudentProfile();
+            if (this.student && [3, 4, 5, 6].includes(this.student.grade)) {
+                this.selectedGrade = this.student.grade;
+                this.selectedUnit = (this.selectedGrade === 6) ? '6G_L04' : `${this.selectedGrade}G_L01`;
+            }
+            this.updateGradeFilterUI();
+            this.renderUnitButtons(this.selectedGrade, this.selectedSemester);
             this.setUnit(this.selectedUnit);
             this.bindEvents();
             this.renderHomeHof();
@@ -153,9 +161,21 @@
             window.addEventListener('waurimal_student_updated', (e) => {
                 if (e.detail && e.detail.name) {
                     this.student.name = e.detail.name;
-                    this.student.grade = Number(e.detail.grade) || this.student.grade;
+                    const newGrade = Number(e.detail.grade) || this.student.grade;
+                    this.student.grade = newGrade;
                     this.student.classNum = Number(e.detail.classNum) || this.student.classNum;
                     this.student.studentNum = Number(e.detail.studentNum) || this.student.studentNum;
+
+                    if ([3, 4, 5, 6].includes(newGrade) && this.selectedGrade !== newGrade) {
+                        this.selectedGrade = newGrade;
+                        const gradePrefix = `${newGrade}G_`;
+                        if (!this.selectedUnit.startsWith(gradePrefix)) {
+                            this.selectedUnit = (newGrade === 6) ? '6G_L04' : `${gradePrefix}L01`;
+                        }
+                        this.updateGradeFilterUI();
+                        this.renderUnitButtons(this.selectedGrade, this.selectedSemester);
+                        this.setUnit(this.selectedUnit);
+                    }
                 }
             });
         }
@@ -192,14 +212,24 @@
 
             const unit = MafiaQuestions.getCurrentUnit();
 
+            // 선택된 단원의 학년과 selectedGrade 동기화
+            if (unit && unit.grade && [3, 4, 5, 6].includes(Number(unit.grade))) {
+                const g = Number(unit.grade);
+                if (this.selectedGrade !== g) {
+                    this.selectedGrade = g;
+                    this.updateGradeFilterUI();
+                    this.renderUnitButtons(this.selectedGrade, this.selectedSemester);
+                }
+            }
+
             // 상단 헤더 업데이트
             const headerUnitBadge = document.getElementById('headerUnitBadge');
             const headerUnitDesc = document.getElementById('headerUnitDesc');
             if (headerUnitBadge) headerUnitBadge.textContent = `${unit.name} 추리`;
-            if (headerUnitDesc) headerUnitDesc.textContent = `초등 영어 ${unit.name} ${unit.title} (${unit.shortDesc})`;
+            if (headerUnitDesc) headerUnitDesc.textContent = `초등 영어 ${unit.name} ${unit.title} (${unit.shortDesc || unit.grammarPoint || ''})`;
 
             // 단원 카드 활성화 스타일 업데이트
-            const unitBtns = document.querySelectorAll('.unit-card-btn');
+            const unitBtns = document.querySelectorAll('#unitSelectButtonGroup .unit-card-btn');
             unitBtns.forEach(btn => {
                 const uId = btn.dataset.unit;
                 const badge = btn.querySelector('.unit-card-badge');
@@ -226,6 +256,79 @@
             if (wsTitle) wsTitle.textContent = `나의 비밀 학습지 (${unit.name} 10문항)`;
 
             this.renderHomeHof();
+        }
+
+        /**
+         * 학년 필터 UI 활성화 상태 동기화
+         */
+        updateGradeFilterUI() {
+            document.querySelectorAll('#unitGradeFilterGroup .unit-grade-btn').forEach(btn => {
+                const g = Number(btn.dataset.grade);
+                if (g === this.selectedGrade) {
+                    btn.classList.add('active', 'bg-rose-500/20', 'text-rose-300', 'border-rose-500/40');
+                    btn.classList.remove('bg-slate-900', 'text-slate-400', 'border-slate-800');
+                } else {
+                    btn.classList.remove('active', 'bg-rose-500/20', 'text-rose-300', 'border-rose-500/40');
+                    btn.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-800');
+                }
+            });
+        }
+
+        /**
+         * 선택된 학년 및 학기 필터에 맞춰 단원 선택 카드 동적 렌더링
+         */
+        renderUnitButtons(grade = this.selectedGrade, semester = this.selectedSemester) {
+            const container = document.getElementById('unitSelectButtonGroup');
+            if (!container) return;
+
+            const units = (typeof MafiaQuestions !== 'undefined' && typeof MafiaQuestions.getUnitsByGrade === 'function')
+                ? MafiaQuestions.getUnitsByGrade(grade)
+                : [];
+
+            container.innerHTML = '';
+
+            units.forEach(unit => {
+                const isCurrent = (unit.id === this.selectedUnit);
+                const sem = unit.semester || (Number(unit.id.split('_L')[1]) <= 6 ? 1 : 2);
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `unit-card-btn p-3 rounded-2xl border-2 text-left transition flex flex-col justify-between cursor-pointer hover:border-slate-600 ${
+                    isCurrent ? 'active border-rose-500/80 bg-rose-950/20' : 'border-slate-800 bg-slate-900/60'
+                }`;
+                btn.dataset.unit = unit.id;
+                btn.dataset.semester = String(sem);
+
+                if (semester === 'sem1' && sem !== 1) {
+                    btn.style.display = 'none';
+                } else if (semester === 'sem2' && sem !== 2) {
+                    btn.style.display = 'none';
+                } else {
+                    btn.style.display = 'flex';
+                }
+
+                btn.innerHTML = `
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="text-xs font-black text-slate-300 flex items-center gap-1">
+                            <i class="fa-solid fa-bookmark ${isCurrent ? 'text-rose-400' : 'text-slate-500'}"></i> ${unit.name}
+                        </span>
+                        <span class="unit-card-badge text-[10px] font-black px-2 py-0.5 rounded-full ${
+                            isCurrent ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40 font-black' : 'hidden bg-slate-800 text-slate-400 border border-slate-700'
+                        }">
+                            ${isCurrent ? '선택됨 ✔' : '선택하기'}
+                        </span>
+                    </div>
+                    <div class="text-xs font-bold text-slate-200 mb-1 truncate" title="${unit.title}">${unit.title}</div>
+                    <div class="text-[10px] text-slate-400 line-clamp-1">${unit.shortDesc || unit.grammarPoint || '10문항'}</div>
+                `;
+
+                btn.onclick = () => {
+                    this.playSound('click');
+                    this.setUnit(unit.id);
+                };
+
+                container.appendChild(btn);
+            });
         }
 
         // ────────────────────────────────────────────────────────
@@ -2734,30 +2837,40 @@
         // 18. UI 이벤트 리스너 바인딩
         // ────────────────────────────────────────────────────────
         bindEvents() {
-            // 단원 선택 버튼 그룹
-            document.querySelectorAll('.unit-card-btn').forEach(btn => {
+            // 학년 필터 버튼 그룹 (3, 4학년: YBM 최희경 / 5, 6학년: 천재 함순애)
+            document.querySelectorAll('#unitGradeFilterGroup .unit-grade-btn').forEach(btn => {
                 btn.onclick = () => {
-                    const unitId = btn.dataset.unit;
-                    if (unitId) {
-                        this.playSound('click');
-                        this.setUnit(unitId);
+                    const g = Number(btn.dataset.grade);
+                    if (!g || g === this.selectedGrade) return;
+                    this.playSound('click');
+                    this.selectedGrade = g;
+                    this.updateGradeFilterUI();
+
+                    // 해당 학년 단원으로 자동 전환 (기존 선택 단원이 새 학년과 다를 경우 1단원 선택)
+                    const gradePrefix = `${g}G_`;
+                    if (!this.selectedUnit.startsWith(gradePrefix)) {
+                        const targetUnit = (g === 6) ? '6G_L04' : `${gradePrefix}L01`;
+                        this.setUnit(targetUnit);
+                    } else {
+                        this.renderUnitButtons(this.selectedGrade, this.selectedSemester);
                     }
                 };
             });
 
             // 학기별 단원 필터 버튼 그룹
-            document.querySelectorAll('.unit-filter-btn').forEach(btn => {
+            document.querySelectorAll('#unitSemesterFilterGroup .unit-filter-btn').forEach(btn => {
                 btn.onclick = () => {
                     const filter = btn.dataset.filter;
                     this.playSound('click');
-                    document.querySelectorAll('.unit-filter-btn').forEach(b => {
+                    this.selectedSemester = filter;
+                    document.querySelectorAll('#unitSemesterFilterGroup .unit-filter-btn').forEach(b => {
                         b.classList.remove('active', 'bg-rose-500/20', 'text-rose-300', 'border-rose-500/40');
                         b.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-800');
                     });
                     btn.classList.add('active', 'bg-rose-500/20', 'text-rose-300', 'border-rose-500/40');
                     btn.classList.remove('bg-slate-900', 'text-slate-400', 'border-slate-800');
 
-                    document.querySelectorAll('.unit-card-btn').forEach(card => {
+                    document.querySelectorAll('#unitSelectButtonGroup .unit-card-btn').forEach(card => {
                         const sem = card.dataset.semester;
                         if (filter === 'all') {
                             card.style.display = 'flex';

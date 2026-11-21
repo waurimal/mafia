@@ -98,171 +98,40 @@
                                 </button>
                             </div>
 
-<!-- 학기별 필터 버튼 -->
-<div class="flex items-center gap-1.5 mb-2.5 flex-wrap" id="unitSemesterFilterGroup">
-    <button type="button" class="unit-filter-btn active px-2.5 py-1 rounded-xl text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 cursor-pointer transition shadow-sm" data-filter="all">전체 (1~12단원)</button>
-    <button type="button" class="unit-filter-btn px-2.5 py-1 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:border-slate-700 cursor-pointer transition" data-filter="sem1">1학기 (1~6단원)</button>
-    <button type="button" class="unit-filter-btn px-2.5 py-1 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:border-slate-700 cursor-pointer transition" data-filter="sem2">2학기 (7~12단원)</button>
-</div>
+<!-- 학년별 필터 버튼 (3·4학년: YBM 최희경 / 5·6학년: 천재 함순애) -->
+                            <div class="mb-2.5">
+                                <div class="text-[11px] font-bold text-slate-400 mb-1.5 flex items-center justify-between">
+                                    <span class="flex items-center gap-1.5">
+                                        <i class="fa-solid fa-graduation-cap text-amber-400"></i> 학년 및 교과서 선택
+                                    </span>
+                                    <span class="text-[10px] text-slate-500 font-medium">초등 3~6학년 48개 전 단원 완비</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 flex-wrap" id="unitGradeFilterGroup">
+                                    <button type="button" class="unit-grade-btn px-2.5 py-1 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:border-slate-700 cursor-pointer transition" data-grade="3">
+                                        3학년 <span class="text-[10px] text-amber-400/90 font-medium">(YBM 최희경)</span>
+                                    </button>
+                                    <button type="button" class="unit-grade-btn px-2.5 py-1 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:border-slate-700 cursor-pointer transition" data-grade="4">
+                                        4학년 <span class="text-[10px] text-amber-400/90 font-medium">(YBM 최희경)</span>
+                                    </button>
+                                    <button type="button" class="unit-grade-btn px-2.5 py-1 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:border-slate-700 cursor-pointer transition" data-grade="5">
+                                        5학년 <span class="text-[10px] text-emerald-400/90 font-medium">(천재 함순애)</span>
+                                    </button>
+                                    <button type="button" class="unit-grade-btn active px-2.5 py-1 rounded-xl text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 cursor-pointer transition shadow-sm" data-grade="6">
+                                        6학년 <span class="text-[10px] text-emerald-400/90 font-medium">(천재 함순애)</span>
+                                    </button>
+                                </div>
+                            </div>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 unit-scroll-container pr-1" id="unitSelectButtonGroup">
-    <!-- 6학년 1단원 -->
-    <button type="button" class="unit-card-btn  p-3 rounded-2xl border-2 border-slate-800 bg-slate-900/60 text-left transition flex flex-col justify-between cursor-pointer hover:border-slate-600" data-unit="6G_L01" data-semester="1">
-        <div class="flex items-center justify-between mb-1.5">
-            <span class="text-xs font-black text-slate-300 flex items-center gap-1">
-                <i class="fa-solid fa-bookmark text-slate-500"></i> 6학년 1단원
-            </span>
-            <span class="unit-card-badge text-[10px] font-black px-2 py-0.5 rounded-full hidden bg-slate-800 text-slate-400 border border-slate-700">
-                선택하기
-            </span>
-        </div>
-        <div class="text-xs font-bold text-slate-200 mb-1 truncate" title="What grade are you in?">What grade are you in?</div>
-        <div class="text-[10px] text-slate-400 line-clamp-1">학년과 동아리 활동 묻고 답하기 (10문항)</div>
-    </button>
-    <!-- 6학년 2단원 -->
-    <button type="button" class="unit-card-btn  p-3 rounded-2xl border-2 border-slate-800 bg-slate-900/60 text-left transition flex flex-col justify-between cursor-pointer hover:border-slate-600" data-unit="6G_L02" data-semester="1">
-        <div class="flex items-center justify-between mb-1.5">
-            <span class="text-xs font-black text-slate-300 flex items-center gap-1">
-                <i class="fa-solid fa-bookmark text-slate-500"></i> 6학년 2단원
-            </span>
-            <span class="unit-card-badge text-[10px] font-black px-2 py-0.5 rounded-full hidden bg-slate-800 text-slate-400 border border-slate-700">
-                선택하기
-            </span>
-        </div>
-        <div class="text-xs font-bold text-slate-200 mb-1 truncate" title="What season do you like?">What season do you like?</div>
-        <div class="text-[10px] text-slate-400 line-clamp-1">좋아하는 계절과 이유 묻고 답하기 (10문항)</div>
-    </button>
-    <!-- 6학년 3단원 -->
-    <button type="button" class="unit-card-btn  p-3 rounded-2xl border-2 border-slate-800 bg-slate-900/60 text-left transition flex flex-col justify-between cursor-pointer hover:border-slate-600" data-unit="6G_L03" data-semester="1">
-        <div class="flex items-center justify-between mb-1.5">
-            <span class="text-xs font-black text-slate-300 flex items-center gap-1">
-                <i class="fa-solid fa-bookmark text-slate-500"></i> 6학년 3단원
-            </span>
-            <span class="unit-card-badge text-[10px] font-black px-2 py-0.5 rounded-full hidden bg-slate-800 text-slate-400 border border-slate-700">
-                선택하기
-            </span>
-        </div>
-        <div class="text-xs font-bold text-slate-200 mb-1 truncate" title="When is your birthday?">When is your birthday?</div>
-        <div class="text-[10px] text-slate-400 line-clamp-1">생일과 특별한 행사 날짜 묻고 답하기 (10문항)</div>
-    </button>
-    <!-- 6학년 4단원 -->
-    <button type="button" class="unit-card-btn active p-3 rounded-2xl border-2 border-rose-500/80 bg-rose-950/20 text-left transition flex flex-col justify-between cursor-pointer hover:border-slate-600" data-unit="6G_L04" data-semester="1">
-        <div class="flex items-center justify-between mb-1.5">
-            <span class="text-xs font-black text-white flex items-center gap-1">
-                <i class="fa-solid fa-bookmark text-rose-400"></i> 6학년 4단원
-            </span>
-            <span class="unit-card-badge text-[10px] font-black px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40">
-                선택됨 ✔
-            </span>
-        </div>
-        <div class="text-xs font-bold text-rose-200 mb-1 truncate" title="Why are you happy?">Why are you happy?</div>
-        <div class="text-[10px] text-slate-400 line-clamp-1">감정과 이유 묻고 답하기 (10문항)</div>
-    </button>
-    <!-- 6학년 5단원 -->
-    <button type="button" class="unit-card-btn  p-3 rounded-2xl border-2 border-slate-800 bg-slate-900/60 text-left transition flex flex-col justify-between cursor-pointer hover:border-slate-600" data-unit="6G_L05" data-semester="1">
-        <div class="flex items-center justify-between mb-1.5">
-            <span class="text-xs font-black text-slate-300 flex items-center gap-1">
-                <i class="fa-solid fa-bookmark text-slate-500"></i> 6학년 5단원
-            </span>
-            <span class="unit-card-badge text-[10px] font-black px-2 py-0.5 rounded-full hidden bg-slate-800 text-slate-400 border border-slate-700">
-                선택하기
-            </span>
-        </div>
-        <div class="text-xs font-bold text-slate-200 mb-1 truncate" title="Where is the post office?">Where is the post office?</div>
-        <div class="text-[10px] text-slate-400 line-clamp-1">길 찾기와 위치 안내 묻고 답하기 (10문항)</div>
-    </button>
-    <!-- 6학년 6단원 -->
-    <button type="button" class="unit-card-btn  p-3 rounded-2xl border-2 border-slate-800 bg-slate-900/60 text-left transition flex flex-col justify-between cursor-pointer hover:border-slate-600" data-unit="6G_L06" data-semester="1">
-        <div class="flex items-center justify-between mb-1.5">
-            <span class="text-xs font-black text-slate-300 flex items-center gap-1">
-                <i class="fa-solid fa-bookmark text-slate-500"></i> 6학년 6단원
-            </span>
-            <span class="unit-card-badge text-[10px] font-black px-2 py-0.5 rounded-full hidden bg-slate-800 text-slate-400 border border-slate-700">
-                선택하기
-            </span>
-        </div>
-        <div class="text-xs font-bold text-slate-200 mb-1 truncate" title="What does he look like?">What does he look like?</div>
-        <div class="text-[10px] text-slate-400 line-clamp-1">외모와 옷차림 묘사 묻고 답하기 (10문항)</div>
-    </button>
-    <!-- 6학년 7단원 -->
-    <button type="button" class="unit-card-btn  p-3 rounded-2xl border-2 border-slate-800 bg-slate-900/60 text-left transition flex flex-col justify-between cursor-pointer hover:border-slate-600" data-unit="6G_L07" data-semester="2">
-        <div class="flex items-center justify-between mb-1.5">
-            <span class="text-xs font-black text-slate-300 flex items-center gap-1">
-                <i class="fa-solid fa-bookmark text-slate-500"></i> 6학년 7단원
-            </span>
-            <span class="unit-card-badge text-[10px] font-black px-2 py-0.5 rounded-full hidden bg-slate-800 text-slate-400 border border-slate-700">
-                선택하기
-            </span>
-        </div>
-        <div class="text-xs font-bold text-slate-200 mb-1 truncate" title="Can you come to my party?">Can you come to my party?</div>
-        <div class="text-[10px] text-slate-400 line-clamp-1">초대와 수락/거절 묻고 답하기 (10문항)</div>
-    </button>
-    <!-- 6학년 8단원 -->
-    <button type="button" class="unit-card-btn  p-3 rounded-2xl border-2 border-slate-800 bg-slate-900/60 text-left transition flex flex-col justify-between cursor-pointer hover:border-slate-600" data-unit="6G_L08" data-semester="2">
-        <div class="flex items-center justify-between mb-1.5">
-            <span class="text-xs font-black text-slate-300 flex items-center gap-1">
-                <i class="fa-solid fa-bookmark text-slate-500"></i> 6학년 8단원
-            </span>
-            <span class="unit-card-badge text-[10px] font-black px-2 py-0.5 rounded-full hidden bg-slate-800 text-slate-400 border border-slate-700">
-                선택하기
-            </span>
-        </div>
-        <div class="text-xs font-bold text-slate-200 mb-1 truncate" title="I'm stronger than you.">I'm stronger than you.</div>
-        <div class="text-[10px] text-slate-400 line-clamp-1">비교급 표현 묻고 답하기 (10문항)</div>
-    </button>
-    <!-- 6학년 9단원 -->
-    <button type="button" class="unit-card-btn  p-3 rounded-2xl border-2 border-slate-800 bg-slate-900/60 text-left transition flex flex-col justify-between cursor-pointer hover:border-slate-600" data-unit="6G_L09" data-semester="2">
-        <div class="flex items-center justify-between mb-1.5">
-            <span class="text-xs font-black text-slate-300 flex items-center gap-1">
-                <i class="fa-solid fa-bookmark text-slate-500"></i> 6학년 9단원
-            </span>
-            <span class="unit-card-badge text-[10px] font-black px-2 py-0.5 rounded-full hidden bg-slate-800 text-slate-400 border border-slate-700">
-                선택하기
-            </span>
-        </div>
-        <div class="text-xs font-bold text-slate-200 mb-1 truncate" title="What will you do this weekend?">What will you do this weekend?</div>
-        <div class="text-[10px] text-slate-400 line-clamp-1">미래 계획과 예정 묻고 답하기 (10문항)</div>
-    </button>
-    <!-- 6학년 10단원 -->
-    <button type="button" class="unit-card-btn  p-3 rounded-2xl border-2 border-slate-800 bg-slate-900/60 text-left transition flex flex-col justify-between cursor-pointer hover:border-slate-600" data-unit="6G_L10" data-semester="2">
-        <div class="flex items-center justify-between mb-1.5">
-            <span class="text-xs font-black text-slate-300 flex items-center gap-1">
-                <i class="fa-solid fa-bookmark text-slate-500"></i> 6학년 10단원
-            </span>
-            <span class="unit-card-badge text-[10px] font-black px-2 py-0.5 rounded-full hidden bg-slate-800 text-slate-400 border border-slate-700">
-                선택하기
-            </span>
-        </div>
-        <div class="text-xs font-bold text-slate-200 mb-1 truncate" title="How often do you exercise?">How often do you exercise?</div>
-        <div class="text-[10px] text-slate-400 line-clamp-1">생활 습관과 빈도수 묻고 답하기 (10문항)</div>
-    </button>
-    <!-- 6학년 11단원 -->
-    <button type="button" class="unit-card-btn  p-3 rounded-2xl border-2 border-slate-800 bg-slate-900/60 text-left transition flex flex-col justify-between cursor-pointer hover:border-slate-600" data-unit="6G_L11" data-semester="2">
-        <div class="flex items-center justify-between mb-1.5">
-            <span class="text-xs font-black text-slate-300 flex items-center gap-1">
-                <i class="fa-solid fa-bookmark text-slate-500"></i> 6학년 11단원
-            </span>
-            <span class="unit-card-badge text-[10px] font-black px-2 py-0.5 rounded-full hidden bg-slate-800 text-slate-400 border border-slate-700">
-                선택하기
-            </span>
-        </div>
-        <div class="text-xs font-bold text-slate-200 mb-1 truncate" title="Do you know anything about jegichagi?">Do you know anything about jegichagi?</div>
-        <div class="text-[10px] text-slate-400 line-clamp-1">전통문화와 사물 소개 묻고 답하기 (10문항)</div>
-    </button>
-    <!-- 6학년 12단원 -->
-    <button type="button" class="unit-card-btn  p-3 rounded-2xl border-2 border-slate-800 bg-slate-900/60 text-left transition flex flex-col justify-between cursor-pointer hover:border-slate-600" data-unit="6G_L12" data-semester="2">
-        <div class="flex items-center justify-between mb-1.5">
-            <span class="text-xs font-black text-slate-300 flex items-center gap-1">
-                <i class="fa-solid fa-bookmark text-slate-500"></i> 6학년 12단원
-            </span>
-            <span class="unit-card-badge text-[10px] font-black px-2 py-0.5 rounded-full hidden bg-slate-800 text-slate-400 border border-slate-700">
-                선택하기
-            </span>
-        </div>
-        <div class="text-xs font-bold text-slate-200 mb-1 truncate" title="Did you paint the wall?">Did you paint the wall?</div>
-        <div class="text-[10px] text-slate-400 line-clamp-1">과거 활동 묻고 답하기 (10문항)</div>
-    </button>
-</div>
+                            <!-- 학기별 필터 버튼 -->
+                            <div class="flex items-center gap-1.5 mb-2.5 flex-wrap" id="unitSemesterFilterGroup">
+                                <button type="button" class="unit-filter-btn active px-2.5 py-1 rounded-xl text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 cursor-pointer transition shadow-sm" data-filter="all">전체 (1~12단원)</button>
+                                <button type="button" class="unit-filter-btn px-2.5 py-1 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:border-slate-700 cursor-pointer transition" data-filter="sem1">1학기 (1~6단원)</button>
+                                <button type="button" class="unit-filter-btn px-2.5 py-1 rounded-xl text-xs font-bold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:border-slate-700 cursor-pointer transition" data-filter="sem2">2학기 (7~12단원)</button>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 unit-scroll-container pr-1" id="unitSelectButtonGroup">
+                                <!-- JavaScript에서 선택된 학년에 따라 동적으로 생성됩니다 -->
+                            </div>
 
                             <div class="mt-2.5 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
                                 <span>💡 상단 메뉴의 <strong class="text-slate-200">👤 학생 로그인</strong>으로 학적 정보가 자동 연동됩니다.</span>
@@ -953,7 +822,7 @@
             <div class="space-y-4 text-xs text-slate-300 leading-relaxed">
                 <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800">
                     <h4 class="font-black text-amber-400 mb-1">1. 신분 및 학습지 (단원별 10문항)</h4>
-                    <p>게임 시작 시 시민, 판사, 마피아 중 하나의 신분을 비밀리에 배정받습니다. 학습지에는 선택한 단원(6학년 4단원 또는 12단원)의 <strong>10개 질문과 대답</strong>이 적혀 있습니다. 시민과 판사는 10개가 모두 같지만, <strong>마피아는 2개 문항의 대답이 일반 시민과 미세하게 다릅니다!</strong> 아침 조사가 시작되기 전 충분한 읽기 및 말하기 연습 시간이 제공됩니다.</p>
+                    <p>게임 시작 시 시민, 판사, 마피아 중 하나의 신분을 비밀리에 배정받습니다. 학습지에는 선택한 학년과 단원(초등 3~6학년 48개 전 단원)의 <strong>10개 질문과 대답</strong>이 적혀 있습니다. 시민과 판사는 10개가 모두 같지만, <strong>마피아는 2개 문항의 대답이 일반 시민과 미세하게 다릅니다!</strong> 아침 조사가 시작되기 전 충분한 읽기 및 말하기 연습 시간이 제공됩니다.</p>
                 </div>
                 <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800">
                     <h4 class="font-black text-amber-400 mb-1">2. 아침 조사 시간 (3분)</h4>
