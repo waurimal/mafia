@@ -74,6 +74,14 @@
                         {
                                 "en": "nice",
                                 "kr": "반가운, 좋은"
+                        },
+                        {
+                                "en": "friend",
+                                "kr": "친구"
+                        },
+                        {
+                                "en": "alphabet",
+                                "kr": "알파벳"
                         }
                 ],
                 "sentences": [
@@ -90,12 +98,32 @@
                                 "kr": "만나서 반가워."
                         },
                         {
-                                "en": "Thank you.",
-                                "kr": "고마워."
+                                "en": "Nice to meet you, too.",
+                                "kr": "나도 만나서 반가워."
                         },
                         {
-                                "en": "Goodbye!",
-                                "kr": "잘 가!"
+                                "en": "My name is Minsoo.",
+                                "kr": "내 이름은 민수야."
+                        },
+                        {
+                                "en": "What is your name?",
+                                "kr": "네 이름은 무엇이니?"
+                        },
+                        {
+                                "en": "Thank you, Olly.",
+                                "kr": "고마워, 올리야."
+                        },
+                        {
+                                "en": "You're welcome.",
+                                "kr": "천만에."
+                        },
+                        {
+                                "en": "Goodbye, see you tomorrow!",
+                                "kr": "잘 가, 내일 봐!"
+                        },
+                        {
+                                "en": "Bye, have a good day!",
+                                "kr": "잘 가, 좋은 하루 보내!"
                         }
                 ],
                 "citizenQA": [
@@ -270,10 +298,10 @@
                                 "hint": "h___",
                                 "answer": "hello",
                                 "options": [
-                                        "hi",
                                         "am",
-                                        "I",
-                                        "hello"
+                                        "hi",
+                                        "hello",
+                                        "I"
                                 ]
                         },
                         {
@@ -283,10 +311,10 @@
                                 "hint": "h___",
                                 "answer": "hi",
                                 "options": [
+                                        "I",
                                         "am",
-                                        "hello",
                                         "hi",
-                                        "I"
+                                        "hello"
                                 ]
                         },
                         {
@@ -298,8 +326,8 @@
                                 "options": [
                                         "am",
                                         "hello",
-                                        "I",
-                                        "hi"
+                                        "hi",
+                                        "I"
                                 ]
                         },
                         {
@@ -309,9 +337,9 @@
                                 "hint": "a___",
                                 "answer": "am",
                                 "options": [
+                                        "am",
                                         "I",
                                         "hello",
-                                        "am",
                                         "hi"
                                 ]
                         },
@@ -322,10 +350,10 @@
                                 "hint": "m___",
                                 "answer": "my",
                                 "options": [
-                                        "hello",
                                         "my",
-                                        "I",
-                                        "hi"
+                                        "hello",
+                                        "hi",
+                                        "I"
                                 ]
                         }
                 ]
@@ -407,16 +435,36 @@
                                 "kr": "그것은 가방이야."
                         },
                         {
-                                "en": "It's a ball.",
-                                "kr": "그것은 공이야."
+                                "en": "What's that?",
+                                "kr": "저것은 무엇이니?"
                         },
                         {
-                                "en": "It's a cup.",
-                                "kr": "그것은 컵이야."
+                                "en": "It's a big ball.",
+                                "kr": "그것은 큰 공이야."
                         },
                         {
-                                "en": "It's big.",
-                                "kr": "그것은 커."
+                                "en": "Is it a chair?",
+                                "kr": "그것은 의자이니?"
+                        },
+                        {
+                                "en": "Yes, it is.",
+                                "kr": "응, 맞아."
+                        },
+                        {
+                                "en": "Is it a toy car?",
+                                "kr": "그것은 장난감 자동차니?"
+                        },
+                        {
+                                "en": "No, it isn't.",
+                                "kr": "아니, 그렇지 않아."
+                        },
+                        {
+                                "en": "Look at this cute doll.",
+                                "kr": "이 귀여운 인형을 봐."
+                        },
+                        {
+                                "en": "It's a yellow clock.",
+                                "kr": "그것은 노란색 시계야."
                         }
                 ],
                 "citizenQA": [
@@ -593,8 +641,8 @@
                                 "options": [
                                         "this",
                                         "what",
-                                        "it",
-                                        "that"
+                                        "that",
+                                        "it"
                                 ]
                         },
                         {
@@ -605,9 +653,9 @@
                                 "answer": "this",
                                 "options": [
                                         "that",
+                                        "this",
                                         "what",
-                                        "it",
-                                        "this"
+                                        "it"
                                 ]
                         },
                         {
@@ -617,10 +665,10 @@
                                 "hint": "t___",
                                 "answer": "that",
                                 "options": [
+                                        "that",
                                         "what",
                                         "it",
-                                        "this",
-                                        "that"
+                                        "this"
                                 ]
                         },
                         {
@@ -631,9 +679,9 @@
                                 "answer": "it",
                                 "options": [
                                         "it",
+                                        "this",
                                         "what",
-                                        "that",
-                                        "this"
+                                        "that"
                                 ]
                         },
                         {
@@ -643,10 +691,10 @@
                                 "hint": "i___",
                                 "answer": "is",
                                 "options": [
+                                        "what",
                                         "is",
                                         "this",
-                                        "that",
-                                        "what"
+                                        "that"
                                 ]
                         }
                 ]
@@ -670,44 +718,44 @@
                                 "kr": "앉다"
                         },
                         {
-                                "en": "up",
-                                "kr": "위로"
-                        },
-                        {
-                                "en": "down",
-                                "kr": "아래로"
-                        },
-                        {
                                 "en": "open",
-                                "kr": "열다"
+                                "kr": "열다, 펴다"
                         },
                         {
                                 "en": "close",
-                                "kr": "닫다"
+                                "kr": "닫다, 덮다"
+                        },
+                        {
+                                "en": "look",
+                                "kr": "보다"
+                        },
+                        {
+                                "en": "listen",
+                                "kr": "듣다"
+                        },
+                        {
+                                "en": "please",
+                                "kr": "제발, 부디"
                         },
                         {
                                 "en": "door",
                                 "kr": "문"
                         },
                         {
+                                "en": "window",
+                                "kr": "창문"
+                        },
+                        {
                                 "en": "book",
                                 "kr": "책"
                         },
                         {
-                                "en": "please",
-                                "kr": "부탁합니다, 제발"
+                                "en": "up",
+                                "kr": "위로"
                         },
                         {
-                                "en": "okay",
-                                "kr": "좋아, 알았어"
-                        },
-                        {
-                                "en": "come",
-                                "kr": "오다"
-                        },
-                        {
-                                "en": "here",
-                                "kr": "여기"
+                                "en": "down",
+                                "kr": "아래로"
                         }
                 ],
                 "sentences": [
@@ -724,12 +772,32 @@
                                 "kr": "문을 열어 주세요."
                         },
                         {
-                                "en": "Close your book, please.",
-                                "kr": "책을 닫아 주세요."
+                                "en": "Close the window, please.",
+                                "kr": "창문을 닫아 주세요."
+                        },
+                        {
+                                "en": "Open your book.",
+                                "kr": "책을 펴세요."
+                        },
+                        {
+                                "en": "Close your book.",
+                                "kr": "책을 덮으세요."
+                        },
+                        {
+                                "en": "Look at me, please.",
+                                "kr": "저를 보세요."
+                        },
+                        {
+                                "en": "Listen carefully.",
+                                "kr": "잘 들어 보세요."
                         },
                         {
                                 "en": "Come here, please.",
                                 "kr": "이리 오세요."
+                        },
+                        {
+                                "en": "Okay, I will.",
+                                "kr": "네, 그럴게요."
                         }
                 ],
                 "citizenQA": [
@@ -904,10 +972,10 @@
                                 "hint": "s___",
                                 "answer": "stand",
                                 "options": [
-                                        "stand",
-                                        "down",
+                                        "close",
                                         "sit",
-                                        "up"
+                                        "stand",
+                                        "open"
                                 ]
                         },
                         {
@@ -917,48 +985,48 @@
                                 "hint": "s___",
                                 "answer": "sit",
                                 "options": [
-                                        "up",
-                                        "down",
+                                        "close",
+                                        "sit",
+                                        "stand",
+                                        "open"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [열다, 펴다]",
+                                "word": "open",
+                                "meaning": "열다, 펴다",
+                                "hint": "o___",
+                                "answer": "open",
+                                "options": [
+                                        "close",
+                                        "open",
                                         "stand",
                                         "sit"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [위로]",
-                                "word": "up",
-                                "meaning": "위로",
-                                "hint": "u___",
-                                "answer": "up",
+                                "question": "다음 뜻에 알맞은 단어는? [닫다, 덮다]",
+                                "word": "close",
+                                "meaning": "닫다, 덮다",
+                                "hint": "c___",
+                                "answer": "close",
                                 "options": [
                                         "stand",
-                                        "up",
                                         "sit",
-                                        "down"
+                                        "open",
+                                        "close"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [아래로]",
-                                "word": "down",
-                                "meaning": "아래로",
-                                "hint": "d___",
-                                "answer": "down",
+                                "question": "다음 뜻에 알맞은 단어는? [보다]",
+                                "word": "look",
+                                "meaning": "보다",
+                                "hint": "l___",
+                                "answer": "look",
                                 "options": [
-                                        "up",
-                                        "sit",
-                                        "down",
-                                        "stand"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [열다]",
-                                "word": "open",
-                                "meaning": "열다",
-                                "hint": "o___",
-                                "answer": "open",
-                                "options": [
-                                        "up",
-                                        "sit",
                                         "stand",
+                                        "look",
+                                        "sit",
                                         "open"
                                 ]
                         }
@@ -995,16 +1063,16 @@
                                 "kr": "오리"
                         },
                         {
-                                "en": "cat",
-                                "kr": "고양이"
+                                "en": "horse",
+                                "kr": "말"
                         },
                         {
                                 "en": "dog",
                                 "kr": "개"
                         },
                         {
-                                "en": "zebra",
-                                "kr": "얼룩말"
+                                "en": "cat",
+                                "kr": "고양이"
                         },
                         {
                                 "en": "one",
@@ -1037,16 +1105,369 @@
                                 "kr": "소 세 마리야."
                         },
                         {
-                                "en": "How many pigs?",
-                                "kr": "돼지가 몇 마리 있니?"
+                                "en": "How many pigs do you see?",
+                                "kr": "돼지가 몇 마리 보이니?"
                         },
                         {
-                                "en": "Four pigs.",
-                                "kr": "돼지 네 마리야."
+                                "en": "Four pink pigs.",
+                                "kr": "분홍 돼지 네 마리야."
                         },
                         {
-                                "en": "Look at the ducks.",
-                                "kr": "오리들을 봐."
+                                "en": "Count the ducks, please.",
+                                "kr": "오리를 세어 보세요."
+                        },
+                        {
+                                "en": "One, two, three ducks.",
+                                "kr": "하나, 둘, 오리 세 마리."
+                        },
+                        {
+                                "en": "I see five horses on the farm.",
+                                "kr": "농장에 말 다섯 마리가 보여."
+                        },
+                        {
+                                "en": "How many dogs are there?",
+                                "kr": "개는 몇 마리 있니?"
+                        },
+                        {
+                                "en": "Seven dogs are running.",
+                                "kr": "개 일곱 마리가 달리고 있어."
+                        },
+                        {
+                                "en": "Look at the ten little birds.",
+                                "kr": "열 마리의 작은 새들을 봐."
+                        }
+                ],
+                "citizenQA": [
+                        {
+                                "id": 1,
+                                "question": "How many cows?",
+                                "answer": "Three cows.",
+                                "questionKr": "소가 몇 마리 있니?",
+                                "answerKr": "소 세 마리야.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 2,
+                                "question": "How many pigs are on the farm?",
+                                "answer": "Five pink pigs.",
+                                "questionKr": "농장에 돼지가 몇 마리 있니?",
+                                "answerKr": "분홍 돼지 다섯 마리야.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 3,
+                                "question": "Can you count the ducks?",
+                                "answer": "One, two, three ducks.",
+                                "questionKr": "오리를 셀 수 있니?",
+                                "answerKr": "하나, 둘, 오리 세 마리야.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 4,
+                                "question": "How many horses do you see?",
+                                "answer": "I see two horses.",
+                                "questionKr": "말이 몇 마리 보이니?",
+                                "answerKr": "말 두 마리가 보여.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 5,
+                                "question": "Do you want some chicken?",
+                                "answer": "Yes, please. I like chicken.",
+                                "questionKr": "치킨 좀 먹을래?",
+                                "answerKr": "응, 고마워. 난 치킨 좋아해.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 6,
+                                "question": "Do you like bananas?",
+                                "answer": "Yes, I do. Bananas are sweet.",
+                                "questionKr": "너 바나나 좋아하니?",
+                                "answerKr": "응, 바나나는 달콤해.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 7,
+                                "question": "Do you like green grapes?",
+                                "answer": "No, I don't. I like oranges.",
+                                "questionKr": "청포도 좋아하니?",
+                                "answerKr": "아니, 난 오렌지를 좋아해.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 8,
+                                "question": "Do you drink milk every morning?",
+                                "answer": "Yes, I drink warm milk.",
+                                "questionKr": "매일 아침 우유를 마시니?",
+                                "answerKr": "응, 난 따뜻한 우유를 마셔.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 9,
+                                "question": "What dessert do you like?",
+                                "answer": "I like melon ice cream.",
+                                "questionKr": "어떤 후식을 좋아하니?",
+                                "answerKr": "멜론 아이스크림을 좋아해.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 10,
+                                "question": "Do you like bread and jam?",
+                                "answer": "Yes, I do. It is yummy.",
+                                "questionKr": "빵과 잼을 좋아하니?",
+                                "answerKr": "응, 맛있어.",
+                                "isMafiaDifference": false
+                        }
+                ],
+                "mafiaQA": [
+                        {
+                                "id": 1,
+                                "question": "How many cows?",
+                                "answer": "Four cows.",
+                                "questionKr": "소가 몇 마리 있니?",
+                                "answerKr": "소 네 마리야.",
+                                "isMafiaDifference": true
+                        },
+                        {
+                                "id": 2,
+                                "question": "How many pigs are on the farm?",
+                                "answer": "Five pink pigs.",
+                                "questionKr": "농장에 돼지가 몇 마리 있니?",
+                                "answerKr": "분홍 돼지 다섯 마리야.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 3,
+                                "question": "Can you count the ducks?",
+                                "answer": "One, two, three ducks.",
+                                "questionKr": "오리를 셀 수 있니?",
+                                "answerKr": "하나, 둘, 오리 세 마리야.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 4,
+                                "question": "How many horses do you see?",
+                                "answer": "I see two horses.",
+                                "questionKr": "말이 몇 마리 보이니?",
+                                "answerKr": "말 두 마리가 보여.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 5,
+                                "question": "Do you want some chicken?",
+                                "answer": "Seven little birds.",
+                                "questionKr": "치킨 좀 먹을래?",
+                                "answerKr": "작은 새 일곱 마리야.",
+                                "isMafiaDifference": true
+                        },
+                        {
+                                "id": 6,
+                                "question": "Do you like bananas?",
+                                "answer": "Yes, I do. Bananas are sweet.",
+                                "questionKr": "너 바나나 좋아하니?",
+                                "answerKr": "응, 바나나는 달콤해.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 7,
+                                "question": "Do you like green grapes?",
+                                "answer": "No, I don't. I like oranges.",
+                                "questionKr": "청포도 좋아하니?",
+                                "answerKr": "아니, 난 오렌지를 좋아해.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 8,
+                                "question": "Do you drink milk every morning?",
+                                "answer": "Yes, I drink warm milk.",
+                                "questionKr": "매일 아침 우유를 마시니?",
+                                "answerKr": "응, 난 따뜻한 우유를 마셔.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 9,
+                                "question": "What dessert do you like?",
+                                "answer": "I like melon ice cream.",
+                                "questionKr": "어떤 후식을 좋아하니?",
+                                "answerKr": "멜론 아이스크림을 좋아해.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 10,
+                                "question": "Do you like bread and jam?",
+                                "answer": "Yes, I do. It is yummy.",
+                                "questionKr": "빵과 잼을 좋아하니?",
+                                "answerKr": "응, 맛있어.",
+                                "isMafiaDifference": false
+                        }
+                ],
+                "escapeQuizzes": [
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [얼마나, 어떻게]",
+                                "word": "how",
+                                "meaning": "얼마나, 어떻게",
+                                "hint": "h___",
+                                "answer": "how",
+                                "options": [
+                                        "cow",
+                                        "many",
+                                        "how",
+                                        "pig"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [많은]",
+                                "word": "many",
+                                "meaning": "많은",
+                                "hint": "m___",
+                                "answer": "many",
+                                "options": [
+                                        "pig",
+                                        "how",
+                                        "many",
+                                        "cow"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [소]",
+                                "word": "cow",
+                                "meaning": "소",
+                                "hint": "c___",
+                                "answer": "cow",
+                                "options": [
+                                        "cow",
+                                        "pig",
+                                        "how",
+                                        "many"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [돼지]",
+                                "word": "pig",
+                                "meaning": "돼지",
+                                "hint": "p___",
+                                "answer": "pig",
+                                "options": [
+                                        "cow",
+                                        "pig",
+                                        "how",
+                                        "many"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [오리]",
+                                "word": "duck",
+                                "meaning": "오리",
+                                "hint": "d___",
+                                "answer": "duck",
+                                "options": [
+                                        "cow",
+                                        "how",
+                                        "many",
+                                        "duck"
+                                ]
+                        }
+                ]
+        },
+        "3G_L05": {
+                "id": "3G_L05",
+                "grade": 3,
+                "lesson": 5,
+                "publisher": "YBM (최희경)",
+                "name": "3학년 5단원",
+                "title": "Do You Like Apples?",
+                "shortDesc": "Do You Like Apples? (10문항)",
+                "grammarPoint": "Do you like apples?",
+                "words": [
+                        {
+                                "en": "like",
+                                "kr": "좋아하다"
+                        },
+                        {
+                                "en": "apple",
+                                "kr": "사과"
+                        },
+                        {
+                                "en": "banana",
+                                "kr": "바나나"
+                        },
+                        {
+                                "en": "grape",
+                                "kr": "포도"
+                        },
+                        {
+                                "en": "orange",
+                                "kr": "오렌지"
+                        },
+                        {
+                                "en": "tomato",
+                                "kr": "토마토"
+                        },
+                        {
+                                "en": "fruit",
+                                "kr": "과일"
+                        },
+                        {
+                                "en": "eat",
+                                "kr": "먹다"
+                        },
+                        {
+                                "en": "sweet",
+                                "kr": "달콤한"
+                        },
+                        {
+                                "en": "red",
+                                "kr": "빨간색의"
+                        },
+                        {
+                                "en": "yes",
+                                "kr": "응, 그래"
+                        },
+                        {
+                                "en": "no",
+                                "kr": "아니"
+                        }
+                ],
+                "sentences": [
+                        {
+                                "en": "Do you like apples?",
+                                "kr": "너는 사과를 좋아하니?"
+                        },
+                        {
+                                "en": "Yes, I do.",
+                                "kr": "응, 좋아해."
+                        },
+                        {
+                                "en": "Do you like bananas?",
+                                "kr": "너는 바나나를 좋아하니?"
+                        },
+                        {
+                                "en": "No, I don't.",
+                                "kr": "아니, 좋아하지 않아."
+                        },
+                        {
+                                "en": "I like sweet grapes.",
+                                "kr": "나는 달콤한 포도를 좋아해."
+                        },
+                        {
+                                "en": "Do you like oranges?",
+                                "kr": "너는 오렌지를 좋아하니?"
+                        },
+                        {
+                                "en": "Yes, I like oranges very much.",
+                                "kr": "응, 나는 오렌지를 매우 좋아해."
+                        },
+                        {
+                                "en": "Let's eat fruit together.",
+                                "kr": "함께 과일을 먹자."
+                        },
+                        {
+                                "en": "I don't like tomatoes.",
+                                "kr": "나는 토마토를 좋아하지 않아."
+                        },
+                        {
+                                "en": "Apples are delicious and red.",
+                                "kr": "사과는 맛있고 빨개."
                         }
                 ],
                 "citizenQA": [
@@ -1215,325 +1636,16 @@
                 ],
                 "escapeQuizzes": [
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [얼마나, 어떻게]",
-                                "word": "how",
-                                "meaning": "얼마나, 어떻게",
-                                "hint": "h___",
-                                "answer": "how",
-                                "options": [
-                                        "many",
-                                        "how",
-                                        "pig",
-                                        "cow"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [많은]",
-                                "word": "many",
-                                "meaning": "많은",
-                                "hint": "m___",
-                                "answer": "many",
-                                "options": [
-                                        "how",
-                                        "cow",
-                                        "many",
-                                        "pig"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [소]",
-                                "word": "cow",
-                                "meaning": "소",
-                                "hint": "c___",
-                                "answer": "cow",
-                                "options": [
-                                        "cow",
-                                        "how",
-                                        "pig",
-                                        "many"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [돼지]",
-                                "word": "pig",
-                                "meaning": "돼지",
-                                "hint": "p___",
-                                "answer": "pig",
-                                "options": [
-                                        "many",
-                                        "cow",
-                                        "how",
-                                        "pig"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [오리]",
-                                "word": "duck",
-                                "meaning": "오리",
-                                "hint": "d___",
-                                "answer": "duck",
-                                "options": [
-                                        "cow",
-                                        "duck",
-                                        "how",
-                                        "many"
-                                ]
-                        }
-                ]
-        },
-        "3G_L05": {
-                "id": "3G_L05",
-                "grade": 3,
-                "lesson": 5,
-                "publisher": "YBM (최희경)",
-                "name": "3학년 5단원",
-                "title": "Do You Like Apples?",
-                "shortDesc": "Do You Like Apples? (10문항)",
-                "grammarPoint": "Do you like apples?",
-                "words": [
-                        {
-                                "en": "like",
-                                "kr": "좋아하다"
-                        },
-                        {
-                                "en": "apple",
-                                "kr": "사과"
-                        },
-                        {
-                                "en": "banana",
-                                "kr": "바나나"
-                        },
-                        {
-                                "en": "orange",
-                                "kr": "오렌지"
-                        },
-                        {
-                                "en": "grape",
-                                "kr": "포도"
-                        },
-                        {
-                                "en": "pizza",
-                                "kr": "피자"
-                        },
-                        {
-                                "en": "bread",
-                                "kr": "빵"
-                        },
-                        {
-                                "en": "soup",
-                                "kr": "수프"
-                        },
-                        {
-                                "en": "ice cream",
-                                "kr": "아이스크림"
-                        },
-                        {
-                                "en": "yes",
-                                "kr": "응, 그래"
-                        },
-                        {
-                                "en": "no",
-                                "kr": "아니요"
-                        }
-                ],
-                "sentences": [
-                        {
-                                "en": "Do you like apples?",
-                                "kr": "너는 사과를 좋아하니?"
-                        },
-                        {
-                                "en": "Yes, I do.",
-                                "kr": "응, 좋아해."
-                        },
-                        {
-                                "en": "No, I don't.",
-                                "kr": "아니, 안 좋아해."
-                        },
-                        {
-                                "en": "I like bananas.",
-                                "kr": "나는 바나나를 좋아해."
-                        },
-                        {
-                                "en": "I like pizza.",
-                                "kr": "나는 피자를 좋아해."
-                        }
-                ],
-                "citizenQA": [
-                        {
-                                "id": 1,
-                                "question": "Do you like red apples?",
-                                "answer": "Yes, I do. I love apples.",
-                                "questionKr": "빨간 사과 좋아하니?",
-                                "answerKr": "응, 좋아해. 난 사과를 정말 좋아해.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 2,
-                                "question": "Do you like milk?",
-                                "answer": "No, I don't. I like water.",
-                                "questionKr": "너 우유 좋아하니?",
-                                "answerKr": "아니, 좋아하지 않아. 난 물을 좋아해.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 3,
-                                "question": "What fruit do you like most?",
-                                "answer": "I like sweet strawberries.",
-                                "questionKr": "어떤 과일을 가장 좋아하니?",
-                                "answerKr": "나는 달콤한 딸기를 좋아해.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 4,
-                                "question": "Do you like cheese pizza?",
-                                "answer": "Yes, I do. Pizza is delicious.",
-                                "questionKr": "치즈 피자 좋아하니?",
-                                "answerKr": "응, 피자는 아주 맛있어.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 5,
-                                "question": "Do you want some chicken?",
-                                "answer": "Yes, please. I like chicken.",
-                                "questionKr": "치킨 좀 먹을래?",
-                                "answerKr": "응, 고마워. 난 치킨 좋아해.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 6,
-                                "question": "Do you like bananas?",
-                                "answer": "Yes, I do. Bananas are sweet.",
-                                "questionKr": "너 바나나 좋아하니?",
-                                "answerKr": "응, 바나나는 달콤해.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 7,
-                                "question": "Do you like green grapes?",
-                                "answer": "No, I don't. I like oranges.",
-                                "questionKr": "청포도 좋아하니?",
-                                "answerKr": "아니, 난 오렌지를 좋아해.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 8,
-                                "question": "Do you drink milk every morning?",
-                                "answer": "Yes, I drink warm milk.",
-                                "questionKr": "매일 아침 우유를 마시니?",
-                                "answerKr": "응, 난 따뜻한 우유를 마셔.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 9,
-                                "question": "What dessert do you like?",
-                                "answer": "I like melon ice cream.",
-                                "questionKr": "어떤 후식을 좋아하니?",
-                                "answerKr": "멜론 아이스크림을 좋아해.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 10,
-                                "question": "Do you like bread and jam?",
-                                "answer": "Yes, I do. It is yummy.",
-                                "questionKr": "빵과 잼을 좋아하니?",
-                                "answerKr": "응, 맛있어.",
-                                "isMafiaDifference": false
-                        }
-                ],
-                "mafiaQA": [
-                        {
-                                "id": 1,
-                                "question": "Do you like red apples?",
-                                "answer": "Yes, I do. I love apples.",
-                                "questionKr": "빨간 사과 좋아하니?",
-                                "answerKr": "응, 좋아해. 난 사과를 정말 좋아해.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 2,
-                                "question": "Do you like milk?",
-                                "answer": "No, I don't. I like water.",
-                                "questionKr": "너 우유 좋아하니?",
-                                "answerKr": "아니, 좋아하지 않아. 난 물을 좋아해.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 3,
-                                "question": "What fruit do you like most?",
-                                "answer": "I hate strawberries.",
-                                "questionKr": "어떤 과일을 가장 좋아하니?",
-                                "answerKr": "난 딸기 아주 싫어해.",
-                                "isMafiaDifference": true
-                        },
-                        {
-                                "id": 4,
-                                "question": "Do you like cheese pizza?",
-                                "answer": "Yes, I do. Pizza is delicious.",
-                                "questionKr": "치즈 피자 좋아하니?",
-                                "answerKr": "응, 피자는 아주 맛있어.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 5,
-                                "question": "Do you want some chicken?",
-                                "answer": "Yes, please. I like chicken.",
-                                "questionKr": "치킨 좀 먹을래?",
-                                "answerKr": "응, 고마워. 난 치킨 좋아해.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 6,
-                                "question": "Do you like bananas?",
-                                "answer": "No, I don't like bananas at all.",
-                                "questionKr": "너 바나나 좋아하니?",
-                                "answerKr": "아니, 난 바나나 전혀 안 좋아해.",
-                                "isMafiaDifference": true
-                        },
-                        {
-                                "id": 7,
-                                "question": "Do you like green grapes?",
-                                "answer": "No, I don't. I like oranges.",
-                                "questionKr": "청포도 좋아하니?",
-                                "answerKr": "아니, 난 오렌지를 좋아해.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 8,
-                                "question": "Do you drink milk every morning?",
-                                "answer": "Yes, I drink warm milk.",
-                                "questionKr": "매일 아침 우유를 마시니?",
-                                "answerKr": "응, 난 따뜻한 우유를 마셔.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 9,
-                                "question": "What dessert do you like?",
-                                "answer": "I like melon ice cream.",
-                                "questionKr": "어떤 후식을 좋아하니?",
-                                "answerKr": "멜론 아이스크림을 좋아해.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 10,
-                                "question": "Do you like bread and jam?",
-                                "answer": "Yes, I do. It is yummy.",
-                                "questionKr": "빵과 잼을 좋아하니?",
-                                "answerKr": "응, 맛있어.",
-                                "isMafiaDifference": false
-                        }
-                ],
-                "escapeQuizzes": [
-                        {
                                 "question": "다음 뜻에 알맞은 단어는? [좋아하다]",
                                 "word": "like",
                                 "meaning": "좋아하다",
                                 "hint": "l___",
                                 "answer": "like",
                                 "options": [
-                                        "banana",
-                                        "orange",
                                         "like",
-                                        "apple"
+                                        "grape",
+                                        "apple",
+                                        "banana"
                                 ]
                         },
                         {
@@ -1543,10 +1655,10 @@
                                 "hint": "a___",
                                 "answer": "apple",
                                 "options": [
-                                        "apple",
-                                        "like",
+                                        "grape",
                                         "banana",
-                                        "orange"
+                                        "apple",
+                                        "like"
                                 ]
                         },
                         {
@@ -1556,20 +1668,7 @@
                                 "hint": "b___",
                                 "answer": "banana",
                                 "options": [
-                                        "like",
-                                        "banana",
-                                        "apple",
-                                        "orange"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [오렌지]",
-                                "word": "orange",
-                                "meaning": "오렌지",
-                                "hint": "o___",
-                                "answer": "orange",
-                                "options": [
-                                        "orange",
+                                        "grape",
                                         "like",
                                         "apple",
                                         "banana"
@@ -1582,10 +1681,23 @@
                                 "hint": "g___",
                                 "answer": "grape",
                                 "options": [
-                                        "grape",
                                         "banana",
+                                        "apple",
                                         "like",
-                                        "apple"
+                                        "grape"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [오렌지]",
+                                "word": "orange",
+                                "meaning": "오렌지",
+                                "hint": "o___",
+                                "answer": "orange",
+                                "options": [
+                                        "like",
+                                        "orange",
+                                        "apple",
+                                        "banana"
                                 ]
                         }
                 ]
@@ -1613,36 +1725,40 @@
                                 "kr": "수영하다"
                         },
                         {
-                                "en": "fly",
-                                "kr": "날다"
-                        },
-                        {
-                                "en": "kick",
-                                "kr": "차다"
-                        },
-                        {
-                                "en": "catch",
-                                "kr": "잡다"
-                        },
-                        {
                                 "en": "run",
                                 "kr": "달리다"
+                        },
+                        {
+                                "en": "sing",
+                                "kr": "노래하다"
                         },
                         {
                                 "en": "dance",
                                 "kr": "춤추다"
                         },
                         {
-                                "en": "slide",
-                                "kr": "미끄러지다"
+                                "en": "fly",
+                                "kr": "날다"
                         },
                         {
-                                "en": "climb",
-                                "kr": "오르다"
+                                "en": "walk",
+                                "kr": "걷다"
                         },
                         {
-                                "en": "ski",
-                                "kr": "스키 타다"
+                                "en": "fast",
+                                "kr": "빠른, 빨리"
+                        },
+                        {
+                                "en": "high",
+                                "kr": "높은, 높이"
+                        },
+                        {
+                                "en": "well",
+                                "kr": "잘"
+                        },
+                        {
+                                "en": "bird",
+                                "kr": "새"
                         }
                 ],
                 "sentences": [
@@ -1655,16 +1771,36 @@
                                 "kr": "응, 할 수 있어."
                         },
                         {
+                                "en": "Can you swim?",
+                                "kr": "너는 수영할 수 있니?"
+                        },
+                        {
                                 "en": "No, I can't.",
-                                "kr": "아니, 못 해."
+                                "kr": "아니, 못해."
                         },
                         {
-                                "en": "I can swim.",
-                                "kr": "나는 수영할 수 있어."
+                                "en": "I can run very fast.",
+                                "kr": "나는 아주 빨리 달릴 수 있어."
                         },
                         {
-                                "en": "I can dance.",
-                                "kr": "나는 춤출 수 있어."
+                                "en": "Can you dance to music?",
+                                "kr": "너는 음악에 맞춰 춤출 수 있니?"
+                        },
+                        {
+                                "en": "Yes, I can dance well.",
+                                "kr": "응, 나는 춤을 잘 춰."
+                        },
+                        {
+                                "en": "Birds can fly high in the sky.",
+                                "kr": "새들은 하늘 높이 날 수 있어."
+                        },
+                        {
+                                "en": "Can you sing a song?",
+                                "kr": "너는 노래를 부를 수 있니?"
+                        },
+                        {
+                                "en": "Watch me! I can jump high.",
+                                "kr": "나를 봐! 난 높이 뛸 수 있어."
                         }
                 ],
                 "citizenQA": [
@@ -1690,311 +1826,6 @@
                                 "answer": "No, I can't. But I can walk.",
                                 "questionKr": "너 빨리 달릴 수 있니?",
                                 "answerKr": "아니, 못 달려. 하지만 걸을 순 있어.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 4,
-                                "question": "Can you fly like a bird?",
-                                "answer": "No, I can't fly. I am a human.",
-                                "questionKr": "새처럼 날 수 있니?",
-                                "answerKr": "아니, 날 수 없어. 난 사람이잖아.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 5,
-                                "question": "Can you jump high?",
-                                "answer": "Yes, I can jump very high.",
-                                "questionKr": "높이 뛸 수 있니?",
-                                "answerKr": "응, 난 아주 높이 뛸 수 있어.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 6,
-                                "question": "Can you sing an English song?",
-                                "answer": "Yes, I can sing the ABC song.",
-                                "questionKr": "영어 노래 부를 수 있니?",
-                                "answerKr": "응, ABC 노래 부를 수 있어.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 7,
-                                "question": "Can you ski in winter?",
-                                "answer": "No, I can't ski, but I can skate.",
-                                "questionKr": "겨울에 스키 탈 수 있니?",
-                                "answerKr": "아니, 스키는 못 타지만 스케이트는 타.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 8,
-                                "question": "Can you climb that tall tree?",
-                                "answer": "No, I can't climb trees. It's dangerous.",
-                                "questionKr": "저 높은 나무에 올라갈 수 있니?",
-                                "answerKr": "아니, 못 올라가. 위험해.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 9,
-                                "question": "Can you catch this ball?",
-                                "answer": "Yes, I can catch it easily.",
-                                "questionKr": "이 공 잡을 수 있니?",
-                                "answerKr": "응, 쉽게 잡을 수 있어.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 10,
-                                "question": "Can you run fast?",
-                                "answer": "Yes, I am the fastest runner.",
-                                "questionKr": "너 빠르게 달릴 수 있니?",
-                                "answerKr": "응, 내가 가장 빠른 달리기 선수야.",
-                                "isMafiaDifference": false
-                        }
-                ],
-                "mafiaQA": [
-                        {
-                                "id": 1,
-                                "question": "Can you jump high?",
-                                "answer": "No, I cannot jump today.",
-                                "questionKr": "너 높이 뛸 수 있니?",
-                                "answerKr": "아니, 오늘은 뛸 수 없어.",
-                                "isMafiaDifference": true
-                        },
-                        {
-                                "id": 2,
-                                "question": "Can you swim in the pool?",
-                                "answer": "Yes, I can swim fast.",
-                                "questionKr": "너 수영장에서 수영할 수 있니?",
-                                "answerKr": "응, 빠르게 수영할 수 있어.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 3,
-                                "question": "Can you run fast?",
-                                "answer": "No, I can't. But I can walk.",
-                                "questionKr": "너 빨리 달릴 수 있니?",
-                                "answerKr": "아니, 못 달려. 하지만 걸을 순 있어.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 4,
-                                "question": "Can you fly like a bird?",
-                                "answer": "No, I can't fly. I am a human.",
-                                "questionKr": "새처럼 날 수 있니?",
-                                "answerKr": "아니, 날 수 없어. 난 사람이잖아.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 5,
-                                "question": "Can you jump high?",
-                                "answer": "Yes, I can jump very high.",
-                                "questionKr": "높이 뛸 수 있니?",
-                                "answerKr": "응, 난 아주 높이 뛸 수 있어.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 6,
-                                "question": "Can you sing an English song?",
-                                "answer": "I can fly like a bird.",
-                                "questionKr": "영어 노래 부를 수 있니?",
-                                "answerKr": "새처럼 날 수 있어.",
-                                "isMafiaDifference": true
-                        },
-                        {
-                                "id": 7,
-                                "question": "Can you ski in winter?",
-                                "answer": "No, I can't ski, but I can skate.",
-                                "questionKr": "겨울에 스키 탈 수 있니?",
-                                "answerKr": "아니, 스키는 못 타지만 스케이트는 타.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 8,
-                                "question": "Can you climb that tall tree?",
-                                "answer": "No, I can't climb trees. It's dangerous.",
-                                "questionKr": "저 높은 나무에 올라갈 수 있니?",
-                                "answerKr": "아니, 못 올라가. 위험해.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 9,
-                                "question": "Can you catch this ball?",
-                                "answer": "Yes, I can catch it easily.",
-                                "questionKr": "이 공 잡을 수 있니?",
-                                "answerKr": "응, 쉽게 잡을 수 있어.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 10,
-                                "question": "Can you run fast?",
-                                "answer": "Yes, I am the fastest runner.",
-                                "questionKr": "너 빠르게 달릴 수 있니?",
-                                "answerKr": "응, 내가 가장 빠른 달리기 선수야.",
-                                "isMafiaDifference": false
-                        }
-                ],
-                "escapeQuizzes": [
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [~할 수 있다]",
-                                "word": "can",
-                                "meaning": "~할 수 있다",
-                                "hint": "c___",
-                                "answer": "can",
-                                "options": [
-                                        "can",
-                                        "jump",
-                                        "fly",
-                                        "swim"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [뛰다, 점프하다]",
-                                "word": "jump",
-                                "meaning": "뛰다, 점프하다",
-                                "hint": "j___",
-                                "answer": "jump",
-                                "options": [
-                                        "can",
-                                        "jump",
-                                        "fly",
-                                        "swim"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [수영하다]",
-                                "word": "swim",
-                                "meaning": "수영하다",
-                                "hint": "s___",
-                                "answer": "swim",
-                                "options": [
-                                        "swim",
-                                        "fly",
-                                        "can",
-                                        "jump"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [날다]",
-                                "word": "fly",
-                                "meaning": "날다",
-                                "hint": "f___",
-                                "answer": "fly",
-                                "options": [
-                                        "fly",
-                                        "swim",
-                                        "can",
-                                        "jump"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [차다]",
-                                "word": "kick",
-                                "meaning": "차다",
-                                "hint": "k___",
-                                "answer": "kick",
-                                "options": [
-                                        "swim",
-                                        "jump",
-                                        "can",
-                                        "kick"
-                                ]
-                        }
-                ]
-        },
-        "3G_L07": {
-                "id": "3G_L07",
-                "grade": 3,
-                "lesson": 7,
-                "publisher": "YBM (최희경)",
-                "name": "3학년 7단원",
-                "title": "I Have a Pencil",
-                "shortDesc": "I Have a Pencil (10문항)",
-                "grammarPoint": "I have a pencil.",
-                "words": [
-                        {
-                                "en": "have",
-                                "kr": "가지고 있다"
-                        },
-                        {
-                                "en": "pencil",
-                                "kr": "연필"
-                        },
-                        {
-                                "en": "ruler",
-                                "kr": "자"
-                        },
-                        {
-                                "en": "eraser",
-                                "kr": "지우개"
-                        },
-                        {
-                                "en": "crayon",
-                                "kr": "크레용"
-                        },
-                        {
-                                "en": "notebook",
-                                "kr": "공책"
-                        },
-                        {
-                                "en": "glue",
-                                "kr": "풀"
-                        },
-                        {
-                                "en": "scissors",
-                                "kr": "가위"
-                        },
-                        {
-                                "en": "pencil case",
-                                "kr": "필통"
-                        },
-                        {
-                                "en": "here",
-                                "kr": "여기"
-                        }
-                ],
-                "sentences": [
-                        {
-                                "en": "I have a pencil.",
-                                "kr": "나는 연필이 있어."
-                        },
-                        {
-                                "en": "Do you have a ruler?",
-                                "kr": "너는 자가 있니?"
-                        },
-                        {
-                                "en": "Yes, I do.",
-                                "kr": "응, 있어."
-                        },
-                        {
-                                "en": "No, I don't.",
-                                "kr": "아니, 없어."
-                        },
-                        {
-                                "en": "Here you are.",
-                                "kr": "여기 있어."
-                        }
-                ],
-                "citizenQA": [
-                        {
-                                "id": 1,
-                                "question": "I have a pencil. Do you have a pencil?",
-                                "answer": "Yes, I have two pencils.",
-                                "questionKr": "난 연필이 있어. 너도 연필 있니?",
-                                "answerKr": "응, 연필 두 자루 있어.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 2,
-                                "question": "Do you have a ruler?",
-                                "answer": "Yes, I do. Here you are.",
-                                "questionKr": "너 자가 있니?",
-                                "answerKr": "응, 있어. 여기 있어.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 3,
-                                "question": "Do you have an eraser?",
-                                "answer": "No, I don't. Ask Minsoo.",
-                                "questionKr": "너 지우개 있니?",
-                                "answerKr": "아니, 없어. 민수에게 물어봐.",
                                 "isMafiaDifference": false
                         },
                         {
@@ -2057,26 +1888,26 @@
                 "mafiaQA": [
                         {
                                 "id": 1,
-                                "question": "I have a pencil. Do you have a pencil?",
-                                "answer": "Yes, I have two pencils.",
-                                "questionKr": "난 연필이 있어. 너도 연필 있니?",
-                                "answerKr": "응, 연필 두 자루 있어.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 2,
-                                "question": "Do you have a ruler?",
-                                "answer": "No, I only have a pen.",
-                                "questionKr": "너 자가 있니?",
-                                "answerKr": "아니, 난 펜만 있어.",
+                                "question": "Can you jump high?",
+                                "answer": "No, I cannot jump today.",
+                                "questionKr": "너 높이 뛸 수 있니?",
+                                "answerKr": "아니, 오늘은 뛸 수 없어.",
                                 "isMafiaDifference": true
                         },
                         {
+                                "id": 2,
+                                "question": "Can you swim in the pool?",
+                                "answer": "Yes, I can swim fast.",
+                                "questionKr": "너 수영장에서 수영할 수 있니?",
+                                "answerKr": "응, 빠르게 수영할 수 있어.",
+                                "isMafiaDifference": false
+                        },
+                        {
                                 "id": 3,
-                                "question": "Do you have an eraser?",
-                                "answer": "No, I don't. Ask Minsoo.",
-                                "questionKr": "너 지우개 있니?",
-                                "answerKr": "아니, 없어. 민수에게 물어봐.",
+                                "question": "Can you run fast?",
+                                "answer": "No, I can't. But I can walk.",
+                                "questionKr": "너 빨리 달릴 수 있니?",
+                                "answerKr": "아니, 못 달려. 하지만 걸을 순 있어.",
                                 "isMafiaDifference": false
                         },
                         {
@@ -2098,18 +1929,18 @@
                         {
                                 "id": 6,
                                 "question": "Where is your pencil case?",
-                                "answer": "It is inside my school bag.",
+                                "answer": "I can fly like a bird.",
                                 "questionKr": "네 필통 어디 있니?",
-                                "answerKr": "책가방 안에 있어.",
-                                "isMafiaDifference": false
+                                "answerKr": "새처럼 날 수 있어.",
+                                "isMafiaDifference": true
                         },
                         {
                                 "id": 7,
                                 "question": "Do you have colorful crayons?",
-                                "answer": "I don't have scissors.",
+                                "answer": "Yes, I have twelve crayons.",
                                 "questionKr": "색크레용 가지고 있니?",
-                                "answerKr": "가위는 없어.",
-                                "isMafiaDifference": true
+                                "answerKr": "응, 12색 크레용이 있어.",
+                                "isMafiaDifference": false
                         },
                         {
                                 "id": 8,
@@ -2138,15 +1969,348 @@
                 ],
                 "escapeQuizzes": [
                         {
+                                "question": "다음 뜻에 알맞은 단어는? [~할 수 있다]",
+                                "word": "can",
+                                "meaning": "~할 수 있다",
+                                "hint": "c___",
+                                "answer": "can",
+                                "options": [
+                                        "can",
+                                        "run",
+                                        "jump",
+                                        "swim"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [뛰다, 점프하다]",
+                                "word": "jump",
+                                "meaning": "뛰다, 점프하다",
+                                "hint": "j___",
+                                "answer": "jump",
+                                "options": [
+                                        "can",
+                                        "run",
+                                        "swim",
+                                        "jump"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [수영하다]",
+                                "word": "swim",
+                                "meaning": "수영하다",
+                                "hint": "s___",
+                                "answer": "swim",
+                                "options": [
+                                        "swim",
+                                        "run",
+                                        "can",
+                                        "jump"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [달리다]",
+                                "word": "run",
+                                "meaning": "달리다",
+                                "hint": "r___",
+                                "answer": "run",
+                                "options": [
+                                        "swim",
+                                        "jump",
+                                        "can",
+                                        "run"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [노래하다]",
+                                "word": "sing",
+                                "meaning": "노래하다",
+                                "hint": "s___",
+                                "answer": "sing",
+                                "options": [
+                                        "can",
+                                        "swim",
+                                        "jump",
+                                        "sing"
+                                ]
+                        }
+                ]
+        },
+        "3G_L07": {
+                "id": "3G_L07",
+                "grade": 3,
+                "lesson": 7,
+                "publisher": "YBM (최희경)",
+                "name": "3학년 7단원",
+                "title": "I Have a Pencil",
+                "shortDesc": "I Have a Pencil (10문항)",
+                "grammarPoint": "I have a pencil.",
+                "words": [
+                        {
+                                "en": "have",
+                                "kr": "가지고 있다"
+                        },
+                        {
+                                "en": "pencil",
+                                "kr": "연필"
+                        },
+                        {
+                                "en": "ruler",
+                                "kr": "자"
+                        },
+                        {
+                                "en": "eraser",
+                                "kr": "지우개"
+                        },
+                        {
+                                "en": "pen",
+                                "kr": "펜"
+                        },
+                        {
+                                "en": "crayon",
+                                "kr": "크레용"
+                        },
+                        {
+                                "en": "desk",
+                                "kr": "책상"
+                        },
+                        {
+                                "en": "case",
+                                "kr": "통, 상자"
+                        },
+                        {
+                                "en": "here",
+                                "kr": "여기"
+                        },
+                        {
+                                "en": "borrow",
+                                "kr": "빌리다"
+                        },
+                        {
+                                "en": "take",
+                                "kr": "가져가다"
+                        },
+                        {
+                                "en": "color",
+                                "kr": "색깔"
+                        }
+                ],
+                "sentences": [
+                        {
+                                "en": "I have a pencil.",
+                                "kr": "나는 연필이 있어."
+                        },
+                        {
+                                "en": "Do you have a ruler?",
+                                "kr": "너는 자가 있니?"
+                        },
+                        {
+                                "en": "Yes, I do. Here you are.",
+                                "kr": "응, 있어. 여기 있어."
+                        },
+                        {
+                                "en": "Do you have an eraser?",
+                                "kr": "너는 지우개가 있니?"
+                        },
+                        {
+                                "en": "No, I don't have one.",
+                                "kr": "아니, 난 없어."
+                        },
+                        {
+                                "en": "Can I borrow a pen?",
+                                "kr": "펜 좀 빌릴 수 있을까?"
+                        },
+                        {
+                                "en": "Sure, take this blue pen.",
+                                "kr": "물론이지, 이 파란 펜을 가져가."
+                        },
+                        {
+                                "en": "I have three colorful crayons.",
+                                "kr": "나는 알록달록한 크레용 3개가 있어."
+                        },
+                        {
+                                "en": "Put your pencil in the pencil case.",
+                                "kr": "연필을 필통에 넣어라."
+                        },
+                        {
+                                "en": "Thank you for the ruler.",
+                                "kr": "자를 빌려줘서 고마워."
+                        }
+                ],
+                "citizenQA": [
+                        {
+                                "id": 1,
+                                "question": "I have a pencil. Do you have a pencil?",
+                                "answer": "Yes, I have two pencils.",
+                                "questionKr": "난 연필이 있어. 너도 연필 있니?",
+                                "answerKr": "응, 연필 두 자루 있어.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 2,
+                                "question": "Do you have a ruler?",
+                                "answer": "Yes, I do. Here you are.",
+                                "questionKr": "너 자가 있니?",
+                                "answerKr": "응, 있어. 여기 있어.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 3,
+                                "question": "Do you have an eraser?",
+                                "answer": "No, I don't. Ask Minsoo.",
+                                "questionKr": "너 지우개 있니?",
+                                "answerKr": "아니, 없어. 민수에게 물어봐.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 4,
+                                "question": "Can you fly like a bird?",
+                                "answer": "No, I can't fly. I am a human.",
+                                "questionKr": "새처럼 날 수 있니?",
+                                "answerKr": "아니, 날 수 없어. 난 사람이잖아.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 5,
+                                "question": "Can you jump high?",
+                                "answer": "Yes, I can jump very high.",
+                                "questionKr": "높이 뛸 수 있니?",
+                                "answerKr": "응, 난 아주 높이 뛸 수 있어.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 6,
+                                "question": "Can you sing an English song?",
+                                "answer": "Yes, I can sing the ABC song.",
+                                "questionKr": "영어 노래 부를 수 있니?",
+                                "answerKr": "응, ABC 노래 부를 수 있어.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 7,
+                                "question": "Can you ski in winter?",
+                                "answer": "No, I can't ski, but I can skate.",
+                                "questionKr": "겨울에 스키 탈 수 있니?",
+                                "answerKr": "아니, 스키는 못 타지만 스케이트는 타.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 8,
+                                "question": "Can you climb that tall tree?",
+                                "answer": "No, I can't climb trees. It's dangerous.",
+                                "questionKr": "저 높은 나무에 올라갈 수 있니?",
+                                "answerKr": "아니, 못 올라가. 위험해.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 9,
+                                "question": "Can you catch this ball?",
+                                "answer": "Yes, I can catch it easily.",
+                                "questionKr": "이 공 잡을 수 있니?",
+                                "answerKr": "응, 쉽게 잡을 수 있어.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 10,
+                                "question": "Can you run fast?",
+                                "answer": "Yes, I am the fastest runner.",
+                                "questionKr": "너 빠르게 달릴 수 있니?",
+                                "answerKr": "응, 내가 가장 빠른 달리기 선수야.",
+                                "isMafiaDifference": false
+                        }
+                ],
+                "mafiaQA": [
+                        {
+                                "id": 1,
+                                "question": "I have a pencil. Do you have a pencil?",
+                                "answer": "Yes, I have two pencils.",
+                                "questionKr": "난 연필이 있어. 너도 연필 있니?",
+                                "answerKr": "응, 연필 두 자루 있어.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 2,
+                                "question": "Do you have a ruler?",
+                                "answer": "No, I only have a pen.",
+                                "questionKr": "너 자가 있니?",
+                                "answerKr": "아니, 난 펜만 있어.",
+                                "isMafiaDifference": true
+                        },
+                        {
+                                "id": 3,
+                                "question": "Do you have an eraser?",
+                                "answer": "No, I don't. Ask Minsoo.",
+                                "questionKr": "너 지우개 있니?",
+                                "answerKr": "아니, 없어. 민수에게 물어봐.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 4,
+                                "question": "Can you fly like a bird?",
+                                "answer": "No, I can't fly. I am a human.",
+                                "questionKr": "새처럼 날 수 있니?",
+                                "answerKr": "아니, 날 수 없어. 난 사람이잖아.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 5,
+                                "question": "Can you jump high?",
+                                "answer": "Yes, I can jump very high.",
+                                "questionKr": "높이 뛸 수 있니?",
+                                "answerKr": "응, 난 아주 높이 뛸 수 있어.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 6,
+                                "question": "Can you sing an English song?",
+                                "answer": "Yes, I can sing the ABC song.",
+                                "questionKr": "영어 노래 부를 수 있니?",
+                                "answerKr": "응, ABC 노래 부를 수 있어.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 7,
+                                "question": "Can you ski in winter?",
+                                "answer": "I don't have scissors.",
+                                "questionKr": "겨울에 스키 탈 수 있니?",
+                                "answerKr": "가위는 없어.",
+                                "isMafiaDifference": true
+                        },
+                        {
+                                "id": 8,
+                                "question": "Can you climb that tall tree?",
+                                "answer": "No, I can't climb trees. It's dangerous.",
+                                "questionKr": "저 높은 나무에 올라갈 수 있니?",
+                                "answerKr": "아니, 못 올라가. 위험해.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 9,
+                                "question": "Can you catch this ball?",
+                                "answer": "Yes, I can catch it easily.",
+                                "questionKr": "이 공 잡을 수 있니?",
+                                "answerKr": "응, 쉽게 잡을 수 있어.",
+                                "isMafiaDifference": false
+                        },
+                        {
+                                "id": 10,
+                                "question": "Can you run fast?",
+                                "answer": "Yes, I am the fastest runner.",
+                                "questionKr": "너 빠르게 달릴 수 있니?",
+                                "answerKr": "응, 내가 가장 빠른 달리기 선수야.",
+                                "isMafiaDifference": false
+                        }
+                ],
+                "escapeQuizzes": [
+                        {
                                 "question": "다음 뜻에 알맞은 단어는? [가지고 있다]",
                                 "word": "have",
                                 "meaning": "가지고 있다",
                                 "hint": "h___",
                                 "answer": "have",
                                 "options": [
-                                        "pencil",
                                         "have",
                                         "eraser",
+                                        "pencil",
                                         "ruler"
                                 ]
                         },
@@ -2157,10 +2321,10 @@
                                 "hint": "p___",
                                 "answer": "pencil",
                                 "options": [
-                                        "eraser",
                                         "ruler",
-                                        "have",
-                                        "pencil"
+                                        "pencil",
+                                        "eraser",
+                                        "have"
                                 ]
                         },
                         {
@@ -2170,10 +2334,10 @@
                                 "hint": "r___",
                                 "answer": "ruler",
                                 "options": [
-                                        "have",
-                                        "eraser",
                                         "pencil",
-                                        "ruler"
+                                        "ruler",
+                                        "eraser",
+                                        "have"
                                 ]
                         },
                         {
@@ -2184,22 +2348,22 @@
                                 "answer": "eraser",
                                 "options": [
                                         "have",
-                                        "ruler",
                                         "eraser",
+                                        "ruler",
                                         "pencil"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [크레용]",
-                                "word": "crayon",
-                                "meaning": "크레용",
-                                "hint": "c___",
-                                "answer": "crayon",
+                                "question": "다음 뜻에 알맞은 단어는? [펜]",
+                                "word": "pen",
+                                "meaning": "펜",
+                                "hint": "p___",
+                                "answer": "pen",
                                 "options": [
+                                        "ruler",
                                         "have",
-                                        "crayon",
-                                        "pencil",
-                                        "ruler"
+                                        "pen",
+                                        "pencil"
                                 ]
                         }
                 ]
@@ -2212,7 +2376,7 @@
                 "name": "3학년 8단원",
                 "title": "I'm Happy",
                 "shortDesc": "I'm Happy (10문항)",
-                "grammarPoint": "I'm happy.",
+                "grammarPoint": "How are you today?",
                 "words": [
                         {
                                 "en": "happy",
@@ -2231,35 +2395,43 @@
                                 "kr": "배고픈"
                         },
                         {
+                                "en": "thirsty",
+                                "kr": "목마른"
+                        },
+                        {
                                 "en": "tired",
                                 "kr": "피곤한"
                         },
                         {
-                                "en": "birthday",
-                                "kr": "생일"
+                                "en": "feel",
+                                "kr": "느끼다"
                         },
                         {
-                                "en": "six",
-                                "kr": "여섯 (6)"
+                                "en": "cheer",
+                                "kr": "응원하다, 힘내다"
                         },
                         {
-                                "en": "seven",
-                                "kr": "일곱 (7)"
+                                "en": "fine",
+                                "kr": "좋은, 괜찮은"
                         },
                         {
-                                "en": "eight",
-                                "kr": "여덟 (8)"
+                                "en": "smile",
+                                "kr": "미소 짓다"
                         },
                         {
-                                "en": "nine",
-                                "kr": "아홉 (9)"
+                                "en": "water",
+                                "kr": "물"
                         },
                         {
-                                "en": "ten",
-                                "kr": "열 (10)"
+                                "en": "good",
+                                "kr": "좋은"
                         }
                 ],
                 "sentences": [
+                        {
+                                "en": "How are you today?",
+                                "kr": "오늘 기분이 어떠니?"
+                        },
                         {
                                 "en": "I'm happy.",
                                 "kr": "나는 기뻐."
@@ -2269,16 +2441,32 @@
                                 "kr": "나는 배고파."
                         },
                         {
-                                "en": "Are you sad?",
-                                "kr": "너 슬프니?"
+                                "en": "Are you tired?",
+                                "kr": "너 피곤하니?"
                         },
                         {
-                                "en": "Happy birthday!",
-                                "kr": "생일 축하해!"
+                                "en": "Yes, I'm very tired.",
+                                "kr": "응, 나는 매우 피곤해."
                         },
                         {
-                                "en": "I'm ten years old.",
-                                "kr": "나는 열 살이야."
+                                "en": "Are you thirsty?",
+                                "kr": "너 목마르니?"
+                        },
+                        {
+                                "en": "Have some cool water.",
+                                "kr": "시원한 물 좀 마셔."
+                        },
+                        {
+                                "en": "Don't be sad, cheer up!",
+                                "kr": "슬퍼하지 마, 힘내!"
+                        },
+                        {
+                                "en": "I'm not angry at all.",
+                                "kr": "나는 전혀 화나지 않았어."
+                        },
+                        {
+                                "en": "I feel wonderful today!",
+                                "kr": "오늘 기분이 아주 좋아!"
                         }
                 ],
                 "citizenQA": [
@@ -2453,10 +2641,10 @@
                                 "hint": "h___",
                                 "answer": "happy",
                                 "options": [
-                                        "sad",
                                         "hungry",
-                                        "angry",
-                                        "happy"
+                                        "sad",
+                                        "happy",
+                                        "angry"
                                 ]
                         },
                         {
@@ -2466,9 +2654,9 @@
                                 "hint": "s___",
                                 "answer": "sad",
                                 "options": [
+                                        "happy",
                                         "hungry",
                                         "sad",
-                                        "happy",
                                         "angry"
                                 ]
                         },
@@ -2479,10 +2667,10 @@
                                 "hint": "a___",
                                 "answer": "angry",
                                 "options": [
-                                        "hungry",
                                         "sad",
-                                        "happy",
-                                        "angry"
+                                        "angry",
+                                        "hungry",
+                                        "happy"
                                 ]
                         },
                         {
@@ -2492,23 +2680,23 @@
                                 "hint": "h___",
                                 "answer": "hungry",
                                 "options": [
-                                        "sad",
-                                        "hungry",
                                         "angry",
-                                        "happy"
+                                        "hungry",
+                                        "happy",
+                                        "sad"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [피곤한]",
-                                "word": "tired",
-                                "meaning": "피곤한",
+                                "question": "다음 뜻에 알맞은 단어는? [목마른]",
+                                "word": "thirsty",
+                                "meaning": "목마른",
                                 "hint": "t___",
-                                "answer": "tired",
+                                "answer": "thirsty",
                                 "options": [
-                                        "angry",
-                                        "sad",
                                         "happy",
-                                        "tired"
+                                        "angry",
+                                        "thirsty",
+                                        "sad"
                                 ]
                         }
                 ]
@@ -2525,7 +2713,7 @@
                 "words": [
                         {
                                 "en": "color",
-                                "kr": "색, 색깔"
+                                "kr": "색깔"
                         },
                         {
                                 "en": "red",
@@ -2544,28 +2732,32 @@
                                 "kr": "초록색"
                         },
                         {
-                                "en": "pink",
-                                "kr": "분홍색"
-                        },
-                        {
-                                "en": "purple",
-                                "kr": "보라색"
+                                "en": "black",
+                                "kr": "검은색"
                         },
                         {
                                 "en": "white",
                                 "kr": "흰색"
                         },
                         {
-                                "en": "brown",
-                                "kr": "갈색"
+                                "en": "purple",
+                                "kr": "보라색"
                         },
                         {
-                                "en": "black",
-                                "kr": "검은색"
+                                "en": "pink",
+                                "kr": "분홍색"
                         },
                         {
                                 "en": "orange",
                                 "kr": "주황색"
+                        },
+                        {
+                                "en": "sky",
+                                "kr": "하늘"
+                        },
+                        {
+                                "en": "bright",
+                                "kr": "밝은"
                         }
                 ],
                 "sentences": [
@@ -2578,194 +2770,214 @@
                                 "kr": "그것은 빨간색이야."
                         },
                         {
-                                "en": "It's blue.",
-                                "kr": "그것은 파란색이야."
+                                "en": "It's bright blue.",
+                                "kr": "그것은 밝은 파란색이야."
                         },
                         {
-                                "en": "It's yellow.",
-                                "kr": "그것은 노란색이야."
+                                "en": "What color is your bag?",
+                                "kr": "네 가방은 무슨 색이니?"
                         },
                         {
-                                "en": "It's green.",
-                                "kr": "그것은 초록색이야."
+                                "en": "It's green and yellow.",
+                                "kr": "그것은 초록색과 노란색이야."
+                        },
+                        {
+                                "en": "Look at the pink flower.",
+                                "kr": "분홍색 꽃을 봐."
+                        },
+                        {
+                                "en": "I like black and white.",
+                                "kr": "나는 검은색과 흰색을 좋아해."
+                        },
+                        {
+                                "en": "The sky is blue today.",
+                                "kr": "오늘 하늘이 파래."
+                        },
+                        {
+                                "en": "What color do you like?",
+                                "kr": "너는 어떤 색을 좋아하니?"
+                        },
+                        {
+                                "en": "I like purple best.",
+                                "kr": "나는 보라색을 가장 좋아해."
                         }
                 ],
                 "citizenQA": [
                         {
                                 "id": 1,
-                                "question": "What color is your new bicycle?",
-                                "answer": "It is bright blue.",
-                                "questionKr": "네 새 자전거 무슨 색이니?",
-                                "answerKr": "밝은 파란색이야.",
+                                "question": "How's the weather today?",
+                                "answer": "It's sunny and warm.",
+                                "questionKr": "오늘 날씨가 어떠니?",
+                                "answerKr": "맑고 따뜻해.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 2,
-                                "question": "What color do you like most?",
-                                "answer": "I like cheerful yellow.",
-                                "questionKr": "어떤 색을 가장 좋아하니?",
-                                "answerKr": "난 발랄한 노란색을 좋아해.",
+                                "question": "Is it raining outside?",
+                                "answer": "No, it's not. It's sunny.",
+                                "questionKr": "밖에 비가 오니?",
+                                "answerKr": "아니, 안 와. 맑아.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 3,
-                                "question": "What color is this apple?",
-                                "answer": "It is a fresh red apple.",
-                                "questionKr": "이 사과 무슨 색이니?",
-                                "answerKr": "신선한 빨간 사과야.",
+                                "question": "Do you need an umbrella?",
+                                "answer": "Yes, it's rainy today.",
+                                "questionKr": "우산이 필요하니?",
+                                "answerKr": "응, 오늘 비가 와.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 4,
-                                "question": "Look at the sky. What color is it?",
-                                "answer": "The sky is deep blue today.",
-                                "questionKr": "하늘을 봐. 무슨 색이니?",
-                                "answerKr": "오늘 하늘은 짙은 파란색이야.",
+                                "question": "How's the weather in winter?",
+                                "answer": "It's snowy and cold.",
+                                "questionKr": "겨울 날씨는 어떠니?",
+                                "answerKr": "눈이 오고 추워.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 5,
-                                "question": "What color are the leaves in spring?",
-                                "answer": "They are fresh green.",
-                                "questionKr": "봄에 나뭇잎들은 무슨 색이니?",
-                                "answerKr": "싱그러운 초록색이야.",
+                                "question": "Look at the sky. Is it cloudy?",
+                                "answer": "Yes, it is very cloudy.",
+                                "questionKr": "하늘을 봐. 흐리니?",
+                                "answerKr": "응, 아주 흐려.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 6,
-                                "question": "Is your dog black or white?",
-                                "answer": "My dog is purely white.",
-                                "questionKr": "네 개는 검은색이니 하얀색이니?",
-                                "answerKr": "우리 개는 순백색이야.",
+                                "question": "Can we play soccer outside?",
+                                "answer": "Sure, it is a sunny day.",
+                                "questionKr": "밖에서 축구할 수 있을까?",
+                                "answerKr": "물론이지, 맑은 날이야.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 7,
-                                "question": "What color is that pretty flower?",
-                                "answer": "It is lovely pink.",
-                                "questionKr": "저 예쁜 꽃은 무슨 색이니?",
-                                "answerKr": "사랑스러운 분홍색이야.",
+                                "question": "Is it windy today?",
+                                "answer": "Yes, hold your hat tight.",
+                                "questionKr": "오늘 바람이 많이 부니?",
+                                "answerKr": "응, 모자를 꽉 잡아.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 8,
-                                "question": "What color do you get when mixing red and yellow?",
-                                "answer": "You get bright orange.",
-                                "questionKr": "빨강과 노랑을 섞으면 무슨 색이 되니?",
-                                "answerKr": "밝은 주황색이 돼.",
+                                "question": "Do you like snowy days?",
+                                "answer": "Yes, I like making snowmen.",
+                                "questionKr": "눈 오는 날을 좋아하니?",
+                                "answerKr": "응, 눈사람 만드는 걸 좋아해.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 9,
-                                "question": "Do you like purple grapes?",
-                                "answer": "Yes, I like purple very much.",
-                                "questionKr": "보라색 포도 좋아하니?",
-                                "answerKr": "응, 난 보라색 정말 좋아해.",
+                                "question": "Put on your warm jacket.",
+                                "answer": "Okay, it's freezing cold.",
+                                "questionKr": "따뜻한 재킷을 입어.",
+                                "answerKr": "응, 꽁꽁 얼 만큼 추워.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 10,
-                                "question": "Can you see the rainbow in the sky?",
-                                "answer": "Yes, it has seven colors.",
-                                "questionKr": "하늘의 무지개 보이니?",
-                                "answerKr": "응, 일곱 가지 색이 있어.",
+                                "question": "What season is it now?",
+                                "answer": "It is sunny spring.",
+                                "questionKr": "지금 무슨 계절이니?",
+                                "answerKr": "화창한 봄이야.",
                                 "isMafiaDifference": false
                         }
                 ],
                 "mafiaQA": [
                         {
                                 "id": 1,
-                                "question": "What color is your new bicycle?",
-                                "answer": "It is bright blue.",
-                                "questionKr": "네 새 자전거 무슨 색이니?",
-                                "answerKr": "밝은 파란색이야.",
-                                "isMafiaDifference": false
-                        },
-                        {
-                                "id": 2,
-                                "question": "What color do you like most?",
-                                "answer": "I like dark black only.",
-                                "questionKr": "어떤 색을 가장 좋아하니?",
-                                "answerKr": "난 어두운 검정만 좋아해.",
+                                "question": "How's the weather today?",
+                                "answer": "It is rainy and stormy.",
+                                "questionKr": "오늘 날씨가 어떠니?",
+                                "answerKr": "비바람이 몰아쳐.",
                                 "isMafiaDifference": true
                         },
                         {
+                                "id": 2,
+                                "question": "Is it raining outside?",
+                                "answer": "No, it's not. It's sunny.",
+                                "questionKr": "밖에 비가 오니?",
+                                "answerKr": "아니, 안 와. 맑아.",
+                                "isMafiaDifference": false
+                        },
+                        {
                                 "id": 3,
-                                "question": "What color is this apple?",
-                                "answer": "It is a fresh red apple.",
-                                "questionKr": "이 사과 무슨 색이니?",
-                                "answerKr": "신선한 빨간 사과야.",
+                                "question": "Do you need an umbrella?",
+                                "answer": "Yes, it's rainy today.",
+                                "questionKr": "우산이 필요하니?",
+                                "answerKr": "응, 오늘 비가 와.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 4,
-                                "question": "Look at the sky. What color is it?",
-                                "answer": "The sky is deep blue today.",
-                                "questionKr": "하늘을 봐. 무슨 색이니?",
-                                "answerKr": "오늘 하늘은 짙은 파란색이야.",
+                                "question": "How's the weather in winter?",
+                                "answer": "It's snowy and cold.",
+                                "questionKr": "겨울 날씨는 어떠니?",
+                                "answerKr": "눈이 오고 추워.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 5,
-                                "question": "What color are the leaves in spring?",
-                                "answer": "They are yellow and brown.",
-                                "questionKr": "봄에 나뭇잎들은 무슨 색이니?",
-                                "answerKr": "노랗고 갈색이야.",
+                                "question": "Look at the sky. Is it cloudy?",
+                                "answer": "No, the sky is completely clear.",
+                                "questionKr": "하늘을 봐. 흐리니?",
+                                "answerKr": "아니, 하늘이 완전히 깨끗해.",
                                 "isMafiaDifference": true
                         },
                         {
                                 "id": 6,
-                                "question": "Is your dog black or white?",
-                                "answer": "My dog is purely white.",
-                                "questionKr": "네 개는 검은색이니 하얀색이니?",
-                                "answerKr": "우리 개는 순백색이야.",
+                                "question": "Can we play soccer outside?",
+                                "answer": "Sure, it is a sunny day.",
+                                "questionKr": "밖에서 축구할 수 있을까?",
+                                "answerKr": "물론이지, 맑은 날이야.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 7,
-                                "question": "What color is that pretty flower?",
-                                "answer": "It is lovely pink.",
-                                "questionKr": "저 예쁜 꽃은 무슨 색이니?",
-                                "answerKr": "사랑스러운 분홍색이야.",
+                                "question": "Is it windy today?",
+                                "answer": "Yes, hold your hat tight.",
+                                "questionKr": "오늘 바람이 많이 부니?",
+                                "answerKr": "응, 모자를 꽉 잡아.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 8,
-                                "question": "What color do you get when mixing red and yellow?",
-                                "answer": "You get bright orange.",
-                                "questionKr": "빨강과 노랑을 섞으면 무슨 색이 되니?",
-                                "answerKr": "밝은 주황색이 돼.",
+                                "question": "Do you like snowy days?",
+                                "answer": "Yes, I like making snowmen.",
+                                "questionKr": "눈 오는 날을 좋아하니?",
+                                "answerKr": "응, 눈사람 만드는 걸 좋아해.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 9,
-                                "question": "Do you like purple grapes?",
-                                "answer": "Yes, I like purple very much.",
-                                "questionKr": "보라색 포도 좋아하니?",
-                                "answerKr": "응, 난 보라색 정말 좋아해.",
+                                "question": "Put on your warm jacket.",
+                                "answer": "Okay, it's freezing cold.",
+                                "questionKr": "따뜻한 재킷을 입어.",
+                                "answerKr": "응, 꽁꽁 얼 만큼 추워.",
                                 "isMafiaDifference": false
                         },
                         {
                                 "id": 10,
-                                "question": "Can you see the rainbow in the sky?",
-                                "answer": "Yes, it has seven colors.",
-                                "questionKr": "하늘의 무지개 보이니?",
-                                "answerKr": "응, 일곱 가지 색이 있어.",
+                                "question": "What season is it now?",
+                                "answer": "It is sunny spring.",
+                                "questionKr": "지금 무슨 계절이니?",
+                                "answerKr": "화창한 봄이야.",
                                 "isMafiaDifference": false
                         }
                 ],
                 "escapeQuizzes": [
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [색, 색깔]",
+                                "question": "다음 뜻에 알맞은 단어는? [색깔]",
                                 "word": "color",
-                                "meaning": "색, 색깔",
+                                "meaning": "색깔",
                                 "hint": "c___",
                                 "answer": "color",
                                 "options": [
+                                        "color",
                                         "red",
                                         "blue",
-                                        "yellow",
-                                        "color"
+                                        "yellow"
                                 ]
                         },
                         {
@@ -2788,9 +3000,9 @@
                                 "hint": "b___",
                                 "answer": "blue",
                                 "options": [
+                                        "blue",
                                         "color",
                                         "yellow",
-                                        "blue",
                                         "red"
                                 ]
                         },
@@ -2801,10 +3013,10 @@
                                 "hint": "y___",
                                 "answer": "yellow",
                                 "options": [
-                                        "color",
                                         "blue",
-                                        "yellow",
-                                        "red"
+                                        "red",
+                                        "color",
+                                        "yellow"
                                 ]
                         },
                         {
@@ -2814,10 +3026,10 @@
                                 "hint": "g___",
                                 "answer": "green",
                                 "options": [
-                                        "blue",
                                         "green",
+                                        "red",
                                         "color",
-                                        "red"
+                                        "blue"
                                 ]
                         }
                 ]
@@ -2830,7 +3042,7 @@
                 "name": "3학년 10단원",
                 "title": "How's the Weather?",
                 "shortDesc": "How's the Weather? (10문항)",
-                "grammarPoint": "How's the weather?",
+                "grammarPoint": "How's the weather today?",
                 "words": [
                         {
                                 "en": "weather",
@@ -2838,61 +3050,89 @@
                         },
                         {
                                 "en": "sunny",
-                                "kr": "화창한, 맑은"
+                                "kr": "맑은"
+                        },
+                        {
+                                "en": "rainy",
+                                "kr": "비 오는"
                         },
                         {
                                 "en": "cloudy",
                                 "kr": "흐린"
                         },
                         {
-                                "en": "raining",
-                                "kr": "비가 오는"
-                        },
-                        {
-                                "en": "snowing",
-                                "kr": "눈이 오는"
+                                "en": "snowy",
+                                "kr": "눈 오는"
                         },
                         {
                                 "en": "windy",
                                 "kr": "바람 부는"
                         },
                         {
-                                "en": "hot",
-                                "kr": "더운"
-                        },
-                        {
                                 "en": "cold",
                                 "kr": "추운"
                         },
                         {
-                                "en": "snowman",
-                                "kr": "눈사람"
-                        },
-                        {
                                 "en": "warm",
                                 "kr": "따뜻한"
+                        },
+                        {
+                                "en": "hot",
+                                "kr": "더운"
+                        },
+                        {
+                                "en": "outside",
+                                "kr": "밖에, 야외에"
+                        },
+                        {
+                                "en": "umbrella",
+                                "kr": "우산"
+                        },
+                        {
+                                "en": "today",
+                                "kr": "오늘"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "How's the weather?",
-                                "kr": "날씨가 어때?"
+                                "en": "How's the weather today?",
+                                "kr": "오늘 날씨가 어떠니?"
                         },
                         {
                                 "en": "It's sunny.",
                                 "kr": "날씨가 맑아."
                         },
                         {
-                                "en": "It's raining.",
-                                "kr": "비가 오고 있어."
+                                "en": "It's rainy today.",
+                                "kr": "오늘 비가 와."
                         },
                         {
-                                "en": "It's snowing.",
-                                "kr": "눈이 오고 있어."
+                                "en": "Take an umbrella with you.",
+                                "kr": "우산을 챙겨 가렴."
                         },
                         {
-                                "en": "Let's make a snowman.",
-                                "kr": "눈사람을 만들자."
+                                "en": "It's cloudy and windy.",
+                                "kr": "날씨가 흐리고 바람이 불어."
+                        },
+                        {
+                                "en": "It's cold outside.",
+                                "kr": "밖이 추워."
+                        },
+                        {
+                                "en": "Put on your warm coat.",
+                                "kr": "따뜻한 외투를 입어."
+                        },
+                        {
+                                "en": "It's snowy! Let's make a snowman.",
+                                "kr": "눈이 와! 눈사람을 만들자."
+                        },
+                        {
+                                "en": "The weather is warm and nice.",
+                                "kr": "날씨가 따뜻하고 좋아."
+                        },
+                        {
+                                "en": "Let's go outside and play.",
+                                "kr": "밖에 나가서 놀자."
                         }
                 ],
                 "citizenQA": [
@@ -3069,21 +3309,34 @@
                                 "options": [
                                         "sunny",
                                         "weather",
-                                        "raining",
+                                        "rainy",
                                         "cloudy"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [화창한, 맑은]",
+                                "question": "다음 뜻에 알맞은 단어는? [맑은]",
                                 "word": "sunny",
-                                "meaning": "화창한, 맑은",
+                                "meaning": "맑은",
                                 "hint": "s___",
                                 "answer": "sunny",
                                 "options": [
-                                        "sunny",
-                                        "raining",
+                                        "rainy",
+                                        "cloudy",
                                         "weather",
-                                        "cloudy"
+                                        "sunny"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [비 오는]",
+                                "word": "rainy",
+                                "meaning": "비 오는",
+                                "hint": "r___",
+                                "answer": "rainy",
+                                "options": [
+                                        "cloudy",
+                                        "rainy",
+                                        "sunny",
+                                        "weather"
                                 ]
                         },
                         {
@@ -3093,36 +3346,23 @@
                                 "hint": "c___",
                                 "answer": "cloudy",
                                 "options": [
-                                        "raining",
-                                        "cloudy",
+                                        "rainy",
                                         "weather",
+                                        "cloudy",
                                         "sunny"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [비가 오는]",
-                                "word": "raining",
-                                "meaning": "비가 오는",
-                                "hint": "r___",
-                                "answer": "raining",
-                                "options": [
-                                        "cloudy",
-                                        "raining",
-                                        "sunny",
-                                        "weather"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [눈이 오는]",
-                                "word": "snowing",
-                                "meaning": "눈이 오는",
+                                "question": "다음 뜻에 알맞은 단어는? [눈 오는]",
+                                "word": "snowy",
+                                "meaning": "눈 오는",
                                 "hint": "s___",
-                                "answer": "snowing",
+                                "answer": "snowy",
                                 "options": [
+                                        "snowy",
                                         "weather",
-                                        "cloudy",
-                                        "snowing",
-                                        "sunny"
+                                        "sunny",
+                                        "rainy"
                                 ]
                         }
                 ]
@@ -3135,7 +3375,7 @@
                 "name": "4학년 1단원",
                 "title": "How Are You?",
                 "shortDesc": "How Are You? (10문항)",
-                "grammarPoint": "Good morning.",
+                "grammarPoint": "Good morning!",
                 "words": [
                         {
                                 "en": "morning",
@@ -3150,54 +3390,82 @@
                                 "kr": "저녁"
                         },
                         {
-                                "en": "night",
-                                "kr": "밤"
-                        },
-                        {
-                                "en": "good",
-                                "kr": "좋은"
+                                "en": "fine",
+                                "kr": "좋은, 건강한"
                         },
                         {
                                 "en": "great",
                                 "kr": "아주 좋은"
                         },
                         {
-                                "en": "fine",
-                                "kr": "잘 지내는"
+                                "en": "bad",
+                                "kr": "나쁜"
                         },
                         {
-                                "en": "not bad",
-                                "kr": "그럭저럭 괜찮은"
+                                "en": "not",
+                                "kr": "아닌"
                         },
                         {
-                                "en": "sleepy",
-                                "kr": "졸린"
+                                "en": "today",
+                                "kr": "오늘"
                         },
                         {
-                                "en": "tired",
-                                "kr": "피곤한"
+                                "en": "meet",
+                                "kr": "만나다"
+                        },
+                        {
+                                "en": "friend",
+                                "kr": "친구"
+                        },
+                        {
+                                "en": "day",
+                                "kr": "날, 하루"
+                        },
+                        {
+                                "en": "early",
+                                "kr": "이른, 일찍"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "Good morning.",
-                                "kr": "좋은 아침이야."
+                                "en": "Good morning!",
+                                "kr": "좋은 아침이야!"
                         },
                         {
-                                "en": "How are you?",
-                                "kr": "어떻게 지내니?"
+                                "en": "How are you today?",
+                                "kr": "오늘 어떻게 지내니?"
                         },
                         {
-                                "en": "I'm good.",
-                                "kr": "잘 지내."
+                                "en": "I'm very good, thank you.",
+                                "kr": "아주 잘 지내, 고마워."
                         },
                         {
-                                "en": "I'm great.",
-                                "kr": "아주 잘 지내."
+                                "en": "Not so good. I have a headache.",
+                                "kr": "그리 좋지 않아. 머리가 아파."
                         },
                         {
-                                "en": "Not bad.",
-                                "kr": "그럭저럭 괜찮아."
+                                "en": "Good afternoon, class.",
+                                "kr": "좋은 오후입니다, 여러분."
+                        },
+                        {
+                                "en": "How is everything with you?",
+                                "kr": "요즘 모든 일은 어떠니?"
+                        },
+                        {
+                                "en": "Everything is great!",
+                                "kr": "다 아주 좋아!"
+                        },
+                        {
+                                "en": "Cheer up! Tomorrow will be better.",
+                                "kr": "힘내! 내일은 더 좋을 거야."
+                        },
+                        {
+                                "en": "Have a wonderful day!",
+                                "kr": "멋진 하루 보내!"
+                        },
+                        {
+                                "en": "See you later this afternoon.",
+                                "kr": "오늘 오후에 나중에 봐."
                         }
                 ],
                 "citizenQA": [
@@ -3372,10 +3640,10 @@
                                 "hint": "m___",
                                 "answer": "morning",
                                 "options": [
-                                        "night",
                                         "morning",
+                                        "afternoon",
                                         "evening",
-                                        "afternoon"
+                                        "fine"
                                 ]
                         },
                         {
@@ -3385,10 +3653,10 @@
                                 "hint": "a___",
                                 "answer": "afternoon",
                                 "options": [
-                                        "night",
                                         "evening",
-                                        "morning",
-                                        "afternoon"
+                                        "fine",
+                                        "afternoon",
+                                        "morning"
                                 ]
                         },
                         {
@@ -3398,36 +3666,36 @@
                                 "hint": "e___",
                                 "answer": "evening",
                                 "options": [
-                                        "afternoon",
+                                        "evening",
                                         "morning",
-                                        "night",
-                                        "evening"
+                                        "afternoon",
+                                        "fine"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [밤]",
-                                "word": "night",
-                                "meaning": "밤",
-                                "hint": "n___",
-                                "answer": "night",
+                                "question": "다음 뜻에 알맞은 단어는? [좋은, 건강한]",
+                                "word": "fine",
+                                "meaning": "좋은, 건강한",
+                                "hint": "f___",
+                                "answer": "fine",
                                 "options": [
-                                        "afternoon",
-                                        "night",
+                                        "fine",
                                         "evening",
-                                        "morning"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [좋은]",
-                                "word": "good",
-                                "meaning": "좋은",
-                                "hint": "g___",
-                                "answer": "good",
-                                "options": [
-                                        "good",
                                         "morning",
-                                        "evening",
                                         "afternoon"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [아주 좋은]",
+                                "word": "great",
+                                "meaning": "아주 좋은",
+                                "hint": "g___",
+                                "answer": "great",
+                                "options": [
+                                        "afternoon",
+                                        "great",
+                                        "morning",
+                                        "evening"
                                 ]
                         }
                 ]
@@ -3455,18 +3723,6 @@
                                 "kr": "그"
                         },
                         {
-                                "en": "friend",
-                                "kr": "친구"
-                        },
-                        {
-                                "en": "mother",
-                                "kr": "어머니"
-                        },
-                        {
-                                "en": "father",
-                                "kr": "아버지"
-                        },
-                        {
                                 "en": "brother",
                                 "kr": "남자 형제"
                         },
@@ -3475,16 +3731,32 @@
                                 "kr": "여자 형제"
                         },
                         {
+                                "en": "father",
+                                "kr": "아버지"
+                        },
+                        {
+                                "en": "mother",
+                                "kr": "어머니"
+                        },
+                        {
+                                "en": "baby",
+                                "kr": "아기"
+                        },
+                        {
                                 "en": "teacher",
                                 "kr": "선생님"
                         },
                         {
-                                "en": "tall",
-                                "kr": "키가 큰"
+                                "en": "student",
+                                "kr": "학생"
                         },
                         {
-                                "en": "pretty",
-                                "kr": "예쁜"
+                                "en": "doctor",
+                                "kr": "의사"
+                        },
+                        {
+                                "en": "family",
+                                "kr": "가족"
                         }
                 ],
                 "sentences": [
@@ -3493,20 +3765,40 @@
                                 "kr": "그녀는 누구니?"
                         },
                         {
-                                "en": "She's my sister.",
-                                "kr": "그녀는 내 여동생이야."
+                                "en": "She's my sister, Amy.",
+                                "kr": "그녀는 내 여동생 에이미야."
                         },
                         {
                                 "en": "Who's he?",
                                 "kr": "그는 누구니?"
                         },
                         {
-                                "en": "He's my friend.",
-                                "kr": "그는 내 친구야."
+                                "en": "He's my brother, Minsoo.",
+                                "kr": "그는 내 남동생 민수야."
                         },
                         {
-                                "en": "He's tall.",
-                                "kr": "그는 키가 커."
+                                "en": "Is he your father?",
+                                "kr": "그분은 너의 아버지시니?"
+                        },
+                        {
+                                "en": "Yes, he is.",
+                                "kr": "응, 맞아."
+                        },
+                        {
+                                "en": "Is she a teacher?",
+                                "kr": "그녀는 선생님이니?"
+                        },
+                        {
+                                "en": "Yes, she is an English teacher.",
+                                "kr": "응, 영어 선생님이셔."
+                        },
+                        {
+                                "en": "Look at this baby photo.",
+                                "kr": "이 아기 사진을 봐."
+                        },
+                        {
+                                "en": "We are a happy family.",
+                                "kr": "우리는 행복한 가족이야."
                         }
                 ],
                 "citizenQA": [
@@ -3681,10 +3973,10 @@
                                 "hint": "w___",
                                 "answer": "who",
                                 "options": [
-                                        "she",
-                                        "who",
                                         "he",
-                                        "friend"
+                                        "brother",
+                                        "she",
+                                        "who"
                                 ]
                         },
                         {
@@ -3694,9 +3986,9 @@
                                 "hint": "s___",
                                 "answer": "she",
                                 "options": [
-                                        "he",
                                         "she",
-                                        "friend",
+                                        "he",
+                                        "brother",
                                         "who"
                                 ]
                         },
@@ -3707,36 +3999,36 @@
                                 "hint": "h___",
                                 "answer": "he",
                                 "options": [
-                                        "who",
-                                        "friend",
+                                        "she",
                                         "he",
-                                        "she"
+                                        "brother",
+                                        "who"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [친구]",
-                                "word": "friend",
-                                "meaning": "친구",
-                                "hint": "f___",
-                                "answer": "friend",
+                                "question": "다음 뜻에 알맞은 단어는? [남자 형제]",
+                                "word": "brother",
+                                "meaning": "남자 형제",
+                                "hint": "b___",
+                                "answer": "brother",
                                 "options": [
                                         "she",
-                                        "friend",
-                                        "who",
-                                        "he"
+                                        "brother",
+                                        "he",
+                                        "who"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [어머니]",
-                                "word": "mother",
-                                "meaning": "어머니",
-                                "hint": "m___",
-                                "answer": "mother",
+                                "question": "다음 뜻에 알맞은 단어는? [여자 형제]",
+                                "word": "sister",
+                                "meaning": "여자 형제",
+                                "hint": "s___",
+                                "answer": "sister",
                                 "options": [
-                                        "who",
-                                        "she",
                                         "he",
-                                        "mother"
+                                        "sister",
+                                        "she",
+                                        "who"
                                 ]
                         }
                 ]
@@ -3749,27 +4041,15 @@
                 "name": "4학년 3단원",
                 "title": "What Time Is It?",
                 "shortDesc": "What Time Is It? (10문항)",
-                "grammarPoint": "What time is it?",
+                "grammarPoint": "What time is it now?",
                 "words": [
                         {
                                 "en": "time",
-                                "kr": "시간, 때"
+                                "kr": "시간, 시각"
                         },
                         {
                                 "en": "o'clock",
-                                "kr": "~시 정각"
-                        },
-                        {
-                                "en": "eleven",
-                                "kr": "열하나 (11)"
-                        },
-                        {
-                                "en": "twelve",
-                                "kr": "열둘 (12)"
-                        },
-                        {
-                                "en": "thirty",
-                                "kr": "삼십 (30)"
+                                "kr": "정각, ~시"
                         },
                         {
                                 "en": "breakfast",
@@ -3784,17 +4064,37 @@
                                 "kr": "저녁 식사"
                         },
                         {
-                                "en": "bedtime",
-                                "kr": "취침 시간"
+                                "en": "school",
+                                "kr": "학교"
                         },
                         {
-                                "en": "wake up",
-                                "kr": "일어나다"
+                                "en": "bed",
+                                "kr": "침대, 잠자리"
+                        },
+                        {
+                                "en": "hurry",
+                                "kr": "서두르다"
+                        },
+                        {
+                                "en": "late",
+                                "kr": "늦은"
+                        },
+                        {
+                                "en": "now",
+                                "kr": "지금"
+                        },
+                        {
+                                "en": "early",
+                                "kr": "일찍"
+                        },
+                        {
+                                "en": "watch",
+                                "kr": "손목시계"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "What time is it?",
+                                "en": "What time is it now?",
                                 "kr": "지금 몇 시니?"
                         },
                         {
@@ -3802,16 +4102,36 @@
                                 "kr": "8시 정각이야."
                         },
                         {
-                                "en": "It's time for breakfast.",
-                                "kr": "아침 먹을 시간이야."
+                                "en": "It's time for school.",
+                                "kr": "학교 갈 시간이야."
                         },
                         {
-                                "en": "It's time for bed.",
-                                "kr": "잘 시간이야."
+                                "en": "Hurry up, we are late!",
+                                "kr": "서둘러, 우리 늦겠어!"
                         },
                         {
-                                "en": "It's twelve thirty.",
-                                "kr": "12시 30분이야."
+                                "en": "It's twelve o'clock.",
+                                "kr": "12시 정각이야."
+                        },
+                        {
+                                "en": "It's time for lunch.",
+                                "kr": "점심 먹을 시간이야."
+                        },
+                        {
+                                "en": "Let's eat delicious food.",
+                                "kr": "맛있는 음식을 먹자."
+                        },
+                        {
+                                "en": "What time do you have dinner?",
+                                "kr": "몇 시에 저녁을 먹니?"
+                        },
+                        {
+                                "en": "It's nine o'clock. Time for bed.",
+                                "kr": "9시야. 자러 갈 시간이야."
+                        },
+                        {
+                                "en": "Good night, sweet dreams!",
+                                "kr": "잘 자, 좋은 꿈 꿔!"
                         }
                 ],
                 "citizenQA": [
@@ -3980,68 +4300,68 @@
                 ],
                 "escapeQuizzes": [
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [시간, 때]",
+                                "question": "다음 뜻에 알맞은 단어는? [시간, 시각]",
                                 "word": "time",
-                                "meaning": "시간, 때",
+                                "meaning": "시간, 시각",
                                 "hint": "t___",
                                 "answer": "time",
                                 "options": [
+                                        "breakfast",
                                         "o'clock",
-                                        "time",
-                                        "twelve",
-                                        "eleven"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [~시 정각]",
-                                "word": "o'clock",
-                                "meaning": "~시 정각",
-                                "hint": "o___",
-                                "answer": "o'clock",
-                                "options": [
-                                        "o'clock",
-                                        "time",
-                                        "eleven",
-                                        "twelve"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [열하나 (11)]",
-                                "word": "eleven",
-                                "meaning": "열하나 (11)",
-                                "hint": "e___",
-                                "answer": "eleven",
-                                "options": [
-                                        "eleven",
-                                        "o'clock",
-                                        "twelve",
+                                        "lunch",
                                         "time"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [열둘 (12)]",
-                                "word": "twelve",
-                                "meaning": "열둘 (12)",
-                                "hint": "t___",
-                                "answer": "twelve",
+                                "question": "다음 뜻에 알맞은 단어는? [정각, ~시]",
+                                "word": "o'clock",
+                                "meaning": "정각, ~시",
+                                "hint": "o___",
+                                "answer": "o'clock",
                                 "options": [
-                                        "twelve",
                                         "time",
+                                        "breakfast",
                                         "o'clock",
-                                        "eleven"
+                                        "lunch"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [삼십 (30)]",
-                                "word": "thirty",
-                                "meaning": "삼십 (30)",
-                                "hint": "t___",
-                                "answer": "thirty",
+                                "question": "다음 뜻에 알맞은 단어는? [아침 식사]",
+                                "word": "breakfast",
+                                "meaning": "아침 식사",
+                                "hint": "b___",
+                                "answer": "breakfast",
                                 "options": [
-                                        "eleven",
+                                        "time",
+                                        "lunch",
+                                        "breakfast",
+                                        "o'clock"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [점심 식사]",
+                                "word": "lunch",
+                                "meaning": "점심 식사",
+                                "hint": "l___",
+                                "answer": "lunch",
+                                "options": [
                                         "time",
                                         "o'clock",
-                                        "thirty"
+                                        "lunch",
+                                        "breakfast"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [저녁 식사]",
+                                "word": "dinner",
+                                "meaning": "저녁 식사",
+                                "hint": "d___",
+                                "answer": "dinner",
+                                "options": [
+                                        "o'clock",
+                                        "breakfast",
+                                        "time",
+                                        "dinner"
                                 ]
                         }
                 ]
@@ -4054,8 +4374,12 @@
                 "name": "4학년 4단원",
                 "title": "Let's Play Soccer",
                 "shortDesc": "Let's Play Soccer (10문항)",
-                "grammarPoint": "Let's play soccer.",
+                "grammarPoint": "Let's play soccer after school.",
                 "words": [
+                        {
+                                "en": "play",
+                                "kr": "놀다, 경기를 하다"
+                        },
                         {
                                 "en": "soccer",
                                 "kr": "축구"
@@ -4073,50 +4397,74 @@
                                 "kr": "배드민턴"
                         },
                         {
-                                "en": "play",
-                                "kr": "놀다, 운동 경기를 하다"
+                                "en": "dodgeball",
+                                "kr": "피구"
                         },
                         {
-                                "en": "jump rope",
-                                "kr": "줄넘기"
+                                "en": "sounds",
+                                "kr": "~하게 들리다"
                         },
                         {
-                                "en": "together",
-                                "kr": "함께"
-                        },
-                        {
-                                "en": "fun",
-                                "kr": "재미있는"
-                        },
-                        {
-                                "en": "sure",
-                                "kr": "물론이지"
+                                "en": "good",
+                                "kr": "좋은"
                         },
                         {
                                 "en": "sorry",
                                 "kr": "미안한"
+                        },
+                        {
+                                "en": "busy",
+                                "kr": "바쁜"
+                        },
+                        {
+                                "en": "team",
+                                "kr": "팀"
+                        },
+                        {
+                                "en": "sport",
+                                "kr": "운동, 스포츠"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "Let's play soccer.",
-                                "kr": "축구 하자."
+                                "en": "Let's play soccer after school.",
+                                "kr": "방과 후에 축구 하자."
                         },
                         {
-                                "en": "Sounds good.",
-                                "kr": "좋은 생각이야."
+                                "en": "Sounds good!",
+                                "kr": "좋은 생각이야!"
                         },
                         {
-                                "en": "Let's play baseball.",
-                                "kr": "야구 하자."
+                                "en": "Sorry, I can't play today.",
+                                "kr": "미안하지만 오늘은 못 해."
                         },
                         {
-                                "en": "Sorry, I can't.",
-                                "kr": "미안하지만 난 못 해."
+                                "en": "Why not? Are you busy?",
+                                "kr": "왜 안 돼? 바쁘니?"
                         },
                         {
-                                "en": "Let's jump rope together.",
-                                "kr": "함께 줄넘기 하자."
+                                "en": "Yes, I have homework to do.",
+                                "kr": "응, 해야 할 숙제가 있어."
+                        },
+                        {
+                                "en": "Let's play basketball together.",
+                                "kr": "농구 함께 하자."
+                        },
+                        {
+                                "en": "Sure, let's meet at the gym.",
+                                "kr": "좋아, 체육관에서 만나자."
+                        },
+                        {
+                                "en": "Do you like playing badminton?",
+                                "kr": "너는 배드민턴 치는 것을 좋아하니?"
+                        },
+                        {
+                                "en": "Yes, I play badminton with my dad.",
+                                "kr": "응, 나는 아빠와 배드민턴을 쳐."
+                        },
+                        {
+                                "en": "That sounds like fun!",
+                                "kr": "정말 재미있겠다!"
                         }
                 ],
                 "citizenQA": [
@@ -4285,16 +4633,29 @@
                 ],
                 "escapeQuizzes": [
                         {
+                                "question": "다음 뜻에 알맞은 단어는? [놀다, 경기를 하다]",
+                                "word": "play",
+                                "meaning": "놀다, 경기를 하다",
+                                "hint": "p___",
+                                "answer": "play",
+                                "options": [
+                                        "play",
+                                        "soccer",
+                                        "baseball",
+                                        "basketball"
+                                ]
+                        },
+                        {
                                 "question": "다음 뜻에 알맞은 단어는? [축구]",
                                 "word": "soccer",
                                 "meaning": "축구",
                                 "hint": "s___",
                                 "answer": "soccer",
                                 "options": [
-                                        "badminton",
-                                        "basketball",
+                                        "soccer",
                                         "baseball",
-                                        "soccer"
+                                        "play",
+                                        "basketball"
                                 ]
                         },
                         {
@@ -4304,10 +4665,10 @@
                                 "hint": "b___",
                                 "answer": "baseball",
                                 "options": [
-                                        "badminton",
-                                        "baseball",
                                         "basketball",
-                                        "soccer"
+                                        "soccer",
+                                        "baseball",
+                                        "play"
                                 ]
                         },
                         {
@@ -4317,9 +4678,9 @@
                                 "hint": "b___",
                                 "answer": "basketball",
                                 "options": [
-                                        "basketball",
+                                        "play",
                                         "soccer",
-                                        "badminton",
+                                        "basketball",
                                         "baseball"
                                 ]
                         },
@@ -4330,23 +4691,10 @@
                                 "hint": "b___",
                                 "answer": "badminton",
                                 "options": [
-                                        "basketball",
                                         "badminton",
+                                        "play",
                                         "soccer",
                                         "baseball"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [놀다, 운동 경기를 하다]",
-                                "word": "play",
-                                "meaning": "놀다, 운동 경기를 하다",
-                                "hint": "p___",
-                                "answer": "play",
-                                "options": [
-                                        "play",
-                                        "baseball",
-                                        "soccer",
-                                        "basketball"
                                 ]
                         }
                 ]
@@ -4366,32 +4714,24 @@
                                 "kr": "어디에"
                         },
                         {
-                                "en": "in",
-                                "kr": "~안에"
-                        },
-                        {
                                 "en": "on",
                                 "kr": "~위에"
+                        },
+                        {
+                                "en": "in",
+                                "kr": "~안에"
                         },
                         {
                                 "en": "under",
                                 "kr": "~아래에"
                         },
                         {
-                                "en": "by",
+                                "en": "next to",
                                 "kr": "~옆에"
                         },
                         {
                                 "en": "desk",
                                 "kr": "책상"
-                        },
-                        {
-                                "en": "bed",
-                                "kr": "침대"
-                        },
-                        {
-                                "en": "box",
-                                "kr": "상자"
                         },
                         {
                                 "en": "table",
@@ -4402,8 +4742,20 @@
                                 "kr": "의자"
                         },
                         {
-                                "en": "cap",
-                                "kr": "모자"
+                                "en": "bed",
+                                "kr": "침대"
+                        },
+                        {
+                                "en": "room",
+                                "kr": "방"
+                        },
+                        {
+                                "en": "box",
+                                "kr": "상자"
+                        },
+                        {
+                                "en": "find",
+                                "kr": "찾다"
                         }
                 ],
                 "sentences": [
@@ -4416,16 +4768,36 @@
                                 "kr": "책상 위에 있어."
                         },
                         {
-                                "en": "It's under the bed.",
-                                "kr": "침대 아래에 있어."
+                                "en": "Where is my pencil case?",
+                                "kr": "내 필통은 어디 있니?"
                         },
                         {
-                                "en": "It's in the box.",
-                                "kr": "상자 안에 있어."
+                                "en": "It's under the table.",
+                                "kr": "탁자 밑에 있어."
                         },
                         {
-                                "en": "It's by the door.",
-                                "kr": "문 옆에 있어."
+                                "en": "Look in the closet.",
+                                "kr": "옷장 안을 찾아봐."
+                        },
+                        {
+                                "en": "The cap is on the bed.",
+                                "kr": "모자가 침대 위에 있어."
+                        },
+                        {
+                                "en": "It's next to the computer.",
+                                "kr": "컴퓨터 옆에 있어."
+                        },
+                        {
+                                "en": "I can't find my shoes.",
+                                "kr": "내 신발을 찾을 수 없어."
+                        },
+                        {
+                                "en": "They are by the front door.",
+                                "kr": "신발들은 현관문 옆에 있어."
+                        },
+                        {
+                                "en": "Here it is! Thank you so much.",
+                                "kr": "여기 있었네! 정말 고마워."
                         }
                 ],
                 "citizenQA": [
@@ -4600,23 +4972,10 @@
                                 "hint": "w___",
                                 "answer": "where",
                                 "options": [
-                                        "under",
-                                        "where",
                                         "in",
-                                        "on"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [~안에]",
-                                "word": "in",
-                                "meaning": "~안에",
-                                "hint": "i___",
-                                "answer": "in",
-                                "options": [
-                                        "in",
+                                        "on",
                                         "under",
-                                        "where",
-                                        "on"
+                                        "where"
                                 ]
                         },
                         {
@@ -4626,10 +4985,23 @@
                                 "hint": "o___",
                                 "answer": "on",
                                 "options": [
-                                        "in",
                                         "under",
+                                        "where",
                                         "on",
-                                        "where"
+                                        "in"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [~안에]",
+                                "word": "in",
+                                "meaning": "~안에",
+                                "hint": "i___",
+                                "answer": "in",
+                                "options": [
+                                        "where",
+                                        "under",
+                                        "in",
+                                        "on"
                                 ]
                         },
                         {
@@ -4639,23 +5011,23 @@
                                 "hint": "u___",
                                 "answer": "under",
                                 "options": [
-                                        "under",
                                         "where",
-                                        "in",
-                                        "on"
+                                        "on",
+                                        "under",
+                                        "in"
                                 ]
                         },
                         {
                                 "question": "다음 뜻에 알맞은 단어는? [~옆에]",
-                                "word": "by",
+                                "word": "next to",
                                 "meaning": "~옆에",
-                                "hint": "b___",
-                                "answer": "by",
+                                "hint": "n___",
+                                "answer": "next to",
                                 "options": [
-                                        "by",
                                         "in",
                                         "on",
-                                        "where"
+                                        "where",
+                                        "next to"
                                 ]
                         }
                 ]
@@ -4668,7 +5040,7 @@
                 "name": "4학년 6단원",
                 "title": "What Are You Doing?",
                 "shortDesc": "What Are You Doing? (10문항)",
-                "grammarPoint": "What are you doing?",
+                "grammarPoint": "What are you doing right now?",
                 "words": [
                         {
                                 "en": "doing",
@@ -4679,58 +5051,86 @@
                                 "kr": "읽고 있는"
                         },
                         {
-                                "en": "drawing",
-                                "kr": "그리고 있는"
-                        },
-                        {
                                 "en": "cooking",
                                 "kr": "요리하고 있는"
                         },
                         {
-                                "en": "cleaning",
-                                "kr": "청소하고 있는"
+                                "en": "drawing",
+                                "kr": "그리고 있는"
                         },
                         {
-                                "en": "singing",
-                                "kr": "노래하고 있는"
+                                "en": "listening",
+                                "kr": "듣고 있는"
                         },
                         {
-                                "en": "dancing",
-                                "kr": "춤추고 있는"
+                                "en": "music",
+                                "kr": "음악"
                         },
                         {
-                                "en": "washing",
-                                "kr": "씻고 있는"
+                                "en": "sleeping",
+                                "kr": "자고 있는"
                         },
                         {
                                 "en": "eating",
                                 "kr": "먹고 있는"
                         },
                         {
-                                "en": "sleeping",
-                                "kr": "자고 있는"
+                                "en": "cleaning",
+                                "kr": "청소하고 있는"
+                        },
+                        {
+                                "en": "writing",
+                                "kr": "쓰고 있는"
+                        },
+                        {
+                                "en": "book",
+                                "kr": "책"
+                        },
+                        {
+                                "en": "now",
+                                "kr": "지금"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "What are you doing?",
+                                "en": "What are you doing right now?",
                                 "kr": "너 지금 뭐 하고 있니?"
                         },
                         {
-                                "en": "I'm reading a book.",
-                                "kr": "나는 책을 읽고 있어."
+                                "en": "I'm reading an interesting book.",
+                                "kr": "나는 재미있는 책을 읽고 있어."
                         },
                         {
-                                "en": "I'm drawing a picture.",
-                                "kr": "나는 그림을 그리고 있어."
+                                "en": "What is Mom doing?",
+                                "kr": "엄마는 무엇을 하고 계시니?"
                         },
                         {
-                                "en": "I'm cooking dinner.",
-                                "kr": "나는 저녁을 요리하고 있어."
+                                "en": "She is cooking in the kitchen.",
+                                "kr": "엄마는 부엌에서 요리하고 계셔."
                         },
                         {
-                                "en": "I'm singing a song.",
-                                "kr": "나는 노래를 부르고 있어."
+                                "en": "I'm drawing a colorful picture.",
+                                "kr": "나는 알록달록한 그림을 그리고 있어."
+                        },
+                        {
+                                "en": "Are you listening to music?",
+                                "kr": "너 음악 듣고 있니?"
+                        },
+                        {
+                                "en": "Yes, I'm listening to pop songs.",
+                                "kr": "응, 팝송을 듣고 있어."
+                        },
+                        {
+                                "en": "Don't make noise. The baby is sleeping.",
+                                "kr": "시끄럽게 하지 마. 아기가 자고 있어."
+                        },
+                        {
+                                "en": "I'm cleaning my bedroom.",
+                                "kr": "나는 내 방을 청소하고 있어."
+                        },
+                        {
+                                "en": "We are having so much fun.",
+                                "kr": "우리는 정말 즐거운 시간을 보내고 있어."
                         }
                 ],
                 "citizenQA": [
@@ -4925,6 +5325,19 @@
                                 ]
                         },
                         {
+                                "question": "다음 뜻에 알맞은 단어는? [요리하고 있는]",
+                                "word": "cooking",
+                                "meaning": "요리하고 있는",
+                                "hint": "c___",
+                                "answer": "cooking",
+                                "options": [
+                                        "reading",
+                                        "cooking",
+                                        "doing",
+                                        "drawing"
+                                ]
+                        },
+                        {
                                 "question": "다음 뜻에 알맞은 단어는? [그리고 있는]",
                                 "word": "drawing",
                                 "meaning": "그리고 있는",
@@ -4932,35 +5345,22 @@
                                 "answer": "drawing",
                                 "options": [
                                         "drawing",
+                                        "reading",
+                                        "cooking",
+                                        "doing"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [듣고 있는]",
+                                "word": "listening",
+                                "meaning": "듣고 있는",
+                                "hint": "l___",
+                                "answer": "listening",
+                                "options": [
                                         "cooking",
                                         "doing",
-                                        "reading"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [요리하고 있는]",
-                                "word": "cooking",
-                                "meaning": "요리하고 있는",
-                                "hint": "c___",
-                                "answer": "cooking",
-                                "options": [
-                                        "drawing",
-                                        "doing",
                                         "reading",
-                                        "cooking"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [청소하고 있는]",
-                                "word": "cleaning",
-                                "meaning": "청소하고 있는",
-                                "hint": "c___",
-                                "answer": "cleaning",
-                                "options": [
-                                        "doing",
-                                        "drawing",
-                                        "reading",
-                                        "cleaning"
+                                        "listening"
                                 ]
                         }
                 ]
@@ -4977,23 +5377,23 @@
                 "words": [
                         {
                                 "en": "jacket",
-                                "kr": "재킷"
+                                "kr": "재킷, 외투"
+                        },
+                        {
+                                "en": "cap",
+                                "kr": "모자"
+                        },
+                        {
+                                "en": "hat",
+                                "kr": "모자"
                         },
                         {
                                 "en": "coat",
-                                "kr": "코트"
+                                "kr": "코트, 외투"
                         },
                         {
-                                "en": "skirt",
-                                "kr": "치마"
-                        },
-                        {
-                                "en": "shirt",
-                                "kr": "셔츠"
-                        },
-                        {
-                                "en": "pants",
-                                "kr": "바지"
+                                "en": "gloves",
+                                "kr": "장갑"
                         },
                         {
                                 "en": "shoes",
@@ -5004,20 +5404,24 @@
                                 "kr": "양말"
                         },
                         {
-                                "en": "hat",
-                                "kr": "모자"
+                                "en": "whose",
+                                "kr": "누구의"
                         },
                         {
-                                "en": "glove",
-                                "kr": "장갑"
+                                "en": "mine",
+                                "kr": "나의 것"
                         },
                         {
-                                "en": "your",
-                                "kr": "너의"
+                                "en": "yours",
+                                "kr": "너의 것"
                         },
                         {
-                                "en": "my",
-                                "kr": "나의"
+                                "en": "wear",
+                                "kr": "입다, 쓰다"
+                        },
+                        {
+                                "en": "pretty",
+                                "kr": "예쁜"
                         }
                 ],
                 "sentences": [
@@ -5026,20 +5430,40 @@
                                 "kr": "이것은 너의 재킷이니?"
                         },
                         {
-                                "en": "Yes, it is.",
-                                "kr": "응, 맞아."
+                                "en": "Yes, it is. Thank you.",
+                                "kr": "응, 내 거야. 고마워."
                         },
                         {
-                                "en": "No, it isn't.",
-                                "kr": "아니, 아니야."
+                                "en": "No, it isn't mine.",
+                                "kr": "아니, 내 것이 아니야."
                         },
                         {
-                                "en": "Whose socks are these?",
-                                "kr": "이것은 누구의 양말이니?"
+                                "en": "Whose cap is this on the floor?",
+                                "kr": "바닥에 있는 이 모자는 누구 것이니?"
                         },
                         {
-                                "en": "They are mine.",
-                                "kr": "그것들은 내 것이야."
+                                "en": "It's Kevin's blue cap.",
+                                "kr": "그건 케빈의 파란 모자야."
+                        },
+                        {
+                                "en": "Are these your warm gloves?",
+                                "kr": "이것들은 너의 따뜻한 장갑이니?"
+                        },
+                        {
+                                "en": "Yes, they are my gloves.",
+                                "kr": "응, 그것들은 내 장갑이야."
+                        },
+                        {
+                                "en": "Try on this new red coat.",
+                                "kr": "이 새 빨간 외투를 입어 보렴."
+                        },
+                        {
+                                "en": "It fits you very well.",
+                                "kr": "너에게 아주 잘 어울려."
+                        },
+                        {
+                                "en": "Don't forget your winter scarf.",
+                                "kr": "겨울 목도리를 잊지 마렴."
                         }
                 ],
                 "citizenQA": [
@@ -5208,68 +5632,68 @@
                 ],
                 "escapeQuizzes": [
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [재킷]",
+                                "question": "다음 뜻에 알맞은 단어는? [재킷, 외투]",
                                 "word": "jacket",
-                                "meaning": "재킷",
+                                "meaning": "재킷, 외투",
                                 "hint": "j___",
                                 "answer": "jacket",
                                 "options": [
                                         "jacket",
                                         "coat",
-                                        "shirt",
-                                        "skirt"
+                                        "cap",
+                                        "hat"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [코트]",
+                                "question": "다음 뜻에 알맞은 단어는? [모자]",
+                                "word": "cap",
+                                "meaning": "모자",
+                                "hint": "c___",
+                                "answer": "cap",
+                                "options": [
+                                        "cap",
+                                        "coat",
+                                        "jacket",
+                                        "hat"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [모자]",
+                                "word": "hat",
+                                "meaning": "모자",
+                                "hint": "h___",
+                                "answer": "hat",
+                                "options": [
+                                        "coat",
+                                        "jacket",
+                                        "hat",
+                                        "cap"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [코트, 외투]",
                                 "word": "coat",
-                                "meaning": "코트",
+                                "meaning": "코트, 외투",
                                 "hint": "c___",
                                 "answer": "coat",
                                 "options": [
-                                        "jacket",
-                                        "shirt",
-                                        "skirt",
-                                        "coat"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [치마]",
-                                "word": "skirt",
-                                "meaning": "치마",
-                                "hint": "s___",
-                                "answer": "skirt",
-                                "options": [
-                                        "jacket",
-                                        "shirt",
-                                        "skirt",
-                                        "coat"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [셔츠]",
-                                "word": "shirt",
-                                "meaning": "셔츠",
-                                "hint": "s___",
-                                "answer": "shirt",
-                                "options": [
-                                        "jacket",
-                                        "shirt",
-                                        "skirt",
-                                        "coat"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [바지]",
-                                "word": "pants",
-                                "meaning": "바지",
-                                "hint": "p___",
-                                "answer": "pants",
-                                "options": [
+                                        "hat",
                                         "coat",
-                                        "pants",
-                                        "skirt",
-                                        "jacket"
+                                        "jacket",
+                                        "cap"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [장갑]",
+                                "word": "gloves",
+                                "meaning": "장갑",
+                                "hint": "g___",
+                                "answer": "gloves",
+                                "options": [
+                                        "jacket",
+                                        "cap",
+                                        "hat",
+                                        "gloves"
                                 ]
                         }
                 ]
@@ -5285,12 +5709,24 @@
                 "grammarPoint": "Do you want some chicken?",
                 "words": [
                         {
+                                "en": "want",
+                                "kr": "원하다"
+                        },
+                        {
+                                "en": "some",
+                                "kr": "약간의, 조금"
+                        },
+                        {
                                 "en": "chicken",
                                 "kr": "닭고기, 치킨"
                         },
                         {
-                                "en": "fish",
-                                "kr": "생선"
+                                "en": "pizza",
+                                "kr": "피자"
+                        },
+                        {
+                                "en": "bread",
+                                "kr": "빵"
                         },
                         {
                                 "en": "milk",
@@ -5305,24 +5741,20 @@
                                 "kr": "주스"
                         },
                         {
-                                "en": "cake",
-                                "kr": "케이크"
-                        },
-                        {
-                                "en": "cookie",
-                                "kr": "쿠키"
-                        },
-                        {
-                                "en": "want",
-                                "kr": "원하다"
-                        },
-                        {
-                                "en": "some",
-                                "kr": "약간의, 조금"
-                        },
-                        {
                                 "en": "delicious",
                                 "kr": "맛있는"
+                        },
+                        {
+                                "en": "help",
+                                "kr": "돕다, 차려 먹다"
+                        },
+                        {
+                                "en": "more",
+                                "kr": "더"
+                        },
+                        {
+                                "en": "meal",
+                                "kr": "식사"
                         }
                 ],
                 "sentences": [
@@ -5335,16 +5767,36 @@
                                 "kr": "응, 부탁해."
                         },
                         {
-                                "en": "No, thanks.",
-                                "kr": "아니, 됐어."
+                                "en": "No, thank you. I'm full.",
+                                "kr": "아니, 괜찮아. 배불러."
                         },
                         {
-                                "en": "Do you want some milk?",
-                                "kr": "우유 좀 마실래?"
+                                "en": "Help yourself to the pizza.",
+                                "kr": "피자 마음껏 먹으렴."
                         },
                         {
-                                "en": "It's delicious.",
-                                "kr": "정말 맛있어."
+                                "en": "Would you like some cold water?",
+                                "kr": "시원한 물 좀 마실래?"
+                        },
+                        {
+                                "en": "Yes, I'm very thirsty.",
+                                "kr": "응, 나 목이 몹시 말라."
+                        },
+                        {
+                                "en": "The food is very delicious.",
+                                "kr": "음식이 정말 맛있어."
+                        },
+                        {
+                                "en": "Can I have some more bread?",
+                                "kr": "빵을 좀 더 먹어도 될까요?"
+                        },
+                        {
+                                "en": "Sure, here is fresh bread.",
+                                "kr": "물론이지, 여기 갓 구운 빵이 있어."
+                        },
+                        {
+                                "en": "Thank you for the wonderful meal!",
+                                "kr": "훌륭한 식사 고마워요!"
                         }
                 ],
                 "citizenQA": [
@@ -5513,68 +5965,68 @@
                 ],
                 "escapeQuizzes": [
                         {
+                                "question": "다음 뜻에 알맞은 단어는? [원하다]",
+                                "word": "want",
+                                "meaning": "원하다",
+                                "hint": "w___",
+                                "answer": "want",
+                                "options": [
+                                        "chicken",
+                                        "some",
+                                        "want",
+                                        "pizza"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [약간의, 조금]",
+                                "word": "some",
+                                "meaning": "약간의, 조금",
+                                "hint": "s___",
+                                "answer": "some",
+                                "options": [
+                                        "chicken",
+                                        "pizza",
+                                        "want",
+                                        "some"
+                                ]
+                        },
+                        {
                                 "question": "다음 뜻에 알맞은 단어는? [닭고기, 치킨]",
                                 "word": "chicken",
                                 "meaning": "닭고기, 치킨",
                                 "hint": "c___",
                                 "answer": "chicken",
                                 "options": [
-                                        "fish",
-                                        "milk",
-                                        "water",
+                                        "some",
+                                        "chicken",
+                                        "pizza",
+                                        "want"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [피자]",
+                                "word": "pizza",
+                                "meaning": "피자",
+                                "hint": "p___",
+                                "answer": "pizza",
+                                "options": [
+                                        "want",
+                                        "pizza",
+                                        "some",
                                         "chicken"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [생선]",
-                                "word": "fish",
-                                "meaning": "생선",
-                                "hint": "f___",
-                                "answer": "fish",
+                                "question": "다음 뜻에 알맞은 단어는? [빵]",
+                                "word": "bread",
+                                "meaning": "빵",
+                                "hint": "b___",
+                                "answer": "bread",
                                 "options": [
-                                        "fish",
-                                        "water",
-                                        "chicken",
-                                        "milk"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [우유]",
-                                "word": "milk",
-                                "meaning": "우유",
-                                "hint": "m___",
-                                "answer": "milk",
-                                "options": [
-                                        "fish",
-                                        "water",
-                                        "chicken",
-                                        "milk"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [물]",
-                                "word": "water",
-                                "meaning": "물",
-                                "hint": "w___",
-                                "answer": "water",
-                                "options": [
-                                        "water",
-                                        "chicken",
-                                        "milk",
-                                        "fish"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [주스]",
-                                "word": "juice",
-                                "meaning": "주스",
-                                "hint": "j___",
-                                "answer": "juice",
-                                "options": [
-                                        "chicken",
-                                        "milk",
-                                        "juice",
-                                        "fish"
+                                        "want",
+                                        "bread",
+                                        "some",
+                                        "chicken"
                                 ]
                         }
                 ]
@@ -5589,14 +6041,6 @@
                 "shortDesc": "What Day Is It Today? (10문항)",
                 "grammarPoint": "What day is it today?",
                 "words": [
-                        {
-                                "en": "day",
-                                "kr": "요일, 날"
-                        },
-                        {
-                                "en": "today",
-                                "kr": "오늘"
-                        },
                         {
                                 "en": "Monday",
                                 "kr": "월요일"
@@ -5626,8 +6070,24 @@
                                 "kr": "일요일"
                         },
                         {
+                                "en": "today",
+                                "kr": "오늘"
+                        },
+                        {
+                                "en": "day",
+                                "kr": "요일, 날"
+                        },
+                        {
+                                "en": "weekend",
+                                "kr": "주말"
+                        },
+                        {
                                 "en": "week",
                                 "kr": "주, 일주일"
+                        },
+                        {
+                                "en": "tomorrow",
+                                "kr": "내일"
                         }
                 ],
                 "sentences": [
@@ -5640,16 +6100,36 @@
                                 "kr": "월요일이야."
                         },
                         {
-                                "en": "It's Friday.",
-                                "kr": "금요일이야."
+                                "en": "Tomorrow is Tuesday.",
+                                "kr": "내일은 화요일이야."
                         },
                         {
-                                "en": "It's Sunday.",
-                                "kr": "일요일이야."
+                                "en": "We have English class on Wednesday.",
+                                "kr": "우리는 수요일에 영어 수업이 있어."
                         },
                         {
-                                "en": "Have a nice weekend.",
-                                "kr": "좋은 주말 보내."
+                                "en": "Thursday is library day.",
+                                "kr": "목요일은 도서관 가는 날이야."
+                        },
+                        {
+                                "en": "Friday is my favorite day.",
+                                "kr": "금요일은 내가 가장 좋아하는 요일이야."
+                        },
+                        {
+                                "en": "Today is Saturday! No school today.",
+                                "kr": "오늘은 토요일이야! 오늘 학교 안 가."
+                        },
+                        {
+                                "en": "Sunday is family day.",
+                                "kr": "일요일은 가족과 함께하는 날이야."
+                        },
+                        {
+                                "en": "Have a great weekend!",
+                                "kr": "멋진 주말 보내!"
+                        },
+                        {
+                                "en": "See you next Monday at school.",
+                                "kr": "다음 주 월요일에 학교에서 만나자."
                         }
                 ],
                 "citizenQA": [
@@ -5818,42 +6298,16 @@
                 ],
                 "escapeQuizzes": [
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [요일, 날]",
-                                "word": "day",
-                                "meaning": "요일, 날",
-                                "hint": "d___",
-                                "answer": "day",
-                                "options": [
-                                        "day",
-                                        "Tuesday",
-                                        "today",
-                                        "Monday"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [오늘]",
-                                "word": "today",
-                                "meaning": "오늘",
-                                "hint": "t___",
-                                "answer": "today",
-                                "options": [
-                                        "today",
-                                        "day",
-                                        "Tuesday",
-                                        "Monday"
-                                ]
-                        },
-                        {
                                 "question": "다음 뜻에 알맞은 단어는? [월요일]",
                                 "word": "Monday",
                                 "meaning": "월요일",
                                 "hint": "M___",
                                 "answer": "Monday",
                                 "options": [
+                                        "Wednesday",
                                         "Tuesday",
-                                        "day",
                                         "Monday",
-                                        "today"
+                                        "Thursday"
                                 ]
                         },
                         {
@@ -5863,10 +6317,10 @@
                                 "hint": "T___",
                                 "answer": "Tuesday",
                                 "options": [
-                                        "Monday",
                                         "Tuesday",
-                                        "today",
-                                        "day"
+                                        "Monday",
+                                        "Thursday",
+                                        "Wednesday"
                                 ]
                         },
                         {
@@ -5876,10 +6330,36 @@
                                 "hint": "W___",
                                 "answer": "Wednesday",
                                 "options": [
-                                        "day",
                                         "Wednesday",
-                                        "today",
-                                        "Monday"
+                                        "Monday",
+                                        "Tuesday",
+                                        "Thursday"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [목요일]",
+                                "word": "Thursday",
+                                "meaning": "목요일",
+                                "hint": "T___",
+                                "answer": "Thursday",
+                                "options": [
+                                        "Tuesday",
+                                        "Thursday",
+                                        "Monday",
+                                        "Wednesday"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [금요일]",
+                                "word": "Friday",
+                                "meaning": "금요일",
+                                "hint": "F___",
+                                "answer": "Friday",
+                                "options": [
+                                        "Wednesday",
+                                        "Friday",
+                                        "Monday",
+                                        "Tuesday"
                                 ]
                         }
                 ]
@@ -5892,11 +6372,15 @@
                 "name": "4학년 10단원",
                 "title": "How Much Is It?",
                 "shortDesc": "How Much Is It? (10문항)",
-                "grammarPoint": "How much is it?",
+                "grammarPoint": "How much is this notebook?",
                 "words": [
                         {
+                                "en": "how",
+                                "kr": "얼마나"
+                        },
+                        {
                                 "en": "much",
-                                "kr": "많은"
+                                "kr": "많은, 얼마"
                         },
                         {
                                 "en": "hundred",
@@ -5908,53 +6392,77 @@
                         },
                         {
                                 "en": "won",
-                                "kr": "원 (화폐)"
+                                "kr": "원 (화폐 단위)"
                         },
                         {
-                                "en": "dollar",
-                                "kr": "달러"
-                        },
-                        {
-                                "en": "cheap",
-                                "kr": "값싼"
-                        },
-                        {
-                                "en": "expensive",
-                                "kr": "비싼"
+                                "en": "money",
+                                "kr": "돈"
                         },
                         {
                                 "en": "buy",
                                 "kr": "사다"
                         },
                         {
-                                "en": "ruler",
-                                "kr": "자"
+                                "en": "price",
+                                "kr": "가격"
                         },
                         {
-                                "en": "notebook",
-                                "kr": "공책"
+                                "en": "cheap",
+                                "kr": "값이 싼"
+                        },
+                        {
+                                "en": "expensive",
+                                "kr": "비싼"
+                        },
+                        {
+                                "en": "take",
+                                "kr": "사다, 가지다"
+                        },
+                        {
+                                "en": "change",
+                                "kr": "거스름돈"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "How much is it?",
-                                "kr": "이것은 얼마인가요?"
+                                "en": "How much is this notebook?",
+                                "kr": "이 공책은 얼마인가요?"
                         },
                         {
                                 "en": "It's five hundred won.",
                                 "kr": "500원입니다."
                         },
                         {
+                                "en": "How much is the cute pencil?",
+                                "kr": "귀여운 연필은 얼마인가요?"
+                        },
+                        {
                                 "en": "It's one thousand won.",
                                 "kr": "1,000원입니다."
                         },
                         {
-                                "en": "I want to buy this notebook.",
-                                "kr": "이 공책을 사고 싶어요."
+                                "en": "That's very cheap!",
+                                "kr": "정말 싸네요!"
                         },
                         {
-                                "en": "Here's the change.",
-                                "kr": "여기 거스름돈입니다."
+                                "en": "This toy is too expensive.",
+                                "kr": "이 장난감은 너무 비싸요."
+                        },
+                        {
+                                "en": "Can I buy this eraser?",
+                                "kr": "이 지우개를 살 수 있을까요?"
+                        },
+                        {
+                                "en": "I'll take this blue pen, please.",
+                                "kr": "이 파란 펜으로 살게요."
+                        },
+                        {
+                                "en": "Here is your change.",
+                                "kr": "여기 거스름돈 있습니다."
+                        },
+                        {
+                                "en": "Thank you! Have a nice day.",
+                                "kr": "감사합니다! 좋은 하루 되세요."
                         }
                 ],
                 "citizenQA": [
@@ -6123,16 +6631,29 @@
                 ],
                 "escapeQuizzes": [
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [많은]",
+                                "question": "다음 뜻에 알맞은 단어는? [얼마나]",
+                                "word": "how",
+                                "meaning": "얼마나",
+                                "hint": "h___",
+                                "answer": "how",
+                                "options": [
+                                        "how",
+                                        "hundred",
+                                        "much",
+                                        "thousand"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [많은, 얼마]",
                                 "word": "much",
-                                "meaning": "많은",
+                                "meaning": "많은, 얼마",
                                 "hint": "m___",
                                 "answer": "much",
                                 "options": [
+                                        "hundred",
+                                        "how",
                                         "thousand",
-                                        "much",
-                                        "won",
-                                        "hundred"
+                                        "much"
                                 ]
                         },
                         {
@@ -6142,10 +6663,10 @@
                                 "hint": "h___",
                                 "answer": "hundred",
                                 "options": [
-                                        "won",
-                                        "thousand",
+                                        "how",
                                         "much",
-                                        "hundred"
+                                        "hundred",
+                                        "thousand"
                                 ]
                         },
                         {
@@ -6155,36 +6676,23 @@
                                 "hint": "t___",
                                 "answer": "thousand",
                                 "options": [
-                                        "much",
-                                        "won",
                                         "thousand",
-                                        "hundred"
+                                        "how",
+                                        "hundred",
+                                        "much"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [원 (화폐)]",
+                                "question": "다음 뜻에 알맞은 단어는? [원 (화폐 단위)]",
                                 "word": "won",
-                                "meaning": "원 (화폐)",
+                                "meaning": "원 (화폐 단위)",
                                 "hint": "w___",
                                 "answer": "won",
                                 "options": [
-                                        "much",
-                                        "won",
                                         "hundred",
-                                        "thousand"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [달러]",
-                                "word": "dollar",
-                                "meaning": "달러",
-                                "hint": "d___",
-                                "answer": "dollar",
-                                "options": [
-                                        "dollar",
-                                        "much",
-                                        "thousand",
-                                        "hundred"
+                                        "won",
+                                        "how",
+                                        "much"
                                 ]
                         }
                 ]
@@ -6204,6 +6712,10 @@
                                 "kr": "나라, 국가"
                         },
                         {
+                                "en": "from",
+                                "kr": "~출신의, ~에서"
+                        },
+                        {
                                 "en": "Korea",
                                 "kr": "한국"
                         },
@@ -6212,58 +6724,78 @@
                                 "kr": "캐나다"
                         },
                         {
-                                "en": "Vietnam",
-                                "kr": "베트남"
+                                "en": "the UK",
+                                "kr": "영국"
                         },
                         {
                                 "en": "France",
                                 "kr": "프랑스"
                         },
                         {
-                                "en": "India",
-                                "kr": "인도"
+                                "en": "Australia",
+                                "kr": "호주"
                         },
                         {
-                                "en": "U.S.",
-                                "kr": "미국"
+                                "en": "China",
+                                "kr": "중국"
                         },
                         {
-                                "en": "from",
-                                "kr": "~출신의"
+                                "en": "welcome",
+                                "kr": "환영하다"
                         },
                         {
-                                "en": "friend",
-                                "kr": "친구"
+                                "en": "world",
+                                "kr": "세계"
                         },
                         {
-                                "en": "cousin",
-                                "kr": "사촌"
+                                "en": "travel",
+                                "kr": "여행하다"
                         },
                         {
-                                "en": "beautiful",
-                                "kr": "아름다운"
+                                "en": "live",
+                                "kr": "살다"
                         }
                 ],
                 "sentences": [
                         {
                                 "en": "Where are you from?",
-                                "kr": "어느 나라에서 왔니?"
+                                "kr": "너는 어느 나라에서 왔니?"
+                        },
+                        {
+                                "en": "I'm from Korea.",
+                                "kr": "나는 한국에서 왔어."
                         },
                         {
                                 "en": "I'm from Canada.",
                                 "kr": "나는 캐나다에서 왔어."
                         },
                         {
-                                "en": "I'm from India.",
-                                "kr": "나는 인도에서 왔어."
+                                "en": "She is from France.",
+                                "kr": "그녀는 프랑스에서 왔어."
                         },
                         {
-                                "en": "This is my friend, Uju.",
-                                "kr": "이쪽은 내 친구 우주야."
+                                "en": "He is from Australia.",
+                                "kr": "그는 호주에서 왔어."
                         },
                         {
-                                "en": "Nice to meet you.",
-                                "kr": "만나서 반가워."
+                                "en": "Welcome to our school!",
+                                "kr": "우리 학교에 온 것을 환영해!"
+                        },
+                        {
+                                "en": "Have you visited the UK?",
+                                "kr": "영국에 가 본 적이 있니?"
+                        },
+                        {
+                                "en": "I want to travel around the world.",
+                                "kr": "나는 세계를 여행하고 싶어."
+                        },
+                        {
+                                "en": "People speak English in Canada.",
+                                "kr": "캐나다 사람들은 영어를 써."
+                        },
+                        {
+                                "en": "We are friends from different countries.",
+                                "kr": "우리는 서로 다른 나라에서 온 친구들이야."
                         }
                 ],
                 "citizenQA": [
@@ -6438,10 +6970,23 @@
                                 "hint": "c___",
                                 "answer": "country",
                                 "options": [
+                                        "from",
+                                        "Korea",
                                         "Canada",
+                                        "country"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [~출신의, ~에서]",
+                                "word": "from",
+                                "meaning": "~출신의, ~에서",
+                                "hint": "f___",
+                                "answer": "from",
+                                "options": [
+                                        "Korea",
+                                        "from",
                                         "country",
-                                        "Vietnam",
-                                        "Korea"
+                                        "Canada"
                                 ]
                         },
                         {
@@ -6451,10 +6996,10 @@
                                 "hint": "K___",
                                 "answer": "Korea",
                                 "options": [
+                                        "Canada",
                                         "Korea",
-                                        "Vietnam",
                                         "country",
-                                        "Canada"
+                                        "from"
                                 ]
                         },
                         {
@@ -6464,35 +7009,22 @@
                                 "hint": "C___",
                                 "answer": "Canada",
                                 "options": [
-                                        "Korea",
-                                        "country",
-                                        "Vietnam",
-                                        "Canada"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [베트남]",
-                                "word": "Vietnam",
-                                "meaning": "베트남",
-                                "hint": "V___",
-                                "answer": "Vietnam",
-                                "options": [
-                                        "country",
-                                        "Vietnam",
-                                        "Korea",
-                                        "Canada"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [프랑스]",
-                                "word": "France",
-                                "meaning": "프랑스",
-                                "hint": "F___",
-                                "answer": "France",
-                                "options": [
                                         "Canada",
                                         "country",
-                                        "France",
+                                        "Korea",
+                                        "from"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [영국]",
+                                "word": "the UK",
+                                "meaning": "영국",
+                                "hint": "t___",
+                                "answer": "the UK",
+                                "options": [
+                                        "the UK",
+                                        "from",
+                                        "country",
                                         "Korea"
                                 ]
                         }
@@ -6521,10 +7053,6 @@
                                 "kr": "안경"
                         },
                         {
-                                "en": "gloves",
-                                "kr": "장갑"
-                        },
-                        {
                                 "en": "scissors",
                                 "kr": "가위"
                         },
@@ -6533,20 +7061,32 @@
                                 "kr": "바지"
                         },
                         {
-                                "en": "shoes",
-                                "kr": "신발"
-                        },
-                        {
                                 "en": "socks",
                                 "kr": "양말"
                         },
                         {
-                                "en": "heavy",
-                                "kr": "무거운"
+                                "en": "shoes",
+                                "kr": "신발"
                         },
                         {
-                                "en": "light",
-                                "kr": "가벼운"
+                                "en": "jeans",
+                                "kr": "청바지"
+                        },
+                        {
+                                "en": "boots",
+                                "kr": "부츠"
+                        },
+                        {
+                                "en": "gloves",
+                                "kr": "장갑"
+                        },
+                        {
+                                "en": "pair",
+                                "kr": "한 켤레, 한 쌍"
+                        },
+                        {
+                                "en": "look",
+                                "kr": "보다"
                         }
                 ],
                 "sentences": [
@@ -6559,16 +7099,36 @@
                                 "kr": "그것들은 안경이야."
                         },
                         {
-                                "en": "What are those?",
-                                "kr": "저것들은 무엇이니?"
+                                "en": "What are those over there?",
+                                "kr": "저쪽에 있는 저것들은 무엇이니?"
                         },
                         {
-                                "en": "They are gloves.",
-                                "kr": "그것들은 장갑이야."
+                                "en": "They are sharp scissors.",
+                                "kr": "그것들은 잘 드는 가위야."
                         },
                         {
-                                "en": "They are heavy.",
-                                "kr": "그것들은 무거워."
+                                "en": "Are these your new shoes?",
+                                "kr": "이것들은 너의 새 신발이니?"
+                        },
+                        {
+                                "en": "Yes, they are very comfortable.",
+                                "kr": "응, 아주 편안해."
+                        },
+                        {
+                                "en": "Look at these blue jeans.",
+                                "kr": "이 청바지를 봐."
+                        },
+                        {
+                                "en": "Those pants are too big for me.",
+                                "kr": "저 바지는 내게 너무 커."
+                        },
+                        {
+                                "en": "I need a pair of warm socks.",
+                                "kr": "나는 따뜻한 양말 한 켤레가 필요해."
+                        },
+                        {
+                                "en": "Put on your rain boots today.",
+                                "kr": "오늘 레인부츠를 신으렴."
                         }
                 ],
                 "citizenQA": [
@@ -6743,10 +7303,10 @@
                                 "hint": "t___",
                                 "answer": "these",
                                 "options": [
-                                        "those",
+                                        "scissors",
                                         "these",
-                                        "glasses",
-                                        "gloves"
+                                        "those",
+                                        "glasses"
                                 ]
                         },
                         {
@@ -6756,10 +7316,10 @@
                                 "hint": "t___",
                                 "answer": "those",
                                 "options": [
-                                        "glasses",
+                                        "those",
+                                        "scissors",
                                         "these",
-                                        "gloves",
-                                        "those"
+                                        "glasses"
                                 ]
                         },
                         {
@@ -6769,22 +7329,9 @@
                                 "hint": "g___",
                                 "answer": "glasses",
                                 "options": [
-                                        "those",
+                                        "scissors",
                                         "these",
-                                        "gloves",
-                                        "glasses"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [장갑]",
-                                "word": "gloves",
-                                "meaning": "장갑",
-                                "hint": "g___",
-                                "answer": "gloves",
-                                "options": [
                                         "glasses",
-                                        "gloves",
-                                        "these",
                                         "those"
                                 ]
                         },
@@ -6795,10 +7342,23 @@
                                 "hint": "s___",
                                 "answer": "scissors",
                                 "options": [
-                                        "those",
+                                        "these",
                                         "scissors",
+                                        "those",
+                                        "glasses"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [바지]",
+                                "word": "pants",
+                                "meaning": "바지",
+                                "hint": "p___",
+                                "answer": "pants",
+                                "options": [
+                                        "these",
+                                        "pants",
                                         "glasses",
-                                        "these"
+                                        "those"
                                 ]
                         }
                 ]
@@ -6811,69 +7371,97 @@
                 "name": "5학년 3단원",
                 "title": "Can I Take Pictures?",
                 "shortDesc": "Can I Take Pictures? (10문항)",
-                "grammarPoint": "Can I take pictures?",
+                "grammarPoint": "Can I take pictures here?",
                 "words": [
+                        {
+                                "en": "can",
+                                "kr": "~해도 되다, 할 수 있다"
+                        },
                         {
                                 "en": "take",
                                 "kr": "찍다, 취하다"
                         },
                         {
                                 "en": "picture",
-                                "kr": "사진, 그림"
-                        },
-                        {
-                                "en": "sit",
-                                "kr": "앉다"
+                                "kr": "사진"
                         },
                         {
                                 "en": "touch",
                                 "kr": "만지다"
                         },
                         {
-                                "en": "feed",
-                                "kr": "먹이를 주다"
-                        },
-                        {
-                                "en": "pet",
-                                "kr": "애완동물"
+                                "en": "enter",
+                                "kr": "들어가다"
                         },
                         {
                                 "en": "museum",
                                 "kr": "박물관"
                         },
                         {
-                                "en": "camera",
-                                "kr": "카메라"
+                                "en": "rule",
+                                "kr": "규칙"
                         },
                         {
-                                "en": "sorry",
-                                "kr": "미안한"
+                                "en": "safe",
+                                "kr": "안전한"
                         },
                         {
-                                "en": "sure",
-                                "kr": "물론"
+                                "en": "quietly",
+                                "kr": "조용히"
+                        },
+                        {
+                                "en": "must",
+                                "kr": "~해야 한다"
+                        },
+                        {
+                                "en": "snack",
+                                "kr": "간식"
+                        },
+                        {
+                                "en": "hall",
+                                "kr": "복도, 홀"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "Can I take pictures?",
-                                "kr": "사진을 찍어도 되나요?"
+                                "en": "Can I take pictures here?",
+                                "kr": "여기서 사진을 찍어도 되나요?"
                         },
                         {
                                 "en": "Sure, you can.",
                                 "kr": "물론이지, 찍어도 돼."
                         },
                         {
-                                "en": "Sorry, you can't.",
-                                "kr": "미안하지만 안 돼."
+                                "en": "No, you may not take pictures.",
+                                "kr": "아니요, 사진을 찍으면 안 됩니다."
                         },
                         {
-                                "en": "Can I sit here?",
-                                "kr": "여기 앉아도 되나요?"
+                                "en": "Can I touch this dinosaur model?",
+                                "kr": "이 공룡 모형을 만져도 되나요?"
                         },
                         {
-                                "en": "Can I feed the animals?",
-                                "kr": "동물들에게 먹이를 주어도 되나요?"
+                                "en": "Please don't touch the art pieces.",
+                                "kr": "미술 작품을 만지지 마세요."
+                        },
+                        {
+                                "en": "We must follow the museum rules.",
+                                "kr": "우리는 박물관 규칙을 따라야 해."
+                        },
+                        {
+                                "en": "Please speak quietly in the hall.",
+                                "kr": "복도에서는 조용히 말해 주세요."
+                        },
+                        {
+                                "en": "Can I eat snacks inside?",
+                                "kr": "안에서 간식을 먹어도 되나요?"
+                        },
+                        {
+                                "en": "No eating food in the exhibition room.",
+                                "kr": "전시실에서는 음식물 섭취 금지입니다."
+                        },
+                        {
+                                "en": "Thank you for keeping the rules.",
+                                "kr": "규칙을 지켜 주셔서 감사합니다."
                         }
                 ],
                 "citizenQA": [
@@ -7042,42 +7630,42 @@
                 ],
                 "escapeQuizzes": [
                         {
+                                "question": "다음 뜻에 알맞은 단어는? [~해도 되다, 할 수 있다]",
+                                "word": "can",
+                                "meaning": "~해도 되다, 할 수 있다",
+                                "hint": "c___",
+                                "answer": "can",
+                                "options": [
+                                        "take",
+                                        "touch",
+                                        "can",
+                                        "picture"
+                                ]
+                        },
+                        {
                                 "question": "다음 뜻에 알맞은 단어는? [찍다, 취하다]",
                                 "word": "take",
                                 "meaning": "찍다, 취하다",
                                 "hint": "t___",
                                 "answer": "take",
                                 "options": [
-                                        "sit",
+                                        "touch",
+                                        "can",
                                         "take",
-                                        "picture",
-                                        "touch"
+                                        "picture"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [사진, 그림]",
+                                "question": "다음 뜻에 알맞은 단어는? [사진]",
                                 "word": "picture",
-                                "meaning": "사진, 그림",
+                                "meaning": "사진",
                                 "hint": "p___",
                                 "answer": "picture",
                                 "options": [
                                         "touch",
+                                        "can",
                                         "picture",
-                                        "sit",
                                         "take"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [앉다]",
-                                "word": "sit",
-                                "meaning": "앉다",
-                                "hint": "s___",
-                                "answer": "sit",
-                                "options": [
-                                        "touch",
-                                        "sit",
-                                        "take",
-                                        "picture"
                                 ]
                         },
                         {
@@ -7087,23 +7675,23 @@
                                 "hint": "t___",
                                 "answer": "touch",
                                 "options": [
-                                        "touch",
                                         "take",
                                         "picture",
-                                        "sit"
+                                        "can",
+                                        "touch"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [먹이를 주다]",
-                                "word": "feed",
-                                "meaning": "먹이를 주다",
-                                "hint": "f___",
-                                "answer": "feed",
+                                "question": "다음 뜻에 알맞은 단어는? [들어가다]",
+                                "word": "enter",
+                                "meaning": "들어가다",
+                                "hint": "e___",
+                                "answer": "enter",
                                 "options": [
+                                        "can",
+                                        "enter",
                                         "take",
-                                        "sit",
-                                        "picture",
-                                        "feed"
+                                        "picture"
                                 ]
                         }
                 ]
@@ -7127,20 +7715,12 @@
                                 "kr": "펜"
                         },
                         {
-                                "en": "brush",
-                                "kr": "붓"
-                        },
-                        {
                                 "en": "umbrella",
                                 "kr": "우산"
                         },
                         {
-                                "en": "watch",
-                                "kr": "손목시계"
-                        },
-                        {
-                                "en": "cap",
-                                "kr": "모자"
+                                "en": "bag",
+                                "kr": "가방"
                         },
                         {
                                 "en": "mine",
@@ -7151,12 +7731,28 @@
                                 "kr": "너의 것"
                         },
                         {
+                                "en": "hers",
+                                "kr": "그녀의 것"
+                        },
+                        {
                                 "en": "his",
                                 "kr": "그의 것"
                         },
                         {
-                                "en": "hers",
-                                "kr": "그녀의 것"
+                                "en": "lost",
+                                "kr": "잃어버린"
+                        },
+                        {
+                                "en": "find",
+                                "kr": "찾다"
+                        },
+                        {
+                                "en": "bench",
+                                "kr": "벤치"
+                        },
+                        {
+                                "en": "check",
+                                "kr": "확인하다"
                         }
                 ],
                 "sentences": [
@@ -7165,20 +7761,40 @@
                                 "kr": "이것은 누구의 펜이니?"
                         },
                         {
-                                "en": "It's mine.",
-                                "kr": "그것은 내 거야."
+                                "en": "It's mine. Thank you!",
+                                "kr": "내 것이야. 고마워!"
                         },
                         {
-                                "en": "It's Tom's.",
-                                "kr": "그것은 톰의 것이야."
+                                "en": "Whose yellow umbrella is that?",
+                                "kr": "저 노란 우산은 누구의 것이니?"
                         },
                         {
-                                "en": "Whose watch is that?",
-                                "kr": "저것은 누구의 시계니?"
+                                "en": "It's hers. She forgot it.",
+                                "kr": "그녀 것이야. 깜빡 두고 갔어."
                         },
                         {
-                                "en": "It's not mine.",
-                                "kr": "그것은 내 것이 아니야."
+                                "en": "Is this notebook yours?",
+                                "kr": "이 공책이 네 것이니?"
+                        },
+                        {
+                                "en": "No, it's not mine. It's his.",
+                                "kr": "아니, 내 것이 아니야. 그 친구 것이야."
+                        },
+                        {
+                                "en": "I found a lost pencil case.",
+                                "kr": "내가 분실된 필통을 하나 찾았어."
+                        },
+                        {
+                                "en": "Check if this ruler is yours.",
+                                "kr": "이 자가 네 것인지 확인해 봐."
+                        },
+                        {
+                                "en": "Whose bag is on the bench?",
+                                "kr": "벤치 위의 가방은 누구 것이니?"
+                        },
+                        {
+                                "en": "Let's take it to the lost and found.",
+                                "kr": "분실물 보관소로 가져가자."
                         }
                 ],
                 "citizenQA": [
@@ -7353,10 +7969,10 @@
                                 "hint": "w___",
                                 "answer": "whose",
                                 "options": [
-                                        "brush",
-                                        "umbrella",
                                         "pen",
-                                        "whose"
+                                        "bag",
+                                        "whose",
+                                        "umbrella"
                                 ]
                         },
                         {
@@ -7366,23 +7982,10 @@
                                 "hint": "p___",
                                 "answer": "pen",
                                 "options": [
-                                        "umbrella",
                                         "pen",
                                         "whose",
-                                        "brush"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [붓]",
-                                "word": "brush",
-                                "meaning": "붓",
-                                "hint": "b___",
-                                "answer": "brush",
-                                "options": [
-                                        "pen",
-                                        "umbrella",
-                                        "brush",
-                                        "whose"
+                                        "bag",
+                                        "umbrella"
                                 ]
                         },
                         {
@@ -7392,23 +7995,36 @@
                                 "hint": "u___",
                                 "answer": "umbrella",
                                 "options": [
+                                        "pen",
+                                        "bag",
                                         "umbrella",
-                                        "brush",
+                                        "whose"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [가방]",
+                                "word": "bag",
+                                "meaning": "가방",
+                                "hint": "b___",
+                                "answer": "bag",
+                                "options": [
                                         "whose",
+                                        "bag",
+                                        "umbrella",
                                         "pen"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [손목시계]",
-                                "word": "watch",
-                                "meaning": "손목시계",
-                                "hint": "w___",
-                                "answer": "watch",
+                                "question": "다음 뜻에 알맞은 단어는? [나의 것]",
+                                "word": "mine",
+                                "meaning": "나의 것",
+                                "hint": "m___",
+                                "answer": "mine",
                                 "options": [
-                                        "pen",
                                         "whose",
-                                        "watch",
-                                        "brush"
+                                        "mine",
+                                        "pen",
+                                        "umbrella"
                                 ]
                         }
                 ]
@@ -7421,69 +8037,97 @@
                 "name": "5학년 5단원",
                 "title": "Let's Go Shopping",
                 "shortDesc": "Let's Go Shopping (10문항)",
-                "grammarPoint": "Let's go shopping.",
+                "grammarPoint": "Let's go shopping this Saturday.",
                 "words": [
                         {
                                 "en": "shopping",
                                 "kr": "쇼핑"
                         },
                         {
-                                "en": "buy",
-                                "kr": "사다"
-                        },
-                        {
-                                "en": "store",
-                                "kr": "가게, 상점"
-                        },
-                        {
                                 "en": "market",
                                 "kr": "시장"
                         },
                         {
-                                "en": "shirt",
-                                "kr": "셔츠"
+                                "en": "mall",
+                                "kr": "쇼핑몰"
                         },
                         {
-                                "en": "hat",
-                                "kr": "모자"
+                                "en": "buy",
+                                "kr": "사다"
+                        },
+                        {
+                                "en": "clothes",
+                                "kr": "옷"
+                        },
+                        {
+                                "en": "sneakers",
+                                "kr": "운동화"
+                        },
+                        {
+                                "en": "backpack",
+                                "kr": "배낭, 책가방"
+                        },
+                        {
+                                "en": "look for",
+                                "kr": "~을 찾다"
+                        },
+                        {
+                                "en": "try on",
+                                "kr": "입어 보다"
+                        },
+                        {
+                                "en": "fitting room",
+                                "kr": "탈의실"
                         },
                         {
                                 "en": "jacket",
                                 "kr": "재킷"
                         },
                         {
-                                "en": "price",
-                                "kr": "가격"
-                        },
-                        {
-                                "en": "cheap",
-                                "kr": "값싼"
-                        },
-                        {
-                                "en": "expensive",
-                                "kr": "비싼"
+                                "en": "together",
+                                "kr": "함께"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "Let's go shopping.",
-                                "kr": "쇼핑하러 가자."
+                                "en": "Let's go shopping this Saturday.",
+                                "kr": "이번 주 토요일에 쇼핑하러 가자."
                         },
                         {
-                                "en": "Sounds great.",
-                                "kr": "좋은 생각이야."
+                                "en": "Sounds great! Where shall we go?",
+                                "kr": "좋아! 우리 어디로 갈까?"
                         },
                         {
-                                "en": "I want to buy a hat.",
-                                "kr": "나는 모자를 사고 싶어."
+                                "en": "Let's visit the traditional market.",
+                                "kr": "전통 시장에 가 보자."
                         },
                         {
-                                "en": "Look at this shirt.",
-                                "kr": "이 셔츠를 봐."
+                                "en": "I want to buy a new backpack.",
+                                "kr": "나는 새 책가방을 사고 싶어."
                         },
                         {
-                                "en": "It looks cool.",
-                                "kr": "정말 멋져 보여."
+                                "en": "May I help you find something?",
+                                "kr": "무엇을 찾는 데 도와드릴까요?"
+                        },
+                        {
+                                "en": "I'm looking for comfortable sneakers.",
+                                "kr": "편안한 운동화를 찾고 있어요."
+                        },
+                        {
+                                "en": "How about this blue jacket?",
+                                "kr": "이 파란 재킷은 어때요?"
+                        },
+                        {
+                                "en": "Can I try it on?",
+                                "kr": "입어 봐도 될까요?"
+                        },
+                        {
+                                "en": "The fitting room is over there.",
+                                "kr": "탈의실은 저쪽에 있습니다."
+                        },
+                        {
+                                "en": "Shopping with friends is so fun!",
+                                "kr": "친구들과 쇼핑하는 건 정말 재미있어!"
                         }
                 ],
                 "citizenQA": [
@@ -7658,35 +8302,9 @@
                                 "hint": "s___",
                                 "answer": "shopping",
                                 "options": [
-                                        "market",
-                                        "buy",
-                                        "store",
-                                        "shopping"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [사다]",
-                                "word": "buy",
-                                "meaning": "사다",
-                                "hint": "b___",
-                                "answer": "buy",
-                                "options": [
-                                        "shopping",
                                         "buy",
                                         "market",
-                                        "store"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [가게, 상점]",
-                                "word": "store",
-                                "meaning": "가게, 상점",
-                                "hint": "s___",
-                                "answer": "store",
-                                "options": [
-                                        "market",
-                                        "store",
-                                        "buy",
+                                        "mall",
                                         "shopping"
                                 ]
                         },
@@ -7699,21 +8317,47 @@
                                 "options": [
                                         "shopping",
                                         "market",
-                                        "store",
+                                        "mall",
                                         "buy"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [셔츠]",
-                                "word": "shirt",
-                                "meaning": "셔츠",
-                                "hint": "s___",
-                                "answer": "shirt",
+                                "question": "다음 뜻에 알맞은 단어는? [쇼핑몰]",
+                                "word": "mall",
+                                "meaning": "쇼핑몰",
+                                "hint": "m___",
+                                "answer": "mall",
                                 "options": [
+                                        "mall",
+                                        "buy",
                                         "shopping",
-                                        "store",
-                                        "shirt",
-                                        "buy"
+                                        "market"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [사다]",
+                                "word": "buy",
+                                "meaning": "사다",
+                                "hint": "b___",
+                                "answer": "buy",
+                                "options": [
+                                        "market",
+                                        "mall",
+                                        "buy",
+                                        "shopping"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [옷]",
+                                "word": "clothes",
+                                "meaning": "옷",
+                                "hint": "c___",
+                                "answer": "clothes",
+                                "options": [
+                                        "clothes",
+                                        "shopping",
+                                        "market",
+                                        "mall"
                                 ]
                         }
                 ]
@@ -7737,8 +8381,8 @@
                                 "kr": "방학, 휴가"
                         },
                         {
-                                "en": "travel",
-                                "kr": "여행하다"
+                                "en": "will",
+                                "kr": "~할 것이다"
                         },
                         {
                                 "en": "visit",
@@ -7750,23 +8394,31 @@
                         },
                         {
                                 "en": "camp",
-                                "kr": "캠프하다"
-                        },
-                        {
-                                "en": "swim",
-                                "kr": "수영하다"
+                                "kr": "캠핑하다"
                         },
                         {
                                 "en": "beach",
                                 "kr": "해변"
                         },
                         {
-                                "en": "mountain",
-                                "kr": "산"
+                                "en": "travel",
+                                "kr": "여행하다"
+                        },
+                        {
+                                "en": "swim",
+                                "kr": "수영하다"
+                        },
+                        {
+                                "en": "island",
+                                "kr": "섬"
                         },
                         {
                                 "en": "plan",
                                 "kr": "계획"
+                        },
+                        {
+                                "en": "practice",
+                                "kr": "연습하다"
                         }
                 ],
                 "sentences": [
@@ -7775,20 +8427,40 @@
                                 "kr": "이번 여름에 무엇을 할 거니?"
                         },
                         {
-                                "en": "I'll visit my grandparents.",
-                                "kr": "나는 조부모님 댁을 방문할 거야."
+                                "en": "I'll visit my grandparents in Busan.",
+                                "kr": "나는 부산에 계신 조부모님 댁을 방문할 거야."
                         },
                         {
-                                "en": "I'll go to the beach.",
-                                "kr": "나는 해변에 갈 거야."
+                                "en": "I will go camping with my family.",
+                                "kr": "나는 가족과 함께 캠핑을 갈 거야."
                         },
                         {
-                                "en": "I'll join a science camp.",
-                                "kr": "나는 과학 캠프에 참여할 거야."
+                                "en": "Will you travel to Jeju Island?",
+                                "kr": "제주도로 여행을 갈 거니?"
                         },
                         {
-                                "en": "Have a nice vacation.",
-                                "kr": "즐거운 방학 보내."
+                                "en": "Yes, we will swim at the beach.",
+                                "kr": "응, 우리는 해변에서 수영할 거야."
+                        },
+                        {
+                                "en": "I plan to read ten books this summer.",
+                                "kr": "나는 이번 여름에 책 10권을 읽을 계획이야."
+                        },
+                        {
+                                "en": "That sounds like a wonderful plan!",
+                                "kr": "정말 멋진 계획인 것 같아!"
+                        },
+                        {
+                                "en": "Have a safe and happy summer vacation.",
+                                "kr": "안전하고 즐거운 여름 방학 보내렴."
+                        },
+                        {
+                                "en": "I will practice English every day.",
+                                "kr": "나는 매일 영어를 연습할 거야."
+                        },
+                        {
+                                "en": "I can't wait for summer vacation!",
+                                "kr": "여름 방학이 너무 기다려져!"
                         }
                 ],
                 "citizenQA": [
@@ -7963,10 +8635,10 @@
                                 "hint": "s___",
                                 "answer": "summer",
                                 "options": [
-                                        "visit",
-                                        "summer",
                                         "vacation",
-                                        "travel"
+                                        "visit",
+                                        "will",
+                                        "summer"
                                 ]
                         },
                         {
@@ -7976,23 +8648,23 @@
                                 "hint": "v___",
                                 "answer": "vacation",
                                 "options": [
-                                        "summer",
                                         "vacation",
-                                        "travel",
-                                        "visit"
+                                        "visit",
+                                        "will",
+                                        "summer"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [여행하다]",
-                                "word": "travel",
-                                "meaning": "여행하다",
-                                "hint": "t___",
-                                "answer": "travel",
+                                "question": "다음 뜻에 알맞은 단어는? [~할 것이다]",
+                                "word": "will",
+                                "meaning": "~할 것이다",
+                                "hint": "w___",
+                                "answer": "will",
                                 "options": [
-                                        "visit",
-                                        "vacation",
+                                        "will",
                                         "summer",
-                                        "travel"
+                                        "visit",
+                                        "vacation"
                                 ]
                         },
                         {
@@ -8002,10 +8674,10 @@
                                 "hint": "v___",
                                 "answer": "visit",
                                 "options": [
-                                        "summer",
+                                        "vacation",
                                         "visit",
-                                        "travel",
-                                        "vacation"
+                                        "will",
+                                        "summer"
                                 ]
                         },
                         {
@@ -8015,10 +8687,10 @@
                                 "hint": "g___",
                                 "answer": "grandparents",
                                 "options": [
+                                        "will",
                                         "grandparents",
                                         "summer",
-                                        "vacation",
-                                        "travel"
+                                        "vacation"
                                 ]
                         }
                 ]
@@ -8031,23 +8703,11 @@
                 "name": "5학년 7단원",
                 "title": "I Went to a Watermelon Festival",
                 "shortDesc": "I Went to a Watermelon Festival (10문항)",
-                "grammarPoint": "I went to a watermelon festival.",
+                "grammarPoint": "What did you do yesterday?",
                 "words": [
                         {
                                 "en": "went",
                                 "kr": "갔다 (go의 과거)"
-                        },
-                        {
-                                "en": "saw",
-                                "kr": "보았다 (see의 과거)"
-                        },
-                        {
-                                "en": "ate",
-                                "kr": "먹었다 (eat의 과거)"
-                        },
-                        {
-                                "en": "had",
-                                "kr": "가졌다 (have의 과거)"
                         },
                         {
                                 "en": "festival",
@@ -8058,42 +8718,82 @@
                                 "kr": "수박"
                         },
                         {
-                                "en": "delicious",
-                                "kr": "맛있는"
+                                "en": "ate",
+                                "kr": "먹었다 (eat의 과거)"
+                        },
+                        {
+                                "en": "saw",
+                                "kr": "보았다 (see의 과거)"
+                        },
+                        {
+                                "en": "played",
+                                "kr": "놀았다 (play의 과거)"
+                        },
+                        {
+                                "en": "exciting",
+                                "kr": "신나는"
                         },
                         {
                                 "en": "yesterday",
                                 "kr": "어제"
                         },
                         {
-                                "en": "weekend",
-                                "kr": "주말"
+                                "en": "performance",
+                                "kr": "공연"
                         },
                         {
-                                "en": "exciting",
-                                "kr": "신나는"
+                                "en": "took",
+                                "kr": "찍었다 (take의 과거)"
+                        },
+                        {
+                                "en": "memory",
+                                "kr": "추억, 기억"
+                        },
+                        {
+                                "en": "delicious",
+                                "kr": "맛있는"
                         }
                 ],
                 "sentences": [
-                        {
-                                "en": "I went to a watermelon festival.",
-                                "kr": "나는 수박 축제에 갔어."
-                        },
                         {
                                 "en": "What did you do yesterday?",
                                 "kr": "너 어제 무엇을 했니?"
                         },
                         {
-                                "en": "I ate delicious food.",
-                                "kr": "나는 맛있는 음식을 먹었어."
+                                "en": "I went to a watermelon festival.",
+                                "kr": "나는 수박 축제에 갔어."
                         },
                         {
-                                "en": "I had a great time.",
-                                "kr": "나는 좋은 시간을 보냈어."
+                                "en": "I ate sweet watermelon there.",
+                                "kr": "나는 거기서 달콤한 수박을 먹었어."
                         },
                         {
-                                "en": "It was wonderful.",
-                                "kr": "정말 멋졌어."
+                                "en": "What did you see at the festival?",
+                                "kr": "축제에서 무엇을 보았니?"
+                        },
+                        {
+                                "en": "We saw exciting music performances.",
+                                "kr": "우리는 신나는 음악 공연을 보았어."
+                        },
+                        {
+                                "en": "I played traditional games with friends.",
+                                "kr": "나는 친구들과 전통 놀이를 했어."
+                        },
+                        {
+                                "en": "Did you take any photos?",
+                                "kr": "사진 좀 찍었니?"
+                        },
+                        {
+                                "en": "Yes, I took a lot of great photos.",
+                                "kr": "응, 멋진 사진을 많이 찍었어."
+                        },
+                        {
+                                "en": "It was the best day of the summer!",
+                                "kr": "올여름 최고의 날이었어!"
+                        },
+                        {
+                                "en": "I had wonderful memories with my family.",
+                                "kr": "가족과 멋진 추억을 만들었어."
                         }
                 ],
                 "citizenQA": [
@@ -8268,49 +8968,10 @@
                                 "hint": "w___",
                                 "answer": "went",
                                 "options": [
-                                        "saw",
-                                        "went",
-                                        "ate",
-                                        "had"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [보았다 (see의 과거)]",
-                                "word": "saw",
-                                "meaning": "보았다 (see의 과거)",
-                                "hint": "s___",
-                                "answer": "saw",
-                                "options": [
-                                        "saw",
-                                        "went",
-                                        "had",
-                                        "ate"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [먹었다 (eat의 과거)]",
-                                "word": "ate",
-                                "meaning": "먹었다 (eat의 과거)",
-                                "hint": "a___",
-                                "answer": "ate",
-                                "options": [
-                                        "saw",
                                         "ate",
                                         "went",
-                                        "had"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [가졌다 (have의 과거)]",
-                                "word": "had",
-                                "meaning": "가졌다 (have의 과거)",
-                                "hint": "h___",
-                                "answer": "had",
-                                "options": [
-                                        "went",
-                                        "ate",
-                                        "had",
-                                        "saw"
+                                        "festival",
+                                        "watermelon"
                                 ]
                         },
                         {
@@ -8321,9 +8982,48 @@
                                 "answer": "festival",
                                 "options": [
                                         "went",
+                                        "ate",
+                                        "festival",
+                                        "watermelon"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [수박]",
+                                "word": "watermelon",
+                                "meaning": "수박",
+                                "hint": "w___",
+                                "answer": "watermelon",
+                                "options": [
+                                        "went",
+                                        "ate",
+                                        "watermelon",
+                                        "festival"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [먹었다 (eat의 과거)]",
+                                "word": "ate",
+                                "meaning": "먹었다 (eat의 과거)",
+                                "hint": "a___",
+                                "answer": "ate",
+                                "options": [
+                                        "watermelon",
                                         "festival",
                                         "ate",
-                                        "saw"
+                                        "went"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [보았다 (see의 과거)]",
+                                "word": "saw",
+                                "meaning": "보았다 (see의 과거)",
+                                "hint": "s___",
+                                "answer": "saw",
+                                "options": [
+                                        "went",
+                                        "watermelon",
+                                        "saw",
+                                        "festival"
                                 ]
                         }
                 ]
@@ -8336,19 +9036,23 @@
                 "name": "5학년 8단원",
                 "title": "What Would You Like?",
                 "shortDesc": "What Would You Like? (10문항)",
-                "grammarPoint": "What would you like?",
+                "grammarPoint": "May I take your order?",
                 "words": [
+                        {
+                                "en": "would like",
+                                "kr": "~을 원하다, 먹고 싶다"
+                        },
                         {
                                 "en": "order",
                                 "kr": "주문하다"
                         },
                         {
-                                "en": "pizza",
-                                "kr": "피자"
+                                "en": "sandwich",
+                                "kr": "샌드위치"
                         },
                         {
-                                "en": "burger",
-                                "kr": "버거"
+                                "en": "soup",
+                                "kr": "수프"
                         },
                         {
                                 "en": "salad",
@@ -8359,46 +9063,70 @@
                                 "kr": "주스"
                         },
                         {
-                                "en": "water",
-                                "kr": "물"
+                                "en": "drink",
+                                "kr": "마시다, 음료"
                         },
                         {
-                                "en": "soup",
-                                "kr": "수프"
+                                "en": "menu",
+                                "kr": "메뉴"
                         },
                         {
-                                "en": "sandwich",
-                                "kr": "샌드위치"
+                                "en": "ready",
+                                "kr": "준비된"
                         },
                         {
-                                "en": "hungry",
-                                "kr": "배고픈"
+                                "en": "cheese",
+                                "kr": "치즈"
                         },
                         {
-                                "en": "thirsty",
-                                "kr": "목마른"
+                                "en": "corn",
+                                "kr": "옥수수"
+                        },
+                        {
+                                "en": "warm",
+                                "kr": "따뜻한"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "What would you like?",
+                                "en": "May I take your order?",
+                                "kr": "주문하시겠어요?"
+                        },
+                        {
+                                "en": "What would you like to eat?",
                                 "kr": "무엇을 드시겠어요?"
                         },
                         {
-                                "en": "I'd like a sandwich, please.",
-                                "kr": "샌드위치 하나 주세요."
+                                "en": "I'd like a cheese sandwich, please.",
+                                "kr": "치즈 샌드위치 하나 주세요."
                         },
                         {
-                                "en": "I'd like orange juice.",
-                                "kr": "오렌지 주스를 마시고 싶어요."
+                                "en": "What would you like to drink?",
+                                "kr": "마실 것은 무엇으로 하시겠어요?"
                         },
                         {
-                                "en": "Is that all?",
-                                "kr": "그게 전부인가요?"
+                                "en": "An apple juice, please.",
+                                "kr": "사과 주스 하나 부탁해요."
+                        },
+                        {
+                                "en": "Would you like soup or salad?",
+                                "kr": "수프와 샐러드 중 어떤 것을 원하세요?"
+                        },
+                        {
+                                "en": "Warm corn soup, please.",
+                                "kr": "따뜻한 옥수수 수프 주세요."
                         },
                         {
                                 "en": "For here or to go?",
                                 "kr": "여기서 드시나요, 포장인가요?"
+                        },
+                        {
+                                "en": "For here, please.",
+                                "kr": "여기서 먹고 갈게요."
+                        },
+                        {
+                                "en": "Your order will be ready soon.",
+                                "kr": "주문하신 음식이 곧 준비됩니다."
                         }
                 ],
                 "citizenQA": [
@@ -8567,42 +9295,55 @@
                 ],
                 "escapeQuizzes": [
                         {
+                                "question": "다음 뜻에 알맞은 단어는? [~을 원하다, 먹고 싶다]",
+                                "word": "would like",
+                                "meaning": "~을 원하다, 먹고 싶다",
+                                "hint": "w___",
+                                "answer": "would like",
+                                "options": [
+                                        "would like",
+                                        "soup",
+                                        "sandwich",
+                                        "order"
+                                ]
+                        },
+                        {
                                 "question": "다음 뜻에 알맞은 단어는? [주문하다]",
                                 "word": "order",
                                 "meaning": "주문하다",
                                 "hint": "o___",
                                 "answer": "order",
                                 "options": [
-                                        "salad",
-                                        "pizza",
+                                        "would like",
                                         "order",
-                                        "burger"
+                                        "soup",
+                                        "sandwich"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [피자]",
-                                "word": "pizza",
-                                "meaning": "피자",
-                                "hint": "p___",
-                                "answer": "pizza",
+                                "question": "다음 뜻에 알맞은 단어는? [샌드위치]",
+                                "word": "sandwich",
+                                "meaning": "샌드위치",
+                                "hint": "s___",
+                                "answer": "sandwich",
                                 "options": [
-                                        "order",
-                                        "pizza",
-                                        "salad",
-                                        "burger"
+                                        "sandwich",
+                                        "would like",
+                                        "soup",
+                                        "order"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [버거]",
-                                "word": "burger",
-                                "meaning": "버거",
-                                "hint": "b___",
-                                "answer": "burger",
+                                "question": "다음 뜻에 알맞은 단어는? [수프]",
+                                "word": "soup",
+                                "meaning": "수프",
+                                "hint": "s___",
+                                "answer": "soup",
                                 "options": [
+                                        "would like",
+                                        "sandwich",
                                         "order",
-                                        "salad",
-                                        "burger",
-                                        "pizza"
+                                        "soup"
                                 ]
                         },
                         {
@@ -8612,22 +9353,9 @@
                                 "hint": "s___",
                                 "answer": "salad",
                                 "options": [
-                                        "pizza",
+                                        "would like",
+                                        "sandwich",
                                         "salad",
-                                        "burger",
-                                        "order"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [주스]",
-                                "word": "juice",
-                                "meaning": "주스",
-                                "hint": "j___",
-                                "answer": "juice",
-                                "options": [
-                                        "burger",
-                                        "pizza",
-                                        "juice",
                                         "order"
                                 ]
                         }
@@ -8641,69 +9369,97 @@
                 "name": "5학년 9단원",
                 "title": "They Are Twenty Thousand Won",
                 "shortDesc": "They Are Twenty Thousand Won (10문항)",
-                "grammarPoint": "How much are they?",
+                "grammarPoint": "How much are these gloves?",
                 "words": [
                         {
                                 "en": "twenty",
                                 "kr": "이십 (20)"
                         },
                         {
-                                "en": "thirty",
-                                "kr": "삼십 (30)"
-                        },
-                        {
-                                "en": "forty",
-                                "kr": "사십 (40)"
-                        },
-                        {
-                                "en": "fifty",
-                                "kr": "오십 (50)"
+                                "en": "thousand",
+                                "kr": "천 (1000)"
                         },
                         {
                                 "en": "hundred",
                                 "kr": "백 (100)"
                         },
                         {
-                                "en": "thousand",
-                                "kr": "천 (1000)"
-                        },
-                        {
                                 "en": "won",
-                                "kr": "원 (화폐)"
+                                "kr": "원 (화폐 단위)"
                         },
                         {
-                                "en": "pants",
-                                "kr": "바지"
+                                "en": "price",
+                                "kr": "가격"
                         },
                         {
-                                "en": "shoes",
-                                "kr": "신발"
+                                "en": "cost",
+                                "kr": "비용이 들다"
                         },
                         {
-                                "en": "gloves",
-                                "kr": "장갑"
+                                "en": "expensive",
+                                "kr": "비싼"
+                        },
+                        {
+                                "en": "cheap",
+                                "kr": "저렴한"
+                        },
+                        {
+                                "en": "discount",
+                                "kr": "할인"
+                        },
+                        {
+                                "en": "cash",
+                                "kr": "현금"
+                        },
+                        {
+                                "en": "card",
+                                "kr": "카드"
+                        },
+                        {
+                                "en": "receipt",
+                                "kr": "영수증"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "How much are they?",
-                                "kr": "이것들은 얼마인가요?"
+                                "en": "How much are these gloves?",
+                                "kr": "이 장갑들은 얼마인가요?"
                         },
                         {
                                 "en": "They are twenty thousand won.",
                                 "kr": "20,000원입니다."
                         },
                         {
-                                "en": "How much is this shirt?",
-                                "kr": "이 셔츠는 얼마인가요?"
+                                "en": "How much is that red cap?",
+                                "kr": "저 빨간 모자는 얼마인가요?"
                         },
                         {
                                 "en": "It is ten thousand won.",
                                 "kr": "10,000원입니다."
                         },
                         {
-                                "en": "I will take it.",
-                                "kr": "이것으로 할게요."
+                                "en": "Can I get a small discount?",
+                                "kr": "조금 깎아 주실 수 있나요?"
+                        },
+                        {
+                                "en": "This shop has great quality clothes.",
+                                "kr": "이 가게는 질 좋은 옷이 많아요."
+                        },
+                        {
+                                "en": "Will you pay with cash or card?",
+                                "kr": "현금으로 내시겠어요, 카드로 내시겠어요?"
+                        },
+                        {
+                                "en": "I'll pay with cash.",
+                                "kr": "현금으로 낼게요."
+                        },
+                        {
+                                "en": "Here is your receipt and change.",
+                                "kr": "여기 영수증과 거스름돈입니다."
+                        },
+                        {
+                                "en": "Thank you for shopping with us!",
+                                "kr": "저희 매장을 이용해 주셔서 감사합니다!"
                         }
                 ],
                 "citizenQA": [
@@ -8878,49 +9634,23 @@
                                 "hint": "t___",
                                 "answer": "twenty",
                                 "options": [
-                                        "thirty",
-                                        "fifty",
-                                        "forty",
-                                        "twenty"
+                                        "thousand",
+                                        "hundred",
+                                        "twenty",
+                                        "won"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [삼십 (30)]",
-                                "word": "thirty",
-                                "meaning": "삼십 (30)",
+                                "question": "다음 뜻에 알맞은 단어는? [천 (1000)]",
+                                "word": "thousand",
+                                "meaning": "천 (1000)",
                                 "hint": "t___",
-                                "answer": "thirty",
+                                "answer": "thousand",
                                 "options": [
+                                        "thousand",
                                         "twenty",
-                                        "thirty",
-                                        "fifty",
-                                        "forty"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [사십 (40)]",
-                                "word": "forty",
-                                "meaning": "사십 (40)",
-                                "hint": "f___",
-                                "answer": "forty",
-                                "options": [
-                                        "thirty",
-                                        "fifty",
-                                        "twenty",
-                                        "forty"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [오십 (50)]",
-                                "word": "fifty",
-                                "meaning": "오십 (50)",
-                                "hint": "f___",
-                                "answer": "fifty",
-                                "options": [
-                                        "fifty",
-                                        "forty",
-                                        "twenty",
-                                        "thirty"
+                                        "hundred",
+                                        "won"
                                 ]
                         },
                         {
@@ -8931,9 +9661,35 @@
                                 "answer": "hundred",
                                 "options": [
                                         "twenty",
+                                        "won",
+                                        "thousand",
+                                        "hundred"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [원 (화폐 단위)]",
+                                "word": "won",
+                                "meaning": "원 (화폐 단위)",
+                                "hint": "w___",
+                                "answer": "won",
+                                "options": [
+                                        "twenty",
+                                        "won",
                                         "hundred",
-                                        "thirty",
-                                        "forty"
+                                        "thousand"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [가격]",
+                                "word": "price",
+                                "meaning": "가격",
+                                "hint": "p___",
+                                "answer": "price",
+                                "options": [
+                                        "price",
+                                        "hundred",
+                                        "twenty",
+                                        "thousand"
                                 ]
                         }
                 ]
@@ -8950,11 +9706,7 @@
                 "words": [
                         {
                                 "en": "get up",
-                                "kr": "기상하다, 일어나다"
-                        },
-                        {
-                                "en": "wash",
-                                "kr": "씻다"
+                                "kr": "일어나다"
                         },
                         {
                                 "en": "breakfast",
@@ -8965,28 +9717,40 @@
                                 "kr": "학교"
                         },
                         {
-                                "en": "lunch",
-                                "kr": "점심 식사"
+                                "en": "bedtime",
+                                "kr": "취침 시간"
+                        },
+                        {
+                                "en": "morning",
+                                "kr": "아침"
+                        },
+                        {
+                                "en": "afternoon",
+                                "kr": "오후"
+                        },
+                        {
+                                "en": "evening",
+                                "kr": "저녁"
+                        },
+                        {
+                                "en": "schedule",
+                                "kr": "일정"
+                        },
+                        {
+                                "en": "routine",
+                                "kr": "일과"
+                        },
+                        {
+                                "en": "usually",
+                                "kr": "보통, 대개"
                         },
                         {
                                 "en": "homework",
                                 "kr": "숙제"
                         },
                         {
-                                "en": "dinner",
-                                "kr": "저녁 식사"
-                        },
-                        {
-                                "en": "bed",
-                                "kr": "잠자리, 침대"
-                        },
-                        {
-                                "en": "daily",
-                                "kr": "매일의, 일상의"
-                        },
-                        {
-                                "en": "routine",
-                                "kr": "일과"
+                                "en": "sharp",
+                                "kr": "정각에"
                         }
                 ],
                 "sentences": [
@@ -8999,16 +9763,36 @@
                                 "kr": "나는 7시에 일어나."
                         },
                         {
-                                "en": "What time do you eat lunch?",
-                                "kr": "너 몇 시에 점심을 먹니?"
+                                "en": "What time do you eat breakfast?",
+                                "kr": "너 몇 시에 아침을 먹니?"
+                        },
+                        {
+                                "en": "I eat breakfast at seven thirty.",
+                                "kr": "나는 7시 30분에 아침을 먹어."
+                        },
+                        {
+                                "en": "I walk to school at eight o'clock.",
+                                "kr": "나는 8시에 학교로 걸어가."
+                        },
+                        {
+                                "en": "School starts at nine o'clock sharp.",
+                                "kr": "학교는 9시 정각에 시작해."
+                        },
+                        {
+                                "en": "What time do you do your homework?",
+                                "kr": "너 몇 시에 숙제를 하니?"
+                        },
+                        {
+                                "en": "I do my homework at five in the afternoon.",
+                                "kr": "나는 오후 5시에 숙제를 해."
+                        },
+                        {
+                                "en": "What time do you go to bed?",
+                                "kr": "너 몇 시에 잠자리에 드니?"
                         },
                         {
                                 "en": "I go to bed at ten o'clock.",
-                                "kr": "나는 10시에 잠자리에 들어."
-                        },
-                        {
-                                "en": "I always do my homework.",
-                                "kr": "나는 항상 숙제를 해."
+                                "kr": "나는 10시에 자러 가."
                         }
                 ],
                 "citizenQA": [
@@ -9177,29 +9961,16 @@
                 ],
                 "escapeQuizzes": [
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [기상하다, 일어나다]",
+                                "question": "다음 뜻에 알맞은 단어는? [일어나다]",
                                 "word": "get up",
-                                "meaning": "기상하다, 일어나다",
+                                "meaning": "일어나다",
                                 "hint": "g___",
                                 "answer": "get up",
                                 "options": [
-                                        "wash",
-                                        "breakfast",
+                                        "bedtime",
                                         "school",
-                                        "get up"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [씻다]",
-                                "word": "wash",
-                                "meaning": "씻다",
-                                "hint": "w___",
-                                "answer": "wash",
-                                "options": [
-                                        "wash",
-                                        "get up",
                                         "breakfast",
-                                        "school"
+                                        "get up"
                                 ]
                         },
                         {
@@ -9209,9 +9980,9 @@
                                 "hint": "b___",
                                 "answer": "breakfast",
                                 "options": [
-                                        "get up",
                                         "breakfast",
-                                        "wash",
+                                        "get up",
+                                        "bedtime",
                                         "school"
                                 ]
                         },
@@ -9223,22 +9994,35 @@
                                 "answer": "school",
                                 "options": [
                                         "school",
-                                        "breakfast",
                                         "get up",
-                                        "wash"
+                                        "bedtime",
+                                        "breakfast"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [점심 식사]",
-                                "word": "lunch",
-                                "meaning": "점심 식사",
-                                "hint": "l___",
-                                "answer": "lunch",
+                                "question": "다음 뜻에 알맞은 단어는? [취침 시간]",
+                                "word": "bedtime",
+                                "meaning": "취침 시간",
+                                "hint": "b___",
+                                "answer": "bedtime",
                                 "options": [
-                                        "lunch",
-                                        "breakfast",
                                         "get up",
-                                        "wash"
+                                        "school",
+                                        "breakfast",
+                                        "bedtime"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [아침]",
+                                "word": "morning",
+                                "meaning": "아침",
+                                "hint": "m___",
+                                "answer": "morning",
+                                "options": [
+                                        "get up",
+                                        "school",
+                                        "breakfast",
+                                        "morning"
                                 ]
                         }
                 ]
@@ -9258,10 +10042,6 @@
                                 "kr": "과목"
                         },
                         {
-                                "en": "favorite",
-                                "kr": "가장 좋아하는"
-                        },
-                        {
                                 "en": "math",
                                 "kr": "수학"
                         },
@@ -9274,24 +10054,36 @@
                                 "kr": "영어"
                         },
                         {
-                                "en": "music",
-                                "kr": "음악"
+                                "en": "PE",
+                                "kr": "체육"
                         },
                         {
                                 "en": "art",
                                 "kr": "미술"
                         },
                         {
-                                "en": "P.E.",
-                                "kr": "체육"
+                                "en": "music",
+                                "kr": "음악"
                         },
                         {
                                 "en": "history",
                                 "kr": "역사"
                         },
                         {
-                                "en": "Korean",
-                                "kr": "국어"
+                                "en": "favorite",
+                                "kr": "가장 좋아하는"
+                        },
+                        {
+                                "en": "experiment",
+                                "kr": "실험"
+                        },
+                        {
+                                "en": "solve",
+                                "kr": "풀다"
+                        },
+                        {
+                                "en": "relaxed",
+                                "kr": "편안한"
                         }
                 ],
                 "sentences": [
@@ -9304,16 +10096,36 @@
                                 "kr": "내가 가장 좋아하는 과목은 수학이야."
                         },
                         {
-                                "en": "I like science and art.",
-                                "kr": "나는 과학과 미술을 좋아해."
+                                "en": "Why do you like math?",
+                                "kr": "왜 수학을 좋아하니?"
                         },
                         {
-                                "en": "P.E. is fun and exciting.",
-                                "kr": "체육은 재미있고 신나."
+                                "en": "Because solving problems is fun.",
+                                "kr": "문제를 푸는 것이 재미있기 때문이야."
                         },
                         {
-                                "en": "Why do you like English?",
-                                "kr": "너는 왜 영어를 좋아하니?"
+                                "en": "I like science class best.",
+                                "kr": "나는 과학 수업을 가장 좋아해."
+                        },
+                        {
+                                "en": "We do exciting experiments in science.",
+                                "kr": "우리는 과학 시간에 신나는 실험을 해."
+                        },
+                        {
+                                "en": "Do you like PE class?",
+                                "kr": "너는 체육 수업을 좋아하니?"
+                        },
+                        {
+                                "en": "Yes, I love running and playing sports.",
+                                "kr": "응, 나는 달리기와 운동하는 것을 정말 좋아해."
+                        },
+                        {
+                                "en": "Music class makes me feel relaxed.",
+                                "kr": "음악 시간은 나를 편안하게 해 줘."
+                        },
+                        {
+                                "en": "All school subjects are important.",
+                                "kr": "학교의 모든 과목은 다 중요해."
                         }
                 ],
                 "citizenQA": [
@@ -9488,23 +10300,10 @@
                                 "hint": "s___",
                                 "answer": "subject",
                                 "options": [
-                                        "subject",
-                                        "science",
-                                        "favorite",
-                                        "math"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [가장 좋아하는]",
-                                "word": "favorite",
-                                "meaning": "가장 좋아하는",
-                                "hint": "f___",
-                                "answer": "favorite",
-                                "options": [
-                                        "science",
+                                        "English",
                                         "math",
-                                        "favorite",
-                                        "subject"
+                                        "subject",
+                                        "science"
                                 ]
                         },
                         {
@@ -9514,10 +10313,10 @@
                                 "hint": "m___",
                                 "answer": "math",
                                 "options": [
-                                        "subject",
+                                        "math",
                                         "science",
-                                        "favorite",
-                                        "math"
+                                        "subject",
+                                        "English"
                                 ]
                         },
                         {
@@ -9527,10 +10326,10 @@
                                 "hint": "s___",
                                 "answer": "science",
                                 "options": [
+                                        "subject",
                                         "science",
-                                        "favorite",
-                                        "math",
-                                        "subject"
+                                        "English",
+                                        "math"
                                 ]
                         },
                         {
@@ -9540,10 +10339,23 @@
                                 "hint": "E___",
                                 "answer": "English",
                                 "options": [
-                                        "subject",
-                                        "favorite",
+                                        "science",
                                         "English",
-                                        "math"
+                                        "math",
+                                        "subject"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [체육]",
+                                "word": "PE",
+                                "meaning": "체육",
+                                "hint": "P___",
+                                "answer": "PE",
+                                "options": [
+                                        "math",
+                                        "subject",
+                                        "science",
+                                        "PE"
                                 ]
                         }
                 ]
@@ -9556,11 +10368,11 @@
                 "name": "5학년 12단원",
                 "title": "What Do You Want to Be?",
                 "shortDesc": "What Do You Want to Be? (10문항)",
-                "grammarPoint": "What do you want to be?",
+                "grammarPoint": "What do you want to be in the future?",
                 "words": [
                         {
-                                "en": "future",
-                                "kr": "미래"
+                                "en": "dream",
+                                "kr": "꿈"
                         },
                         {
                                 "en": "job",
@@ -9571,12 +10383,8 @@
                                 "kr": "의사"
                         },
                         {
-                                "en": "pilot",
-                                "kr": "조종사"
-                        },
-                        {
-                                "en": "cook",
-                                "kr": "요리사"
+                                "en": "teacher",
+                                "kr": "선생님"
                         },
                         {
                                 "en": "scientist",
@@ -9587,21 +10395,33 @@
                                 "kr": "화가, 예술가"
                         },
                         {
+                                "en": "chef",
+                                "kr": "요리사"
+                        },
+                        {
+                                "en": "pilot",
+                                "kr": "조종사"
+                        },
+                        {
                                 "en": "police officer",
                                 "kr": "경찰관"
                         },
                         {
-                                "en": "firefighter",
-                                "kr": "소방관"
+                                "en": "help",
+                                "kr": "돕다"
                         },
                         {
-                                "en": "teacher",
-                                "kr": "선생님"
+                                "en": "future",
+                                "kr": "미래, 장래"
+                        },
+                        {
+                                "en": "achieve",
+                                "kr": "이루다, 달성하다"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "What do you want to be?",
+                                "en": "What do you want to be in the future?",
                                 "kr": "너는 장래에 무엇이 되고 싶니?"
                         },
                         {
@@ -9609,16 +10429,36 @@
                                 "kr": "나는 의사가 되고 싶어."
                         },
                         {
-                                "en": "I want to be a scientist.",
-                                "kr": "나는 과학자가 되고 싶어."
+                                "en": "Why do you want to be a doctor?",
+                                "kr": "왜 의사가 되고 싶니?"
                         },
                         {
-                                "en": "Why do you want to be a cook?",
-                                "kr": "너는 왜 요리사가 되고 싶니?"
+                                "en": "Because I want to help sick people.",
+                                "kr": "아픈 사람들을 돕고 싶기 때문이야."
                         },
                         {
-                                "en": "Because I like cooking.",
-                                "kr": "요리하는 것을 좋아하기 때문이야."
+                                "en": "I want to be an airplane pilot.",
+                                "kr": "나는 비행기 조종사가 되고 싶어."
+                        },
+                        {
+                                "en": "Flying in the sky sounds awesome.",
+                                "kr": "하늘을 나는 것은 정말 멋져 보여."
+                        },
+                        {
+                                "en": "My dream is to become a chef.",
+                                "kr": "내 꿈은 요리사가 되는 것이야."
+                        },
+                        {
+                                "en": "I love making delicious food for others.",
+                                "kr": "나는 다른 사람을 위해 맛있는 음식 만드는 것을 좋아해."
+                        },
+                        {
+                                "en": "Work hard to achieve your dream!",
+                                "kr": "네 꿈을 이루기 위해 열심히 노력하렴!"
+                        },
+                        {
+                                "en": "You will become a great person.",
+                                "kr": "너는 훌륭한 사람이 될 거야."
                         }
                 ],
                 "citizenQA": [
@@ -9787,16 +10627,16 @@
                 ],
                 "escapeQuizzes": [
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [미래]",
-                                "word": "future",
-                                "meaning": "미래",
-                                "hint": "f___",
-                                "answer": "future",
+                                "question": "다음 뜻에 알맞은 단어는? [꿈]",
+                                "word": "dream",
+                                "meaning": "꿈",
+                                "hint": "d___",
+                                "answer": "dream",
                                 "options": [
+                                        "dream",
+                                        "job",
                                         "doctor",
-                                        "pilot",
-                                        "future",
-                                        "job"
+                                        "teacher"
                                 ]
                         },
                         {
@@ -9806,10 +10646,10 @@
                                 "hint": "j___",
                                 "answer": "job",
                                 "options": [
+                                        "dream",
+                                        "doctor",
                                         "job",
-                                        "future",
-                                        "pilot",
-                                        "doctor"
+                                        "teacher"
                                 ]
                         },
                         {
@@ -9819,34 +10659,34 @@
                                 "hint": "d___",
                                 "answer": "doctor",
                                 "options": [
-                                        "future",
-                                        "doctor",
+                                        "teacher",
                                         "job",
-                                        "pilot"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [조종사]",
-                                "word": "pilot",
-                                "meaning": "조종사",
-                                "hint": "p___",
-                                "answer": "pilot",
-                                "options": [
-                                        "pilot",
-                                        "future",
-                                        "job",
+                                        "dream",
                                         "doctor"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [요리사]",
-                                "word": "cook",
-                                "meaning": "요리사",
-                                "hint": "c___",
-                                "answer": "cook",
+                                "question": "다음 뜻에 알맞은 단어는? [선생님]",
+                                "word": "teacher",
+                                "meaning": "선생님",
+                                "hint": "t___",
+                                "answer": "teacher",
                                 "options": [
-                                        "future",
-                                        "cook",
+                                        "teacher",
+                                        "dream",
+                                        "doctor",
+                                        "job"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [과학자]",
+                                "word": "scientist",
+                                "meaning": "과학자",
+                                "hint": "s___",
+                                "answer": "scientist",
+                                "options": [
+                                        "dream",
+                                        "scientist",
                                         "doctor",
                                         "job"
                                 ]
@@ -9869,39 +10709,47 @@
                         },
                         {
                                 "en": "first",
-                                "kr": "첫 번째의 (1번째)"
+                                "kr": "첫 번째의 (1)"
                         },
                         {
                                 "en": "second",
-                                "kr": "두 번째의 (2번째)"
+                                "kr": "두 번째의 (2)"
                         },
                         {
                                 "en": "third",
-                                "kr": "세 번째의 (3번째)"
+                                "kr": "세 번째의 (3)"
                         },
                         {
                                 "en": "fourth",
-                                "kr": "네 번째의 (4번째)"
+                                "kr": "네 번째의 (4)"
                         },
                         {
                                 "en": "fifth",
-                                "kr": "다섯 번째의 (5번째)"
+                                "kr": "다섯 번째의 (5)"
                         },
                         {
                                 "en": "sixth",
-                                "kr": "여섯 번째의 (6번째)"
+                                "kr": "여섯 번째의 (6)"
                         },
                         {
-                                "en": "spell",
-                                "kr": "철자를 말하다"
+                                "en": "class",
+                                "kr": "학급, 반"
                         },
                         {
-                                "en": "club",
-                                "kr": "동아리"
+                                "en": "floor",
+                                "kr": "층"
                         },
                         {
-                                "en": "join",
-                                "kr": "가입하다, 함께하다"
+                                "en": "homeroom",
+                                "kr": "담임의"
+                        },
+                        {
+                                "en": "elementary",
+                                "kr": "초등의"
+                        },
+                        {
+                                "en": "memory",
+                                "kr": "추억"
                         }
                 ],
                 "sentences": [
@@ -9914,16 +10762,36 @@
                                 "kr": "나는 6학년이야."
                         },
                         {
-                                "en": "How do you spell your name?",
-                                "kr": "네 이름 철자가 어떻게 되니?"
+                                "en": "Which class are you in?",
+                                "kr": "너는 몇 반이니?"
                         },
                         {
-                                "en": "Can I join the club?",
-                                "kr": "동아리에 가입해도 될까요?"
+                                "en": "I'm in Class 3.",
+                                "kr": "나는 3반이야."
                         },
                         {
-                                "en": "I play the guitar every day.",
-                                "kr": "나는 매일 기타를 쳐."
+                                "en": "Our classroom is on the fourth floor.",
+                                "kr": "우리 교실은 4층에 있어."
+                        },
+                        {
+                                "en": "Nice to meet you, new classmate.",
+                                "kr": "만나서 반가워, 새 짝꿍아."
+                        },
+                        {
+                                "en": "This is our last year in elementary school.",
+                                "kr": "올해는 초등학교에서의 마지막 해란다."
+                        },
+                        {
+                                "en": "Let's make wonderful memories together.",
+                                "kr": "함께 멋진 추억을 만들자."
+                        },
+                        {
+                                "en": "Who is your homeroom teacher?",
+                                "kr": "너희 담임 선생님은 누구시니?"
+                        },
+                        {
+                                "en": "Mr. Kim is our friendly teacher.",
+                                "kr": "김 선생님이 우리 친절한 선생님이셔."
                         }
                 ],
                 "citizenQA": [
@@ -10099,30 +10967,43 @@
                                 "answer": "grade",
                                 "options": [
                                         "second",
-                                        "grade",
+                                        "third",
                                         "first",
-                                        "third"
+                                        "grade"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [첫 번째의 (1번째)]",
+                                "question": "다음 뜻에 알맞은 단어는? [첫 번째의 (1)]",
                                 "word": "first",
-                                "meaning": "첫 번째의 (1번째)",
+                                "meaning": "첫 번째의 (1)",
                                 "hint": "f___",
                                 "answer": "first",
                                 "options": [
                                         "first",
                                         "grade",
-                                        "second",
-                                        "third"
+                                        "third",
+                                        "second"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [두 번째의 (2번째)]",
+                                "question": "다음 뜻에 알맞은 단어는? [두 번째의 (2)]",
                                 "word": "second",
-                                "meaning": "두 번째의 (2번째)",
+                                "meaning": "두 번째의 (2)",
                                 "hint": "s___",
                                 "answer": "second",
+                                "options": [
+                                        "first",
+                                        "grade",
+                                        "third",
+                                        "second"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [세 번째의 (3)]",
+                                "word": "third",
+                                "meaning": "세 번째의 (3)",
+                                "hint": "t___",
+                                "answer": "third",
                                 "options": [
                                         "grade",
                                         "second",
@@ -10131,29 +11012,16 @@
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [세 번째의 (3번째)]",
-                                "word": "third",
-                                "meaning": "세 번째의 (3번째)",
-                                "hint": "t___",
-                                "answer": "third",
-                                "options": [
-                                        "second",
-                                        "grade",
-                                        "first",
-                                        "third"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [네 번째의 (4번째)]",
+                                "question": "다음 뜻에 알맞은 단어는? [네 번째의 (4)]",
                                 "word": "fourth",
-                                "meaning": "네 번째의 (4번째)",
+                                "meaning": "네 번째의 (4)",
                                 "hint": "f___",
                                 "answer": "fourth",
                                 "options": [
-                                        "second",
                                         "first",
                                         "grade",
-                                        "fourth"
+                                        "fourth",
+                                        "second"
                                 ]
                         }
                 ]
@@ -10166,7 +11034,7 @@
                 "name": "6학년 2단원",
                 "title": "What Season Do You Like?",
                 "shortDesc": "What Season Do You Like? (10문항)",
-                "grammarPoint": "What season do you like?",
+                "grammarPoint": "What season do you like most?",
                 "words": [
                         {
                                 "en": "season",
@@ -10189,46 +11057,74 @@
                                 "kr": "겨울"
                         },
                         {
-                                "en": "warm",
-                                "kr": "따뜻한"
+                                "en": "weather",
+                                "kr": "날씨"
                         },
                         {
-                                "en": "cool",
-                                "kr": "시원한"
+                                "en": "bloom",
+                                "kr": "피어나다"
                         },
                         {
-                                "en": "flower",
-                                "kr": "꽃"
+                                "en": "ocean",
+                                "kr": "바다"
                         },
                         {
-                                "en": "swim",
-                                "kr": "수영하다"
+                                "en": "autumn",
+                                "kr": "가을"
                         },
                         {
-                                "en": "skate",
-                                "kr": "스케이트 타다"
+                                "en": "leaf",
+                                "kr": "잎, 나뭇잎"
+                        },
+                        {
+                                "en": "ski",
+                                "kr": "스키 타다"
+                        },
+                        {
+                                "en": "joy",
+                                "kr": "기쁨, 즐거움"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "What season do you like?",
-                                "kr": "너는 어떤 계절을 좋아하니?"
+                                "en": "What season do you like most?",
+                                "kr": "너는 어떤 계절을 가장 좋아하니?"
                         },
                         {
-                                "en": "I like spring.",
-                                "kr": "나는 봄을 좋아해."
+                                "en": "I like spring because flowers bloom.",
+                                "kr": "꽃들이 피어나기 때문에 나는 봄을 좋아해."
                         },
                         {
-                                "en": "Why do you like winter?",
-                                "kr": "너는 왜 겨울을 좋아하니?"
+                                "en": "I like summer best.",
+                                "kr": "나는 여름을 가장 좋아해."
                         },
                         {
-                                "en": "Because I can skate.",
-                                "kr": "스케이트를 탈 수 있기 때문이야."
+                                "en": "Why do you like summer?",
+                                "kr": "너는 왜 여름을 좋아하니?"
                         },
                         {
-                                "en": "It's cool in fall.",
-                                "kr": "가을에는 시원해."
+                                "en": "Because I can swim in the ocean.",
+                                "kr": "바다에서 수영할 수 있기 때문이야."
+                        },
+                        {
+                                "en": "Fall is a cool and beautiful season.",
+                                "kr": "가을은 시원하고 아름다운 계절이야."
+                        },
+                        {
+                                "en": "The autumn leaves turn red and yellow.",
+                                "kr": "가을 단풍잎들이 붉고 노랗게 물들어."
+                        },
+                        {
+                                "en": "Do you like cold winter days?",
+                                "kr": "너는 추운 겨울날을 좋아하니?"
+                        },
+                        {
+                                "en": "Yes, because I can go skiing and skate.",
+                                "kr": "응, 스키를 타러 가거나 스케이트를 탈 수 있어서."
+                        },
+                        {
+                                "en": "Each season brings special joy.",
+                                "kr": "계절마다 특별한 즐거움이 있어."
                         }
                 ],
                 "citizenQA": [
@@ -10404,8 +11300,8 @@
                                 "answer": "season",
                                 "options": [
                                         "season",
-                                        "spring",
                                         "fall",
+                                        "spring",
                                         "summer"
                                 ]
                         },
@@ -10416,10 +11312,10 @@
                                 "hint": "s___",
                                 "answer": "spring",
                                 "options": [
-                                        "spring",
                                         "summer",
-                                        "fall",
-                                        "season"
+                                        "season",
+                                        "spring",
+                                        "fall"
                                 ]
                         },
                         {
@@ -10429,10 +11325,10 @@
                                 "hint": "s___",
                                 "answer": "summer",
                                 "options": [
-                                        "summer",
-                                        "season",
                                         "fall",
-                                        "spring"
+                                        "season",
+                                        "spring",
+                                        "summer"
                                 ]
                         },
                         {
@@ -10443,8 +11339,8 @@
                                 "answer": "fall",
                                 "options": [
                                         "spring",
-                                        "summer",
                                         "fall",
+                                        "summer",
                                         "season"
                                 ]
                         },
@@ -10455,10 +11351,10 @@
                                 "hint": "w___",
                                 "answer": "winter",
                                 "options": [
-                                        "winter",
-                                        "spring",
+                                        "season",
                                         "summer",
-                                        "season"
+                                        "winter",
+                                        "spring"
                                 ]
                         }
                 ]
@@ -10478,52 +11374,52 @@
                                 "kr": "생일"
                         },
                         {
-                                "en": "January",
-                                "kr": "1월"
+                                "en": "month",
+                                "kr": "월, 달"
                         },
                         {
-                                "en": "February",
-                                "kr": "2월"
+                                "en": "January",
+                                "kr": "1월"
                         },
                         {
                                 "en": "March",
                                 "kr": "3월"
                         },
                         {
-                                "en": "April",
-                                "kr": "4월"
-                        },
-                        {
                                 "en": "May",
                                 "kr": "5월"
-                        },
-                        {
-                                "en": "June",
-                                "kr": "6월"
                         },
                         {
                                 "en": "July",
                                 "kr": "7월"
                         },
                         {
-                                "en": "August",
-                                "kr": "8월"
-                        },
-                        {
-                                "en": "September",
-                                "kr": "9월"
-                        },
-                        {
                                 "en": "October",
                                 "kr": "10월"
                         },
                         {
-                                "en": "November",
-                                "kr": "11월"
-                        },
-                        {
                                 "en": "December",
                                 "kr": "12월"
+                        },
+                        {
+                                "en": "party",
+                                "kr": "파티"
+                        },
+                        {
+                                "en": "gift",
+                                "kr": "선물"
+                        },
+                        {
+                                "en": "candle",
+                                "kr": "양초"
+                        },
+                        {
+                                "en": "celebrate",
+                                "kr": "축하하다"
+                        },
+                        {
+                                "en": "wish",
+                                "kr": "소원"
                         }
                 ],
                 "sentences": [
@@ -10536,16 +11432,36 @@
                                 "kr": "5월 5일이야."
                         },
                         {
-                                "en": "It's on October third.",
-                                "kr": "10월 3일이야."
+                                "en": "My birthday is on October twelfth.",
+                                "kr": "내 생일은 10월 12일이야."
                         },
                         {
-                                "en": "Happy birthday to you!",
-                                "kr": "생일 축하해!"
+                                "en": "Let's throw a birthday party!",
+                                "kr": "생일 파티를 열자!"
                         },
                         {
-                                "en": "Let's celebrate together.",
-                                "kr": "함께 축하하자."
+                                "en": "Can you come to my party this Saturday?",
+                                "kr": "이번 주 토요일 내 파티에 올 수 있니?"
+                        },
+                        {
+                                "en": "Sure, I'd love to join.",
+                                "kr": "물론이지, 기꺼이 갈게."
+                        },
+                        {
+                                "en": "Here is a birthday gift for you.",
+                                "kr": "여기 너를 위한 생일 선물이야."
+                        },
+                        {
+                                "en": "Happy birthday to my best friend!",
+                                "kr": "내 가장 친한 친구야, 생일 축하해!"
+                        },
+                        {
+                                "en": "Make a wish before blowing out the candles.",
+                                "kr": "촛불을 끄기 전에 소원을 빌어 봐."
+                        },
+                        {
+                                "en": "Thank you all for celebrating with me!",
+                                "kr": "모두 함께 축하해 줘서 고마워!"
                         }
                 ],
                 "citizenQA": [
@@ -10720,10 +11636,23 @@
                                 "hint": "b___",
                                 "answer": "birthday",
                                 "options": [
-                                        "February",
-                                        "January",
+                                        "birthday",
                                         "March",
-                                        "birthday"
+                                        "month",
+                                        "January"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [월, 달]",
+                                "word": "month",
+                                "meaning": "월, 달",
+                                "hint": "m___",
+                                "answer": "month",
+                                "options": [
+                                        "birthday",
+                                        "March",
+                                        "month",
+                                        "January"
                                 ]
                         },
                         {
@@ -10733,21 +11662,8 @@
                                 "hint": "J___",
                                 "answer": "January",
                                 "options": [
-                                        "January",
+                                        "month",
                                         "birthday",
-                                        "February",
-                                        "March"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [2월]",
-                                "word": "February",
-                                "meaning": "2월",
-                                "hint": "F___",
-                                "answer": "February",
-                                "options": [
-                                        "birthday",
-                                        "February",
                                         "January",
                                         "March"
                                 ]
@@ -10759,23 +11675,23 @@
                                 "hint": "M___",
                                 "answer": "March",
                                 "options": [
-                                        "February",
                                         "birthday",
+                                        "March",
                                         "January",
-                                        "March"
+                                        "month"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [4월]",
-                                "word": "April",
-                                "meaning": "4월",
-                                "hint": "A___",
-                                "answer": "April",
+                                "question": "다음 뜻에 알맞은 단어는? [5월]",
+                                "word": "May",
+                                "meaning": "5월",
+                                "hint": "M___",
+                                "answer": "May",
                                 "options": [
-                                        "April",
-                                        "birthday",
-                                        "February",
-                                        "January"
+                                        "month",
+                                        "January",
+                                        "May",
+                                        "birthday"
                                 ]
                         }
                 ]
@@ -10788,8 +11704,12 @@
                 "name": "6학년 4단원",
                 "title": "Why Are You Happy?",
                 "shortDesc": "Why Are You Happy? (10문항)",
-                "grammarPoint": "Why are you happy?",
+                "grammarPoint": "Why are you so happy today?",
                 "words": [
+                        {
+                                "en": "why",
+                                "kr": "왜"
+                        },
                         {
                                 "en": "happy",
                                 "kr": "행복한, 기쁜"
@@ -10800,27 +11720,23 @@
                         },
                         {
                                 "en": "excited",
-                                "kr": "신난, 들뜬"
+                                "kr": "신난, 흥분된"
                         },
                         {
-                                "en": "worried",
-                                "kr": "걱정스러운"
-                        },
-                        {
-                                "en": "angry",
-                                "kr": "화난"
-                        },
-                        {
-                                "en": "win",
-                                "kr": "이기다"
-                        },
-                        {
-                                "en": "lose",
-                                "kr": "잃다, 지다"
+                                "en": "nervous",
+                                "kr": "긴장한"
                         },
                         {
                                 "en": "prize",
                                 "kr": "상, 상품"
+                        },
+                        {
+                                "en": "win",
+                                "kr": "이기다, 타다"
+                        },
+                        {
+                                "en": "belt",
+                                "kr": "띠, 벨트"
                         },
                         {
                                 "en": "test",
@@ -10828,29 +11744,57 @@
                         },
                         {
                                 "en": "because",
-                                "kr": "~때문에"
+                                "kr": "왜냐하면"
+                        },
+                        {
+                                "en": "contest",
+                                "kr": "대회"
+                        },
+                        {
+                                "en": "news",
+                                "kr": "소식"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "Why are you happy?",
-                                "kr": "너는 왜 기쁘니?"
+                                "en": "Why are you so happy today?",
+                                "kr": "너 오늘 왜 그렇게 기쁘니?"
                         },
                         {
-                                "en": "Because I won first prize.",
-                                "kr": "1등 상을 탔기 때문이야."
+                                "en": "Because I won first prize in the contest.",
+                                "kr": "대회에서 1등 상을 탔기 때문이야."
                         },
                         {
-                                "en": "Why are you worried?",
-                                "kr": "너는 왜 걱정하니?"
+                                "en": "Congratulations on your great prize!",
+                                "kr": "멋진 상을 받은 걸 축하해!"
                         },
                         {
-                                "en": "Because I have a math test.",
-                                "kr": "수학 시험이 있기 때문이야."
+                                "en": "Why is Minsoo smiling so brightly?",
+                                "kr": "민수는 왜 그렇게 밝게 웃고 있니?"
                         },
                         {
-                                "en": "Cheer up!",
-                                "kr": "힘내!"
+                                "en": "Because he got a black belt in Taekwondo.",
+                                "kr": "태권도 검은 띠를 땄기 때문이야."
+                        },
+                        {
+                                "en": "Why are you nervous?",
+                                "kr": "너 왜 긴장하고 있니?"
+                        },
+                        {
+                                "en": "Because I have a big English test.",
+                                "kr": "중요한 영어 시험이 있기 때문이야."
+                        },
+                        {
+                                "en": "Don't worry, you practiced a lot.",
+                                "kr": "걱정하지 마, 너 연습 많이 했잖아."
+                        },
+                        {
+                                "en": "Cheer up! Everything will be fine.",
+                                "kr": "힘내! 다 잘 될 거야."
+                        },
+                        {
+                                "en": "Good news always makes us smile.",
+                                "kr": "좋은 소식은 언제나 우리를 미소 짓게 해."
                         }
                 ],
                 "citizenQA": [
@@ -11019,16 +11963,29 @@
                 ],
                 "escapeQuizzes": [
                         {
+                                "question": "다음 뜻에 알맞은 단어는? [왜]",
+                                "word": "why",
+                                "meaning": "왜",
+                                "hint": "w___",
+                                "answer": "why",
+                                "options": [
+                                        "sad",
+                                        "excited",
+                                        "why",
+                                        "happy"
+                                ]
+                        },
+                        {
                                 "question": "다음 뜻에 알맞은 단어는? [행복한, 기쁜]",
                                 "word": "happy",
                                 "meaning": "행복한, 기쁜",
                                 "hint": "h___",
                                 "answer": "happy",
                                 "options": [
-                                        "excited",
-                                        "worried",
+                                        "why",
                                         "happy",
-                                        "sad"
+                                        "sad",
+                                        "excited"
                                 ]
                         },
                         {
@@ -11038,49 +11995,36 @@
                                 "hint": "s___",
                                 "answer": "sad",
                                 "options": [
-                                        "worried",
                                         "sad",
                                         "excited",
+                                        "why",
                                         "happy"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [신난, 들뜬]",
+                                "question": "다음 뜻에 알맞은 단어는? [신난, 흥분된]",
                                 "word": "excited",
-                                "meaning": "신난, 들뜬",
+                                "meaning": "신난, 흥분된",
                                 "hint": "e___",
                                 "answer": "excited",
                                 "options": [
-                                        "happy",
-                                        "excited",
                                         "sad",
-                                        "worried"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [걱정스러운]",
-                                "word": "worried",
-                                "meaning": "걱정스러운",
-                                "hint": "w___",
-                                "answer": "worried",
-                                "options": [
-                                        "worried",
                                         "happy",
-                                        "excited",
-                                        "sad"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [화난]",
-                                "word": "angry",
-                                "meaning": "화난",
-                                "hint": "a___",
-                                "answer": "angry",
-                                "options": [
-                                        "sad",
-                                        "angry",
-                                        "happy",
+                                        "why",
                                         "excited"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [긴장한]",
+                                "word": "nervous",
+                                "meaning": "긴장한",
+                                "hint": "n___",
+                                "answer": "nervous",
+                                "options": [
+                                        "why",
+                                        "nervous",
+                                        "sad",
+                                        "happy"
                                 ]
                         }
                 ]
@@ -11093,11 +12037,15 @@
                 "name": "6학년 5단원",
                 "title": "Where Is ABC Library?",
                 "shortDesc": "Where Is ABC Library? (10문항)",
-                "grammarPoint": "Where is ABC Library?",
+                "grammarPoint": "Excuse me, where is ABC Library?",
                 "words": [
                         {
                                 "en": "library",
                                 "kr": "도서관"
+                        },
+                        {
+                                "en": "post office",
+                                "kr": "우체국"
                         },
                         {
                                 "en": "bank",
@@ -11108,54 +12056,78 @@
                                 "kr": "병원"
                         },
                         {
-                                "en": "post office",
-                                "kr": "우체국"
-                        },
-                        {
-                                "en": "museum",
-                                "kr": "박물관"
-                        },
-                        {
                                 "en": "straight",
-                                "kr": "곧장, 직진하여"
-                        },
-                        {
-                                "en": "left",
-                                "kr": "왼쪽"
-                        },
-                        {
-                                "en": "right",
-                                "kr": "오른쪽"
+                                "kr": "똑바로, 곧장"
                         },
                         {
                                 "en": "turn",
                                 "kr": "돌다"
                         },
                         {
+                                "en": "left",
+                                "kr": "왼쪽, 왼쪽으로"
+                        },
+                        {
+                                "en": "right",
+                                "kr": "오른쪽, 오른쪽으로"
+                        },
+                        {
                                 "en": "block",
                                 "kr": "블록, 구역"
+                        },
+                        {
+                                "en": "corner",
+                                "kr": "모퉁이"
+                        },
+                        {
+                                "en": "across",
+                                "kr": "맞은편에, 건너서"
+                        },
+                        {
+                                "en": "building",
+                                "kr": "건물"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "Where is ABC Library?",
-                                "kr": "ABC 도서관이 어디에 있나요?"
+                                "en": "Excuse me, where is ABC Library?",
+                                "kr": "실례지만, ABC 도서관이 어디에 있나요?"
                         },
                         {
-                                "en": "Go straight two blocks.",
-                                "kr": "두 블록 직진하세요."
+                                "en": "Go straight two blocks and turn left.",
+                                "kr": "두 블록 직진한 뒤 좌회전하세요."
                         },
                         {
-                                "en": "Turn left at the bank.",
-                                "kr": "은행에서 좌회전하세요."
+                                "en": "It's on your right side.",
+                                "kr": "오른편에 있습니다."
                         },
                         {
-                                "en": "It's on your right.",
-                                "kr": "당신의 오른쪽에 있어요."
+                                "en": "Where is the nearest post office?",
+                                "kr": "가장 가까운 우체국이 어디인가요?"
                         },
                         {
-                                "en": "You can't miss it.",
-                                "kr": "쉽게 찾으실 수 있을 거예요."
+                                "en": "It is between the bank and the bakery.",
+                                "kr": "은행과 빵집 사이에 있어요."
+                        },
+                        {
+                                "en": "Turn right at the corner.",
+                                "kr": "모퉁이에서 우회전하세요."
+                        },
+                        {
+                                "en": "It's across from the city hospital.",
+                                "kr": "시립 병원 맞은편에 있습니다."
+                        },
+                        {
+                                "en": "You cannot miss the big building.",
+                                "kr": "큰 건물이라 바로 찾으실 수 있어요."
+                        },
+                        {
+                                "en": "Is it far from here?",
+                                "kr": "여기서 먼가요?"
+                        },
+                        {
+                                "en": "No, it takes only five minutes on foot.",
+                                "kr": "아니요, 걸어서 5분밖에 안 걸려요."
                         }
                 ],
                 "citizenQA": [
@@ -11330,10 +12302,23 @@
                                 "hint": "l___",
                                 "answer": "library",
                                 "options": [
-                                        "post office",
                                         "library",
+                                        "hospital",
                                         "bank",
-                                        "hospital"
+                                        "post office"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [우체국]",
+                                "word": "post office",
+                                "meaning": "우체국",
+                                "hint": "p___",
+                                "answer": "post office",
+                                "options": [
+                                        "bank",
+                                        "hospital",
+                                        "post office",
+                                        "library"
                                 ]
                         },
                         {
@@ -11345,8 +12330,8 @@
                                 "options": [
                                         "hospital",
                                         "library",
-                                        "post office",
-                                        "bank"
+                                        "bank",
+                                        "post office"
                                 ]
                         },
                         {
@@ -11356,36 +12341,23 @@
                                 "hint": "h___",
                                 "answer": "hospital",
                                 "options": [
-                                        "post office",
                                         "bank",
                                         "library",
-                                        "hospital"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [우체국]",
-                                "word": "post office",
-                                "meaning": "우체국",
-                                "hint": "p___",
-                                "answer": "post office",
-                                "options": [
-                                        "bank",
-                                        "post office",
                                         "hospital",
-                                        "library"
+                                        "post office"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [박물관]",
-                                "word": "museum",
-                                "meaning": "박물관",
-                                "hint": "m___",
-                                "answer": "museum",
+                                "question": "다음 뜻에 알맞은 단어는? [똑바로, 곧장]",
+                                "word": "straight",
+                                "meaning": "똑바로, 곧장",
+                                "hint": "s___",
+                                "answer": "straight",
                                 "options": [
-                                        "library",
-                                        "museum",
                                         "bank",
-                                        "hospital"
+                                        "library",
+                                        "post office",
+                                        "straight"
                                 ]
                         }
                 ]
@@ -11398,69 +12370,97 @@
                 "name": "6학년 6단원",
                 "title": "He Has Blue Eyes",
                 "shortDesc": "He Has Blue Eyes (10문항)",
-                "grammarPoint": "What does he look like?",
+                "grammarPoint": "What does your brother look like?",
                 "words": [
+                        {
+                                "en": "look like",
+                                "kr": "~처럼 생기다"
+                        },
                         {
                                 "en": "tall",
                                 "kr": "키가 큰"
                         },
                         {
                                 "en": "short",
-                                "kr": "키가 작은"
-                        },
-                        {
-                                "en": "hair",
-                                "kr": "머리카락"
-                        },
-                        {
-                                "en": "straight",
-                                "kr": "직모의, 곧은"
+                                "kr": "키가 작은, 짧은"
                         },
                         {
                                 "en": "curly",
                                 "kr": "곱슬곱슬한"
                         },
                         {
-                                "en": "long",
-                                "kr": "긴"
+                                "en": "straight",
+                                "kr": "곧은, 직모의"
+                        },
+                        {
+                                "en": "hair",
+                                "kr": "머리카락"
                         },
                         {
                                 "en": "eyes",
                                 "kr": "눈"
                         },
                         {
+                                "en": "wearing",
+                                "kr": "착용하고 있는"
+                        },
+                        {
                                 "en": "glasses",
                                 "kr": "안경"
                         },
                         {
-                                "en": "wear",
-                                "kr": "착용하다, 입다"
+                                "en": "appearance",
+                                "kr": "외모, 겉모습"
                         },
                         {
-                                "en": "look like",
-                                "kr": "~처럼 보이다"
+                                "en": "smile",
+                                "kr": "미소"
+                        },
+                        {
+                                "en": "kind",
+                                "kr": "친절한, 다정한"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "What does he look like?",
-                                "kr": "그는 어떻게 생겼니?"
+                                "en": "What does your brother look like?",
+                                "kr": "네 남동생은 어떻게 생겼니?"
                         },
                         {
-                                "en": "He is tall and has blue eyes.",
-                                "kr": "그는 키가 크고 파란 눈을 가졌어."
+                                "en": "He is tall and has short black hair.",
+                                "kr": "그는 키가 크고 짧은 검은 머리를 가졌어."
                         },
                         {
-                                "en": "She has long curly hair.",
-                                "kr": "그녀는 긴 곱슬머리를 가지고 있어."
+                                "en": "What does she look like?",
+                                "kr": "그녀는 어떻게 생겼니?"
                         },
                         {
-                                "en": "He is wearing glasses.",
-                                "kr": "그는 안경을 쓰고 있어."
+                                "en": "She has long curly hair and big blue eyes.",
+                                "kr": "그녀는 긴 곱슬머리에 큰 파란 눈을 가졌어."
                         },
                         {
-                                "en": "That's my brother.",
-                                "kr": "저 사람이 내 남동생이야."
+                                "en": "Is he wearing glasses?",
+                                "kr": "그는 안경을 쓰고 있니?"
+                        },
+                        {
+                                "en": "Yes, he is wearing round glasses.",
+                                "kr": "응, 둥근 안경을 쓰고 있어."
+                        },
+                        {
+                                "en": "She is wearing a pretty yellow dress.",
+                                "kr": "그녀는 예쁜 노란 원피스를 입고 있어."
+                        },
+                        {
+                                "en": "Can you describe your best friend?",
+                                "kr": "가장 친한 친구의 생김새를 말해 줄래?"
+                        },
+                        {
+                                "en": "He has a warm smile and kind eyes.",
+                                "kr": "그는 따뜻한 미소와 다정한 눈을 가졌어."
+                        },
+                        {
+                                "en": "Everyone has unique and wonderful charms.",
+                                "kr": "모든 사람은 저마다 특별하고 멋진 매력이 있어."
                         }
                 ],
                 "citizenQA": [
@@ -11629,6 +12629,19 @@
                 ],
                 "escapeQuizzes": [
                         {
+                                "question": "다음 뜻에 알맞은 단어는? [~처럼 생기다]",
+                                "word": "look like",
+                                "meaning": "~처럼 생기다",
+                                "hint": "l___",
+                                "answer": "look like",
+                                "options": [
+                                        "look like",
+                                        "tall",
+                                        "curly",
+                                        "short"
+                                ]
+                        },
+                        {
                                 "question": "다음 뜻에 알맞은 단어는? [키가 큰]",
                                 "word": "tall",
                                 "meaning": "키가 큰",
@@ -11636,48 +12649,22 @@
                                 "answer": "tall",
                                 "options": [
                                         "short",
-                                        "tall",
-                                        "hair",
-                                        "straight"
+                                        "look like",
+                                        "curly",
+                                        "tall"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [키가 작은]",
+                                "question": "다음 뜻에 알맞은 단어는? [키가 작은, 짧은]",
                                 "word": "short",
-                                "meaning": "키가 작은",
+                                "meaning": "키가 작은, 짧은",
                                 "hint": "s___",
                                 "answer": "short",
                                 "options": [
-                                        "straight",
+                                        "short",
                                         "tall",
-                                        "short",
-                                        "hair"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [머리카락]",
-                                "word": "hair",
-                                "meaning": "머리카락",
-                                "hint": "h___",
-                                "answer": "hair",
-                                "options": [
-                                        "straight",
-                                        "tall",
-                                        "short",
-                                        "hair"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [직모의, 곧은]",
-                                "word": "straight",
-                                "meaning": "직모의, 곧은",
-                                "hint": "s___",
-                                "answer": "straight",
-                                "options": [
-                                        "hair",
-                                        "short",
-                                        "straight",
-                                        "tall"
+                                        "curly",
+                                        "look like"
                                 ]
                         },
                         {
@@ -11687,10 +12674,23 @@
                                 "hint": "c___",
                                 "answer": "curly",
                                 "options": [
+                                        "curly",
                                         "tall",
-                                        "short",
-                                        "hair",
-                                        "curly"
+                                        "look like",
+                                        "short"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [곧은, 직모의]",
+                                "word": "straight",
+                                "meaning": "곧은, 직모의",
+                                "hint": "s___",
+                                "answer": "straight",
+                                "options": [
+                                        "straight",
+                                        "tall",
+                                        "look like",
+                                        "short"
                                 ]
                         }
                 ]
@@ -11703,69 +12703,97 @@
                 "name": "6학년 7단원",
                 "title": "Can You Come to the Movie Festival?",
                 "shortDesc": "Can You Come to the Movie Festival? (10문항)",
-                "grammarPoint": "Can you come to the movie festival?",
+                "grammarPoint": "Can you come to the school movie festival?",
                 "words": [
                         {
-                                "en": "invite",
-                                "kr": "초대하다"
-                        },
-                        {
-                                "en": "party",
-                                "kr": "파티"
+                                "en": "movie",
+                                "kr": "영화"
                         },
                         {
                                 "en": "festival",
                                 "kr": "축제"
                         },
                         {
-                                "en": "movie",
-                                "kr": "영화"
+                                "en": "invitation",
+                                "kr": "초대"
                         },
                         {
-                                "en": "concert",
-                                "kr": "음악회, 콘서트"
+                                "en": "invite",
+                                "kr": "초대하다"
+                        },
+                        {
+                                "en": "join",
+                                "kr": "참여하다, 함께하다"
+                        },
+                        {
+                                "en": "practice",
+                                "kr": "연습"
+                        },
+                        {
+                                "en": "match",
+                                "kr": "시합, 경기"
+                        },
+                        {
+                                "en": "schedule",
+                                "kr": "일정"
                         },
                         {
                                 "en": "busy",
                                 "kr": "바쁜"
                         },
                         {
-                                "en": "free",
-                                "kr": "한가한, 자유로운"
+                                "en": "popcorn",
+                                "kr": "팝콘"
                         },
                         {
-                                "en": "sure",
-                                "kr": "물론"
+                                "en": "start",
+                                "kr": "시작하다"
                         },
                         {
-                                "en": "sorry",
-                                "kr": "미안한"
-                        },
-                        {
-                                "en": "join",
-                                "kr": "함께하다"
+                                "en": "hope",
+                                "kr": "바라다, 희망하다"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "Can you come to the movie festival?",
-                                "kr": "영화 축제에 올 수 있니?"
+                                "en": "Can you come to the school movie festival?",
+                                "kr": "학교 영화제에 올 수 있니?"
                         },
                         {
-                                "en": "Sure, I'd love to.",
-                                "kr": "물론이지, 꼭 갈게."
+                                "en": "Sure, I'd love to go with you.",
+                                "kr": "물론이지, 너와 함께 꼭 갈게."
                         },
                         {
-                                "en": "Sorry, I can't.",
-                                "kr": "미안하지만 갈 수 없어."
+                                "en": "Sorry, I can't come this time.",
+                                "kr": "미안하지만 이번엔 갈 수 없어."
                         },
                         {
-                                "en": "I'm busy that day.",
-                                "kr": "그날은 바빠."
+                                "en": "Why can't you come?",
+                                "kr": "왜 올 수 없니?"
                         },
                         {
-                                "en": "See you at the festival.",
-                                "kr": "축제에서 만나자."
+                                "en": "I have important soccer practice then.",
+                                "kr": "그때 중요한 축구 연습이 있거든."
+                        },
+                        {
+                                "en": "Can you join our birthday party?",
+                                "kr": "우리 생일 파티에 함께할 수 있니?"
+                        },
+                        {
+                                "en": "What time does the movie start?",
+                                "kr": "영화는 몇 시에 시작하니?"
+                        },
+                        {
+                                "en": "It starts at two in the afternoon.",
+                                "kr": "오후 2시에 시작해."
+                        },
+                        {
+                                "en": "Let's buy delicious popcorn together.",
+                                "kr": "함께 맛있는 팝콘을 사자."
+                        },
+                        {
+                                "en": "I hope you can make it next time.",
+                                "kr": "다음번엔 꼭 함께할 수 있기를 바라."
                         }
                 ],
                 "citizenQA": [
@@ -11934,29 +12962,16 @@
                 ],
                 "escapeQuizzes": [
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [초대하다]",
-                                "word": "invite",
-                                "meaning": "초대하다",
-                                "hint": "i___",
-                                "answer": "invite",
-                                "options": [
-                                        "party",
-                                        "festival",
-                                        "movie",
-                                        "invite"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [파티]",
-                                "word": "party",
-                                "meaning": "파티",
-                                "hint": "p___",
-                                "answer": "party",
+                                "question": "다음 뜻에 알맞은 단어는? [영화]",
+                                "word": "movie",
+                                "meaning": "영화",
+                                "hint": "m___",
+                                "answer": "movie",
                                 "options": [
                                         "movie",
                                         "festival",
                                         "invite",
-                                        "party"
+                                        "invitation"
                                 ]
                         },
                         {
@@ -11966,35 +12981,48 @@
                                 "hint": "f___",
                                 "answer": "festival",
                                 "options": [
-                                        "invite",
-                                        "party",
                                         "festival",
+                                        "movie",
+                                        "invitation",
+                                        "invite"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [초대]",
+                                "word": "invitation",
+                                "meaning": "초대",
+                                "hint": "i___",
+                                "answer": "invitation",
+                                "options": [
+                                        "invite",
+                                        "festival",
+                                        "invitation",
                                         "movie"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [영화]",
-                                "word": "movie",
-                                "meaning": "영화",
-                                "hint": "m___",
-                                "answer": "movie",
+                                "question": "다음 뜻에 알맞은 단어는? [초대하다]",
+                                "word": "invite",
+                                "meaning": "초대하다",
+                                "hint": "i___",
+                                "answer": "invite",
                                 "options": [
-                                        "movie",
-                                        "party",
                                         "invite",
-                                        "festival"
+                                        "festival",
+                                        "movie",
+                                        "invitation"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [음악회, 콘서트]",
-                                "word": "concert",
-                                "meaning": "음악회, 콘서트",
-                                "hint": "c___",
-                                "answer": "concert",
+                                "question": "다음 뜻에 알맞은 단어는? [참여하다, 함께하다]",
+                                "word": "join",
+                                "meaning": "참여하다, 함께하다",
+                                "hint": "j___",
+                                "answer": "join",
                                 "options": [
-                                        "party",
-                                        "concert",
-                                        "invite",
+                                        "invitation",
+                                        "movie",
+                                        "join",
                                         "festival"
                                 ]
                         }
@@ -12008,19 +13036,15 @@
                 "name": "6학년 8단원",
                 "title": "It's Taller Than the Tree",
                 "shortDesc": "It's Taller Than the Tree (10문항)",
-                "grammarPoint": "It's taller than the tree.",
+                "grammarPoint": "Look at that giraffe. It's taller than the tree.",
                 "words": [
                         {
                                 "en": "taller",
                                 "kr": "더 키가 큰"
                         },
                         {
-                                "en": "smaller",
-                                "kr": "더 작은"
-                        },
-                        {
-                                "en": "bigger",
-                                "kr": "더 큰"
+                                "en": "shorter",
+                                "kr": "더 짧은, 더 키 작은"
                         },
                         {
                                 "en": "faster",
@@ -12031,46 +13055,78 @@
                                 "kr": "더 느린"
                         },
                         {
-                                "en": "stronger",
-                                "kr": "더 힘이 센"
+                                "en": "bigger",
+                                "kr": "더 큰"
+                        },
+                        {
+                                "en": "smaller",
+                                "kr": "더 작은"
                         },
                         {
                                 "en": "heavier",
                                 "kr": "더 무거운"
                         },
                         {
+                                "en": "lighter",
+                                "kr": "더 가벼운"
+                        },
+                        {
                                 "en": "than",
                                 "kr": "~보다"
                         },
                         {
-                                "en": "tower",
-                                "kr": "탑"
+                                "en": "cheetah",
+                                "kr": "치타"
                         },
                         {
-                                "en": "tree",
-                                "kr": "나무"
+                                "en": "giraffe",
+                                "kr": "기린"
+                        },
+                        {
+                                "en": "mountain",
+                                "kr": "산"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "It's taller than the tree.",
-                                "kr": "그것은 나무보다 더 커."
+                                "en": "Look at that giraffe. It's taller than the tree.",
+                                "kr": "저 기린을 봐. 나무보다 더 커."
                         },
                         {
                                 "en": "A cheetah is faster than a lion.",
                                 "kr": "치타는 사자보다 더 빨라."
                         },
                         {
-                                "en": "I'm stronger than you.",
-                                "kr": "내가 너보다 힘이 더 세."
+                                "en": "An elephant is heavier than a bear.",
+                                "kr": "코끼리는 곰보다 더 무거워."
                         },
                         {
-                                "en": "Which one is heavier?",
-                                "kr": "어느 것이 더 무겁니?"
+                                "en": "Which mountain is the highest?",
+                                "kr": "어느 산이 가장 높니?"
                         },
                         {
-                                "en": "This box is heavier.",
-                                "kr": "이 상자가 더 무거워."
+                                "en": "Mount Everest is higher than any other mountain.",
+                                "kr": "에베레스트산은 다른 어떤 산보다 높아."
+                        },
+                        {
+                                "en": "My bag is lighter than yours.",
+                                "kr": "내 가방이 네 가방보다 더 가벼워."
+                        },
+                        {
+                                "en": "Who is taller, you or Minsoo?",
+                                "kr": "너와 민수 중 누가 더 키가 크니?"
+                        },
+                        {
+                                "en": "I am a little taller than Minsoo.",
+                                "kr": "내가 민수보다 조금 더 키가 커."
+                        },
+                        {
+                                "en": "A blue whale is bigger than a bus.",
+                                "kr": "흰긴수염고래는 버스보다 더 커."
+                        },
+                        {
+                                "en": "Comparison makes science learning fun.",
+                                "kr": "비교를 통해 과학을 재미있게 배울 수 있어."
                         }
                 ],
                 "citizenQA": [
@@ -12245,22 +13301,48 @@
                                 "hint": "t___",
                                 "answer": "taller",
                                 "options": [
-                                        "taller",
-                                        "bigger",
                                         "faster",
-                                        "smaller"
+                                        "taller",
+                                        "shorter",
+                                        "slower"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [더 작은]",
-                                "word": "smaller",
-                                "meaning": "더 작은",
+                                "question": "다음 뜻에 알맞은 단어는? [더 짧은, 더 키 작은]",
+                                "word": "shorter",
+                                "meaning": "더 짧은, 더 키 작은",
                                 "hint": "s___",
-                                "answer": "smaller",
+                                "answer": "shorter",
+                                "options": [
+                                        "faster",
+                                        "slower",
+                                        "shorter",
+                                        "taller"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [더 빠른]",
+                                "word": "faster",
+                                "meaning": "더 빠른",
+                                "hint": "f___",
+                                "answer": "faster",
                                 "options": [
                                         "taller",
-                                        "smaller",
-                                        "bigger",
+                                        "shorter",
+                                        "slower",
+                                        "faster"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [더 느린]",
+                                "word": "slower",
+                                "meaning": "더 느린",
+                                "hint": "s___",
+                                "answer": "slower",
+                                "options": [
+                                        "taller",
+                                        "slower",
+                                        "shorter",
                                         "faster"
                                 ]
                         },
@@ -12271,36 +13353,10 @@
                                 "hint": "b___",
                                 "answer": "bigger",
                                 "options": [
-                                        "faster",
-                                        "smaller",
-                                        "taller",
-                                        "bigger"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [더 빠른]",
-                                "word": "faster",
-                                "meaning": "더 빠른",
-                                "hint": "f___",
-                                "answer": "faster",
-                                "options": [
                                         "bigger",
-                                        "smaller",
                                         "faster",
-                                        "taller"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [더 느린]",
-                                "word": "slower",
-                                "meaning": "더 느린",
-                                "hint": "s___",
-                                "answer": "slower",
-                                "options": [
-                                        "bigger",
-                                        "slower",
                                         "taller",
-                                        "smaller"
+                                        "shorter"
                                 ]
                         }
                 ]
@@ -12316,16 +13372,12 @@
                 "grammarPoint": "What are you going to do this weekend?",
                 "words": [
                         {
+                                "en": "going to",
+                                "kr": "~할 예정이다"
+                        },
+                        {
                                 "en": "plan",
                                 "kr": "계획"
-                        },
-                        {
-                                "en": "future",
-                                "kr": "미래"
-                        },
-                        {
-                                "en": "tomorrow",
-                                "kr": "내일"
                         },
                         {
                                 "en": "weekend",
@@ -12336,16 +13388,8 @@
                                 "kr": "굽다"
                         },
                         {
-                                "en": "cookies",
+                                "en": "cookie",
                                 "kr": "쿠키"
-                        },
-                        {
-                                "en": "ride",
-                                "kr": "타다"
-                        },
-                        {
-                                "en": "bike",
-                                "kr": "자전거"
                         },
                         {
                                 "en": "visit",
@@ -12354,6 +13398,26 @@
                         {
                                 "en": "museum",
                                 "kr": "박물관"
+                        },
+                        {
+                                "en": "clean",
+                                "kr": "청소하다"
+                        },
+                        {
+                                "en": "watch",
+                                "kr": "보다"
+                        },
+                        {
+                                "en": "finish",
+                                "kr": "끝내다"
+                        },
+                        {
+                                "en": "relax",
+                                "kr": "휴식하다"
+                        },
+                        {
+                                "en": "excited",
+                                "kr": "신난"
                         }
                 ],
                 "sentences": [
@@ -12362,20 +13426,40 @@
                                 "kr": "이번 주말에 무엇을 할 예정이니?"
                         },
                         {
-                                "en": "I'm going to bake cookies.",
-                                "kr": "나는 쿠키를 구울 예정이야."
+                                "en": "I'm going to bake sweet chocolate cookies.",
+                                "kr": "나는 달콤한 초콜릿 쿠키를 구울 예정이야."
                         },
                         {
-                                "en": "I'm going to ride my bike.",
-                                "kr": "나는 자전거를 탈 거야."
+                                "en": "Are you going to visit the science museum?",
+                                "kr": "너 과학관에 방문할 거니?"
                         },
                         {
-                                "en": "Are you going to visit the museum?",
-                                "kr": "박물관에 방문할 거니?"
+                                "en": "Yes, I'm going with my elder brother.",
+                                "kr": "응, 형과 함께 갈 거야."
                         },
                         {
-                                "en": "Yes, I am.",
-                                "kr": "응, 그럴 거야."
+                                "en": "What is Sarah going to do tomorrow?",
+                                "kr": "사라는 내일 무엇을 할 계획이니?"
+                        },
+                        {
+                                "en": "She is going to clean her room.",
+                                "kr": "사라는 방을 청소할 계획이야."
+                        },
+                        {
+                                "en": "We are going to watch a new animation movie.",
+                                "kr": "우리는 새 애니메이션 영화를 볼 예정이야."
+                        },
+                        {
+                                "en": "I'm going to finish my homework first.",
+                                "kr": "나는 먼저 숙제를 끝낼 예정이야."
+                        },
+                        {
+                                "en": "Sounds like you have a busy weekend!",
+                                "kr": "주말에 알찬 일정이 가득하구나!"
+                        },
+                        {
+                                "en": "I hope you have a relaxing time.",
+                                "kr": "편안하고 즐거운 시간 보내길 바라."
                         }
                 ],
                 "citizenQA": [
@@ -12544,42 +13628,29 @@
                 ],
                 "escapeQuizzes": [
                         {
+                                "question": "다음 뜻에 알맞은 단어는? [~할 예정이다]",
+                                "word": "going to",
+                                "meaning": "~할 예정이다",
+                                "hint": "g___",
+                                "answer": "going to",
+                                "options": [
+                                        "plan",
+                                        "bake",
+                                        "going to",
+                                        "weekend"
+                                ]
+                        },
+                        {
                                 "question": "다음 뜻에 알맞은 단어는? [계획]",
                                 "word": "plan",
                                 "meaning": "계획",
                                 "hint": "p___",
                                 "answer": "plan",
                                 "options": [
-                                        "future",
-                                        "tomorrow",
                                         "plan",
+                                        "bake",
+                                        "going to",
                                         "weekend"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [미래]",
-                                "word": "future",
-                                "meaning": "미래",
-                                "hint": "f___",
-                                "answer": "future",
-                                "options": [
-                                        "tomorrow",
-                                        "weekend",
-                                        "future",
-                                        "plan"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [내일]",
-                                "word": "tomorrow",
-                                "meaning": "내일",
-                                "hint": "t___",
-                                "answer": "tomorrow",
-                                "options": [
-                                        "future",
-                                        "tomorrow",
-                                        "weekend",
-                                        "plan"
                                 ]
                         },
                         {
@@ -12589,10 +13660,10 @@
                                 "hint": "w___",
                                 "answer": "weekend",
                                 "options": [
-                                        "tomorrow",
                                         "weekend",
                                         "plan",
-                                        "future"
+                                        "bake",
+                                        "going to"
                                 ]
                         },
                         {
@@ -12602,10 +13673,23 @@
                                 "hint": "b___",
                                 "answer": "bake",
                                 "options": [
-                                        "plan",
                                         "bake",
-                                        "tomorrow",
-                                        "future"
+                                        "going to",
+                                        "plan",
+                                        "weekend"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [쿠키]",
+                                "word": "cookie",
+                                "meaning": "쿠키",
+                                "hint": "c___",
+                                "answer": "cookie",
+                                "options": [
+                                        "going to",
+                                        "cookie",
+                                        "weekend",
+                                        "plan"
                                 ]
                         }
                 ]
@@ -12618,27 +13702,15 @@
                 "name": "6학년 10단원",
                 "title": "How Often Do You Eat Vegetables?",
                 "shortDesc": "How Often Do You Eat Vegetables? (10문항)",
-                "grammarPoint": "How often do you eat vegetables?",
+                "grammarPoint": "How often do you eat fresh vegetables?",
                 "words": [
                         {
-                                "en": "often",
-                                "kr": "자주, 종종"
+                                "en": "how often",
+                                "kr": "얼마나 자주"
                         },
                         {
-                                "en": "always",
-                                "kr": "항상"
-                        },
-                        {
-                                "en": "usually",
-                                "kr": "보통, 대개"
-                        },
-                        {
-                                "en": "sometimes",
-                                "kr": "때때로"
-                        },
-                        {
-                                "en": "never",
-                                "kr": "결코 ~않다"
+                                "en": "every day",
+                                "kr": "매일"
                         },
                         {
                                 "en": "once",
@@ -12649,38 +13721,78 @@
                                 "kr": "두 번"
                         },
                         {
-                                "en": "exercise",
-                                "kr": "운동하다"
+                                "en": "times",
+                                "kr": "번, 회"
+                        },
+                        {
+                                "en": "week",
+                                "kr": "주, 주일"
                         },
                         {
                                 "en": "vegetable",
                                 "kr": "채소"
                         },
                         {
+                                "en": "exercise",
+                                "kr": "운동하다"
+                        },
+                        {
+                                "en": "brush",
+                                "kr": "솔질하다, 닦다"
+                        },
+                        {
+                                "en": "teeth",
+                                "kr": "이, 치아"
+                        },
+                        {
                                 "en": "healthy",
                                 "kr": "건강한"
+                        },
+                        {
+                                "en": "habit",
+                                "kr": "습관"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "How often do you eat vegetables?",
-                                "kr": "얼마나 자주 채소를 먹니?"
+                                "en": "How often do you eat fresh vegetables?",
+                                "kr": "얼마나 자주 신선한 채소를 먹니?"
                         },
                         {
-                                "en": "I eat vegetables every day.",
-                                "kr": "나는 매일 채소를 먹어."
+                                "en": "I eat green vegetables every day.",
+                                "kr": "나는 매일 녹색 채소를 먹어."
                         },
                         {
                                 "en": "How often do you exercise?",
-                                "kr": "얼마나 자주 운동하니?"
+                                "kr": "얼마나 자주 운동을 하니?"
                         },
                         {
-                                "en": "I exercise three times a week.",
-                                "kr": "나는 일주일에 세 번 운동해."
+                                "en": "I play sports three times a week.",
+                                "kr": "나는 일주일에 세 번 운동을 해."
                         },
                         {
-                                "en": "That is a healthy habit.",
-                                "kr": "그것은 건강한 습관이야."
+                                "en": "How often do you brush your teeth?",
+                                "kr": "얼마나 자주 이를 닦니?"
+                        },
+                        {
+                                "en": "I brush my teeth three times a day.",
+                                "kr": "나는 하루에 세 번 이를 닦아."
+                        },
+                        {
+                                "en": "Do you drink milk often?",
+                                "kr": "우유를 자주 마시니?"
+                        },
+                        {
+                                "en": "I drink fresh milk twice a day.",
+                                "kr": "나는 하루에 두 번 신선한 우유를 마셔."
+                        },
+                        {
+                                "en": "Healthy habits make our bodies strong.",
+                                "kr": "건강한 습관이 우리 몸을 튼튼하게 만들어 줘."
+                        },
+                        {
+                                "en": "Regular exercise keeps you energized.",
+                                "kr": "규칙적인 운동은 활력을 불어넣어 줘."
                         }
                 ],
                 "citizenQA": [
@@ -12849,68 +13961,68 @@
                 ],
                 "escapeQuizzes": [
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [자주, 종종]",
-                                "word": "often",
-                                "meaning": "자주, 종종",
+                                "question": "다음 뜻에 알맞은 단어는? [얼마나 자주]",
+                                "word": "how often",
+                                "meaning": "얼마나 자주",
+                                "hint": "h___",
+                                "answer": "how often",
+                                "options": [
+                                        "how often",
+                                        "twice",
+                                        "once",
+                                        "every day"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [매일]",
+                                "word": "every day",
+                                "meaning": "매일",
+                                "hint": "e___",
+                                "answer": "every day",
+                                "options": [
+                                        "once",
+                                        "every day",
+                                        "how often",
+                                        "twice"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [한 번]",
+                                "word": "once",
+                                "meaning": "한 번",
                                 "hint": "o___",
-                                "answer": "often",
+                                "answer": "once",
                                 "options": [
-                                        "always",
-                                        "often",
-                                        "usually",
-                                        "sometimes"
+                                        "every day",
+                                        "twice",
+                                        "how often",
+                                        "once"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [항상]",
-                                "word": "always",
-                                "meaning": "항상",
-                                "hint": "a___",
-                                "answer": "always",
+                                "question": "다음 뜻에 알맞은 단어는? [두 번]",
+                                "word": "twice",
+                                "meaning": "두 번",
+                                "hint": "t___",
+                                "answer": "twice",
                                 "options": [
-                                        "sometimes",
-                                        "always",
-                                        "often",
-                                        "usually"
+                                        "how often",
+                                        "twice",
+                                        "every day",
+                                        "once"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [보통, 대개]",
-                                "word": "usually",
-                                "meaning": "보통, 대개",
-                                "hint": "u___",
-                                "answer": "usually",
+                                "question": "다음 뜻에 알맞은 단어는? [번, 회]",
+                                "word": "times",
+                                "meaning": "번, 회",
+                                "hint": "t___",
+                                "answer": "times",
                                 "options": [
-                                        "sometimes",
-                                        "always",
-                                        "usually",
-                                        "often"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [때때로]",
-                                "word": "sometimes",
-                                "meaning": "때때로",
-                                "hint": "s___",
-                                "answer": "sometimes",
-                                "options": [
-                                        "usually",
-                                        "often",
-                                        "sometimes",
-                                        "always"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [결코 ~않다]",
-                                "word": "never",
-                                "meaning": "결코 ~않다",
-                                "hint": "n___",
-                                "answer": "never",
-                                "options": [
-                                        "never",
-                                        "often",
-                                        "usually",
-                                        "always"
+                                        "once",
+                                        "how often",
+                                        "times",
+                                        "every day"
                                 ]
                         }
                 ]
@@ -12926,8 +14038,16 @@
                 "grammarPoint": "Do you know anything about Tuho?",
                 "words": [
                         {
+                                "en": "know",
+                                "kr": "알다"
+                        },
+                        {
                                 "en": "traditional",
                                 "kr": "전통적인"
+                        },
+                        {
+                                "en": "culture",
+                                "kr": "문화"
                         },
                         {
                                 "en": "game",
@@ -12938,32 +14058,32 @@
                                 "kr": "투호"
                         },
                         {
-                                "en": "Jegichagi",
-                                "kr": "제기차기"
-                        },
-                        {
                                 "en": "Yutnori",
                                 "kr": "윷놀이"
-                        },
-                        {
-                                "en": "culture",
-                                "kr": "문화"
-                        },
-                        {
-                                "en": "throw",
-                                "kr": "던지다"
-                        },
-                        {
-                                "en": "arrow",
-                                "kr": "화살"
                         },
                         {
                                 "en": "jar",
                                 "kr": "항아리"
                         },
                         {
-                                "en": "rules",
+                                "en": "arrow",
+                                "kr": "화살"
+                        },
+                        {
+                                "en": "throw",
+                                "kr": "던지다"
+                        },
+                        {
+                                "en": "rule",
                                 "kr": "규칙"
+                        },
+                        {
+                                "en": "history",
+                                "kr": "역사"
+                        },
+                        {
+                                "en": "introduce",
+                                "kr": "소개하다"
                         }
                 ],
                 "sentences": [
@@ -12972,20 +14092,40 @@
                                 "kr": "투호에 대해 아는 것이 있니?"
                         },
                         {
-                                "en": "It is a traditional Korean game.",
-                                "kr": "그것은 한국의 전통 놀이야."
+                                "en": "It is a traditional Korean folk game.",
+                                "kr": "그것은 한국의 전통 민속놀이야."
                         },
                         {
-                                "en": "You throw arrows into a jar.",
-                                "kr": "항아리에 화살을 던져 넣는 거야."
+                                "en": "How do you play Tuho?",
+                                "kr": "투호는 어떻게 하는 게임이니?"
                         },
                         {
-                                "en": "It sounds very interesting.",
-                                "kr": "아주 흥미롭게 들린다."
+                                "en": "You throw wooden arrows into a jar.",
+                                "kr": "나무 화살을 항아리 속에 던져 넣는 거야."
                         },
                         {
-                                "en": "Let's play together.",
-                                "kr": "함께 놀자."
+                                "en": "Have you played Yutnori before?",
+                                "kr": "전에 윷놀이를 해 본 적이 있니?"
+                        },
+                        {
+                                "en": "Yes, we play Yutnori on Seollal.",
+                                "kr": "응, 우리는 설날에 윷놀이를 해."
+                        },
+                        {
+                                "en": "Korean traditional culture is fascinating.",
+                                "kr": "한국의 전통문화는 참 매력적이야."
+                        },
+                        {
+                                "en": "Can foreigners try these games easily?",
+                                "kr": "외국인들도 이 놀이들을 쉽게 해 볼 수 있니?"
+                        },
+                        {
+                                "en": "Of course, the rules are simple and fun.",
+                                "kr": "물론이지, 규칙이 간단하고 재미있어."
+                        },
+                        {
+                                "en": "Let's introduce our culture to the world.",
+                                "kr": "우리 문화를 전 세계에 널리 소개하자."
                         }
                 ],
                 "citizenQA": [
@@ -13154,15 +14294,41 @@
                 ],
                 "escapeQuizzes": [
                         {
+                                "question": "다음 뜻에 알맞은 단어는? [알다]",
+                                "word": "know",
+                                "meaning": "알다",
+                                "hint": "k___",
+                                "answer": "know",
+                                "options": [
+                                        "culture",
+                                        "traditional",
+                                        "know",
+                                        "game"
+                                ]
+                        },
+                        {
                                 "question": "다음 뜻에 알맞은 단어는? [전통적인]",
                                 "word": "traditional",
                                 "meaning": "전통적인",
                                 "hint": "t___",
                                 "answer": "traditional",
                                 "options": [
-                                        "Tuho",
                                         "traditional",
-                                        "Jegichagi",
+                                        "know",
+                                        "culture",
+                                        "game"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [문화]",
+                                "word": "culture",
+                                "meaning": "문화",
+                                "hint": "c___",
+                                "answer": "culture",
+                                "options": [
+                                        "traditional",
+                                        "culture",
+                                        "know",
                                         "game"
                                 ]
                         },
@@ -13173,10 +14339,10 @@
                                 "hint": "g___",
                                 "answer": "game",
                                 "options": [
-                                        "Jegichagi",
                                         "traditional",
-                                        "game",
-                                        "Tuho"
+                                        "know",
+                                        "culture",
+                                        "game"
                                 ]
                         },
                         {
@@ -13186,36 +14352,10 @@
                                 "hint": "T___",
                                 "answer": "Tuho",
                                 "options": [
+                                        "know",
                                         "traditional",
                                         "Tuho",
-                                        "Jegichagi",
-                                        "game"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [제기차기]",
-                                "word": "Jegichagi",
-                                "meaning": "제기차기",
-                                "hint": "J___",
-                                "answer": "Jegichagi",
-                                "options": [
-                                        "Tuho",
-                                        "game",
-                                        "traditional",
-                                        "Jegichagi"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [윷놀이]",
-                                "word": "Yutnori",
-                                "meaning": "윷놀이",
-                                "hint": "Y___",
-                                "answer": "Yutnori",
-                                "options": [
-                                        "game",
-                                        "Yutnori",
-                                        "traditional",
-                                        "Tuho"
+                                        "culture"
                                 ]
                         }
                 ]
@@ -13228,69 +14368,97 @@
                 "name": "6학년 12단원",
                 "title": "We Made a Class Album",
                 "shortDesc": "We Made a Class Album (10문항)",
-                "grammarPoint": "We made a class album.",
+                "grammarPoint": "What did you do this school year?",
                 "words": [
                         {
                                 "en": "made",
                                 "kr": "만들었다 (make의 과거)"
                         },
                         {
-                                "en": "album",
-                                "kr": "앨범"
+                                "en": "class",
+                                "kr": "학급, 반"
                         },
                         {
-                                "en": "memory",
-                                "kr": "추억, 기억"
+                                "en": "album",
+                                "kr": "앨범"
                         },
                         {
                                 "en": "graduation",
                                 "kr": "졸업"
                         },
                         {
-                                "en": "special",
-                                "kr": "특별한"
+                                "en": "memory",
+                                "kr": "추억"
+                        },
+                        {
+                                "en": "photo",
+                                "kr": "사진"
+                        },
+                        {
+                                "en": "musical",
+                                "kr": "뮤지컬"
+                        },
+                        {
+                                "en": "perform",
+                                "kr": "공연하다"
+                        },
+                        {
+                                "en": "plant",
+                                "kr": "심다"
+                        },
+                        {
+                                "en": "tree",
+                                "kr": "나무"
                         },
                         {
                                 "en": "remember",
                                 "kr": "기억하다"
                         },
                         {
-                                "en": "painted",
-                                "kr": "칠했다"
-                        },
-                        {
-                                "en": "helped",
-                                "kr": "도왔다"
-                        },
-                        {
-                                "en": "cleaned",
-                                "kr": "청소했다"
-                        },
-                        {
-                                "en": "wonderful",
-                                "kr": "멋진"
+                                "en": "middle school",
+                                "kr": "중학교"
                         }
                 ],
                 "sentences": [
                         {
-                                "en": "We made a class album.",
-                                "kr": "우리는 학급 앨범을 만들었어."
+                                "en": "What did you do this school year?",
+                                "kr": "올해 학교에서 무엇을 했니?"
                         },
                         {
-                                "en": "What did you do this year?",
-                                "kr": "올해 너희는 무엇을 했니?"
+                                "en": "We made a beautiful class album.",
+                                "kr": "우리는 아름다운 학급 앨범을 만들었어."
                         },
                         {
-                                "en": "We painted the wall together.",
-                                "kr": "우리는 함께 벽화를 그렸어."
+                                "en": "Look at all these happy photos.",
+                                "kr": "이 행복한 사진들을 모두 봐."
                         },
                         {
-                                "en": "I'll miss my friends and teachers.",
-                                "kr": "친구들과 선생님들이 그리울 거야."
+                                "en": "We performed an English musical together.",
+                                "kr": "우리는 함께 영어 뮤지컬을 공연했어."
                         },
                         {
-                                "en": "It was a wonderful year.",
-                                "kr": "멋진 한 해였어."
+                                "en": "We planted green trees on Arbor Day.",
+                                "kr": "우리는 식목일에 푸른 나무를 심었어."
+                        },
+                        {
+                                "en": "Do you remember our exciting sports day?",
+                                "kr": "우리의 신나는 운동회를 기억하니?"
+                        },
+                        {
+                                "en": "Yes, our class won the relay race. ",
+                                "kr": "응, 우리 반이 이어달리기에서 우승했잖아."
+                        },
+                        {
+                                "en": "We shared so much laughter this year.",
+                                "kr": "우리는 올해 정말 많은 웃음을 나눴어."
+                        },
+                        {
+                                "en": "I will never forget my dear classmates.",
+                                "kr": "소중한 우리 반 친구들을 절대 잊지 않을 거야."
+                        },
+                        {
+                                "en": "Good luck in middle school, everyone!",
+                                "kr": "모두 중학교에서도 행운이 가득하길 바라!"
                         }
                 ],
                 "citizenQA": [
@@ -13468,7 +14636,20 @@
                                         "graduation",
                                         "made",
                                         "album",
-                                        "memory"
+                                        "class"
+                                ]
+                        },
+                        {
+                                "question": "다음 뜻에 알맞은 단어는? [학급, 반]",
+                                "word": "class",
+                                "meaning": "학급, 반",
+                                "hint": "c___",
+                                "answer": "class",
+                                "options": [
+                                        "made",
+                                        "class",
+                                        "album",
+                                        "graduation"
                                 ]
                         },
                         {
@@ -13478,23 +14659,10 @@
                                 "hint": "a___",
                                 "answer": "album",
                                 "options": [
-                                        "memory",
-                                        "album",
-                                        "graduation",
-                                        "made"
-                                ]
-                        },
-                        {
-                                "question": "다음 뜻에 알맞은 단어는? [추억, 기억]",
-                                "word": "memory",
-                                "meaning": "추억, 기억",
-                                "hint": "m___",
-                                "answer": "memory",
-                                "options": [
                                         "made",
-                                        "memory",
                                         "graduation",
-                                        "album"
+                                        "album",
+                                        "class"
                                 ]
                         },
                         {
@@ -13506,20 +14674,20 @@
                                 "options": [
                                         "graduation",
                                         "made",
-                                        "album",
-                                        "memory"
+                                        "class",
+                                        "album"
                                 ]
                         },
                         {
-                                "question": "다음 뜻에 알맞은 단어는? [특별한]",
-                                "word": "special",
-                                "meaning": "특별한",
-                                "hint": "s___",
-                                "answer": "special",
+                                "question": "다음 뜻에 알맞은 단어는? [추억]",
+                                "word": "memory",
+                                "meaning": "추억",
+                                "hint": "m___",
+                                "answer": "memory",
                                 "options": [
-                                        "special",
                                         "memory",
                                         "made",
+                                        "class",
                                         "album"
                                 ]
                         }
